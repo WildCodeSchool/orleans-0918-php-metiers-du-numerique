@@ -41,6 +41,11 @@ class Job
      */
     private $video_description;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $video_title;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Job
     public function setVideoDescription(?string $video_description): self
     {
         $this->video_description = $video_description;
+
+        return $this;
+    }
+
+    public function getVideoTitle(): ?string
+    {
+        return $this->video_title;
+    }
+
+    public function setVideoTitle(?string $video_title): self
+    {
+        $this->video_title = $video_title;
 
         return $this;
     }
