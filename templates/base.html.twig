@@ -8,12 +8,13 @@
         {% endblock %}
     </head>
     <body>
-    <div class="container">
-        {% block body %}{% endblock %}
-    </div>
+        {% block navbar %}{% endblock %}
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-
+        <script src="{{ asset('build/onScroll.js') }}"></script>
     </body>
 </html>
