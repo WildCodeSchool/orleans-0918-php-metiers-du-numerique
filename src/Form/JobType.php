@@ -16,7 +16,7 @@ class JobType extends AbstractType
             ->add('video')
             ->add('picture')
             ->add('description')
-            ->add('video_description')
+            ->add('videoDescription')
         ;
     }
 

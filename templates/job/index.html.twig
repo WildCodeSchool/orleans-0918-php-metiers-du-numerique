@@ -13,7 +13,7 @@
                 <th>Video</th>
                 <th>Picture</th>
                 <th>Description</th>
-                <th>Video_description</th>
+                <th>VideoDescription</th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +24,7 @@
                 <td>{{ job.video }}</td>
                 <td>{{ job.picture }}</td>
                 <td>{{ job.description }}</td>
-                <td>{{ job.videoDescription }}</td>
+                <td>{{ job.videodescription }}</td>
                 <td>
                     <a href="{{ path('job_show', {'id': job.id}) }}">show</a>
                     <a href="{{ path('job_edit', {'id': job.id}) }}">edit</a>
