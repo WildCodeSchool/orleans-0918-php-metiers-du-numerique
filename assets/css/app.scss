@@ -12,6 +12,7 @@ $bordecolor : black;
 body {
     background-color: $backgroundColor;
 }
+/*buisness card*/
 .jobPicture{
     min-height: 32vh;
     min-width: 40vh;
@@ -32,4 +33,19 @@ hr{
 }
 .sectionSpace{
     margin-top : $marginSection
+}
+/*slider partner*/
+.title_partners{
+    white-space: nowrap;
+}
+.slider-patners{
+    max-height: 600px;
+    max-width: 600px;
+    min-height: 600px;
+    min-width: 600px;
+}
+.name-patner{
+
+    font-weight: bold;
+    font-size: 2em;
 }
