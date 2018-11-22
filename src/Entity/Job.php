@@ -39,12 +39,12 @@ class Job
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $video_description;
+    private $videoDescription;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $video_title;
+    private $videoTitle;
 
     public function getId(): ?int
     {
@@ -101,24 +101,24 @@ class Job
 
     public function getVideoDescription(): ?string
     {
-        return $this->video_description;
+        return $this->videoDescription;
     }
 
-    public function setVideoDescription(?string $video_description): self
+    public function setVideoDescription(?string $videoDescription): self
     {
-        $this->video_description = $video_description;
+        $this->videoDescription = $videoDescription;
 
         return $this;
     }
 
     public function getVideoTitle(): ?string
     {
-        return $this->video_title;
+        return $this->videoTitle;
     }
 
-    public function setVideoTitle(?string $video_title): self
+    public function setVideoTitle(?string $videoTitle): self
     {
-        $this->video_title = $video_title;
+        $this->videoTitle = $videoTitle;
 
         return $this;
     }

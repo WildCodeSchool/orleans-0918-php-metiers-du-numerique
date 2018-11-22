@@ -1,6 +1,35 @@
 @import "../../node_modules/bootswatch/dist/lux/variables";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootswatch/dist/lux/bootswatch";
+
+
+$colorFontButton : white;
+$marginSection : 8em;
+$faBack : 3em;
+$backgroundColor: white;
+$bordecolor : black;
+
 body {
-    background-color: white;
+    background-color: $backgroundColor;
+}
+.jobPicture{
+    min-height: 32vh;
+    min-width: 40vh;
+    max-height: 32vh;
+    max-width: 40vh;
+}
+
+
+.faback {
+    font-size: $faBack;
+}
+
+hr{
+    border: $bordecolor;
+    border-style: inset;
+    border-width: 1px;
+    margin: $marginSection;
+}
+.sectionSpace{
+    margin-top : $marginSection
 }
