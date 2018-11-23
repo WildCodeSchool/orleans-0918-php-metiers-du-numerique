@@ -8,6 +8,7 @@ $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
+$imageMargin: 4em;
 
 body {
     background-color: $backgroundColor;
@@ -48,4 +49,7 @@ hr{
 
     font-weight: bold;
     font-size: 2em;
+}.marginImage{
+    margin-bottom: $imageMargin;
+
 }
