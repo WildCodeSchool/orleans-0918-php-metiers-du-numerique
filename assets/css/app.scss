@@ -37,30 +37,6 @@ hr{
     margin-top : $marginSection
 }
 
-/*navbar*/
-.custom-navbar{
-    background-color: transparent;
-    text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
-}
-.custom-navbar-on-scroll{
-    background-color: $navbarBgonScroll;
-}
-
-.navbar{
-    font-size: 1.3rem;
-    font-weight: bold;
-    font-family: $fontFamilly;
-    .logo-nav{
-        max-height: 50px;
-        max-width: 50px;
-        margin-left: 2vw;
-        margin-right:2vw;
-    }
-    .align-right{
-        margin-left: 25vw;
-    }
-}
-
 /*banner*/
 .banner{
     background-image: url("../images/server.jpg");
