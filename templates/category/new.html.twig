@@ -3,13 +3,16 @@
 {% block title %}New Category{% endblock %}
 
 {% block body %}
-<div class="row">
-    {{ form_start(form) }}
-    <div class="row">
-        <button class="btn myButton">{{ button_label|default('Save') }}</button>
-        {{ form_widget(form) }}
-    </div>
-    {{ form_end(form) }}
-</div>
+    <div class="sectionSpace">
+        {{ form_start(form) }}
+        <div class="row">
+            <button class="btn buttonCategory col-4">{{ button_label|default('ajouter une categorie') }}</button>
+            <div class="col-8 newCategory">
+                {{ form_widget(form.name) }}
+                {{ form_errors(form.name) }}
+            </div>
 
+        </div>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

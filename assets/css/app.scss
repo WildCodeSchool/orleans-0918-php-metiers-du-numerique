@@ -8,7 +8,17 @@ $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
+$buttonColor : black;
+$buttonColorHover : grey;
+$txtButton : white;
 
+@mixin myButtons {
+    background-color: $buttonColor;
+    color: $txtButton;
+    &:hover {
+        background-color: $buttonColorHover;
+    }
+}
 
 body {
     background-color: $backgroundColor;
@@ -34,6 +44,10 @@ hr{
 .sectionSpace{
     margin-top : $marginSection
 }
-.myButton {
-    height: 20px;
+.buttonCategory {
+    @include myButtons;
+    height: 48px;
+}
+.newCategory {
+    margin-left: -15px;
 }
