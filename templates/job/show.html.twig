@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Job{% endblock %}
+
+{% block body %}
+    {% if job.video is not empty %}
+    <section>
+
+    <div class="row mb-5 mt-5 justify-content-center">
+        <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+        <h1 class="col-xs-12 col-md-11">{{ job.videotitle }}</h1>
+    </div>
+
+
+    <div class="col-xs-12 col-md-8 mx-auto">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="560"
+                    height="315"
+                    src="{{ job.video }}"
+                    frameborder="0"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+        <h4 class="mt-5">Description de la video:</h4>
+        <p>{{ job.videodescription }}</p>
+        <hr class="d-none d-sm-block">
+    </section>
+    <section class="sectionSpace">
+    {% else %}
+    <section class="sectionSpace">
+        {% endif %}
+        <div class="row justify-content-center">
+            {% if job.video is empty %}
+                <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            {% endif %}
+            <h2 class="col-xs-12 col-md-11 mb-5 text-center">{{ job.name }}</h2>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-xs-12 col-md-7">
+                <h4>Description du metier :</h4>
+                <p>{{ job.description }}</p>
+            </div>
+        <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{{ asset('build/images/'~job.picture) }}">
+        </div>
+    </section>
+
+
+{% endblock %}
+
