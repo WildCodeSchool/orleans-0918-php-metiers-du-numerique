@@ -9,6 +9,7 @@ $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
 
+
 body {
     background-color: $backgroundColor;
 }
@@ -32,4 +33,7 @@ hr{
 }
 .sectionSpace{
     margin-top : $marginSection
+}
+.myButton {
+    height: 20px;
 }

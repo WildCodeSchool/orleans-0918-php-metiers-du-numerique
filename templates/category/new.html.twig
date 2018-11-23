@@ -1,11 +1,15 @@
-{% extends 'baseadmin.html.twig' %}
+{% extends 'layoutadmin.html.twig' %}
 
 {% block title %}New Category{% endblock %}
 
 {% block body %}
-    <h1>Create new Category</h1>
+<div class="row">
+    {{ form_start(form) }}
+    <div class="row">
+        <button class="btn myButton">{{ button_label|default('Save') }}</button>
+        {{ form_widget(form) }}
+    </div>
+    {{ form_end(form) }}
+</div>
 
-    {{ include('category/_form.html.twig') }}
-
-    <a href="{{ path('category_index') }}">back to list</a>
 {% endblock %}
