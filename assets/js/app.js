@@ -15,4 +15,3 @@ require('@fortawesome/fontawesome-free/css/all.min.css');
 var $ = require('jquery');
 import 'bootstrap';
 import 'onScroll';
-
