@@ -1,3 +1,4 @@
+console.log('coucou')
 $(window).on('scroll', function() {
     var headerHeight = 150;
     if ($(window).scrollTop() >= headerHeight) {
