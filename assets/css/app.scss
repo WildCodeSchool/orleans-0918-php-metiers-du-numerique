@@ -9,6 +9,7 @@ $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll:rgba(0,0,0,0.7);
+$font-family1: 'Roboto Condensed', sans-serif;
 
 body {
     background-color: $backgroundColor;
@@ -62,7 +63,7 @@ hr{
             transform: translateY(-50%);
             color: rgba(255,255,255,.75);
             text-transform: uppercase;
-            font-family: 'Roboto Condensed', sans-serif;
+            font-family: $font-family1;
         }
         .typewriter {
             animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
