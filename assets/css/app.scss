@@ -9,10 +9,9 @@ $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll:rgba(0,0,0,0.7);
-$font-family1: 'Roboto Condensed', sans-serif;
 $imageMargin: 4em;
 $shadowColor:black;
-$fontFamilly:'Roboto Condensed', sans-serif;
+$fontFamily:'Roboto Condensed', sans-serif;
 $navbarBgonScroll:rgba(0,0,0,0.7);
 body {
     background-color: $backgroundColor;
@@ -54,7 +53,8 @@ hr{
     .banner-content {
         position: relative;
         top: 150px;
-        left: 30vw;
+
+
 
         .title {
             margin-top: 0px;
@@ -62,14 +62,12 @@ hr{
             margin-bottom: 20px;
             margin-left: 0px;
             border-right: 2px solid rgba(255, 255, 255, .75);
-            font-size: calc(25px + (46 - 29) * (100vw - 400px) / 1200);
+            font-size: 3.1vw;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
             transform: translateY(-50%);
-            color: rgba(255, 255, 255, .75);
             text-transform: uppercase;
-            font-family: $font-family1;
         }
 
         .typewriter {
@@ -78,32 +76,6 @@ hr{
         }
     }
 }
-
-/*navbar*/
-.custom-navbar{
-    background-color: transparent;
-    text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
-}
-.custom-navbar-on-scroll{
-    background-color: $navbarBgonScroll;
-}
-
-.navbar{
-    font-size: 1.3rem;
-    font-weight: bold;
-    font-family: $fontFamilly;
-    .logo-nav{
-        max-height: 50px;
-        max-width: 50px;
-        margin-left: 2vw;
-        margin-right:2vw;
-    }
-    .align-right{
-        margin-left: 25vw;
-    }
-}
-
-
 @keyframes typewriter {
     from { width: 0; }
     to { width: 16.3em; }
@@ -117,6 +89,44 @@ hr{
         border-right-color: transparent;
     }
 }
+
+/*navbar*/
+//.custom-navbar{
+//    background-color: transparent;
+//    text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
+//}
+.custom-navbar-on-scroll {
+    background-color: $navbarBgonScroll;
+}
+@media (max-width: 992px) {
+    .custom-navbar {
+        background-color: $navbarBgonScroll;
+    }
+}
+
+@media (min-width: 992px) {
+    .custom-navbar{
+        background-color: transparent;
+        text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
+    }
+}
+.navbar{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: $fontFamily;
+    .logo-nav{
+        max-height: 50px;
+        max-width: 50px;
+        margin-left: 2vw;
+        margin-right:2vw;
+    }
+    .align-right{
+        margin-left: 25vw;
+    }
+}
+
+
+
 /*slider partner*/
 .title_partners{
     white-space: nowrap;
