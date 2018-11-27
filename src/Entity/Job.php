@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,6 +47,16 @@ class Job
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $videoTitle;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Business", mappedBy="jobs")
+     */
+    private $businesses;
+
+    public function __construct()
+    {
+        $this->businesses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +131,34 @@ class Job
     public function setVideoTitle(?string $videoTitle): self
     {
         $this->videoTitle = $videoTitle;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Business[]
+     */
+    public function getBusinesses(): Collection
+    {
+        return $this->businesses;
+    }
+
+    public function addBusiness(Business $business): self
+    {
+        if (!$this->businesses->contains($business)) {
+            $this->businesses[] = $business;
+            $business->addJob($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBusiness(Business $business): self
+    {
+        if ($this->businesses->contains($business)) {
+            $this->businesses->removeElement($business);
+            $business->removeJob($this);
+        }
 
         return $this;
     }

@@ -8,7 +8,18 @@ $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
+$buttonColor : black;
+$buttonColorHover : grey;
+$txtButton : white;
 $imageMargin: 4em;
+
+@mixin myButtons {
+    background-color: $buttonColor;
+    color: $txtButton;
+    &:hover {
+        background-color: $buttonColorHover;
+    }
+}
 
 body {
     background-color: $backgroundColor;
@@ -53,4 +64,9 @@ hr{
 .marginImage{
     margin-bottom: $imageMargin;
 
+}
+/*button modal*/
+.buttonModal {
+    @include myButtons;
+    height: 48px;
 }
