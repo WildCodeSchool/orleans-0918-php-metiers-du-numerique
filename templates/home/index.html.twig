@@ -1,15 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block title %}Accueil - Métiers du Numérique{% endblock %}
 
 {% block body %}
 
     <div class="row">
-        <div class="col-xs-4 col-lg-4 col-sm-4 marginImage">
+        <div class="col-xs-12 col-lg-4 col-sm-12 marginImage">
             <img class="align-self-end mr-3" src="https://via.placeholder.com/300x300"
                  alt="Generic placeholder image">
         </div>
-        <div class="col-lg-8 col-xs-8 col-sm-8">
+        <div class="col-lg-8 col-xs-12 col-sm-12">
 
             <h2 class="mt-0">Notre Concept</h2>
 
@@ -40,6 +40,7 @@
                 tristique magna.</p>
         </div>
     </div>
+    {% include 'partner/_slider.html.twig' %}
 
 
 
