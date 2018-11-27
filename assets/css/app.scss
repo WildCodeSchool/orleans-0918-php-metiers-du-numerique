@@ -9,7 +9,6 @@ $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll:rgba(0,0,0,0.7);
-$font-family1: 'Roboto Condensed', sans-serif;
 $imageMargin: 4em;
 $shadowColor:black;
 $fontFamilly:'Roboto Condensed', sans-serif;
@@ -69,7 +68,7 @@ hr{
             transform: translateY(-50%);
             color: rgba(255, 255, 255, .75);
             text-transform: uppercase;
-            font-family: $font-family1;
+            font-family: $fontFamilly;
         }
 
         .typewriter {
