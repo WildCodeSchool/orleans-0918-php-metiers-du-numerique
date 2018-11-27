@@ -13,6 +13,8 @@ $font-family1: 'Roboto Condensed', sans-serif;
 $imageMargin: 4em;
 
 
+$imageMargin: 4em;
+
 body {
     background-color: $backgroundColor;
 }
@@ -35,12 +37,12 @@ hr{
     border-width: 1px;
     margin: $marginSection;
 }
-.sectionSpace{
-    margin-top : $marginSection
+.sectionSpace {
+    margin-top: $marginSection
 }
 
 /*banner*/
-.banner{
+.banner {
     background-image: url("../images/server.jpg");
     height: 30vh;
     width: 100vw;
@@ -49,30 +51,40 @@ hr{
     background-size: cover;
     text-align: center;
     margin-bottom: 50px;
+
     .banner-content {
         position: relative;
-        top:  150px;
+        top: 150px;
         left: 30vw;
+
         .title {
             margin-top: 0px;
             margin-right: 0px;
             margin-bottom: 20px;
             margin-left: 0px;
-            border-right: 2px solid rgba(255,255,255,.75);
+            border-right: 2px solid rgba(255, 255, 255, .75);
             font-size: calc(25px + (46 - 29) * (100vw - 400px) / 1200);
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
             transform: translateY(-50%);
-            color: rgba(255,255,255,.75);
+            color: rgba(255, 255, 255, .75);
             text-transform: uppercase;
             font-family: $font-family1;
         }
+
         .typewriter {
             animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
             color: #fff;
         }
     }
+}
+
+/*navbar*/
+.custom-navbar{
+    background-color: transparent;
+    text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
+
 }
 
 @keyframes typewriter {
@@ -98,7 +110,11 @@ hr{
     min-height: 600px;
     min-width: 600px;
 }
-.name-patner{    font-weight: bold;
+
+.name-patner{
+
+    font-weight: bold;
+
     font-size: 2em;
 }
 .marginImage{
