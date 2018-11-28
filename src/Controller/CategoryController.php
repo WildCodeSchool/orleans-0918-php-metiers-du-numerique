@@ -21,29 +21,6 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("admin/category/new", name="category_new", methods="GET|POST")
-     */
-    public function new(Request $request): Response
-    {
-        $category = new Category();
-        $form = $this->createForm(CategoryType::class, $category);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($category);
-            $em->flush();
-
-            return $this->redirectToRoute('category_index');
-        }
-
-        return $this->render('category/new.html.twig', [
-            'category' => $category,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("category/{id}", name="category_show", methods="GET")
      */
     public function show(Category $category): Response
