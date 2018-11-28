@@ -13,10 +13,10 @@
                 <th>Lastname</th>
                 <th>Picture</th>
                 <th>Mail</th>
-                <th>Job</th>
+                <th>Company</th>
                 <th>Business</th>
-                <th>PlusComment</th>
-                <th>LessComment</th>
+                <th>ProsComment</th>
+                <th>ConsComment</th>
                 <th>VariousComment</th>
                 <th>Liked</th>
                 <th>Accepted</th>
@@ -31,12 +31,11 @@
                 <td>{{ comment.lastname }}</td>
                 <td>{{ comment.picture }}</td>
                 <td>{{ comment.mail }}</td>
-                <td>{{ comment.job }}</td>
-                <td>{{ comment.business }}</td>
-                <td>{{ comment.plusComment }}</td>
-                <td>{{ comment.lessComment }}</td>
-                <td>{{ comment.variousComment }}</td>
-                <td>{{ comment.liked ? 'Yes' : 'No' }}</td>
+                <td>{{ comment.company }}</td>
+                <td>{{ comment.consComment }}</td>
+                <td>{{ comment.prosComment }}</td>
+                <td>{{ comment.comment }}</td>
+                <td>{{ comment.liked }}</td>
                 <td>{{ comment.accepted ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('comment_show', {'id': comment.id}) }}">show</a>
