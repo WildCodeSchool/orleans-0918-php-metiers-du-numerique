@@ -13,7 +13,6 @@ $imageMargin: 4em;
 $shadowColor:black;
 $fontFamily:'Roboto Condensed', sans-serif;
 $navbarBgonScroll:rgba(0,0,0,0.7);
-
 $buttonColor : black;
 $buttonColorHover : grey;
 $txtButton : white;
@@ -178,4 +177,38 @@ hr{
 
 .marginImage{
     margin-bottom: $imageMargin;
+}
+/*footer*/
+.footer {
+    height: 120px;
+    background-color: $navbarBgonScroll;
+    width: 100vw;
+    .container-fluid {
+        padding-top: 20px;
+    }
+
+     img {
+        max-height: 90px;
+        max-width: 90px;
+        padding: 10px;
+        margin-top: -5px;
+    }
+
+    p {
+        font-size: 16pt;
+        padding-top: 20px;
+        color: white;
+        padding-left: 1vw;
+    }
+    @media (max-width: 768px) {
+        p{
+            font-size:10pt;
+        }
+    }
+
+
+    button {
+        margin-top: 15px;
+        margin-right: 2vw;
+    }
 }
