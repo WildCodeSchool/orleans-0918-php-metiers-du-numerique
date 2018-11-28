@@ -3,12 +3,34 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
+ * @Vich\Uploadable
  */
 class Partner
 {
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="partners", fileNameProperty="picture")
+     * @var File
+     */
+    private $pictureFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -25,11 +47,6 @@ class Partner
      * @ORM\Column(type="string", length=255)
      */
     private $url;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $picture;
 
     public function getId(): ?int
     {
@@ -71,4 +88,23 @@ class Partner
 
         return $this;
     }
+    
+    public function setPictureFile(File $picture = null)
+    {
+        $this->pictureFile = $picture;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($picture) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
+    }
+
 }
