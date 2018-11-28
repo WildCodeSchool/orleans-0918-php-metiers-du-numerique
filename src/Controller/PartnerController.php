@@ -40,7 +40,7 @@ class PartnerController extends AbstractController
             return $this->redirectToRoute('partner_index');
         }
 
-        return $this->render('partner/new.html.twig', [
+        return $this->render('partner/admin_new.html.twig', [
             'partner' => $partner,
             'form' => $form->createView(),
         ]);
