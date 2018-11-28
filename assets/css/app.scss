@@ -54,3 +54,24 @@ hr{
     margin-bottom: $imageMargin;
 
 }
+
+/*learning center show*/
+
+.imgLearningSchool{
+    border-radius:50%;
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+}
+.learningTitle{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.learningName{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.learningMail{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
