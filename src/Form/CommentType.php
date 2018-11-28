@@ -21,7 +21,7 @@ class CommentType extends AbstractType
             ->add('picture')
             ->add('mail')
             ->add('job')
-            ->add('business')
+            ->add('company')
             ->add('prosComment')
             ->add('consComment')
             ->add('comment')
