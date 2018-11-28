@@ -29,7 +29,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("admin/category/edit/{id}", name="category_edit", methods="GET|POST")
+     * @Route("category/edit/{id}", name="category_edit", methods="GET|POST")
      */
     public function edit(Request $request, Category $category): Response
     {
@@ -49,7 +49,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("admin/category/{id}", name="category_delete", methods="DELETE")
+     * @Route("category/{id}", name="category_delete", methods="DELETE")
      */
     public function delete(Request $request, Category $category): Response
     {
