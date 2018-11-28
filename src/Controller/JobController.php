@@ -40,7 +40,7 @@ class JobController extends AbstractController
             return $this->redirectToRoute('job_index');
         }
 
-        return $this->render('job/admin_new.html.twig', [
+        return $this->render('job/new.html.twig', [
             'job' => $job,
             'form' => $form->createView(),
         ]);
