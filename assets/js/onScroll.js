@@ -7,4 +7,4 @@ $(window).on('scroll', function() {
         $('#navbar').removeClass('custom-navbar-on-scroll');
         $('#navbar').addClass('custom-navbar');
     }
-})
+});
