@@ -12,6 +12,9 @@ $buttonColor : black;
 $buttonColorHover : grey;
 $txtButton : white;
 $imageMargin: 4em;
+$txtModal : 16pt;
+$colorLink : blue;
+$colorLinkVisited : purple;
 
 @mixin myButtons {
     background-color: $buttonColor;
@@ -70,3 +73,15 @@ hr{
     @include myButtons;
     height: 48px;
 }
+/*modal business*/
+.linkBusiness {
+    font-size: $txtModal;
+}
+.linkBusiness:hover {
+    color: $colorLink;
+}
+.linkBusiness:focus {
+    outline:none;
+    color: $colorLinkVisited;
+}
+
