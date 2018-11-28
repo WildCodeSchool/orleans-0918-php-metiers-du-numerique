@@ -22,9 +22,9 @@ class CommentType extends AbstractType
             ->add('mail')
             ->add('job')
             ->add('business')
-            ->add('plusComment')
-            ->add('lessComment')
-            ->add('variousComment')
+            ->add('prosComment')
+            ->add('consComment')
+            ->add('comment')
             ->add('liked')
             ->add('accepted')
             ->add('associatedJob', EntityType::class, [

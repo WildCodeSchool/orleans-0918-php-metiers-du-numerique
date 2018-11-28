@@ -44,25 +44,25 @@ class Comment
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $business;
+    private $company;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $plusComment;
+    private $consComment;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $lessComment;
+    private $prosComment;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $variousComment;
+    private $comment;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="integer")
      */
     private $liked;
 
@@ -147,60 +147,60 @@ class Comment
         return $this;
     }
 
-    public function getBusiness(): ?string
+    public function getCompany(): ?string
     {
-        return $this->business;
+        return $this->company;
     }
 
-    public function setBusiness(?string $business): self
+    public function setCompany(?string $company): self
     {
-        $this->business = $business;
+        $this->company = $company;
 
         return $this;
     }
 
-    public function getPlusComment(): ?string
+    public function getConsComment(): ?string
     {
-        return $this->plusComment;
+        return $this->consComment;
     }
 
-    public function setPlusComment(string $plusComment): self
+    public function setConsComment(string $consComment): self
     {
-        $this->plusComment = $plusComment;
+        $this->consComment = $consComment;
 
         return $this;
     }
 
-    public function getLessComment(): ?string
+    public function getProsComment(): ?string
     {
-        return $this->lessComment;
+        return $this->prosComment;
     }
 
-    public function setLessComment(string $lessComment): self
+    public function setProsComment(string $prosComment): self
     {
-        $this->lessComment = $lessComment;
+        $this->prosComment = $prosComment;
 
         return $this;
     }
 
-    public function getVariousComment(): ?string
+    public function getComment(): ?string
     {
-        return $this->variousComment;
+        return $this->comment;
     }
 
-    public function setVariousComment(?string $variousComment): self
+    public function setComment(?string $comment): self
     {
-        $this->variousComment = $variousComment;
+        $this->comment = $comment;
 
         return $this;
     }
 
-    public function getLiked(): ?bool
+    public function getLiked(): ?int
     {
         return $this->liked;
     }
 
-    public function setLiked(bool $liked): self
+    public function setLiked(int $liked): self
     {
         $this->liked = $liked;
 
