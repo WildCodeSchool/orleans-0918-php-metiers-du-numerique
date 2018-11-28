@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment index{% endblock %}
+
+{% block body %}
+    <h1>Comment index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Picture</th>
+                <th>Mail</th>
+                <th>Job</th>
+                <th>Business</th>
+                <th>PlusComment</th>
+                <th>LessComment</th>
+                <th>VariousComment</th>
+                <th>Liked</th>
+                <th>Accepted</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.firstname }}</td>
+                <td>{{ comment.lastname }}</td>
+                <td>{{ comment.picture }}</td>
+                <td>{{ comment.mail }}</td>
+                <td>{{ comment.job }}</td>
+                <td>{{ comment.business }}</td>
+                <td>{{ comment.plusComment }}</td>
+                <td>{{ comment.lessComment }}</td>
+                <td>{{ comment.variousComment }}</td>
+                <td>{{ comment.liked ? 'Yes' : 'No' }}</td>
+                <td>{{ comment.accepted ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('comment_show', {'id': comment.id}) }}">show</a>
+                    <a href="{{ path('comment_edit', {'id': comment.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('comment_new') }}">Create new</a>
+{% endblock %}

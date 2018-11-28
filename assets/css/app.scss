@@ -4,14 +4,18 @@
 
 
 $colorFontButton : white;
+$fontColor: black;
 $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
 $imageMargin: 4em;
+$validColor : #C8C8C8;
+$invalidColor : #FFCC80;
 
 body {
     background-color: $backgroundColor;
+    color: $fontColor;
 }
 /*buisness card*/
 .jobPicture{
@@ -53,4 +57,15 @@ hr{
 .marginImage{
     margin-bottom: $imageMargin;
 
+}
+.admission-color {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.valid {
+    background-color: $validColor;
+}
+.not-valid {
+    background-color: $invalidColor;
 }
