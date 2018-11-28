@@ -6,16 +6,16 @@ $(".single-item").slick({
             breakpoint: 768,
             settings: {
                 arrows: false,
-                centerMode: true,
+                // centerMode: true,
                 centerPadding: '40px',
-                slidesToShow: 3
+                slidesToShow: 1
             }
         },
         {
             breakpoint: 480,
             settings: {
-                arrows: false,
-                centerMode: true,
+                arrows: true,
+                // centerMode: true,
                 centerPadding: '40px',
                 slidesToShow: 1
             }
