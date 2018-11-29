@@ -8,9 +8,29 @@ $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
+$navbarBgonScroll:rgba(0,0,0,0.7);
 $imageMargin: 4em;
 $fontColor: black;
 $fontSize:16pt;
+$shadowColor:black;
+$fontFamily:'Roboto Condensed', sans-serif;
+$navbarBgonScroll:rgba(0,0,0,0.7);
+$buttonColor : black;
+$buttonColorHover : grey;
+$txtButton : white;
+$shadowColor: black;
+$fontFamilly:'Roboto Condensed', sans-serif;
+$navbarBgonScroll:rgba(0,0,0,0.7);
+$imageMargin: 4em;
+
+@mixin myButtons {
+    background-color: $buttonColor;
+    color: $txtButton;
+    &:hover {
+        background-color: $buttonColorHover;
+    }
+}
+
 body {
     background-color: $backgroundColor;
     color: $fontColor;
@@ -34,9 +54,100 @@ hr{
     border-width: 1px;
     margin: $marginSection;
 }
-.sectionSpace{
-    margin-top : $marginSection
+.sectionSpace {
+    margin-top: $marginSection
 }
+
+/*banner*/
+.banner {
+    background-image: url("../images/server.jpg");
+    height: 30vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    margin-bottom: 50px;
+
+    .banner-content {
+        position: relative;
+        top: 150px;
+
+
+
+        .title {
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 20px;
+            margin-left: 0px;
+            border-right: 2px solid rgba(255, 255, 255, .75);
+            font-size: 3.2vw;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            transform: translateY(-50%);
+            text-transform: uppercase;
+
+        }
+            @media (max-width: 992px){
+                .title{
+                    min-width: 80vw;
+                }
+            }
+        .typewriter {
+            animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
+            color: #fff;
+        }
+    }
+}
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 16.3em; }
+}
+
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: #fff;
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+/*navbar*/
+
+.custom-navbar-on-scroll {
+    background-color: $navbarBgonScroll;
+}
+@media (max-width: 992px) {
+    .custom-navbar {
+        background-color: $navbarBgonScroll;
+    }
+}
+
+@media (min-width: 992px) {
+    .custom-navbar{
+        background-color: transparent;
+        text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
+    }
+}
+.navbar{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: $fontFamily;
+    .logo-nav{
+        max-height: 50px;
+        max-width: 50px;
+        margin-left: 2vw;
+        margin-right:2vw;
+    }
+    .align-right{
+        margin-left: 25vw;
+    }
+}
+
+
+
 /*slider partner*/
 .title_partners{
     white-space: nowrap;
@@ -47,14 +158,62 @@ hr{
     min-height: 600px;
     min-width: 600px;
 }
+
 .name-patner{
 
     font-weight: bold;
+
     font-size: 2em;
 }
 .marginImage{
     margin-bottom: $imageMargin;
+}
 
+/*button add category*/
+.buttonCategory {
+    @include myButtons;
+    height: 48px;
+}
+.newCategory {
+    margin-left: -15px;
+}
+
+.marginImage{
+    margin-bottom: $imageMargin;
+}
+/*footer*/
+.footer {
+    height: 120px;
+    background-color: $navbarBgonScroll;
+    width: 100vw;
+    .container-fluid {
+        padding-top: 20px;
+    }
+
+     img {
+        max-height: 90px;
+        max-width: 90px;
+        padding: 10px;
+        margin-top: -5px;
+    }
+
+    p {
+        font-size: 16pt;
+        padding-top: 20px;
+        color: white;
+        padding-left: 1vw;
+    }
+    @media (max-width: 768px) {
+        p{
+            font-size:10pt;
+        }
+    }
+
+
+    button {
+        margin-top: 15px;
+        margin-right: 2vw;
+    }
 }
 
 /*learning center show*/

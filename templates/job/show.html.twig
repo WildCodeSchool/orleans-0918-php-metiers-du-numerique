@@ -1,4 +1,5 @@
-{% extends 'layout.html.twig' %}
+{% extends 'layoutFront.html.twig' %}
+
 
 {% block title %}Job{% endblock %}
 
@@ -44,7 +45,6 @@
         <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{{ asset('build/images/'~job.picture) }}">
         </div>
     </section>
-
 
 {% endblock %}
 
