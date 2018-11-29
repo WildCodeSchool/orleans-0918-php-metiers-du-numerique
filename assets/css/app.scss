@@ -3,12 +3,12 @@
 @import "../../node_modules/bootswatch/dist/lux/bootswatch";
 
 
-$colorFontButton: white;
-$marginSection: 8em;
-$faBack: 3em;
+$colorFontButton : white;
+$marginSection : 8em;
+$faBack : 3em;
 $backgroundColor: white;
-$bordecolor: black;
-$navbarBgonScroll: rgba(0, 0, 0, 0.7);
+$bordecolor : black;
+$navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
 $shadowColor: black;
 $fontFamily: 'Roboto Condensed', sans-serif;
@@ -33,39 +33,39 @@ $modalSpace: 5em;
 
 
 @mixin myButtons {
-  background-color: $buttonColor;
-  color: $txtButton;
-  &:hover {
-    background-color: $buttonColorHover;
-  }
+   background-color: $buttonColor;
+   color: $txtButton;
+   &:hover {
+      background-color: $buttonColorHover;
+   }
 }
 
 body {
-  background-color: $backgroundColor;
+   background-color: $backgroundColor;
 }
 
 /*buisness card*/
-.jobPicture {
-  min-height: 32vh;
-  min-width: 40vh;
-  max-height: 32vh;
-  max-width: 40vh;
+.jobPicture{
+    min-height: 32vh;
+   min-width: 40vh;
+   max-height: 32vh;
+   max-width: 40vh;
 }
 
 
 .faback {
-  font-size: $faBack;
+   font-size: $faBack;
 }
 
 hr {
-  border: $bordecolor;
-  border-style: inset;
-  border-width: 1px;
-  margin: $marginSection;
+   border: $bordecolor;
+   border-style: inset;
+   border-width: 1px;
+   margin: $marginSection;
 }
 
 .sectionSpace {
-  margin-top: $marginSection
+   margin-top: $marginSection
 }
 
 /*banner*/
@@ -122,24 +122,24 @@ hr {
 }
 
 @keyframes blinkTextCursor {
-  from {
-    border-right-color: #fff;
-  }
-  to {
-    border-right-color: transparent;
-  }
+   from {
+      border-right-color: #fff;
+   }
+   to {
+      border-right-color: transparent;
+   }
 }
 
 /*navbar*/
 
 .custom-navbar-on-scroll {
-  background-color: $navbarBgonScroll;
+   background-color: $navbarBgonScroll;
 }
 
 @media (max-width: 992px) {
-  .custom-navbar {
-    background-color: $navbarBgonScroll;
-  }
+   .custom-navbar {
+      background-color: $navbarBgonScroll;
+   }
 }
 
 @media (min-width: 992px) {
@@ -169,7 +169,7 @@ hr {
 
 /*slider partner*/
 .title_partners {
-  white-space: nowrap;
+   white-space: nowrap;
 }
 
 .slider-patners {
@@ -179,11 +179,11 @@ hr {
   min-width: 600px;
 }
 
-.name-patner {
+.name-patner{
 
-  font-weight: bold;
+   font-weight: bold;
 
-  font-size: 2em;
+   font-size: 2em;
 }
 
 .marginImage {
@@ -192,8 +192,8 @@ hr {
 
 /*button add category*/
 .buttonCategory {
-  @include myButtons;
-  height: 48px;
+   @include myButtons;
+   height: 48px;
 }
 
 .newCategory {
@@ -223,9 +223,11 @@ hr {
     color: $colorLinkVisited;
   }
 }
+
 .multiCol {
   column-count: 2;
 }
+
 .imgModal {
   border-radius: 100%;
   width: 70px;
@@ -251,6 +253,7 @@ hr {
   right: 45px;
   font-size: 60px;
   color: $closeButton;
+
   &:hover {
     text-decoration: none;
     color: $closeButtonHover;
@@ -267,6 +270,7 @@ hr {
     right: 35px;
   }
 }
+
 .modalSpace {
   margin-top: $modalSpace;
 }
