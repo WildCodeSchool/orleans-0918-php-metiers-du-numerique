@@ -12,6 +12,7 @@ $bordecolor : black;
 $imageMargin: 4em;
 $validColor : #C8C8C8;
 $invalidColor : #FFCC80;
+$backgroundComments : #e4e4e4;
 
 body {
     background-color: $backgroundColor;
@@ -69,4 +70,10 @@ hr{
 }
 .not-valid {
     background-color: $invalidColor;
+}
+.commentHeight{
+    min-height: 40vh;
+}
+.commentBackground{
+    background-color: $backgroundComments;
 }
