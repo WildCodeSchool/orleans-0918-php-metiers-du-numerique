@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -22,6 +23,7 @@ class Partner
     /**
      * @Vich\UploadableField(mapping="partners", fileNameProperty="picture")
      * @var File
+     * @Assert\Image(maxSize="2M",maxSizeMessage="Votre image est trop volumineuse")
      */
     private $pictureFile;
 
@@ -40,11 +42,15 @@ class Partner
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^[a-zA-Z'-]+$/i", message="Votre nom ne doit contenir que des lettres")
+     * @Assert\NotBlank(message="Ce champs ne peut être vide")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Url(message="votre lien est invalide")
+     * @Assert\NotBlank(message="Ce champs ne peut être vide")
      */
     private $url;
 

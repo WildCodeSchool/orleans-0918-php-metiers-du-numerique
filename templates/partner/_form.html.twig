@@ -3,6 +3,9 @@
     <div class="row col-lg-12 justify-content-center">
         {{ form_widget(form.pictureFile) }}
     </div>
+    <div class="row col-lg-12 justify-content-center mt-5">
+        <span class="justify-content-center">Taille recommandée : 300*300 - (poids <2Mo)</span>
+    </div>
     <div class="row col-lg-12 justify-content-center">
         <img class="preview-img" src="https://via.placeholder.com/300x300">
     </div>
@@ -14,7 +17,7 @@
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-link"></i></span>
+                <span class="input-group-text prep-color"><i class="fas fa-link"></i></span>
             </div>
             {{ form_widget(form.url) }}
         </div>
@@ -25,7 +28,7 @@
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
             </div>
             {{ form_widget(form.name) }}
         </div>

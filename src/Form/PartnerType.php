@@ -17,10 +17,10 @@ class PartnerType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, array(
-                'attr'=> array('aria-label'=>'Amount (to the nearest dollar)','type'=>'text')
+                'attr'=> array('aria-label'=>'Amount (to the nearest dollar)','type'=>'text','class'=>'color-input')
             ))
             ->add('url', TextType::class, array(
-                'attr'=> array('aria-label'=>'Amount (to the nearest dollar)','type'=>'text')))
+                'attr'=> array('aria-label'=>'Amount (to the nearest dollar)','type'=>'text','class'=>'color-input')))
             ->add('pictureFile',VichImageType::class, array(
                 'required' => true,
                 'download_link' => false,
