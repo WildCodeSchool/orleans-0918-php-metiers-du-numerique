@@ -5,7 +5,7 @@
 
 {% block body %}
     {% if job.video is not empty %}
-    <section>
+<section>
 
     <div class="row mb-5 mt-5 justify-content-center">
         <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
@@ -23,17 +23,18 @@
             </iframe>
         </div>
     </div>
-        <h4 class="mt-5">Description de la video:</h4>
-        <p>{{ job.videodescription }}</p>
-        <hr class="d-none d-sm-block">
-    </section>
-    <section class="sectionSpace">
+    <h4 class="mt-5">Description de la video:</h4>
+    <p>{{ job.videodescription }}</p>
+    <hr class="d-none d-sm-block">
+</section>
+<section class="sectionSpace">
     {% else %}
     <section class="sectionSpace">
         {% endif %}
         <div class="row justify-content-center">
             {% if job.video is empty %}
-                <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+                <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i
+                            class="fas fa-arrow-circle-left faback"></i></a>
             {% endif %}
             <h2 class="col-xs-12 col-md-11 mb-5 text-center">{{ job.name }}</h2>
         </div>
@@ -42,9 +43,16 @@
                 <h4>Description du metier :</h4>
                 <p>{{ job.description }}</p>
             </div>
-        <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{{ asset('build/images/'~job.picture) }}">
+            <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{{ asset('build/images/'~job.picture) }}">
+        </div>
+    </section>
+    <section class="sectionSpace">
+        <div class="row justify-content-around">
+            <div class="col-lg-4 col-sm-12 text-center">
+                {{ include ('business/button_business.html.twig') }}
+            </div>
         </div>
     </section>
 
-{% endblock %}
+    {% endblock %}
 
