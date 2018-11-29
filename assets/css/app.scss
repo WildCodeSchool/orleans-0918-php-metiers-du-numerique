@@ -32,6 +32,9 @@ $imageMargin: 4em;
 body {
     background-color: $backgroundColor;
 }
+main{
+    min-height:100vh;
+}
 /*buisness card*/
 .jobPicture{
     min-height: 32vh;
