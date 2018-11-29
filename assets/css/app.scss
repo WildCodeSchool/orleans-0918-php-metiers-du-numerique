@@ -27,8 +27,7 @@ $buttonColor: black;
 $buttonColorHover: grey;
 $txtModalSmall: 16pt;
 $txtModal: 22pt;
-$colorLink: blue;
-$colorLinkVisited: purple;
+$colorLinkVisited: grey;
 $modalSpace: 5em;
 
 
@@ -215,7 +214,8 @@ hr {
   font-size: $txtModal;
 
   &:hover {
-    color: $colorLink;
+    font-weight: bold;
+    text-decoration: none;
   }
 
   &:focus {
