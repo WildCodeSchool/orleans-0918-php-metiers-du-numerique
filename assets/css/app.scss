@@ -25,7 +25,8 @@ $closeButtonHover: black;
 $modalSpace: 2em;
 $buttonColor: black;
 $buttonColorHover: grey;
-$txtModal: 20pt;
+$txtModalSmall: 16pt;
+$txtModal: 22pt;
 $colorLink: blue;
 $colorLinkVisited: purple;
 $modalSpace: 5em;
@@ -212,15 +213,15 @@ hr {
 /*modal company*/
 .linkBusiness {
   font-size: $txtModal;
-}
 
-.linkBusiness:hover {
-  color: $colorLink;
-}
+  &:hover {
+    color: $colorLink;
+  }
 
-.linkBusiness:focus {
-  outline: none;
-  color: $colorLinkVisited;
+  &:focus {
+    outline: none;
+    color: $colorLinkVisited;
+  }
 }
 .multiCol {
   column-count: 2;
@@ -256,10 +257,10 @@ hr {
   }
 }
 
-@media screen and (max-height: 450px) {
-  /*.overlay-content {
-    font-size: 20px
-  }*/
+@media screen and (max-width: 720px) {
+  .linkBusiness {
+    font-size: $txtModalSmall;
+  }
   .closebutton {
     font-size: 40px;
     top: 15px;
