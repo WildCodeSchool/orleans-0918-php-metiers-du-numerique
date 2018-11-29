@@ -8,9 +8,10 @@
         {% endblock %}
     </head>
     <body>
-    <div class="container">
+        {% block navbar %} {% endblock %}
+        {% block banner %} {% endblock %}
         {% block body %}{% endblock %}
-    </div>
+        {% block footer %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
