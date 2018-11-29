@@ -13,7 +13,6 @@ $imageMargin: 4em;
 $shadowColor:black;
 $fontFamily:'Roboto Condensed', sans-serif;
 $navbarBgonScroll:rgba(0,0,0,0.7);
-
 $buttonColor : black;
 $buttonColorHover : grey;
 $txtButton : white;
@@ -21,7 +20,8 @@ $shadowColor: black;
 $fontFamilly:'Roboto Condensed', sans-serif;
 $navbarBgonScroll:rgba(0,0,0,0.7);
 $imageMargin: 4em;
-
+$colorLabel:#7b7b7b;
+$colorInput:#d1d1d1;
 @mixin myButtons {
     background-color: $buttonColor;
     color: $txtButton;
@@ -217,7 +217,7 @@ hr{
     }
 }
 .custom-file-label::after {
-    background-color:#7b7b7b !important;
+    background-color:$colorLabel !important;
     color:$txtButton !important;
     content: "Parcourir...";
 }
@@ -239,9 +239,9 @@ hr{
     margin-bottom: 5vh;
 }
 .prep-color{
-    background-color:#7b7b7b !important;
+    background-color:$colorLabel !important;
     color:$txtButton !important;
 }
 .color-input{
-    background-color:#d1d1d1;
+    background-color:$colorInput;
 }
