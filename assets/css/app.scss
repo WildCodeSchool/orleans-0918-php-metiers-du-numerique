@@ -4,12 +4,15 @@
 
 
 $colorFontButton : white;
+$fontColor: black;
 $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll:rgba(0,0,0,0.7);
 $imageMargin: 4em;
+$validColor : #C8C8C8;
+$invalidColor : #FFCC80;
 $shadowColor:black;
 $fontFamily:'Roboto Condensed', sans-serif;
 $navbarBgonScroll:rgba(0,0,0,0.7);
@@ -31,6 +34,7 @@ $imageMargin: 4em;
 
 body {
     background-color: $backgroundColor;
+    color: $fontColor;
 }
 /*buisness card*/
 .jobPicture{
@@ -205,10 +209,22 @@ hr{
             font-size:10pt;
         }
     }
+}
 
-
-    button {
+/*comment_list*/
+.admission-color {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.valid {
+    background-color: $validColor;
+}
+.not-valid {
+    background-color: $invalidColor;
+}
+button {
         margin-top: 15px;
         margin-right: 2vw;
-    }
 }
+
