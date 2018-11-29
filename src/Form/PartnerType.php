@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Partner;
+use function PHPSTORM_META\type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,9 +25,9 @@ class PartnerType extends AbstractType
                 'required' => true,
                 'download_link' => false,
                 'allow_delete' => false,
+                'attr'=>array('id'=>"exampleInputFile",'aria-describedby'=>'fileHelp','class'=>'form-control-file')
                 )
-            )
-        ;
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)

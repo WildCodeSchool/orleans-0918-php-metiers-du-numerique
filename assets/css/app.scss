@@ -179,3 +179,81 @@ hr{
 .marginImage{
     margin-bottom: $imageMargin;
 }
+/*form add partners*/
+#partner_pictureFile_file {
+    .custom-file-input {
+        position: relative;
+        z-index: 2;
+        width: 0px;
+        height: 50px;
+        opacity: 0;
+        margin-bottom: 50px;
+    }
+}
+.custom-file-input:focus ~ .custom-file-label {
+    border-color:transparent;
+    box-shadow: transparent;
+}
+.vich-image{
+    .custom-file {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: calc(2.8125rem + 0);
+        margin-bottom: 50px;
+    }
+}
+.custom-file-label {
+
+    position: absolute;
+    top: 50px;
+    right: 49px;
+    left: 150px;
+    z-index: 1;
+    height: 0px;
+    padding: 0.75rem 2rem;
+    line-height: 1.5;
+    color: transparent;
+    background-color: transparent !important;
+    border: transparent !important;
+    border-radius: 0;
+    outline: none;
+
+}
+.custom-file-label::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: 2.8125rem;
+    padding: 0.75rem 2rem;
+    line-height: 1.5;
+    color: $txtButton;
+    content: "Parcourir...";
+    background-color: $buttonColor;
+    border-left: 0 solid #ced4da;
+    border-left-color: rgb(206, 212, 218);
+    border-radius: 0 0 0 0;
+    cursor: pointer;
+}
+.custom-control-label::before, .custom-file-label, .custom-select {
+    transition: none;
+}
+.button-save{
+    min-width: 150px;
+    background-color: $buttonColor;
+    color: $txtButton;
+
+}
+.preview-img{
+    border-radius: 50%;
+    margin-left: 25px;
+    width:300px;
+    height: 300px;
+    object-fit: contain;
+}
+.title-form{
+    padding-right: 6vw;
+}
