@@ -204,48 +204,27 @@ hr{
     }
 }
 .custom-file-label {
-
-    position: absolute;
-    top: 50px;
-    right: 49px;
-    left: 150px;
-    z-index: 1;
-    height: 0px;
-    padding: 0.75rem 2rem;
-    line-height: 1.5;
-    color: transparent;
-    background-color: transparent !important;
-    border: transparent !important;
-    border-radius: 0;
-    outline: none;
-
+    background-color:#d1d1d1;
+    text-align: center;
+    height: 45px;
+}
+@media (max-width: 576px) {
+    .custom-file-label {
+        text-align: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }
 .custom-file-label::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
-    display: block;
-    height: 2.8125rem;
-    padding: 0.75rem 2rem;
-    line-height: 1.5;
-    color: $txtButton;
+    background-color:#7b7b7b !important;
+    color:$txtButton !important;
     content: "Parcourir...";
-    background-color: $buttonColor;
-    border-left: 0 solid #ced4da;
-    border-left-color: rgb(206, 212, 218);
-    border-radius: 0 0 0 0;
-    cursor: pointer;
-}
-.custom-control-label::before, .custom-file-label, .custom-select {
-    transition: none;
 }
 .button-save{
     min-width: 150px;
     background-color: $buttonColor;
     color: $txtButton;
-
 }
 .preview-img{
     border-radius: 50%;
@@ -253,6 +232,7 @@ hr{
     width:300px;
     height: 300px;
     object-fit: contain;
+    border: 2px solid black;
 }
 .title-form{
     padding-right: 6vw;
