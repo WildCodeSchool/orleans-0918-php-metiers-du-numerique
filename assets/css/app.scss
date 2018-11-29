@@ -180,18 +180,20 @@ hr{
 }
 /*footer*/
 .footer {
+    margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
     width: 100vw;
+
     .container-fluid {
-        padding-top: 20px;
+        padding-top: 10px;
     }
 
-     img {
+    img {
         max-height: 90px;
         max-width: 90px;
         padding: 10px;
-        margin-top: -5px;
+        margin-top: 10px;
     }
 
     p {
@@ -200,15 +202,35 @@ hr{
         color: white;
         padding-left: 1vw;
     }
+
     @media (max-width: 768px) {
-        p{
-            font-size:10pt;
+        p {
+            font-size: 10pt;
         }
+
     }
 
 
     button {
-        margin-top: 15px;
-        margin-right: 2vw;
+        padding-top: 20px;
+        font-size: 12pt;
+        margin-top: 25px;
+        margin-right: 5vw;
+        background-color: transparent;
+
+        &:hover, &:focus, &:active {
+            background-color: transparent !important;
+            border: none !important; ;
+            box-shadow: none !important ;
+        }
+
+        }
+    @media (max-width: 768px) {
+        button{
+            font-size: 10pt;
+            margin-top: 25px;
+        }
+
+
     }
 }
