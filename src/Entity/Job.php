@@ -56,6 +56,14 @@ class Job
     public function __construct()
     {
         $this->learningCenters = new ArrayCollection();
+      
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob")
+     */
+    private $associatedComments;
+
+    public function __construct()
+    {
+        $this->associatedComments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -148,16 +156,39 @@ class Job
         if (!$this->learningCenters->contains($learningCenter)) {
             $this->learningCenters[] = $learningCenter;
             $learningCenter->addJob($this);
+          
+     * @return Collection|Comment[]
+     */
+    public function getAssociatedComments(): Collection
+    {
+        return $this->associatedComments;
+    }
+
+    public function addAssociatedComment(Comment $associatedComment): self
+    {
+        if (!$this->associatedComments->contains($associatedComment)) {
+            $this->associatedComments[] = $associatedComment;
+            $associatedComment->setAssociatedJob($this);
         }
 
         return $this;
     }
+
 
     public function removeLearningCenter(LearningCenter $learningCenter): self
     {
         if ($this->learningCenters->contains($learningCenter)) {
             $this->learningCenters->removeElement($learningCenter);
             $learningCenter->removeJob($this);
+          
+    public function removeAssociatedComment(Comment $associatedComment): self
+    {
+        if ($this->associatedComments->contains($associatedComment)) {
+            $this->associatedComments->removeElement($associatedComment);
+            // set the owning side to null (unless already changed)
+            if ($associatedComment->getAssociatedJob() === $this) {
+                $associatedComment->setAssociatedJob(null);
+            }
         }
 
         return $this;
