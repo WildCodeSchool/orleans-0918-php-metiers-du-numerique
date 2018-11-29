@@ -9,9 +9,11 @@ $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
 $imageMargin: 4em;
-
+$fontColor: black;
+$fontSize:16pt;
 body {
     background-color: $backgroundColor;
+    color: $fontColor;
 }
 /*buisness card*/
 .jobPicture{
@@ -57,21 +59,50 @@ hr{
 
 /*learning center show*/
 
-.imgLearningSchool{
-    border-radius:50%;
-    height: 200px;
-    width: 200px;
-    object-fit: contain;
-}
-.learningTitle{
+.learningCenter{
+    font-size: $fontSize;
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
+.imgLearningSchool{
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-radius:50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+
+}
 .learningName{
+    font-size: xx-large;
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
 .learningMail{
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    font-size: medium;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
+.learningLink{
+    font-size: small;
+}
+.buttonLearningValid{
+    a{
+        font-size: $fontSize;
+    }
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.learningRadioCheck{
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+ .learningInfo{
+     color: #4c4c4c;
+ }
+ .learningJob{
+     margin-top: 10vh;
+     margin-bottom: 10vh;
+ }

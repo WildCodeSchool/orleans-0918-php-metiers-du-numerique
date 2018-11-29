@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Job;
 use App\Entity\LearningCenter;
 use App\Form\LearningCenterType;
 use App\Repository\LearningCenterRepository;
@@ -57,7 +58,7 @@ class LearningCenterController extends AbstractController
     /**
      * @Route("/{id}/edit", name="learning_center_edit", methods="GET|POST")
      */
-    public function edit(Request $request, LearningCenter $learningCenter): Response
+    public function edit(Request $request, LearningCenter $learningCenter   ): Response
     {
         $form = $this->createForm(LearningCenterType::class, $learningCenter);
         $form->handleRequest($request);
