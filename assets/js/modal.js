@@ -1,9 +1,11 @@
-function openModal() {
-    console.log('string');
-    document.getElementById("myModal").style.width = "100%";
-}
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
-function closeModal() {
+button = $("#btn-modal");
+$(button).on("click", function (e) {
+    document.getElementById("myModal").style.width = "100%";
+
+
+})
+closebutton = $("#closebtn");
+$(closebutton).on("click", function (e) {
     document.getElementById("myModal").style.width = "0%";
-}
+})

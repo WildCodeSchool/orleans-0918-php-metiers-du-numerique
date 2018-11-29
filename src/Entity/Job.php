@@ -49,13 +49,13 @@ class Job
     private $videoTitle;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Business", mappedBy="jobs")
+     * @ORM\ManyToMany(targetEntity="Company", mappedBy="jobs")
      */
-    private $businesses;
+    private $companies;
 
     public function __construct()
     {
-        $this->businesses = new ArrayCollection();
+        $this->companies = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -136,28 +136,28 @@ class Job
     }
 
     /**
-     * @return Collection|Business[]
+     * @return Collection|Company[]
      */
-    public function getBusinesses(): Collection
+    public function getCompanies(): Collection
     {
-        return $this->businesses;
+        return $this->companies;
     }
 
-    public function addBusiness(Business $business): self
+    public function addCompanies(Company $company): self
     {
-        if (!$this->businesses->contains($business)) {
-            $this->businesses[] = $business;
-            $business->addJob($this);
+        if (!$this->companies->contains($company)) {
+            $this->companies[] = $company;
+            $company->addJob($this);
         }
 
         return $this;
     }
 
-    public function removeBusiness(Business $business): self
+    public function removeCompanies(Company $company): self
     {
-        if ($this->businesses->contains($business)) {
-            $this->businesses->removeElement($business);
-            $business->removeJob($this);
+        if ($this->companies->contains($company)) {
+            $this->companies->removeElement($company);
+            $company->removeJob($this);
         }
 
         return $this;
