@@ -1,15 +1,21 @@
 <div class="container-fluid bg-dark">
-    <div class='container'>
-        <div
+    <div class='container-slider container'>
         <div class='single-item'>
             {% for partner in partners %}
                 <div class="col-4">
-                    <img class="carousel-icon align-content-center" src="{{ partner.picture }}" alt="">
-                </div>
                     <a href="{{ partner.url }}" class="text-center mx-auto">
-                        {{ partner.name }}
+                        <img class="carousel-icon align-content-center"
+                             src="{{ asset("/images/partners/") }}{{ partner.picture }}" alt="">
                     </a>
-
+                </div>
+            {% endfor %}
+            {% for partner in partners %}
+                <div class="col-4">
+                    <a href="{{ partner.url }}" class="text-center mx-auto">
+                        <img class="carousel-icon align-content-center"
+                             src="{{ asset("/images/partners/") }}{{ partner.picture }}" alt="">
+                    </a>
+                </div>
             {% endfor %}
         </div>
     </div>
