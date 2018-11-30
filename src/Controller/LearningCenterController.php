@@ -21,7 +21,8 @@ class LearningCenterController extends AbstractController
      */
     public function index(LearningCenterRepository $learningCenterRepository): Response
     {
-        return $this->render('learning_center/index.html.twig', ['learning_centers' => $learningCenterRepository->findAll()]);
+        return $this->render('learning_center/index.html.twig',
+            ['learning_centers' => $learningCenterRepository->findAll()]);
     }
 
     /**
@@ -58,7 +59,7 @@ class LearningCenterController extends AbstractController
     /**
      * @Route("/{id}/edit", name="learning_center_edit", methods="GET|POST")
      */
-    public function edit(Request $request, LearningCenter $learningCenter   ): Response
+    public function edit(Request $request, LearningCenter $learningCenter): Response
     {
         $form = $this->createForm(LearningCenterType::class, $learningCenter);
         $form->handleRequest($request);

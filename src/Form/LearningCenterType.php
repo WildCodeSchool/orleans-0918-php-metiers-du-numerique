@@ -22,7 +22,6 @@ class LearningCenterType extends AbstractType
                 'class' => Job::class,
                 'choice_label' => 'name'
                 ]);
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
