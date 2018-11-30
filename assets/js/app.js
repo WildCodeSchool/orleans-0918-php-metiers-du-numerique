@@ -16,3 +16,5 @@ var $ = require('jquery');
 import 'bootstrap';
 import "./onScroll";
 import "./previewUpload";
+import "./modal";
+

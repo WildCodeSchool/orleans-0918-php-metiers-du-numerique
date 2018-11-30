@@ -1,0 +1,24 @@
+<button class="btn buttonModal"
+        id="btn-modal">{{ button_label|default('voir les entreprises') }}</button>
+<div id="myModal" class="overlay">
+    <a href="javascript:void(0)" class="closebutton" id="closebtn" onclick="closeModal()">&times;</a>
+    <div class="container-fluid">
+        <div class="modalSpace">
+            <h1 class="modalTitle">Liste des entreprises</h1>
+            <div class="modalSpace"></div>
+            <div class="multiCol">
+                {% for company in companies %}
+                    <div class="row">
+                        <div class="col-12 mt-4">
+                            <img class="imgModal img-fluid"
+                                 src="{{ asset('build/images/'~company.picture) }}" alt="{{ company.name }}"/>
+                            <a class="linkBusiness col-6" href="{{ company.link }}"
+                               target="_blank">{{ company.name }}</a>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
