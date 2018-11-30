@@ -23,6 +23,8 @@ $shadowColor: black;
 $fontFamilly:'Roboto Condensed', sans-serif;
 $navbarBgonScroll:rgba(0,0,0,0.7);
 $imageMargin: 4em;
+$backgroundComments : #e4e4e4;
+$borderpicture:100%;
 
 @mixin myButtons {
     background-color: $buttonColor;
@@ -253,6 +255,16 @@ hr{
 }
 .not-valid {
     background-color: $invalidColor;
+}
+.commentHeight{
+    min-height: 40vh;
+}
+.commentBackground{
+    background-color: $backgroundComments;
+}
+/*picture*/
+.circlePicture {
+    border-radius: $borderpicture;
 }
 button {
         margin-top: 15px;
