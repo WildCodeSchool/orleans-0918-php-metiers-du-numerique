@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Job;
 use App\Entity\Comment;
 use App\Form\JobType;
@@ -59,9 +58,7 @@ class JobController extends AbstractController
             ->findBy(['associatedJob'=>$job->getId()],
                 ['id'=>'ASC'],
                 3,
-                0
-            );
-
+                0 );
 
         return $this->render('job/show.html.twig', ['job' => $job,
             'comments'=>$comments
