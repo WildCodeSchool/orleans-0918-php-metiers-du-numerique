@@ -4,6 +4,7 @@
 
 
 $colorFontButton : white;
+$fontColor: black;
 $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
@@ -12,6 +13,8 @@ $navbarBgonScroll:rgba(0,0,0,0.7);
 $imageMargin: 4em;
 $fontColor: black;
 $fontSize:16pt;
+$validColor : #C8C8C8;
+$invalidColor : #FFCC80;
 $shadowColor:black;
 $fontFamily:'Roboto Condensed', sans-serif;
 $navbarBgonScroll:rgba(0,0,0,0.7);
@@ -34,6 +37,10 @@ $imageMargin: 4em;
 body {
     background-color: $backgroundColor;
     color: $fontColor;
+}
+main{
+    min-height:100vh;
+
 }
 /*buisness card*/
 .jobPicture{
@@ -183,18 +190,20 @@ hr{
 }
 /*footer*/
 .footer {
+    margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
     width: 100vw;
+
     .container-fluid {
-        padding-top: 20px;
+        padding-top: 10px;
     }
 
-     img {
+    img {
         max-height: 90px;
         max-width: 90px;
         padding: 10px;
-        margin-top: -5px;
+        margin-top: 10px;
     }
 
     p {
@@ -203,18 +212,57 @@ hr{
         color: white;
         padding-left: 1vw;
     }
+
     @media (max-width: 768px) {
-        p{
-            font-size:10pt;
+        p {
+            font-size: 10pt;
         }
+
     }
+}
+
 
 
     button {
+        padding-top: 20px;
+        font-size: 12pt;
+        margin-top: 25px;
+        margin-right: 5vw;
+        background-color: transparent;
+
+        &:hover, &:focus, &:active {
+            background-color: transparent !important;
+            border: none !important; ;
+            box-shadow: none !important ;
+        }
+
+        }
+    @media (max-width: 768px) {
+        button{
+            font-size: 10pt;
+            margin-top: 25px;
+        }
+
+
+    }
+/*comment_list*/
+.admission-color {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.valid {
+    background-color: $validColor;
+}
+.not-valid {
+    background-color: $invalidColor;
+}
+button {
         margin-top: 15px;
         margin-right: 2vw;
-    }
+
 }
+
 
 /*learning center show*/
 
@@ -265,3 +313,4 @@ hr{
      margin-top: 10vh;
      margin-bottom: 10vh;
  }
+
