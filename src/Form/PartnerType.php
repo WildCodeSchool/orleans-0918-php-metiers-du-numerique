@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Partner;
-use function PHPSTORM_META\type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
