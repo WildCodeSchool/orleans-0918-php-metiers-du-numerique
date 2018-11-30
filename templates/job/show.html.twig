@@ -3,6 +3,7 @@
 {% block title %}Job{% endblock %}
 
 {% block body %}
+
     <div class="container">
         {% if job.video is not empty %}
         <section>
@@ -11,7 +12,6 @@
                 <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
                 <h1 class="col-xs-12 col-md-11">{{ job.videotitle }}</h1>
             </div>
-
 
             <div class="col-xs-12 col-md-8 mx-auto">
                 <div class="embed-responsive embed-responsive-16by9">
@@ -44,6 +44,14 @@
                 <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{{ asset('build/images/'~job.picture) }}">
             </div>
         </section>
+        
+        <section class="sectionSpace">
+        <div class="row justify-content-around">
+            <div class="col-lg-4 col-sm-12 text-center">
+                {{ include ('company/button_company.html.twig') }}
+            </div>
+          </div>
+        </section>   
         <hr class="d-none d-sm-block">
     </div>
 
@@ -94,5 +102,5 @@
         </div>
     </section>
 
-{% endblock %}
+    {% endblock %}
 
