@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Job;
+use App\Entity\Comment;
 use App\Form\JobType;
 use App\Repository\JobRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,6 +55,19 @@ class JobController extends AbstractController
         return $this->render('job/show.html.twig', ['job' => $job, 'companies' => $job->getCompanies()]);
     }
 
+        $comments= $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->findBy(
+                ['associatedJob'=>$job->getId()],
+                ['id'=>'ASC'],
+                3,
+                0
+            );
+
+        return $this->render('job/show.html.twig', ['job' => $job,
+            'comments'=>$comments
+        ]);
+    }
     /**
      * @Route("/{id}/edit", name="job_edit", methods="GET|POST")
      */

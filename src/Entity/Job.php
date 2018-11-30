@@ -52,10 +52,20 @@ class Job
      * @ORM\ManyToMany(targetEntity="Company", mappedBy="jobs")
      */
     private $companies;
+  
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob")
+     */
+    private $associatedComments;
 
     public function __construct()
     {
         $this->companies = new ArrayCollection();
+    }
+
+    public function __construct()
+    {
+        $this->associatedComments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -149,6 +159,22 @@ class Job
             $this->companies[] = $company;
             $company->addJob($this);
         }
+    }
+  
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getAssociatedComments(): Collection
+    {
+        return $this->associatedComments;
+    }
+
+    public function addAssociatedComment(Comment $associatedComment): self
+    {
+        if (!$this->associatedComments->contains($associatedComment)) {
+            $this->associatedComments[] = $associatedComment;
+            $associatedComment->setAssociatedJob($this);
+        }
 
         return $this;
     }
@@ -158,6 +184,17 @@ class Job
         if ($this->companies->contains($company)) {
             $this->companies->removeElement($company);
             $company->removeJob($this);
+        }
+    }
+
+    public function removeAssociatedComment(Comment $associatedComment): self
+    {
+        if ($this->associatedComments->contains($associatedComment)) {
+            $this->associatedComments->removeElement($associatedComment);
+            // set the owning side to null (unless already changed)
+            if ($associatedComment->getAssociatedJob() === $this) {
+                $associatedComment->setAssociatedJob(null);
+            }
         }
 
         return $this;

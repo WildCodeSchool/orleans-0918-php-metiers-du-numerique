@@ -4,20 +4,18 @@
 
 
 $colorFontButton : white;
+$fontColor: black;
 $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
-$shadowColor: black;
-$fontFamily: 'Roboto Condensed', sans-serif;
-$navbarBgonScroll: rgba(0, 0, 0, 0.7);
-$txtButton: white;
-$shadowColor: black;
-$fontFamilly: 'Roboto Condensed', sans-serif;
-$navbarBgonScroll: rgba(0, 0, 0, 0.7);
-$imageMargin: 4em;
+$validColor : #C8C8C8;
+$invalidColor : #FFCC80;
+$shadowColor:black;
+$fontFamily:'Roboto Condensed', sans-serif;
+$txtButton : white;
 /*variable modal*/
 $backgroundModal: white;
 $closeButton: grey;
@@ -30,6 +28,8 @@ $txtModal: 22pt;
 $colorLinkVisited: grey;
 $modalSpace: 5em;
 
+$backgroundComments : #e4e4e4;
+$borderpicture:100%;
 
 @mixin myButtons {
    background-color: $buttonColor;
@@ -40,7 +40,11 @@ $modalSpace: 5em;
 }
 
 body {
-   background-color: $backgroundColor;
+    background-color: $backgroundColor;
+    color: $fontColor;
+}
+main{
+    min-height:100vh;
 }
 
 /*buisness card*/
@@ -274,3 +278,88 @@ hr {
 .modalSpace {
   margin-top: $modalSpace;
 }
+/*footer*/
+.footer {
+    margin-top: 10vh;
+    height: 120px;
+    background-color: $navbarBgonScroll;
+    width: 100vw;
+
+    .container-fluid {
+        padding-top: 10px;
+    }
+
+    img {
+        max-height: 90px;
+        max-width: 90px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    p {
+        font-size: 16pt;
+        padding-top: 20px;
+        color: white;
+        padding-left: 1vw;
+    }
+
+    @media (max-width: 768px) {
+        p {
+            font-size: 10pt;
+        }
+
+    }
+}
+
+
+
+    button {
+        padding-top: 20px;
+        font-size: 12pt;
+        margin-top: 25px;
+        margin-right: 5vw;
+        background-color: transparent;
+
+        &:hover, &:focus, &:active {
+            background-color: transparent !important;
+            border: none !important; ;
+            box-shadow: none !important ;
+        }
+
+        }
+    @media (max-width: 768px) {
+        button{
+            font-size: 10pt;
+            margin-top: 25px;
+        }
+
+
+    }
+/*comment_list*/
+.admission-color {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.valid {
+    background-color: $validColor;
+}
+.not-valid {
+    background-color: $invalidColor;
+}
+.commentHeight{
+    min-height: 40vh;
+}
+.commentBackground{
+    background-color: $backgroundComments;
+}
+/*picture*/
+.circlePicture {
+    border-radius: $borderpicture;
+}
+button {
+        margin-top: 15px;
+        margin-right: 2vw;
+
+}
+
