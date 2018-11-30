@@ -15,19 +15,19 @@ class PartnerType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, array(
-                'attr'=> array('type'=>'text','class'=>'color-input'),
+                'attr' => array('type' => 'text', 'class' => 'color-input'),
                 'label' => 'Nom',
             ))
             ->add('url', TextType::class, array(
-                'attr'=> array('type'=>'text','class'=>'color-input'),
-                'label'=>'Lien',
+                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'label' => 'Lien',
             ))
             ->add('pictureFile', VichImageType::class, [
-                'required' => true,
-                'download_link' => false,
-                'allow_delete' => false,
-                'label' => ' ',
-                'attr'=>array('aria-describedby'=>'fileHelp','class'=>'form-control-file')
+                    'required' => true,
+                    'download_link' => false,
+                    'allow_delete' => false,
+                    'label' => ' ',
+                    'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
                 ]
             );
     }
