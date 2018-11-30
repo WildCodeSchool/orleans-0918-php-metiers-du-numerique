@@ -1,0 +1,106 @@
+{% extends 'layoutFront.html.twig' %}
+
+{% block title %}Job{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {% if job.video is not empty %}
+        <section>
+
+            <div class="row mb-5 mt-5 justify-content-center">
+                <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+                <h1 class="col-xs-12 col-md-11">{{ job.videotitle }}</h1>
+            </div>
+
+            <div class="col-xs-12 col-md-8 mx-auto">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560"
+                            height="315"
+                            src="{{ job.video }}"
+                            frameborder="0"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <h4 class="mt-5">Description de la video:</h4>
+            <p>{{ job.videodescription }}</p>
+            <hr class="d-none d-sm-block">
+        </section>
+        {% else %}
+        <section class="sectionSpace">
+            {% endif %}
+            <div class="row justify-content-center">
+                {% if job.video is empty %}
+                    <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+                {% endif %}
+                <h2 class="col-xs-12 col-md-11 mb-5 text-center">{{ job.name }}</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-xs-12 col-md-7">
+                    <h4>Description du metier :</h4>
+                    <p>{{ job.description }}</p>
+                </div>
+                <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{{ asset('build/images/'~job.picture) }}">
+            </div>
+        </section>
+        
+        <section class="sectionSpace">
+        <div class="row justify-content-around">
+            <div class="col-lg-4 col-sm-12 text-center">
+                {{ include ('company/button_company.html.twig') }}
+            </div>
+          </div>
+        </section>   
+        <hr class="d-none d-sm-block">
+    </div>
+
+    <section class="sectionSpace text-center">
+        <h2 class="mb-5">Ils vous parlent de leurs expériences : </h2>
+        <div class="container-fluid">
+
+            {%  for comment in comments %}
+            {% if comment.accepted ==1 %}
+
+            {% if loop.index is odd %}
+            <div class="row align-items-center justify-content-center commentHeight commentBackground">
+                {% else %}
+                <div class="row align-items-center justify-content-center commentHeight ">
+                    {% endif %}
+
+                    <div class="col-sm-12 col-md-2 ">
+                        {% if comment.picture is empty %}
+                            <img class="circlePicture" src="https://via.placeholder.com/80x80" alt="">
+                        {% else %}
+                            <img class="circlePicture" src="{{ asset('build/images/'~comment.picture)}}" alt="Photo du metier de {{ job.name }}">
+                        {% endif %}
+
+                        <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>
+                        {% if comment.company is not empty %}
+                            <p class="mt-3">Travaille à : {{ comment.company }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <i class="fas fa-plus-circle mb-5"></i>
+                        <p>{{ comment.prosComment }}</p>
+                    </div>
+
+                    <div class="col-sm-12 col-md-3">
+                        <i class="fas fa-minus-circle mb-5"></i>
+                        <p>{{ comment.consComment }}</p>
+                    </div>
+
+                    <div class="col-sm-12 col-md-3">
+                        <h5 class="mb-5">Commentaires divers</h5>
+                        <p>{{ comment.consComment }}</p>
+                    </div>
+
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+
