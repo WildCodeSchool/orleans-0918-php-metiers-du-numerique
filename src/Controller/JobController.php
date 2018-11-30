@@ -52,8 +52,6 @@ class JobController extends AbstractController
      */
     public function show(Job $job): Response
     {
-        return $this->render('job/show.html.twig', ['job' => $job, 'companies' => $job->getCompanies()]);
-    }
 
         $comments= $this->getDoctrine()
             ->getRepository(Comment::class)
@@ -65,7 +63,8 @@ class JobController extends AbstractController
             );
 
         return $this->render('job/show.html.twig', ['job' => $job,
-            'comments'=>$comments
+            'comments'=>$comments,
+            'companies' => $job->getCompanies()
         ]);
     }
     /**

@@ -61,12 +61,9 @@ class Job
     public function __construct()
     {
         $this->companies = new ArrayCollection();
-    }
-
-    public function __construct()
-    {
         $this->associatedComments = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
