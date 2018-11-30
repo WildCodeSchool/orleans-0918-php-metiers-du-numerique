@@ -53,11 +53,6 @@ class Job
      */
     private $learningCenters;
 
-    public function __construct()
-    {
-        $this->learningCenters = new ArrayCollection();
-    }
-  
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob")
      */
@@ -65,6 +60,7 @@ class Job
 
     public function __construct()
     {
+        $this->learningCenters = new ArrayCollection();
         $this->associatedComments = new ArrayCollection();
     }
 
