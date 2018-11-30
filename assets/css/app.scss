@@ -291,13 +291,19 @@ hr{
 }
 
 
-
-    button {
+    
+    footer .btn {
         padding-top: 20px;
         font-size: 12pt;
         margin-top: 25px;
         margin-right: 5vw;
         background-color: transparent;
+        @media (max-width: 768px) {
+
+            font-size: 10pt;
+            margin-top: 25px;
+
+    }
 
         &:hover, &:focus, &:active {
             background-color: transparent !important;
@@ -305,15 +311,8 @@ hr{
             box-shadow: none !important ;
         }
 
-        }
-    @media (max-width: 768px) {
-        button{
-            font-size: 10pt;
-            margin-top: 25px;
-        }
-
-
     }
+
 /*comment_list*/
 .admission-color {
     width: 30px;
