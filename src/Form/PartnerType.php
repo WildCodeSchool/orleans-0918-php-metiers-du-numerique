@@ -22,7 +22,6 @@ class PartnerType extends AbstractType
                 'attr'=> array('type'=>'text','class'=>'color-input'),
                 'label'=>'Lien',
             ))
-
             ->add('pictureFile',VichImageType::class, array('required' => true,
                 'download_link' => false,
                 'allow_delete' => false,
