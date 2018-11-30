@@ -114,5 +114,4 @@ class Partner
     {
         return $this->pictureFile;
     }
-
 }
