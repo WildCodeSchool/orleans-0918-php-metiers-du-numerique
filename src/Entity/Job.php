@@ -49,10 +49,15 @@ class Job
     private $videoTitle;
 
     /**
+
      * @ORM\ManyToMany(targetEntity="App\Entity\LearningCenter", mappedBy="jobs")
      */
     private $learningCenters;
 
+     * @ORM\ManyToMany(targetEntity="Company", mappedBy="jobs")
+     */
+    private $companies;
+  
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob")
      */
@@ -60,9 +65,14 @@ class Job
 
     public function __construct()
     {
+
         $this->learningCenters = new ArrayCollection();
+
+        $this->companies = new ArrayCollection();
+
         $this->associatedComments = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -158,6 +168,22 @@ class Job
     }
       
      /**
+     * @return Collection|Company[]
+     */
+    public function getCompanies(): Collection
+    {
+        return $this->companies;
+    }
+
+    public function addCompanies(Company $company): self
+    {
+        if (!$this->companies->contains($company)) {
+            $this->companies[] = $company;
+            $company->addJob($this);
+        }
+    }
+  
+    /**
      * @return Collection|Comment[]
      */
     public function getAssociatedComments(): Collection
@@ -175,7 +201,6 @@ class Job
         return $this;
     }
 
-
     public function removeLearningCenter(LearningCenter $learningCenter): self
     {
         if ($this->learningCenters->contains($learningCenter)) {
@@ -183,6 +208,15 @@ class Job
             $learningCenter->removeJob($this);
         }
     }
+  
+    public function removeCompanies(Company $company): self
+    {
+        if ($this->companies->contains($company)) {
+            $this->companies->removeElement($company);
+            $company->removeJob($this);
+        }
+    }
+
     public function removeAssociatedComment(Comment $associatedComment): self
     {
         if ($this->associatedComments->contains($associatedComment)) {
