@@ -254,6 +254,16 @@ hr{
 .not-valid {
     background-color: $invalidColor;
 }
+.commentHeight{
+    min-height: 40vh;
+}
+.commentBackground{
+    background-color: $backgroundComments;
+}
+/*picture*/
+.circlePicture {
+    border-radius: $borderpicture;
+}
 button {
         margin-top: 15px;
         margin-right: 2vw;
