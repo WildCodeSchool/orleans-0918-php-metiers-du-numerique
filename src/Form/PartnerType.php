@@ -9,7 +9,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-
 class PartnerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -24,8 +23,7 @@ class PartnerType extends AbstractType
                 'label'=>'Lien',
             ))
 
-            ->add('pictureFile',VichImageType::class, array(
-                'required' => true,
+            ->add('pictureFile',VichImageType::class, array('required' => true,
                 'download_link' => false,
                 'allow_delete' => false,
                 'label' => ' ',
