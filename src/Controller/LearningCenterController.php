@@ -21,8 +21,9 @@ class LearningCenterController extends AbstractController
      */
     public function index(LearningCenterRepository $learningCenterRepository): Response
     {
-        return $this->render('learning_center/index.html.twig',
-            ['learning_centers' => $learningCenterRepository->findAll()]);
+        return $this->render('learning_center/index.html.twig', [
+            'learning_centers' => $learningCenterRepository->findAll()]
+        );
     }
 
     /**
