@@ -3,13 +3,13 @@ $('.single-item').slick({
     centerPadding: '50px',
     infinite: true,
     autoplay:true,
-    autoplaySpeed:3000,
+    autoplaySpeed:2000,
     slidesToShow: 5,
     responsive: [
         {
-            breakpoint: 768,
+            breakpoint: 770,
             settings: {
-                arrows: false,
+                arrows: true,
                 centerMode: true,
                 centerPadding: '40px',
                 slidesToShow: 3
@@ -18,9 +18,9 @@ $('.single-item').slick({
         {
             breakpoint: 480,
             settings: {
-                arrows: false,
+                arrows: true,
                 centerMode: true,
-                centerPadding: '40px',
+
                 slidesToShow: 1
             }
         }
