@@ -283,7 +283,7 @@ hr {
     margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
-    width: 100vw;
+    width: 99.5vw;
 
     .container-fluid {
         padding-top: 10px;
@@ -363,3 +363,8 @@ button {
 
 }
 
+/*backToTop*/
+.back-to-top{
+  font-size: 3em;
+  padding: 15px;
+}
