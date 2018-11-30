@@ -24,6 +24,4 @@ class CommentAdminController extends AbstractController
             'comments' => $commentRepository->findAll()
         ]);
     }
-
-
 }
