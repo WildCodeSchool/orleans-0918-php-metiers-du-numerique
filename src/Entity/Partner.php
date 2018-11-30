@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
  * @Vich\Uploadable
@@ -42,7 +41,8 @@ class Partner
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Regex("/^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ' ]+$/i", message="Votre nom ne doit contenir que des lettres")
+     * @Assert\Regex("/^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ' ]+$/i",
+     *              message="Votre nom ne doit contenir que des lettres")
      * @Assert\NotBlank(message="Ce champs ne peut être vide")
      * @Assert\Length(min="3",minMessage="Le champs ne comporte pas assez de caractère")
      */
