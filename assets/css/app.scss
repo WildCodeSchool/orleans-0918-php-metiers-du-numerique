@@ -387,28 +387,26 @@ hr {
 
     }
 }
+    .footer{
+            width: 99.5vw;
+        }
+      footer .btn {
+          padding-top: 20px;
+          font-size: 12pt;
+          margin-top: 25px;
+          margin-right: 5vw;
+          background-color: transparent;
+          @media (max-width: 768px) {
 
-
-    
-    footer .btn {
-        padding-top: 20px;
-        font-size: 12pt;
-        margin-top: 25px;
-        margin-right: 5vw;
-        background-color: transparent;
-        @media (max-width: 768px) {
-
-            font-size: 10pt;
-            margin-top: 25px;
-
-    }
+              font-size: 10pt;
+              margin-top: 25px;
+        }
 
         &:hover, &:focus, &:active {
             background-color: transparent !important;
             border: none !important; ;
             box-shadow: none !important ;
         }
-
     }
 
 /*comment_list*/
