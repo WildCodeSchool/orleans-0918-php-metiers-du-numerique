@@ -232,7 +232,8 @@ hr{
     width:300px;
     height: 300px;
     object-fit: contain;
-    border: 2px solid black;
+    border: 2px solid $colorLabel;
+    background-color: $backgroundColor;
 }
 .title-form{
     padding-right: 6vw;
@@ -244,4 +245,8 @@ hr{
 }
 .color-input{
     background-color:$colorInput;
+}
+.invalid-feedback{
+    margin-bottom: 2vh;
+    font-weight: bold;
 }

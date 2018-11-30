@@ -23,7 +23,7 @@ class Partner
     /**
      * @Vich\UploadableField(mapping="partners", fileNameProperty="picture")
      * @var File
-     * @Assert\Image(maxSize="2M",maxSizeMessage="Votre image est trop volumineuse")
+     * @Assert\Image(maxSize="2M",maxSizeMessage="Cette image est trop volumineuse.")
      */
     private $pictureFile;
 
