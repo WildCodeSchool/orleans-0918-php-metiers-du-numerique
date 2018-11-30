@@ -14,14 +14,14 @@ class PartnerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, array(
+            ->add('name', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
                 'label' => 'Nom',
-            ))
-            ->add('url', TextType::class, array(
+            ])
+            ->add('url', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
                 'label' => 'Lien',
-            ))
+            ])
             ->add('pictureFile', VichImageType::class, [
                     'required' => true,
                     'download_link' => false,
