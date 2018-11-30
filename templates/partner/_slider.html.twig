@@ -13,7 +13,7 @@
                 <div class="col-4">
                     <a href="{{ partner.url }}" class="text-center mx-auto">
                         <img class="carousel-icon align-content-center"
-                             src="{{ asset("/images/partners/") }}{{ partner.picture }}" alt="">
+                             src="{{ asset("/images/partners/"~partner.picture) }}" alt="">
                     </a>
                 </div>
             {% endfor %}
