@@ -220,7 +220,7 @@ hr{
 
 
 
-    button {
+    footer .btn {
         padding-top: 20px;
         font-size: 12pt;
         margin-top: 25px;
@@ -235,7 +235,7 @@ hr{
 
         }
     @media (max-width: 768px) {
-        button{
+        footer .btn{
             font-size: 10pt;
             margin-top: 25px;
         }
