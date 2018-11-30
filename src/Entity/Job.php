@@ -49,11 +49,11 @@ class Job
     private $videoTitle;
 
     /**
-
      * @ORM\ManyToMany(targetEntity="App\Entity\LearningCenter", mappedBy="jobs")
      */
     private $learningCenters;
 
+    /**
      * @ORM\ManyToMany(targetEntity="Company", mappedBy="jobs")
      */
     private $companies;
