@@ -28,8 +28,7 @@ class PartnerType extends AbstractType
                     'allow_delete' => false,
                     'label' => ' ',
                     'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
-                ]
-            );
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
