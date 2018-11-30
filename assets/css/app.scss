@@ -75,7 +75,7 @@ hr {
 .banner {
   background-image: url("../images/server.jpg");
   height: 30vh;
-  width: 100vw;
+  width: 99.5vw;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -283,7 +283,6 @@ hr {
     margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
-    width: 99.5vw;
 
     .container-fluid {
         padding-top: 10px;
@@ -311,9 +310,10 @@ hr {
     }
 }
 
-
-
-    button {
+  .footer{
+    max-width: 99.5vw;
+  }
+    footer .btn {
         padding-top: 20px;
         font-size: 12pt;
         margin-top: 25px;
@@ -324,17 +324,14 @@ hr {
             background-color: transparent !important;
             border: none !important; ;
             box-shadow: none !important ;
-        }
+      }
+      @media (max-width: 768px) {
 
-        }
-    @media (max-width: 768px) {
-        button{
-            font-size: 10pt;
-            margin-top: 25px;
-        }
+        font-size: 10pt;
+        margin-top: 25px;
+      }
 
-
-    }
+  }
 /*comment_list*/
 .admission-color {
     width: 30px;
@@ -365,6 +362,14 @@ button {
 
 /*backToTop*/
 .back-to-top{
+  color: $txtButton;
+  background-color: $buttonColor;
+  border-radius: 50%;
   font-size: 3em;
   padding: 15px;
+  margin-right: 5vw;
+  margin-bottom: 2vh;
+}
+.outline-none{
+  outline: none;
 }
