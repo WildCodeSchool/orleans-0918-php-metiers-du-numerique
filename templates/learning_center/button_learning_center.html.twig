@@ -1,0 +1,24 @@
+<button class="btn buttonModal"
+        id="btn-modal">{{ button_label|default('voir les entreprises') }}</button>
+<div id="myModal" class="overlay">
+    <a href="javascript:void(0)" class="closebutton" id="closebtn" onclick="closeModal()">&times;</a>
+    <div class="container-fluid">
+        <div class="modalSpace">
+            <h1 class="modalTitle">Liste des organismes de formation</h1>
+            <div class="modalSpace"></div>
+            <div class="multiCol">
+                {% for learningCenter in learningCenters %}
+                    <div class="row">
+                        <div class="col-12 mt-4">
+                            <img class="imgModal img-fluid"
+                                 src="{{ asset('build/images/'~learningCenter.picture) }}" alt="{{ learningCenter.name }}"/>
+                            <a class="linkBusiness col-6" href="{{ learningCenter.link }}"
+                               target="_blank">{{ learningCenter.name }}</a>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
