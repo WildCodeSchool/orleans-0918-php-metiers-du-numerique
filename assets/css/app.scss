@@ -9,27 +9,34 @@ $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
-$navbarBgonScroll:rgba(0,0,0,0.7);
+$navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
 $validColor : #C8C8C8;
 $invalidColor : #FFCC80;
 $shadowColor:black;
 $fontFamily:'Roboto Condensed', sans-serif;
-$navbarBgonScroll:rgba(0,0,0,0.7);
-$buttonColor : black;
-$buttonColorHover : grey;
 $txtButton : white;
-$shadowColor: black;
-$fontFamilly:'Roboto Condensed', sans-serif;
-$navbarBgonScroll:rgba(0,0,0,0.7);
-$imageMargin: 4em;
+/*variable modal*/
+$backgroundModal: white;
+$closeButton: grey;
+$closeButtonHover: black;
+$modalSpace: 2em;
+$buttonColor: black;
+$buttonColorHover: grey;
+$txtModalSmall: 16pt;
+$txtModal: 22pt;
+$colorLinkVisited: grey;
+$modalSpace: 5em;
+
+$backgroundComments : #e4e4e4;
+$borderpicture:100%;
 
 @mixin myButtons {
-    background-color: $buttonColor;
-    color: $txtButton;
-    &:hover {
-        background-color: $buttonColorHover;
-    }
+   background-color: $buttonColor;
+   color: $txtButton;
+   &:hover {
+      background-color: $buttonColorHover;
+   }
 }
 
 body {
@@ -39,151 +46,237 @@ body {
 main{
     min-height:100vh;
 }
+
 /*buisness card*/
 .jobPicture{
     min-height: 32vh;
-    min-width: 40vh;
-    max-height: 32vh;
-    max-width: 40vh;
+   min-width: 40vh;
+   max-height: 32vh;
+   max-width: 40vh;
 }
 
 
 .faback {
-    font-size: $faBack;
+   font-size: $faBack;
 }
 
-hr{
-    border: $bordecolor;
-    border-style: inset;
-    border-width: 1px;
-    margin: $marginSection;
+hr {
+   border: $bordecolor;
+   border-style: inset;
+   border-width: 1px;
+   margin: $marginSection;
 }
+
 .sectionSpace {
-    margin-top: $marginSection
+   margin-top: $marginSection
 }
 
 /*banner*/
 .banner {
-    background-image: url("../images/server.jpg");
-    height: 30vh;
-    width: 100vw;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    text-align: center;
-    margin-bottom: 50px;
+  background-image: url("../images/server.jpg");
+  height: 30vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 50px;
 
-    .banner-content {
-        position: relative;
-        top: 150px;
+  .banner-content {
+    position: relative;
+    top: 150px;
 
 
+    .title {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 20px;
+      margin-left: 0px;
+      border-right: 2px solid rgba(255, 255, 255, .75);
+      font-size: 3.2vw;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      transform: translateY(-50%);
+      text-transform: uppercase;
 
-        .title {
-            margin-top: 0px;
-            margin-right: 0px;
-            margin-bottom: 20px;
-            margin-left: 0px;
-            border-right: 2px solid rgba(255, 255, 255, .75);
-            font-size: 3.2vw;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            transform: translateY(-50%);
-            text-transform: uppercase;
-
-        }
-            @media (max-width: 992px){
-                .title{
-                    min-width: 80vw;
-                }
-            }
-        .typewriter {
-            animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
-            color: #fff;
-        }
     }
+
+    @media (max-width: 992px) {
+      .title {
+        min-width: 80vw;
+      }
+    }
+
+    .typewriter {
+      animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
+      color: #fff;
+    }
+  }
 }
+
 @keyframes typewriter {
-    from { width: 0; }
-    to { width: 16.3em; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 16.3em;
+  }
 }
 
 @keyframes blinkTextCursor {
-    from {
-        border-right-color: #fff;
-    }
-    to {
-        border-right-color: transparent;
-    }
+   from {
+      border-right-color: #fff;
+   }
+   to {
+      border-right-color: transparent;
+   }
 }
 
 /*navbar*/
 
 .custom-navbar-on-scroll {
-    background-color: $navbarBgonScroll;
+   background-color: $navbarBgonScroll;
 }
+
 @media (max-width: 992px) {
-    .custom-navbar {
-        background-color: $navbarBgonScroll;
-    }
+   .custom-navbar {
+      background-color: $navbarBgonScroll;
+   }
 }
 
 @media (min-width: 992px) {
-    .custom-navbar{
-        background-color: transparent;
-        text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
-    }
-}
-.navbar{
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: $fontFamily;
-    .logo-nav{
-        max-height: 50px;
-        max-width: 50px;
-        margin-left: 2vw;
-        margin-right:2vw;
-    }
-    .align-right{
-        margin-left: 25vw;
-    }
+  .custom-navbar {
+    background-color: transparent;
+    text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
+  }
 }
 
+.navbar {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: $fontFamily;
+
+  .logo-nav {
+    max-height: 50px;
+    max-width: 50px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
+
+  .align-right {
+    margin-left: 25vw;
+  }
+}
 
 
 /*slider partner*/
-.title_partners{
-    white-space: nowrap;
+.title_partners {
+   white-space: nowrap;
 }
-.slider-patners{
-    max-height: 600px;
-    max-width: 600px;
-    min-height: 600px;
-    min-width: 600px;
+
+.slider-patners {
+  max-height: 600px;
+  max-width: 600px;
+  min-height: 600px;
+  min-width: 600px;
 }
 
 .name-patner{
 
-    font-weight: bold;
+   font-weight: bold;
 
-    font-size: 2em;
+   font-size: 2em;
 }
-.marginImage{
-    margin-bottom: $imageMargin;
+
+.marginImage {
+  margin-bottom: $imageMargin;
 }
 
 /*button add category*/
 .buttonCategory {
-    @include myButtons;
-    height: 48px;
-}
-.newCategory {
-    margin-left: -15px;
+   @include myButtons;
+   height: 48px;
 }
 
-.marginImage{
-    margin-bottom: $imageMargin;
+.newCategory {
+  margin-left: -15px;
+}
+
+.marginImage {
+  margin-bottom: $imageMargin;
+}
+
+/*button modal*/
+.buttonModal {
+  @include myButtons;
+  height: 48px;
+}
+
+/*modal company*/
+.linkBusiness {
+  font-size: $txtModal;
+
+  &:hover {
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+    color: $colorLinkVisited;
+  }
+}
+
+.multiCol {
+  column-count: 2;
+}
+
+.imgModal {
+  border-radius: 100%;
+  width: 75px;
+  height: 75px;
+  opacity: 0.9;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1040;
+  left: 0;
+  top: 0;
+  background-color: $backgroundModal;
+  overflow-x: hidden;
+  transition: width 0.5s;
+}
+
+.closebutton {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: $closeButton;
+
+  &:hover {
+    text-decoration: none;
+    color: $closeButtonHover;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .linkBusiness {
+    font-size: $txtModalSmall;
+  }
+  .closebutton {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+.modalSpace {
+  margin-top: $modalSpace;
 }
 /*footer*/
 .footer {
@@ -253,6 +346,16 @@ hr{
 }
 .not-valid {
     background-color: $invalidColor;
+}
+.commentHeight{
+    min-height: 40vh;
+}
+.commentBackground{
+    background-color: $backgroundComments;
+}
+/*picture*/
+.circlePicture {
+    border-radius: $borderpicture;
 }
 button {
         margin-top: 15px;

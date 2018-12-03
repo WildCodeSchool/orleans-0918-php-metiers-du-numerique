@@ -49,14 +49,21 @@ class Job
     private $videoTitle;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Company", mappedBy="jobs")
+     */
+    private $companies;
+  
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob")
      */
     private $associatedComments;
 
     public function __construct()
     {
+        $this->companies = new ArrayCollection();
         $this->associatedComments = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -136,6 +143,22 @@ class Job
     }
 
     /**
+     * @return Collection|Company[]
+     */
+    public function getCompanies(): Collection
+    {
+        return $this->companies;
+    }
+
+    public function addCompanies(Company $company): self
+    {
+        if (!$this->companies->contains($company)) {
+            $this->companies[] = $company;
+            $company->addJob($this);
+        }
+    }
+  
+    /**
      * @return Collection|Comment[]
      */
     public function getAssociatedComments(): Collection
@@ -151,6 +174,14 @@ class Job
         }
 
         return $this;
+    }
+
+    public function removeCompanies(Company $company): self
+    {
+        if ($this->companies->contains($company)) {
+            $this->companies->removeElement($company);
+            $company->removeJob($this);
+        }
     }
 
     public function removeAssociatedComment(Comment $associatedComment): self
