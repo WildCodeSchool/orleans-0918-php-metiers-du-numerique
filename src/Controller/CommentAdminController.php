@@ -33,7 +33,6 @@ class CommentAdminController extends AbstractController
     {
         return $this->render('comment_admin/show.html.twig', [
             'comment'=>$comment,
-            'job'=>$comment->getAssociatedJob(),
         ]);
     }
 }
