@@ -49,6 +49,11 @@ class Job
     private $videoTitle;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\LearningCenter", mappedBy="jobs")
+     */
+    private $learningCenters;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Company", mappedBy="jobs")
      */
     private $companies;
@@ -60,7 +65,11 @@ class Job
 
     public function __construct()
     {
+
+        $this->learningCenters = new ArrayCollection();
+
         $this->companies = new ArrayCollection();
+
         $this->associatedComments = new ArrayCollection();
     }
 
@@ -143,6 +152,22 @@ class Job
     }
 
     /**
+     * @return Collection|LearningCenter[]
+     */
+    public function getLearningCenters(): Collection
+    {
+        return $this->learningCenters;
+    }
+
+    public function addLearningCenter(LearningCenter $learningCenter): self
+    {
+        if (!$this->learningCenters->contains($learningCenter)) {
+            $this->learningCenters[] = $learningCenter;
+            $learningCenter->addJob($this);
+        }
+    }
+      
+     /**
      * @return Collection|Company[]
      */
     public function getCompanies(): Collection
@@ -176,6 +201,14 @@ class Job
         return $this;
     }
 
+    public function removeLearningCenter(LearningCenter $learningCenter): self
+    {
+        if ($this->learningCenters->contains($learningCenter)) {
+            $this->learningCenters->removeElement($learningCenter);
+            $learningCenter->removeJob($this);
+        }
+    }
+  
     public function removeCompanies(Company $company): self
     {
         if ($this->companies->contains($company)) {
