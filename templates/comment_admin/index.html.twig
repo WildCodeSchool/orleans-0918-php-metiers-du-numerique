@@ -50,7 +50,7 @@
                             <td>{{ comment.firstname ~ ' ' ~ comment.lastname }}</td>
                             <td>
                                 <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('comment_show', {'id': comment.id}) }}"><i class="far fa-eye"></i></a>
+                                   href="{{ path('comment_admin_show', {'id': comment.id}) }}"><i class="far fa-eye"></i></a>
                             </td>
                         </tr>
                     {% endif %}
