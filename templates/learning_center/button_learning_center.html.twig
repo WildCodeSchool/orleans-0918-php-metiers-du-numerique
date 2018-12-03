@@ -1,13 +1,13 @@
 <button class="btn buttonModal"
         id="btn-modalLearning">{{ button_label|default('voir les organismes de formation') }}</button>
 <div id="myModalLearning" class="overlayLearning">
-    <a href="javascript:void(0)" class="closebutton" id="closebtnLearning" onclick="closeModal()">&times;</a>
+    <a class="closebutton" id="closebtnLearning">&times;</a>
     <div class="container-fluid">
         <div class="modalSpace">
             <h1 class="modalTitle">Liste des organismes de formation</h1>
             <div class="modalSpace"></div>
             <div class="multiCol">
-                {% for learningCenter in learningCenters %}
+                {% for learningCenter in job.learningCenters %}
                     <div class="row">
                         <div class="col-12 mt-4">
                             <img class="imgModal img-fluid"

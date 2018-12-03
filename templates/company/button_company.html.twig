@@ -1,13 +1,13 @@
 <button class="btn buttonModal"
         id="btn-modalCompany">{{ button_label|default('voir les entreprises') }}</button>
 <div id="myModalCompany" class="overlayCompany">
-    <a href="javascript:void(0)" class="closebutton" id="closebtnCompany" onclick="closeModal()">&times;</a>
+    <a class="closebutton" id="closebtnCompany">&times;</a>
     <div class="container-fluid">
         <div class="modalSpace">
             <h1 class="modalTitle">Liste des entreprises</h1>
             <div class="modalSpace"></div>
             <div class="multiCol">
-                {% for company in companies %}
+                {% for company in job.companies %}
                     <div class="row">
                         <div class="col-12 mt-4">
                             <img class="imgModal img-fluid"
