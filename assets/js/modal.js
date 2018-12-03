@@ -1,11 +1,23 @@
 
-button = $("#btn-modal");
+button = $("#btn-modalCompany");
 $(button).on("click", function (e) {
-    document.getElementById("myModal").style.width = "100%";
+    document.getElementById("myModalCompany").style.width = "100%";
 
 
 })
-closebutton = $("#closebtn");
+closebutton = $("#closebtnCompany");
 $(closebutton).on("click", function (e) {
-    document.getElementById("myModal").style.width = "0%";
+    document.getElementById("myModalCompany").style.width = "0%";
+})
+
+
+button = $("#btn-modalLearning");
+$(button).on("click", function (e) {
+    document.getElementById("myModalLearning").style.width = "100%";
+
+
+})
+closebutton = $("#closebtnLearning");
+$(closebutton).on("click", function (e) {
+    document.getElementById("myModalLearning").style.width = "0%";
 })

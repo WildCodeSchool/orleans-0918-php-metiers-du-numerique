@@ -40,6 +40,16 @@ $borderpicture:100%;
       background-color: $buttonColorHover;
    }
 }
+@mixin overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1040;
+  top: 0;
+  background-color: $backgroundModal;
+  overflow-x: hidden;
+  transition: width 0.5s;
+}
 
 body {
     background-color: $backgroundColor;
@@ -244,16 +254,13 @@ hr {
   opacity: 0.9;
 }
 
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1040;
+.overlayCompany {
+  @include overlay;
   left: 0;
-  top: 0;
-  background-color: $backgroundModal;
-  overflow-x: hidden;
-  transition: width 0.5s;
+}
+.overlayLearning {
+  @include overlay;
+  right: 0;
 }
 
 .closebutton {
