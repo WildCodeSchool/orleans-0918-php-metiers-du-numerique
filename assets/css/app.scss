@@ -441,12 +441,8 @@ p{
     font-size: small;
 }
 .buttonLearningValid{
-    a{
-        font-size: $fontSize;
-    }
-    text-align: center;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    @include myButtons;
+    height: 48px;
 }
 .learningRadioCheck{
     text-align: center;
