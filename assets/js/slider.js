@@ -3,7 +3,8 @@ $('.single-item').slick({
     centerPadding: '50px',
     infinite: true,
     autoplay:true,
-    autoplaySpeed:2000,
+    dots:false,
+    autoplaySpeed:500,
     slidesToShow: 5,
     responsive: [
         {
@@ -11,7 +12,7 @@ $('.single-item').slick({
             settings: {
                 arrows: true,
                 centerMode: true,
-                centerPadding: '40px',
+                centerPadding: '50px',
                 slidesToShow: 3
             }
         },
@@ -20,10 +21,9 @@ $('.single-item').slick({
             settings: {
                 arrows: true,
                 centerMode: true,
-
+                centerPadding: '50px',
                 slidesToShow: 1
             }
         }
     ]
 });
-			

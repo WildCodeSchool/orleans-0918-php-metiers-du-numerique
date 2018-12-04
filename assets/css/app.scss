@@ -25,8 +25,6 @@ body {
     max-height: 32vh;
     max-width: 40vh;
 }
-
-
 .faback {
     font-size: $faBack;
 }
@@ -55,9 +53,6 @@ hr{
     .banner-content {
         position: relative;
         top: 150px;
-
-
-
         .title {
             margin-top: 0px;
             margin-right: 0px;
@@ -91,12 +86,6 @@ hr{
         border-right-color: transparent;
     }
 }
-
-/*navbar*/
-//.custom-navbar{
-//    background-color: transparent;
-//    text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
-//}
 .custom-navbar-on-scroll {
     background-color: $navbarBgonScroll;
 }
@@ -127,76 +116,60 @@ hr{
     }
 }
 
-
-
 /*slider partner*/
 .container-slider {
     min-height: 300px;
     padding-top: 10vh;
+    max-width: 1050px;
+    @media (max-width: 769px) {
+        padding-left: 53px;
+    }
+  img{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background-color:white;
+  object-fit: contain;
+  filter: grayscale(80%);
+  @media (max-width: 576px) {
+    width: 100px;
+    height: 100px;
+  }
 }
-//
-//.slick-slide {
-//    text-align: center;
-//    color: #419be0;
-//}
-//.slick-slider{
-//  margin-left: 10vw;
-//  padding-left: 2vw;
-//}
-//@media (max-width: 480px) {
-//  img{
-//    padding: 15px;
-//    border-radius: 50%;
-//    width: 100px;
-//    height: 100px;
-//    background-color:white;
-//  }
-//}
-img{
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    background-color:white;
-    object-fit: contain;
-    display: none;
-    padding-top:10px;
-
-
-}
-.slick-slide img {
-    display: none;
-}
-.slick-active img{
-    display: block;
+  .slick-active img{
     filter: grayscale(80%);
     &:hover{
-        transform: scale(1.1, 1.1);
-        filter: grayscale(0%) contrast(120%);
+      transform: scale(1.1, 1.1);
+      filter: grayscale(0%) contrast(120%);
     }
-}
-
-
-//
-.slick-center img{
+  }
+  .slick-list{
+    margin-right: 50px;
+  }
+  .slick-next{
+    right: 20px;
+    @media (max-width: 576px) {
+      right: 15px;
+      top: 80px;
+    }
+  }
+  @media (max-width: 576px) {
+    .slick-prev{
+      top: 80px;
+    }
+  }
+  .slick-center img{
     filter: grayscale(0%) contrast(120%);
     &:hover{
-        transform: scale(1.1, 1.1);
+      transform: scale(1.1, 1.1);
     }
-}
-.slick-track{
+  }
+  .slick-track{
     min-height: 200px;
     padding-top: 30px;
+  }
+}
+a {
+    outline: none;
 }
 
-//.slick-active h3{
-//    display: contents;
-//    //margin-left:-10vw;
-//    font-size: 10pt;
-//}
-//.slick-active a{
-//
-//    min-width: 200px;
-//}
-//slick-active img{
-//    margin-bottom: 50px;
-//}

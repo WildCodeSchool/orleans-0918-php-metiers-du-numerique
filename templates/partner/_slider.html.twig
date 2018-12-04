@@ -1,23 +1,26 @@
-<div class="container-fluid bg-dark">
-    <div class='container-slider container'>
-        <div class='single-item'>
-            {% for partner in partners %}
-                <div class="col-4">
-                    <a href="{{ partner.url }}" class="text-center mx-auto">
-                        <img class="carousel-icon align-content-center"
-                             src="{{ asset("images/partners/") }}{{ partner.picture }}" alt="">
-                    </a>
-                </div>
-            {% endfor %}
-            {% for partner in partners %}
-                <div class="col-4">
-                    <a href="{{ partner.url }}" class="text-center mx-auto">
-                        <img class="carousel-icon align-content-center"
-                             src="{{ asset("images/partners/") }}{{ partner.picture }}" alt="">
-                    </a>
-                </div>
-            {% endfor %}
+{% if partners|length > 0 %}
+    <div class="container-fluid bg-dark">
+        <div class='container-slider container'>
+            <div class='single-item'>
+                {% for partner in partners %}
+                    <div class="">
+                        <a href="{{ partner.url }}" class="text-center mx-auto">
+                            <img class="carousel-icon align-content-center"
+                                 src="{{ asset("images/partners/") }}{{ partner.picture }}" alt="">
+                        </a>
+                    </div>
+                {% endfor %}
+                {% if partners|length < 5 %}
+                    {% for partner in partners %}
+                        <div class="ml-3">
+                            <a href="{{ partner.url }}" class="text-center mx-auto">
+                                <img class="carousel-icon align-content-center"
+                                     src="{{ asset("images/partners/") }}{{ partner.picture }}" alt="">
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
-
+{% endif %}
