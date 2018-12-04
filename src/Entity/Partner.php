@@ -3,12 +3,35 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
+ * @Vich\Uploadable
  */
 class Partner
 {
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="partners", fileNameProperty="picture")
+     * @var File
+     * @Assert\Image(maxSize="2M",maxSizeMessage="Cette image est trop volumineuse.")
+     */
+    private $pictureFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -18,18 +41,23 @@ class Partner
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ' ]+$/i",
+     *              message="Votre nom ne doit contenir que des lettres")
+     * @Assert\NotBlank(message="Ce champs ne peut être vide")
+     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
+     *              maxMessage="Le champ comporte trop de caractère")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Url(message="votre lien est invalide")
+     * @Assert\Length(min="11", max="255",minMessage="Le champs ne comporte pas assez de caractère",
+     *                  maxMessage="Le champ comporte trop de caractère")
+
+     * @Assert\NotBlank(message="Ce champs ne peut être vide")
      */
     private $url;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $picture;
 
     public function getId(): ?int
     {
@@ -70,5 +98,23 @@ class Partner
         $this->picture = $picture;
 
         return $this;
+    }
+    
+    public function setPictureFile(File $picture = null)
+    {
+        $this->pictureFile = $picture;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($picture) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
     }
 }
