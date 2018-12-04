@@ -5,6 +5,7 @@
 
 $colorFontButton : white;
 $fontColor: black;
+$marginCommentSpace :4em;
 $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
@@ -29,7 +30,9 @@ $txtModalSmall: 16pt;
 $txtModal: 22pt;
 $colorLinkVisited: grey;
 $modalSpace: 5em;
+$principalFontSize : 1.3em;
 
+$heightButton : 48px;
 $backgroundComments : #e4e4e4;
 $borderpicture:100%;
 
@@ -39,6 +42,16 @@ $borderpicture:100%;
    &:hover {
       background-color: $buttonColorHover;
    }
+}
+@mixin overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1040;
+  top: 0;
+  background-color: $backgroundModal;
+  overflow-x: hidden;
+  transition: width 0.5s;
 }
 
 body {
@@ -75,12 +88,15 @@ hr {
 .sectionSpace {
    margin-top: $marginSection
 }
+.commentSpace{
+  margin-top : $marginCommentSpace;
+}
 
 /*banner*/
 .banner {
   background-image: url("../images/server.jpg");
   height: 30vh;
-  width: 100vw;
+  width: 99.5vw;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -201,7 +217,7 @@ hr {
 /*button add category*/
 .buttonCategory {
    @include myButtons;
-   height: 48px;
+   height: $heightButton;
 }
 
 .newCategory {
@@ -215,7 +231,9 @@ hr {
 /*button modal*/
 .buttonModal {
   @include myButtons;
-  height: 48px;
+  height: $heightButton;
+  min-width: 350px;
+  margin-top: 40px;
 }
 
 /*modal company*/
@@ -244,16 +262,13 @@ hr {
   opacity: 0.9;
 }
 
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1040;
+.overlayCompany {
+  @include overlay;
   left: 0;
-  top: 0;
-  background-color: $backgroundModal;
-  overflow-x: hidden;
-  transition: width 0.5s;
+}
+.overlayLearning {
+  @include overlay;
+  right: 0;
 }
 
 .closebutton {
@@ -262,6 +277,7 @@ hr {
   right: 45px;
   font-size: 60px;
   color: $closeButton;
+  cursor: pointer;
 
   &:hover {
     text-decoration: none;
@@ -288,7 +304,6 @@ hr {
     margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
-    width: 100vw;
 
     .container-fluid {
         padding-top: 10px;
@@ -315,6 +330,16 @@ hr {
 
     }
 }
+
+    button {
+      padding-top: 20px;
+      font-size: 12pt;
+      margin-top: 25px;
+      margin-right: 5vw;
+      background-color: transparent;
+    }
+
+
     .footer{
             width: 99.5vw;
         }
@@ -325,11 +350,10 @@ hr {
             margin-right: 5vw;
             background-color: transparent;
             @media (max-width: 768px) {
-
                 font-size: 10pt;
                 margin-top: 25px;
-
         }
+
         &:hover, &:focus, &:active {
             background-color: transparent !important;
             border: none !important; ;
@@ -363,8 +387,32 @@ button {
         margin-right: 2vw;
 
 }
+/*font-size*/
+p{
+  font-size: $principalFontSize;
+}
 
 /*company show*/
+@media (max-width: 768px) {
+  .commentInfo {
+    text-align: center;
+  }
+}
+
+
+/*backToTop*/
+.back-to-top{
+  color: $txtButton;
+  background-color: $buttonColor;
+  border-radius: 50%;
+  font-size: 3em;
+  padding: 15px;
+  margin-right: 5vw;
+  margin-bottom: 2vh;
+}
+.outline-none{
+  outline: none;
+}
 
 .company{
   font-size: $fontSize;
@@ -410,3 +458,19 @@ button {
   margin-bottom: 10vh;
 }
 
+.buttonLearningValid{
+    @include myButtons;
+    height: 48px;
+}
+.learningRadioCheck{
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+ .learningInfo{
+     color: #4c4c4c;
+ }
+ .learningJob{
+     margin-top: 10vh;
+     margin-bottom: 10vh;
+ }
