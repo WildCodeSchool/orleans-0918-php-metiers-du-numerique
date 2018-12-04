@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Company{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container learningCenter">
+            <div class="row">
+                <div class="learningInfo col-sm-12 col-md-6 col-lg-6">
+                    <h2 class="learningName">{{ company.name }}</h2>
+                    <h3 class="learningMail">{{ company.mail }}</h3>
+                    <a class="learningLink" href="{{ company.link }}"> Voir le Site Web</a>
+                </div>
+                <div class="col-sm-12 col-md-6 offset-lg-2 col-lg-4">
+                    <img class="imgLearningSchool" src="{{ asset('build/images/'~company.picture) }}" alt="image de l'entreprise {{ company.name }}">
+                </div>
+            </div>
+
+            <div class="learningJob">
+                <p>Métiers de l'entreprise :</p>
+                <ul>
+                    {% for job in company.jobs %}
+                        <li>{{ job.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="learningRadioCheck">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">Accepter l'organisme</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3">Supprimer l'organisme</label>
+                </div>
+            </div>
+            <div class="buttonLearningValid">
+                <a href="#"  class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Valider</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
