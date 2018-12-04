@@ -5,12 +5,15 @@
 
 $colorFontButton : white;
 $fontColor: black;
+$marginCommentSpace :4em;
 $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
+$fontColor: black;
+$fontSize:16pt;
 $validColor : #C8C8C8;
 $invalidColor : #FFCC80;
 $shadowColor:black;
@@ -34,6 +37,8 @@ $txtModalSmall: 16pt;
 $txtModal: 22pt;
 $colorLinkVisited: grey;
 $modalSpace: 5em;
+$principalFontSize : 1.3em;
+$heightButton : 48px;
 $backgroundComments : #e4e4e4;
 $borderpicture:100%;
 
@@ -44,16 +49,29 @@ $borderpicture:100%;
       background-color: $buttonColorHover;
    }
 }
+@mixin overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1040;
+  top: 0;
+  background-color: $backgroundModal;
+  overflow-x: hidden;
+  transition: width 0.5s;
+}
 
 body {
     background-color: $backgroundColor;
     color: $fontColor;
 }
+
 main{
     min-height:100vh;
+
 }
 
-/*buisness card*/
+/*business card*/
+
 .jobPicture{
     min-height: 32vh;
    min-width: 40vh;
@@ -76,12 +94,15 @@ hr {
 .sectionSpace {
    margin-top: $marginSection
 }
+.commentSpace{
+  margin-top : $marginCommentSpace;
+}
 
 /*banner*/
 .banner {
   background-image: url("../images/server.jpg");
   height: 30vh;
-  width: 100vw;
+  width: 99.5vw;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -202,7 +223,7 @@ hr {
 /*button add category*/
 .buttonCategory {
    @include myButtons;
-   height: 48px;
+   height: $heightButton;
 }
 
 .newCategory {
@@ -216,7 +237,9 @@ hr {
 /*button modal*/
 .buttonModal {
   @include myButtons;
-  height: 48px;
+  height: $heightButton;
+  min-width: 350px;
+  margin-top: 40px;
 }
 
 /*modal company*/
@@ -245,16 +268,13 @@ hr {
   opacity: 0.9;
 }
 
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1040;
+.overlayCompany {
+  @include overlay;
   left: 0;
-  top: 0;
-  background-color: $backgroundModal;
-  overflow-x: hidden;
-  transition: width 0.5s;
+}
+.overlayLearning {
+  @include overlay;
+  right: 0;
 }
 
 .closebutton {
@@ -263,6 +283,7 @@ hr {
   right: 45px;
   font-size: 60px;
   color: $closeButton;
+  cursor: pointer;
 
   &:hover {
     text-decoration: none;
@@ -360,7 +381,6 @@ hr {
     margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
-    width: 100vw;
 
     .container-fluid {
         padding-top: 10px;
@@ -387,9 +407,11 @@ hr {
 
     }
 }
+
     .footer{
             width: 99.5vw;
         }
+
       footer .btn {
           padding-top: 20px;
           font-size: 12pt;
@@ -400,6 +422,7 @@ hr {
 
               font-size: 10pt;
               margin-top: 25px;
+
         }
 
         &:hover, &:focus, &:active {
@@ -436,3 +459,80 @@ button {
         margin-right: 2vw;
 
 }
+
+/*font-size*/
+p{
+  font-size: $principalFontSize;
+}
+
+@media (max-width: 768px) {
+  .commentInfo {
+    text-align: center;
+  }
+}
+
+
+/*backToTop*/
+.back-to-top{
+  color: $txtButton;
+  background-color: $buttonColor;
+  border-radius: 50%;
+  font-size: 3em;
+  padding: 15px;
+  margin-right: 5vw;
+  margin-bottom: 2vh;
+}
+.outline-none{
+  outline: none;
+}
+
+/*learning center show*/
+
+.learningCenter{
+    font-size: $fontSize;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.imgLearningSchool{
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-radius:50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+
+}
+.learningName{
+    font-size: xx-large;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.learningMail{
+    font-size: medium;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.learningLink{
+    font-size: small;
+}
+.buttonLearningValid{
+    a{
+        font-size: $fontSize;
+    }
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.learningRadioCheck{
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+ .learningInfo{
+     color: #4c4c4c;
+ }
+ .learningJob{
+     margin-top: 10vh;
+     margin-bottom: 10vh;
+ }
+

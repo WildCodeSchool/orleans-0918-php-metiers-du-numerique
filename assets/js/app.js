@@ -17,4 +17,5 @@ import 'bootstrap';
 import "./onScroll";
 import "./previewUpload";
 import "./modal";
+import "./backToTop";
 
