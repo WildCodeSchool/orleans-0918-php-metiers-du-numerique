@@ -30,6 +30,7 @@ $txtModal: 22pt;
 $colorLinkVisited: grey;
 $modalSpace: 5em;
 
+$heightButton : 48px;
 $backgroundComments : #e4e4e4;
 $borderpicture:100%;
 
@@ -211,7 +212,7 @@ hr {
 /*button add category*/
 .buttonCategory {
    @include myButtons;
-   height: 48px;
+   height: $heightButton;
 }
 
 .newCategory {
@@ -225,10 +226,11 @@ hr {
 /*button modal*/
 .buttonModal {
   @include myButtons;
-  height: 48px;
+  height: $heightButton;
   min-width: 350px;
   margin-top: 40px;
 }
+
 
 /*modal company*/
 .linkBusiness {
