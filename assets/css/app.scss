@@ -5,6 +5,7 @@
 
 $colorFontButton : white;
 $fontColor: black;
+$marginCommentSpace :4em;
 $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
@@ -29,6 +30,7 @@ $txtModalSmall: 16pt;
 $txtModal: 22pt;
 $colorLinkVisited: grey;
 $modalSpace: 5em;
+$principalFontSize : 1.3em;
 
 $backgroundComments : #e4e4e4;
 $borderpicture:100%;
@@ -74,6 +76,9 @@ hr {
 
 .sectionSpace {
    margin-top: $marginSection
+}
+.commentSpace{
+  margin-top : $marginCommentSpace;
 }
 
 /*banner*/
@@ -314,6 +319,14 @@ hr {
 
     }
 }
+
+    button {
+        padding-top: 20px;
+        font-size: 12pt;
+        margin-top: 25px;
+        margin-right: 5vw;
+        background-color: transparent;
+
     .footer{
             width: 99.5vw;
         }
@@ -327,6 +340,7 @@ hr {
                 font-size: 10pt;
                 margin-top: 25px;
         }
+
         &:hover, &:focus, &:active {
             background-color: transparent !important;
             border: none !important; ;
@@ -360,6 +374,17 @@ button {
         margin-right: 2vw;
 
 }
+/*font-size*/
+p{
+  font-size: $principalFontSize;
+}
+
+@media (max-width: 768px) {
+  .commentInfo {
+    text-align: center;
+  }
+}
+
 
 /*backToTop*/
 .back-to-top{
