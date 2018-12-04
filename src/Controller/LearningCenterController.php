@@ -49,14 +49,6 @@ class LearningCenterController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="learning_center_show", methods="GET")
-     */
-    public function show(LearningCenter $learningCenter): Response
-    {
-        return $this->render('learning_center/show.html.twig', ['learning_center' => $learningCenter]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="learning_center_edit", methods="GET|POST")
      */
     public function edit(Request $request, LearningCenter $learningCenter): Response

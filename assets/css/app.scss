@@ -5,6 +5,7 @@
 
 $colorFontButton : white;
 $fontColor: black;
+$marginCommentSpace :4em;
 $marginSection : 8em;
 $faBack : 3em;
 $backgroundColor: white;
@@ -14,10 +15,17 @@ $imageMargin: 4em;
 $fontColor: black;
 $fontSize:16pt;
 $validColor : #C8C8C8;
-$invalidColor : #FFCC80;
+$invalidColor : #343a40;
 $shadowColor:black;
 $fontFamily:'Roboto Condensed', sans-serif;
 $txtButton : white;
+$shadowColor: black;
+$fontFamilly:'Roboto Condensed', sans-serif;
+$navbarBgonScroll:rgba(0,0,0,0.7);
+$imageMargin: 4em;
+$colorLabel:#7b7b7b;
+$colorInput:#d1d1d1;
+
 /*variable modal*/
 $backgroundModal: white;
 $closeButton: grey;
@@ -29,7 +37,8 @@ $txtModalSmall: 16pt;
 $txtModal: 22pt;
 $colorLinkVisited: grey;
 $modalSpace: 5em;
-
+$principalFontSize : 1.3em;
+$heightButton : 48px;
 $backgroundComments : #e4e4e4;
 $borderpicture:100%;
 
@@ -39,6 +48,16 @@ $borderpicture:100%;
    &:hover {
       background-color: $buttonColorHover;
    }
+}
+@mixin overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1040;
+  top: 0;
+  background-color: $backgroundModal;
+  overflow-x: hidden;
+  transition: width 0.5s;
 }
 
 body {
@@ -75,12 +94,15 @@ hr {
 .sectionSpace {
    margin-top: $marginSection
 }
+.commentSpace{
+  margin-top : $marginCommentSpace;
+}
 
 /*banner*/
 .banner {
   background-image: url("../images/server.jpg");
   height: 30vh;
-  width: 100vw;
+  width: 99.5vw;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -201,7 +223,7 @@ hr {
 /*button add category*/
 .buttonCategory {
    @include myButtons;
-   height: 48px;
+   height: $heightButton;
 }
 
 .newCategory {
@@ -215,7 +237,9 @@ hr {
 /*button modal*/
 .buttonModal {
   @include myButtons;
-  height: 48px;
+  height: $heightButton;
+  min-width: 350px;
+  margin-top: 40px;
 }
 
 /*modal company*/
@@ -244,16 +268,13 @@ hr {
   opacity: 0.9;
 }
 
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1040;
+.overlayCompany {
+  @include overlay;
   left: 0;
-  top: 0;
-  background-color: $backgroundModal;
-  overflow-x: hidden;
-  transition: width 0.5s;
+}
+.overlayLearning {
+  @include overlay;
+  right: 0;
 }
 
 .closebutton {
@@ -262,6 +283,7 @@ hr {
   right: 45px;
   font-size: 60px;
   color: $closeButton;
+  cursor: pointer;
 
   &:hover {
     text-decoration: none;
@@ -283,12 +305,82 @@ hr {
 .modalSpace {
   margin-top: $modalSpace;
 }
+/*form add partners*/
+#partner_pictureFile_file {
+    .custom-file-input {
+        position: relative;
+        z-index: 2;
+        width: 0px;
+        height: 50px;
+        opacity: 0;
+        margin-bottom: 50px;
+    }
+}
+.custom-file-input:focus ~ .custom-file-label {
+    border-color:transparent;
+    box-shadow: transparent;
+}
+.vich-image{
+    .custom-file {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: calc(2.8125rem + 0);
+        margin-bottom: 50px;
+    }
+}
+.custom-file-label {
+    background-color:#d1d1d1;
+    text-align: center;
+    height: 45px;
+}
+@media (max-width: 576px) {
+    .custom-file-label {
+        text-align: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+.custom-file-label::after {
+    background-color:$colorLabel !important;
+    color:$txtButton !important;
+    content: "Parcourir...";
+}
+.button-save{
+    min-width: 150px;
+    background-color: $buttonColor;
+    color: $txtButton;
+}
+.preview-img{
+    border-radius: 50%;
+    margin-left: 25px;
+    width:300px;
+    height: 300px;
+    object-fit: contain;
+    border: 2px solid $colorLabel;
+    background-color: $backgroundColor;
+}
+.title-form{
+    padding-right: 6vw;
+    margin-bottom: 5vh;
+}
+.prep-color{
+    background-color:$colorLabel !important;
+    color:$txtButton !important;
+}
+.color-input{
+    background-color:$colorInput;
+}
+.invalid-feedback{
+    margin-bottom: 2vh;
+    font-weight: bold;
+}
 /*footer*/
 .footer {
     margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
-    width: 100vw;
 
     .container-fluid {
         padding-top: 10px;
@@ -315,27 +407,31 @@ hr {
 
     }
 }
+
     .footer{
             width: 99.5vw;
         }
-        footer .btn {
-            padding-top: 20px;
-            font-size: 12pt;
-            margin-top: 25px;
-            margin-right: 5vw;
-            background-color: transparent;
-            @media (max-width: 768px) {
 
-                font-size: 10pt;
-                margin-top: 25px;
+      footer .btn {
+          padding-top: 20px;
+          font-size: 12pt;
+          margin-top: 25px;
+          margin-right: 5vw;
+          background-color: transparent;
+          @media (max-width: 768px) {
+
+              font-size: 10pt;
+              margin-top: 25px;
 
         }
+
         &:hover, &:focus, &:active {
             background-color: transparent !important;
             border: none !important; ;
             box-shadow: none !important ;
         }
     }
+
 /*comment_list*/
 .admission-color {
     width: 30px;
@@ -347,6 +443,10 @@ hr {
 }
 .not-valid {
     background-color: $invalidColor;
+    color: $txtButton;
+}
+.eye-white{
+  color: $txtButton;
 }
 .commentHeight{
     min-height: 40vh;
@@ -361,9 +461,37 @@ hr {
 button {
         margin-top: 15px;
         margin-right: 2vw;
-
 }
 
+.nowrap{
+  white-space: nowrap;
+}
+/*font-size*/
+p{
+  font-size: $principalFontSize;
+}
+
+@media (max-width: 768px) {
+  .commentInfo {
+    text-align: center;
+  }
+}
+
+
+/*backToTop*/
+.back-to-top{
+  color: $txtButton;
+  background-color: $buttonColor;
+  border-radius: 50%;
+  font-size: 3em;
+  padding: 15px;
+  margin-right: 5vw;
+  margin-bottom: 2vh;
+}
+.outline-none{
+  outline: none;
+
+}
 
 /*learning center show*/
 
@@ -395,12 +523,8 @@ button {
     font-size: small;
 }
 .buttonLearningValid{
-    a{
-        font-size: $fontSize;
-    }
-    text-align: center;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    @include myButtons;
+    height: 48px;
 }
 .learningRadioCheck{
     text-align: center;
