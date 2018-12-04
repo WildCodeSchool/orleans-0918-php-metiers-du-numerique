@@ -20,8 +20,6 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/admin/learningCenter")
  */
-
-
 class LearningCenterAdminController extends AbstractController
 {
     /**
@@ -33,11 +31,12 @@ class LearningCenterAdminController extends AbstractController
             'learningCenters' => $learningCenterRepository->findAll()
         ]);
     }
-        /**
-         * @Route("/{id}", name="learning_center_show", methods="GET")
-         */
-        public function show(LearningCenter $learningCenter): Response
-        {
-            return $this->render('learning_center_admin/show.html.twig', ['learning_center' => $learningCenter]);
-        }
+
+    /**
+     * @Route("/{id}", name="learning_center_show", methods="GET")
+     */
+    public function show(LearningCenter $learningCenter): Response
+    {
+        return $this->render('learning_center_admin/show.html.twig', ['learning_center' => $learningCenter]);
     }
+}
