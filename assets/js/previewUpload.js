@@ -11,8 +11,8 @@ $('#partner_pictureFile_file').on('input', function (e) {
     })(f);
     reader.readAsDataURL(f);
     if (f.size > 2000000) {
-        $('#errorFile').html("Image trop volumineuse")
+        $('#errorFile').html("Image trop volumineuse");
     } else {
-        $('#errorFile').html(" ")
+        $('#errorFile').html(" ");
     }
 });
