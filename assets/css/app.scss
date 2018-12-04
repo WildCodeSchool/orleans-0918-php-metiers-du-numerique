@@ -462,6 +462,19 @@ p{
     @include myButtons;
     height: 48px;
 }
+.learningName{
+  font-size: xx-large;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.learningMail{
+  font-size: medium;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.learningLink{
+  font-size: small;
+}
 .learningRadioCheck{
     text-align: center;
     margin-top: 5vh;
