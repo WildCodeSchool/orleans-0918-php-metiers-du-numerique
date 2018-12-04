@@ -18,11 +18,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
-  * @Route("admin/learning/center")
+ * @Route("/admin/learningCenter")
  */
+
+
 class LearningCenterAdminController extends AbstractController
 {
     /**
+     * @Route("/", name="learningCenter_admin")
+     */
+    public function index(LearningCenterRepository $learningCenterRepository): Response
+    {
+        return $this->render('learning_center_admin/index.html.twig', [
+            'learningCenters' => $learningCenterRepository->findAll()
+        ]);
+      
+     /**
      * @Route("/{id}", name="learning_center_show", methods="GET")
      */
     public function show(LearningCenter $learningCenter): Response

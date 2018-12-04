@@ -15,7 +15,7 @@ $imageMargin: 4em;
 $fontColor: black;
 $fontSize:16pt;
 $validColor : #C8C8C8;
-$invalidColor : #FFCC80;
+$invalidColor : #343a40;
 $shadowColor:black;
 $fontFamily:'Roboto Condensed', sans-serif;
 $txtButton : white;
@@ -443,6 +443,10 @@ hr {
 }
 .not-valid {
     background-color: $invalidColor;
+    color: $txtButton;
+}
+.eye-white{
+  color: $txtButton;
 }
 .commentHeight{
     min-height: 40vh;
@@ -457,9 +461,11 @@ hr {
 button {
         margin-top: 15px;
         margin-right: 2vw;
-
 }
 
+.nowrap{
+  white-space: nowrap;
+}
 /*font-size*/
 p{
   font-size: $principalFontSize;
@@ -484,6 +490,7 @@ p{
 }
 .outline-none{
   outline: none;
+
 }
 
 /*learning center show*/
