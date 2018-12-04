@@ -22,5 +22,4 @@ class CompanyAdminController extends AbstractController
     {
         return $this->render('company_admin/show.html.twig', ['company' => $company]);
     }
-
 }
