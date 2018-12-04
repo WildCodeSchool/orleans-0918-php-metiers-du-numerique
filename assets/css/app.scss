@@ -19,6 +19,13 @@ $invalidColor : #FFCC80;
 $shadowColor:black;
 $fontFamily:'Roboto Condensed', sans-serif;
 $txtButton : white;
+$shadowColor: black;
+$fontFamilly:'Roboto Condensed', sans-serif;
+$navbarBgonScroll:rgba(0,0,0,0.7);
+$imageMargin: 4em;
+$colorLabel:#7b7b7b;
+$colorInput:#d1d1d1;
+
 /*variable modal*/
 $backgroundModal: white;
 $closeButton: grey;
@@ -31,7 +38,6 @@ $txtModal: 22pt;
 $colorLinkVisited: grey;
 $modalSpace: 5em;
 $principalFontSize : 1.3em;
-
 $heightButton : 48px;
 $backgroundComments : #e4e4e4;
 $borderpicture:100%;
@@ -299,6 +305,77 @@ hr {
 .modalSpace {
   margin-top: $modalSpace;
 }
+/*form add partners*/
+#partner_pictureFile_file {
+    .custom-file-input {
+        position: relative;
+        z-index: 2;
+        width: 0px;
+        height: 50px;
+        opacity: 0;
+        margin-bottom: 50px;
+    }
+}
+.custom-file-input:focus ~ .custom-file-label {
+    border-color:transparent;
+    box-shadow: transparent;
+}
+.vich-image{
+    .custom-file {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: calc(2.8125rem + 0);
+        margin-bottom: 50px;
+    }
+}
+.custom-file-label {
+    background-color:#d1d1d1;
+    text-align: center;
+    height: 45px;
+}
+@media (max-width: 576px) {
+    .custom-file-label {
+        text-align: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+.custom-file-label::after {
+    background-color:$colorLabel !important;
+    color:$txtButton !important;
+    content: "Parcourir...";
+}
+.button-save{
+    min-width: 150px;
+    background-color: $buttonColor;
+    color: $txtButton;
+}
+.preview-img{
+    border-radius: 50%;
+    margin-left: 25px;
+    width:300px;
+    height: 300px;
+    object-fit: contain;
+    border: 2px solid $colorLabel;
+    background-color: $backgroundColor;
+}
+.title-form{
+    padding-right: 6vw;
+    margin-bottom: 5vh;
+}
+.prep-color{
+    background-color:$colorLabel !important;
+    color:$txtButton !important;
+}
+.color-input{
+    background-color:$colorInput;
+}
+.invalid-feedback{
+    margin-bottom: 2vh;
+    font-weight: bold;
+}
 /*footer*/
 .footer {
     margin-top: 10vh;
@@ -331,25 +408,21 @@ hr {
     }
 }
 
-    button {
-        padding-top: 20px;
-        font-size: 12pt;
-        margin-top: 25px;
-        margin-right: 5vw;
-        background-color: transparent;
-
     .footer{
             width: 99.5vw;
         }
-        footer .btn {
-            padding-top: 20px;
-            font-size: 12pt;
-            margin-top: 25px;
-            margin-right: 5vw;
-            background-color: transparent;
-            @media (max-width: 768px) {
-                font-size: 10pt;
-                margin-top: 25px;
+
+      footer .btn {
+          padding-top: 20px;
+          font-size: 12pt;
+          margin-top: 25px;
+          margin-right: 5vw;
+          background-color: transparent;
+          @media (max-width: 768px) {
+
+              font-size: 10pt;
+              margin-top: 25px;
+
         }
 
         &:hover, &:focus, &:active {
@@ -358,6 +431,7 @@ hr {
             box-shadow: none !important ;
         }
     }
+
 /*comment_list*/
 .admission-color {
     width: 30px;
@@ -385,6 +459,7 @@ button {
         margin-right: 2vw;
 
 }
+
 /*font-size*/
 p{
   font-size: $principalFontSize;
@@ -456,3 +531,4 @@ p{
      margin-top: 10vh;
      margin-bottom: 10vh;
  }
+
