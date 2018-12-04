@@ -16,3 +16,4 @@ var $ = require('jquery');
 import 'bootstrap';
 import "./onScroll";
 import "./modal";
+import "./backToTop";

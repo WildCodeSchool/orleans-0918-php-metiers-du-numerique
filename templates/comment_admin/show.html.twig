@@ -1,0 +1,33 @@
+{% extends 'layoutFront.html.twig' %}
+{% block body %}
+    <div class="container">
+    <h1 class="text-center">Commentaire de {{ comment.firstname ~ " " ~ comment.lastname }}</h1>
+    <h2 class="text-center mt-5">Fiche métier concerné : {{ comment.associatedJob.name }}</h2>
+
+    <div class="row commentInfo sectionSpace">
+        <div class="col-sm-12 col-md-2">
+            {% if comment.picture is empty %}
+            <img class="circlePicture" src="https://via.placeholder.com/120x120" alt="">
+            {% else %}
+            <img class="circlePicture" src="asset{{ 'build/images/'~comment.picture }}" alt="photo de {{ comment.firstname ~ " " ~comment.lastname }}">
+            {% endif %}
+        </div>
+        <div class="col-sm-12 col-md-5">
+            <p>Nom : {{ comment.lastname }}</p>
+            <p>Email : {{ comment.mail }}</p>
+            <p>Profession : {{ comment.job }}</p>
+        </div>
+        <div class="col-sm-12 col-md-5">
+            <p>Prenom : {{ comment.firstname }}</p>
+        <br class="mb-4">
+            <p>Entreprise : {{ comment.company }}</p>
+        </div>
+    </div>
+        <h2 class="commentSpace">Les plus du métier :</h2>
+        <p>{{ comment.prosComment }}</p>
+        <h2 class="commentSpace">Les moins du métier :</h2>
+        <p> {{ comment.consComment }}</p>
+        <h2 class="commentSpace">Commentaire divers :</h2>
+        <p>{{ comment.comment }}</p>
+    </div>
+{% endblock %}
