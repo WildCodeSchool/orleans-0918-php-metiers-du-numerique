@@ -44,7 +44,7 @@ class Partner
      * @Assert\Regex("/^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ' ]+$/i",
      *              message="Votre nom ne doit contenir que des lettres")
      * @Assert\NotBlank(message="Ce champs ne peut être vide")
-     * @Assert\Length(min="11", max="255", minMessage="Le champs ne comporte pas assez de caractère",
+     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
      *              maxMessage="Le champ comporte trop de caractère")
      */
     private $name;
@@ -52,7 +52,7 @@ class Partner
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Url(message="votre lien est invalide")
-     * @Assert\Length(min="3", max="255",minMessage="Le champs ne comporte pas assez de caractère",
+     * @Assert\Length(min="11", max="255",minMessage="Le champs ne comporte pas assez de caractère",
      *                  maxMessage="Le champ comporte trop de caractère")
 
      * @Assert\NotBlank(message="Ce champs ne peut être vide")
