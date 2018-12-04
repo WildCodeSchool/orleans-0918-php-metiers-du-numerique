@@ -12,6 +12,8 @@ $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
+$fontColor: black;
+$fontSize:16pt;
 $validColor : #C8C8C8;
 $invalidColor : #FFCC80;
 $shadowColor:black;
@@ -45,11 +47,14 @@ body {
     background-color: $backgroundColor;
     color: $fontColor;
 }
+
 main{
     min-height:100vh;
+
 }
 
-/*buisness card*/
+/*business card*/
+
 .jobPicture{
     min-height: 32vh;
    min-width: 40vh;
@@ -80,7 +85,7 @@ hr {
 .banner {
   background-image: url("../images/server.jpg");
   height: 30vh;
-  width: 100vw;
+  width: 99.5vw;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -288,7 +293,6 @@ hr {
     margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
-    width: 100vw;
 
     .container-fluid {
         padding-top: 10px;
@@ -316,7 +320,6 @@ hr {
     }
 }
 
-
     button {
         padding-top: 20px;
         font-size: 12pt;
@@ -324,20 +327,25 @@ hr {
         margin-right: 5vw;
         background-color: transparent;
 
+    .footer{
+            width: 99.5vw;
+        }
+        footer .btn {
+            padding-top: 20px;
+            font-size: 12pt;
+            margin-top: 25px;
+            margin-right: 5vw;
+            background-color: transparent;
+            @media (max-width: 768px) {
+                font-size: 10pt;
+                margin-top: 25px;
+        }
+
         &:hover, &:focus, &:active {
             background-color: transparent !important;
             border: none !important; ;
             box-shadow: none !important ;
         }
-
-        }
-    @media (max-width: 768px) {
-        button{
-            font-size: 10pt;
-            margin-top: 25px;
-        }
-
-
     }
 /*comment_list*/
 .admission-color {
@@ -378,3 +386,66 @@ p{
 }
 
 
+/*backToTop*/
+.back-to-top{
+  color: $txtButton;
+  background-color: $buttonColor;
+  border-radius: 50%;
+  font-size: 3em;
+  padding: 15px;
+  margin-right: 5vw;
+  margin-bottom: 2vh;
+}
+.outline-none{
+  outline: none;
+}
+
+/*learning center show*/
+
+.learningCenter{
+    font-size: $fontSize;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.imgLearningSchool{
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-radius:50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+
+}
+.learningName{
+    font-size: xx-large;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.learningMail{
+    font-size: medium;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.learningLink{
+    font-size: small;
+}
+.buttonLearningValid{
+    a{
+        font-size: $fontSize;
+    }
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.learningRadioCheck{
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+ .learningInfo{
+     color: #4c4c4c;
+ }
+ .learningJob{
+     margin-top: 10vh;
+     margin-bottom: 10vh;
+ }
