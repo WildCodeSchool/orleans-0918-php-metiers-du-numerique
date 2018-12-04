@@ -226,6 +226,8 @@ hr {
 .buttonModal {
   @include myButtons;
   height: 48px;
+  min-width: 350px;
+  margin-top: 40px;
 }
 
 /*modal company*/
