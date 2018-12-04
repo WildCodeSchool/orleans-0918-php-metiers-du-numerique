@@ -1,6 +1,6 @@
 $('#partner_pictureFile_file').on('input', function (e) {
-    const pictureName = $(this).val().split('\\').pop()
-    $(this).next().text(pictureName)
+    const pictureName = $(this).val().split('\\').pop();
+    $(this).next().text(pictureName);
     let f = e.target.files[0];
     let reader = new FileReader();
     reader.onload = (function (file) {
