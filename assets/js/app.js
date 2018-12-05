@@ -14,7 +14,7 @@ require('@fortawesome/fontawesome-free/css/all.min.css');
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 var $ = require('jquery');
 import 'bootstrap';
-import 'slick-carousel/slick/slick';
+import 'slick-carousel';
 import "./onScroll";
 import './slider';
 import "./previewUpload";
