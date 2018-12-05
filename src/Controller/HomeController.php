@@ -17,10 +17,10 @@ class HomeController extends AbstractController
     {
         $partners = $partnerRepository->findAll();
         $nbPartners = count($partners);
-        if($nbPartners <= 5){
+        if ($nbPartners <= 5) {
             $nbSlideToAdd = 6 - $nbPartners;
-            for ($i = 0; $i < $nbSlideToAdd ; $i++){
-                array_push($partners,$partners[$i+1]);
+            for ($i = 0; $i < $nbSlideToAdd; $i++) {
+                array_push($partners, $partners[$i+1]);
             }
         }
         return $this->render('home/index.html.twig', ['partners' => $partners]);
