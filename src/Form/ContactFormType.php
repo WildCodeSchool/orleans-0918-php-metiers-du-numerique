@@ -25,7 +25,8 @@ class ContactFormType extends AbstractType
             ])
             ->add('companyOrLearningCenter', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
-                'label' => 'Nom de votre entreprise ou de votre organisme'
+                'label' => 'Nom de votre entreprise ou de votre organisme de formation',
+                'required' => false
             ])
             ->add('mail', EmailType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),

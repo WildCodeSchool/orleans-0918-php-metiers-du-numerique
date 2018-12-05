@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactFormRepository")
@@ -18,26 +19,40 @@ class ContactForm
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
+     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
+     *              maxMessage="Le champ comporte trop de caractère")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
+     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
+     *              maxMessage="Le champ comporte trop de caractère")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
+     *              maxMessage="Le champ comporte trop de caractère")
      */
     private $companyOrLearningCenter;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
+     * @Assert\Length(min="6", max="255", minMessage="Le champs ne comporte pas assez de caractère",
+     *              maxMessage="Le champ comporte trop de caractère")
      */
     private $mail;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
+     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
+     *              maxMessage="Le champ comporte trop de caractère")
      */
     private $message;
 
