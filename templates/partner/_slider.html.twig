@@ -10,16 +10,6 @@
                         </a>
                     </div>
                 {% endfor %}
-                {% if partners|length < 5 %}
-                    {% for partner in partners %}
-                        <div class="ml-3">
-                            <a href="{{ partner.url }}" class="text-center mx-auto">
-                                <img class="carousel-icon align-content-center"
-                                     src="{{ asset("images/partners/") }}{{ partner.picture }}" alt="">
-                            </a>
-                        </div>
-                    {% endfor %}
-                {% endif %}
             </div>
         </div>
     </div>
