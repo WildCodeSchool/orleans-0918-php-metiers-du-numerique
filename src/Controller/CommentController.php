@@ -45,7 +45,7 @@ class CommentController extends AbstractController
             $comment->setLiked(0);
             $em->flush();
 
-            return $this->redirectToRoute('comment_index');
+            return $this->redirectToRoute('job_show', array('id'=> $job->getId()));
         }
 
         return $this->render('comment/new.html.twig', [
