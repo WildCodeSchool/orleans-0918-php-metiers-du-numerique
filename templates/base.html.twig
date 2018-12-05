@@ -8,9 +8,14 @@
         {% endblock %}
     </head>
     <body>
+
         {% block navbar %} {% endblock %}
         {% block banner %} {% endblock %}
-            {% block body %}{% endblock %}
+        <main>
+        {% block backToTop %}{% endblock %}
+        {% block body %}{% endblock %}
+        </main>
+        {% block footer %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,6 +47,32 @@ class Job
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $videoTitle;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\LearningCenter", mappedBy="jobs")
+     */
+    private $learningCenters;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Company", mappedBy="jobs")
+     */
+    private $companies;
+  
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob")
+     */
+    private $associatedComments;
+
+    public function __construct()
+    {
+
+        $this->learningCenters = new ArrayCollection();
+
+        $this->companies = new ArrayCollection();
+
+        $this->associatedComments = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -119,6 +147,85 @@ class Job
     public function setVideoTitle(?string $videoTitle): self
     {
         $this->videoTitle = $videoTitle;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|LearningCenter[]
+     */
+    public function getLearningCenters(): Collection
+    {
+        return $this->learningCenters;
+    }
+
+    public function addLearningCenter(LearningCenter $learningCenter): self
+    {
+        if (!$this->learningCenters->contains($learningCenter)) {
+            $this->learningCenters[] = $learningCenter;
+            $learningCenter->addJob($this);
+        }
+    }
+      
+     /**
+     * @return Collection|Company[]
+     */
+    public function getCompanies(): Collection
+    {
+        return $this->companies;
+    }
+
+    public function addCompanies(Company $company): self
+    {
+        if (!$this->companies->contains($company)) {
+            $this->companies[] = $company;
+            $company->addJob($this);
+        }
+    }
+  
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getAssociatedComments(): Collection
+    {
+        return $this->associatedComments;
+    }
+
+    public function addAssociatedComment(Comment $associatedComment): self
+    {
+        if (!$this->associatedComments->contains($associatedComment)) {
+            $this->associatedComments[] = $associatedComment;
+            $associatedComment->setAssociatedJob($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLearningCenter(LearningCenter $learningCenter): self
+    {
+        if ($this->learningCenters->contains($learningCenter)) {
+            $this->learningCenters->removeElement($learningCenter);
+            $learningCenter->removeJob($this);
+        }
+    }
+  
+    public function removeCompanies(Company $company): self
+    {
+        if ($this->companies->contains($company)) {
+            $this->companies->removeElement($company);
+            $company->removeJob($this);
+        }
+    }
+
+    public function removeAssociatedComment(Comment $associatedComment): self
+    {
+        if ($this->associatedComments->contains($associatedComment)) {
+            $this->associatedComments->removeElement($associatedComment);
+            // set the owning side to null (unless already changed)
+            if ($associatedComment->getAssociatedJob() === $this) {
+                $associatedComment->setAssociatedJob(null);
+            }
+        }
 
         return $this;
     }
