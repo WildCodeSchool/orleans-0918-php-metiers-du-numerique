@@ -109,36 +109,34 @@ hr {
   text-align: center;
   margin-bottom: 50px;
     .banner-content {
-        position: relative;
-        top: 150px;
-        .title {
-            margin-top: 0px;
-            margin-right: 0px;
-            margin-bottom: 20px;
-            margin-left: 0px;
-            border-right: 2px solid rgba(255, 255, 255, .75);
-            font-size: 3.1vw;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            transform: translateY(-50%);
-            text-transform: uppercase;
-        }
+      position: relative;
+      top: 150px;
 
-    }
-
-    @media (max-width: 992px) {
       .title {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        border-right: 2px solid rgba(255, 255, 255, .75);
+        font-size: 3.1vw;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        transform: translateY(-50%);
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 992px) {
         min-width: 80vw;
+
       }
     }
-
     .typewriter {
       animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
       color: #fff;
     }
   }
-}
+
 
 @keyframes typewriter {
   from {
@@ -481,7 +479,6 @@ a {
     outline: none;
 }
 
-=======
   
 /*comment_list*/
 .admission-color {
