@@ -12,7 +12,6 @@ $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
-$fontColor: black;
 $fontSize:16pt;
 $validColor : #C8C8C8;
 $invalidColor : #343a40;
@@ -25,6 +24,9 @@ $navbarBgonScroll:rgba(0,0,0,0.7);
 $imageMargin: 4em;
 $colorLabel:#7b7b7b;
 $colorInput:#d1d1d1;
+
+/*variables adminLearningCenter & adminCompany*/
+
 
 /*variable modal*/
 $backgroundModal: white;
@@ -40,7 +42,7 @@ $modalSpace: 5em;
 $principalFontSize : 1.3em;
 $heightButton : 48px;
 $backgroundComments : #e4e4e4;
-$borderpicture:100%;
+$borderPicture:100%;
 
 @mixin myButtons {
    background-color: $buttonColor;
@@ -456,7 +458,7 @@ hr {
 }
 /*picture*/
 .circlePicture {
-    border-radius: $borderpicture;
+    border-radius: $borderPicture;
 }
 button {
         margin-top: 15px;
@@ -500,14 +502,8 @@ p{
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
-.imgLearningSchool{
-    margin-top: 5vh;
-    margin-bottom: 3vh;
-    border-radius:50%;
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-
+.learningInfo{
+     color: $fontColor;
 }
 .learningName{
     font-size: xx-large;
@@ -522,20 +518,27 @@ p{
 .learningLink{
     font-size: small;
 }
-.buttonLearningValid{
-    @include myButtons;
-    height: 48px;
+.imgLearningSchool{
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-radius: $borderPicture;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+.learningJob{
+     margin-top: 10vh;
+     margin-bottom: 10vh;
 }
 .learningRadioCheck{
     text-align: center;
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
- .learningInfo{
-     color: #4c4c4c;
- }
- .learningJob{
-     margin-top: 10vh;
-     margin-bottom: 10vh;
- }
+.buttonLearningValid{
+    @include myButtons;
+    height: 48px;
+}
+
+
 
