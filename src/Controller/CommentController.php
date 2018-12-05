@@ -30,7 +30,7 @@ class CommentController extends AbstractController
      * @Route("/new/{job_id}", name="comment_new", methods="GET|POST")
      * @ParamConverter("job", options={"id" = "job_id"})
      */
-    public function new(Request $request,Job $job): Response
+    public function new(Request $request, Job $job): Response
     {
         $comment = new Comment();
         $comment->setAssociatedJob($job);
