@@ -192,7 +192,7 @@ hr {
   }
 
   .align-right {
-    margin-left: 25vw;
+    margin-left: 10vw;
   }
 }
 
@@ -539,3 +539,8 @@ p{
      margin-bottom: 10vh;
  }
 
+ /*form contact*/
+.btn-contact {
+  @include myButtons;
+  height: $heightButton;
+}

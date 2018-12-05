@@ -11,15 +11,11 @@ namespace App\Controller;
 use App\Form\ContactFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ContactFormController extends AbstractController
 {
     /**
-     * @param Request $request
-     * @param \Swift_Mailer $mailer
-     * @return Response
      * @Route("/contact", name="contact_form")
      */
     public function sendMail(Request $request, \Swift_Mailer $mailer)
@@ -28,17 +24,19 @@ class ContactFormController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $contactFormData = $form->getData();
-            $message = (new \Swift_Message('Hello Email'))
-                ->setFrom($contactFormData->getFirstname() . ' ' . $contactFormData->getLastname())
+            var_dump($contactFormData);
+            $message = (new \Swift_Message('Nouvel email metier du numerique'))
+                ->setFrom($contactFormData->getMail())
+                ->setTo('metierdunumerique@gmail.com')
                 ->addReplyTo($contactFormData->getMail())
                 ->setBody(
+                    'Nouveau message de ' . ucwords($contactFormData->getLastname()) . ' ' . ucwords($contactFormData->getFirstname()) . ' :  ' .
                     $contactFormData->getMessage()
                 );
             $mailer->send($message);
-
             return $this->redirectToRoute('contact_form');
         }
-        return $this->render('contact/contactForm.html.twig',[
+        return $this->render('contact/indexContact.html.twig',[
             'form' => $form->createView()
         ] );
     }
