@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LearningCenter{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container learningCenter">
+            <div class="row">
+                <div class="learningInfo col-sm-12 col-md-6 col-lg-6">
+                    <h2 class="learningName">{{ learning_center.name }}</h2>
+                    <h3 class="learningMail">{{ learning_center.mail }}</h3>
+                    <a class="learningLink" href="{{ learning_center.link }}"> Voir le Site Web</a>
+                </div>
+                <div class="col-sm-12 col-md-6 offset-lg-2 col-lg-4">
+                    <img class="imgLearningSchool" src="{{ asset('build/images/'~learning_center.picture) }}" alt="image de l'organisme {{ learning_center.name }}">
+                </div>
+            </div>
+
+                <div class="learningJob">
+                <p>Métiers concernés par la formation :</p>
+                <ul>
+                    {% for job in learning_center.jobs %}
+                        <li>{{ job.name }}</li>
+                    {% endfor %}
+                </ul>
+                </div>
+            <div class="learningRadioCheck">
+                <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Accepter l'organisme</label>
+                </div>
+                <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+            <label class="form-check-label" for="inlineRadio3">Supprimer l'organisme</label>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn buttonLearningValid" role="button" aria-disabled="true">Valider
+                </button>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+

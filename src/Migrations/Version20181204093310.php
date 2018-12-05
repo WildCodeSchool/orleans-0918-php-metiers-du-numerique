@@ -8,14 +8,16 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20181122181103 extends AbstractMigration
+final class Version20181204093310 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE partner (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, url VARCHAR(255) NOT NULL, picture VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE learning_center ADD accepted TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE partner DROP updated_at');
+        $this->addSql('ALTER TABLE company_job ADD CONSTRAINT FK_FF2B6490979B1AD6 FOREIGN KEY (company_id) REFERENCES company (id) ON DELETE CASCADE');
     }
 
     public function down(Schema $schema) : void
@@ -23,6 +25,8 @@ final class Version20181122181103 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE partner');
+        $this->addSql('ALTER TABLE company_job DROP FOREIGN KEY FK_FF2B6490979B1AD6');
+        $this->addSql('ALTER TABLE learning_center DROP accepted');
+        $this->addSql('ALTER TABLE partner ADD updated_at DATETIME NOT NULL');
     }
 }

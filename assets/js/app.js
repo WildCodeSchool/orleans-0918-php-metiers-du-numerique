@@ -17,3 +17,8 @@ import 'bootstrap';
 import 'slick-carousel/slick/slick';
 import "./onScroll";
 import './slider';
+import "./previewUpload";
+import "./modal";
+import "./backToTop";
+
+

@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "sensio/framework-extra-bundle": "^5.1",
+        "squizlabs/php_codesniffer": "^3.3",
         "symfony/asset": "4.1.*",
         "symfony/console": "4.1.*",
         "symfony/expression-language": "4.1.*",
@@ -23,7 +24,8 @@
         "symfony/validator": "4.1.*",
         "symfony/web-link": "4.1.*",
         "symfony/webpack-encore-bundle": "^1.0",
-        "symfony/yaml": "4.1.*"
+        "symfony/yaml": "4.1.*",
+        "vich/uploader-bundle": "^1.8"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
