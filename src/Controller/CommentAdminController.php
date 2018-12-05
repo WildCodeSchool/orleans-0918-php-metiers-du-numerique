@@ -49,6 +49,5 @@ class CommentAdminController extends AbstractController
 
         return $this->redirectToRoute('comment_admin');
     }
-
 }
 
