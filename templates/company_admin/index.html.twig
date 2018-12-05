@@ -30,26 +30,26 @@
                     <th scope="col">Voir</th>
                 </tr>
                 <tbody>
-                {% for compagny in compagnies %}
-                    {% if compagny.accepted == 0 %}
+                {% for company in companies %}
+                    {% if company.accepted == 0 %}
                         <tr class="not-valid">
-                            <th>{{ compagny.name }}</th>
-                            <td>{{ compagny.mail }}</td>
-                            <td>{{ compagny.link }}</td>
+                            <th>{{ company.name }}</th>
+                            <td>{{ company.mail }}</td>
+                            <td>{{ company.link }}</td>
                             <td>
                                 <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('compagny_admin', {'id': compagny.id}) }}"><i
+                                   href="{{ path('company_admin', {'id': company.id}) }}"><i
                                             class="far fa-eye eye-white"></i></a>
                             </td>
                         </tr>
                     {% else %}
                         <tr class="valid">
-                            <th>{{ compagny.name }}</th>
-                            <td>{{ compagny.mail }}</td>
-                            <td>{{ compagny.link }}</td>
+                            <th>{{ company.name }}</th>
+                            <td>{{ company.mail }}</td>
+                            <td>{{ company.link }}</td>
                             <td>
                                 <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('compagny_admin', {'id': compagny.id}) }}"><i
+                                   href="{{ path('company_admin', {'id': company.id}) }}"><i
                                             class="far fa-eye"></i></a>
                             </td>
                         </tr>
