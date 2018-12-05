@@ -63,6 +63,12 @@ class Job
      */
     private $associatedComments;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="jobs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $associatedCategory;
+
     public function __construct()
     {
 
@@ -226,6 +232,18 @@ class Job
                 $associatedComment->setAssociatedJob(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAssociatedCategory(): ?Category
+    {
+        return $this->associatedCategory;
+    }
+
+    public function setAssociatedCategory(?Category $associatedCategory): self
+    {
+        $this->associatedCategory = $associatedCategory;
 
         return $this;
     }
