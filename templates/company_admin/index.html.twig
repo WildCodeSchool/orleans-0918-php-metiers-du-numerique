@@ -31,29 +31,16 @@
                 </tr>
                 <tbody>
                 {% for company in companies %}
-                    {% if company.accepted == 0 %}
-                        <tr class="not-valid">
+                        <tr class="{% if company.accepted == 0 %}not-valid{% else %}valid{% endif %}">
                             <th>{{ company.name }}</th>
                             <td>{{ company.mail }}</td>
                             <td>{{ company.link }}</td>
                             <td>
                                 <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('company_admin', {'id': company.id}) }}"><i
+                                   href="{{ path('company_show', {'id': company.id}) }}"><i
                                             class="far fa-eye eye-white"></i></a>
                             </td>
                         </tr>
-                    {% else %}
-                        <tr class="valid">
-                            <th>{{ company.name }}</th>
-                            <td>{{ company.mail }}</td>
-                            <td>{{ company.link }}</td>
-                            <td>
-                                <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('company_admin', {'id': company.id}) }}"><i
-                                            class="far fa-eye"></i></a>
-                            </td>
-                        </tr>
-                    {% endif %}
                 {% endfor %}
                 </tbody>
             </table>
