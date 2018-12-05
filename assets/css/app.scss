@@ -13,6 +13,8 @@ $bordecolor : black;
 $navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
 $fontSize:16pt;
+$fontSizeXl:xx-large;
+$fontSizeM:medium;
 $validColor : #C8C8C8;
 $invalidColor : #343a40;
 $shadowColor:black;
@@ -506,12 +508,12 @@ p{
      color: $fontColor;
 }
 .learningName{
-    font-size: xx-large;
+    font-size: $fontSizeXl;
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
 .learningMail{
-    font-size: medium;
+    font-size: $fontSizeM;
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
