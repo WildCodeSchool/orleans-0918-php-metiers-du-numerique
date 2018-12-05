@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Company;
+use App\Form\CompanyType;
+use App\Repository\CompanyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,7 +17,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CompanyAdminController extends AbstractController
 {
-
+    /**
+     * @Route("/", name="compagny_admin")
+     */
+    public function index(CompanyRepository $compagnyRepository): Response
+    {
+        return $this->render('company_admin/index.html.twig', [
+            'compagnies' => $compagnyRepository->findAll()
+        ]);
+    }
     /**
      * @Route("/{id}", name="company_show", methods="GET")
      */
