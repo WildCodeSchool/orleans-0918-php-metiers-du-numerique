@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\Job;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use Doctrine\DBAL\Types\DateTimeType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,17 +27,22 @@ class CommentController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="comment_new", methods="GET|POST")
+     * @Route("/new/{job_id}", name="comment_new", methods="GET|POST")
+     * @ParamConverter("job", options={"id" = "job_id"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,Job $job): Response
     {
         $comment = new Comment();
+        $comment->setAssociatedJob($job);
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
+            $comment->setPostDate(new \DateTime());
+            $comment->setAccepted(false);
+            $comment->setLiked(0);
             $em->flush();
 
             return $this->redirectToRoute('comment_index');

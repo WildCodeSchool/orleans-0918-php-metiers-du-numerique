@@ -4,11 +4,17 @@ namespace App\Form;
 
 use App\Entity\Comment;
 use App\Entity\Job;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CommentType extends AbstractType
 {
@@ -16,24 +22,52 @@ class CommentType extends AbstractType
     {
         $currentDate = new \DateTime();
         $builder
-            ->add('firstname')
-            ->add('lastname')
-            ->add('picture')
-            ->add('mail')
-            ->add('job')
-            ->add('company')
-            ->add('prosComment')
-            ->add('consComment')
-            ->add('comment')
-            ->add('liked')
-            ->add('accepted')
+            ->add('firstname', TextType::class, [
+                'label' => 'Prénom',
+                'attr'=> ['class' => 'color-input']
+            ])
+            ->add('lastname', TextType::class, [
+                'label' => 'Nom',
+                'attr'=> ['class' => 'color-input']
+            ])
+            ->add('mail', EmailType::class, [
+                'label' => 'Email',
+                'attr'=> ['class' => 'color-input']
+            ])
+            ->add('job', TextType::class, [
+                'label' => 'Votre travail',
+                'attr'=> ['class' => 'color-input']
+            ])
+            ->add('company', TextType::class, [
+                'label' => "Votre entreprise",
+                'attr'=> ['class' => 'color-input']
+            ])
+            ->add('prosComment', TextareaType::class, [
+                'label' => 'Les avantanges du métier',
+                'attr'=> ['class' => 'color-input']
+            ])
+            ->add('consComment', TextareaType::class, [
+                'label' => 'Les inconvénients du métier',
+                'attr'=> ['class' => 'color-input']
+            ])
+            ->add('comment', TextareaType::class, [
+                'label' => 'Commentaire Divers',
+                'attr'=> ['class' => 'color-input']
+            ])
             ->add('associatedJob', EntityType::class, [
                 'class' => Job::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'label'=>false,
+                'disabled'=>true,
+                'attr'=> ['class' => 'd-none']
             ])
-            ->add('postDate', DateTimeType::class, array(
-                'data' => $currentDate,
-            ))
+            ->add('pictureFile', VichImageType::class, [
+                'required' => true,
+                'download_link' => false,
+                'allow_delete' => false,
+                'label' => ' ',
+                'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
+            ])
         ;
     }
 
