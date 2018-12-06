@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Form\AcceptType;
 use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,14 +31,19 @@ class CommentAdminController extends AbstractController
      */
     public function show(Request $request, Comment $comment): Response
     {
-        if ($this->isCsrfTokenValid('accept'.$comment->getId(), $request->request->get('_token'))) {
+        $form = $this->createForm(AcceptType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $comment->setAccepted(!$comment->getAccepted());
             $this->getDoctrine()->getManager()->flush();
+
             return $this->redirectToRoute('comment_admin', ['id' => $comment->getId()]);
         }
 
         return $this->render('comment_admin/show.html.twig', [
             'comment' => $comment,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -46,7 +52,7 @@ class CommentAdminController extends AbstractController
      */
     public function delete(Request $request, Comment $comment): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $comment->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($comment);
             $em->flush();
