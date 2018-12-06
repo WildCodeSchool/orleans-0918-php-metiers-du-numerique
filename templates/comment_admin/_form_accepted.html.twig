@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {% if comment.accepted == 0 %}
+        {{ form_widget(form.accepted, {'label' : 'Valider ce commentaire', 'attr' : {'class' : 'btn-success'}}) }}
+    {% else %}
+        {{ form_widget(form.accepted, {'label' : 'Ne plus rendre visible le commentaire', 'attr' : { 'class' : 'btn-warning'}}) }}
+    {% endif %}
+{{ form_end(form) }}
