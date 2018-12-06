@@ -33,13 +33,12 @@ class ContactFormController extends AbstractController
                     ' :  '  .  "\n" . 'url : ' . $contactFormData->getLink()
                     .  "\n" . 'message : ' .
                     $contactFormData->getMessage()
-
                 );
             $mailer->send($message);
             return $this->redirectToRoute('contact_form');
         }
-        return $this->render('contact/indexContact.html.twig',[
+        return $this->render('contact/indexContact.html.twig', [
             'form' => $form->createView()
-        ] );
+        ]);
     }
 }
