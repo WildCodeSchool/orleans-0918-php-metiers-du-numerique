@@ -1,0 +1,8 @@
+<form method="post" action="{{ path('comment_admin_show', {'id': comment.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir valider ce commentaire?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('accept' ~ comment.id) }}">
+    {% if comment.accepted == 0 %}
+    <button class="btn btn-success">Valider ce commentaire</button>
+    {% else %}
+        <button class="btn btn-warning">Ne plus rendre visible ce commentaire</button>
+    {% endif %}
+</form>

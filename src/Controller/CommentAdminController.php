@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Job;
+use App\Form\AcceptedType;
 use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,15 +28,20 @@ class CommentAdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="comment_admin_show", methods="GET")
+     * @Route("/{id}", name="comment_admin_show", methods="GET|POST")
      */
-    public function show(Comment $comment): Response
+    public function show(Request $request, Comment $comment): Response
     {
+        if ($this->isCsrfTokenValid('accept'.$comment->getId(), $request->request->get('_token'))) {
+            $comment->setAccepted(!$comment->getAccepted());
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('comment_admin', ['id' => $comment->getId()]);
+        }
+
         return $this->render('comment_admin/show.html.twig', [
-            'comment'=>$comment,
+            'comment' => $comment,
         ]);
     }
-
     /**
      * @Route("/{id}", name="comment_admin_delete", methods="DELETE")
      */
@@ -49,4 +55,5 @@ class CommentAdminController extends AbstractController
 
         return $this->redirectToRoute('comment_admin');
     }
+
 }
