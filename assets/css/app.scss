@@ -12,8 +12,9 @@ $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
-$fontColor: black;
 $fontSize:16pt;
+$fontSizeXl: xx-large;
+$fontSizeM: medium;
 $validColor : #C8C8C8;
 $invalidColor : #343a40;
 $shadowColor:black;
@@ -40,7 +41,7 @@ $modalSpace: 5em;
 $principalFontSize : 1.3em;
 $heightButton : 48px;
 $backgroundComments : #e4e4e4;
-$borderpicture:100%;
+$borderPicture:100%;
 
 @mixin myButtons {
    background-color: $buttonColor;
@@ -456,7 +457,7 @@ hr {
 }
 /*picture*/
 .circlePicture {
-    border-radius: $borderpicture;
+    border-radius: $borderPicture;
 }
 button {
         margin-top: 15px;
