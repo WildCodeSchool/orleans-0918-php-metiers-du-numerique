@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\ContactForm;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,18 +16,18 @@ class ContactFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstname', TextType::class, [
-                'attr' => array('type' => 'text', 'class' => 'color-input'),
-                'label' => 'Prénom'
-            ])
-            ->add('lastname', TextType::class, [
+            ->add('author', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
                 'label' => 'Nom'
             ])
-            ->add('companyOrLearningCenter', TextType::class, [
+            ->add('link', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
-                'label' => 'Nom de votre entreprise ou de votre organisme de formation',
+                'label' => 'url de l\'organisme de formation ou de l\'entreprise',
                 'required' => false
+            ])
+            ->add('subject', TextType::class, [
+                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'label' => 'Objet du mail'
             ])
             ->add('mail', EmailType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),

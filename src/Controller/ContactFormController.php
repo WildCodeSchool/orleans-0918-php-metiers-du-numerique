@@ -24,14 +24,16 @@ class ContactFormController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $contactFormData = $form->getData();
-            var_dump($contactFormData);
-            $message = (new \Swift_Message('Nouvel email metier du numerique'))
+            $message = (new \Swift_Message($contactFormData->getSubject()))
                 ->setFrom($contactFormData->getMail())
                 ->setTo('metierdunumerique@gmail.com')
                 ->addReplyTo($contactFormData->getMail())
                 ->setBody(
-                    'Nouveau message de ' . ucwords($contactFormData->getLastname()) . ' ' . ucwords($contactFormData->getFirstname()) . ' :  ' .
+                    'Nouveau message de ' . $contactFormData->getAuthor() .
+                    ' :  '  .  "\n" . 'url : ' . $contactFormData->getLink()
+                    .  "\n" . 'message : ' .
                     $contactFormData->getMessage()
+
                 );
             $mailer->send($message);
             return $this->redirectToRoute('contact_form');

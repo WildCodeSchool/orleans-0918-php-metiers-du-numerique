@@ -23,22 +23,7 @@ class ContactForm
      * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
      *              maxMessage="Le champ comporte trop de caractère")
      */
-    private $firstname;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
-     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
-     *              maxMessage="Le champ comporte trop de caractère")
-     */
-    private $lastname;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
-     *              maxMessage="Le champ comporte trop de caractère")
-     */
-    private $companyOrLearningCenter;
+    private $author;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -56,43 +41,35 @@ class ContactForm
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url(message="votre lien est invalide")
+     * @Assert\Length(min="11", max="255",minMessage="Le champs ne comporte pas assez de caractère",
+     *                  maxMessage="Le champ comporte trop de caractère")
+     */
+    private $link;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
+     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
+     *              maxMessage="Le champ comporte trop de caractère")
+     */
+    private $subject;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getFirstname(): ?string
+    public function getAuthor(): ?string
     {
-        return $this->firstname;
+        return $this->author;
     }
 
-    public function setFirstname(string $firstname): self
+    public function setAuthor(string $author): self
     {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getLastname(): ?string
-    {
-        return $this->lastname;
-    }
-
-    public function setLastname(string $lastname): self
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getCompanyOrLearningCenter(): ?string
-    {
-        return $this->companyOrLearningCenter;
-    }
-
-    public function setCompanyOrLearningCenter(?string $companyOrLearningCenter): self
-    {
-        $this->companyOrLearningCenter = $companyOrLearningCenter;
+        $this->author = $author;
 
         return $this;
     }
@@ -117,6 +94,30 @@ class ContactForm
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    public function getSubject(): ?string
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(?string $subject): self
+    {
+        $this->subject = $subject;
 
         return $this;
     }

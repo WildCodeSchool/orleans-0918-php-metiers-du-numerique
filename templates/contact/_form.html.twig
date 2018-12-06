@@ -1,35 +1,36 @@
 {{ form_start(form) }}
 
 <div class="form-group">
-    <label class="control-label">{{ form_label(form.firstname) }}<i class="fas fa-asterisk"></i></label>
+    <label class="control-label">{{ form_label(form.author) }}<i class="fas fa-asterisk"></i></label>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text prep-color"><i class="fas fa-link"></i></span>
             </div>
-            {{ form_widget(form.firstname) }}
+            {{ form_widget(form.author) }}
         </div>
     </div>
 </div>
-<div class="form-group">
-    <label class="control-label">{{ form_label(form.lastname) }}<i class="fas fa-asterisk"></i></label>
+<p class="checkboxTxt"><input type="checkbox" id="checkForm"> : Je souhaite éditer un organisme de formation ou une entreprise</p>
+<div class="form-group form-checkbox" id="linkForm">
+    <label class="control-label">{{ form_label(form.link) }}</label>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
             </div>
-            {{ form_widget(form.lastname) }}
+            {{ form_widget(form.link) }}
         </div>
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label">{{ form_label(form.companyOrLearningCenter) }}</label>
+    <label class="control-label">{{ form_label(form.subject) }}<i class="fas fa-asterisk"></i></label>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
             </div>
-            {{ form_widget(form.companyOrLearningCenter) }}
+            {{ form_widget(form.subject) }}
         </div>
     </div>
 </div>
@@ -49,7 +50,7 @@
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
+                <span class="input-group-text prep-color"><i class="far fa-envelope"></i></span>
             </div>
             {{ form_widget(form.message) }}
         </div>
