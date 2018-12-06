@@ -15,6 +15,8 @@ $imageMargin: 4em;
 $fontSize:16pt;
 $fontSizeXl: xx-large;
 $fontSizeM: medium;
+$marginTop: 5vh;
+$marginBottom: 5vh;
 $validColor : #C8C8C8;
 $invalidColor : #343a40;
 $shadowColor:black;
@@ -507,13 +509,13 @@ p{
 }
 .companyName{
   font-size: $fontSizeXl;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .companyMail{
   font-size: $fontSizeM;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .companyLink{
   font-size: small;
@@ -532,8 +534,8 @@ p{
 }
 .companyRadioCheck{
   text-align: center;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .buttonCompanyValid{
   @include myButtons;
@@ -544,21 +546,21 @@ p{
 
 .learningCenter{
   font-size: $fontSize;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .learningInfo{
   color: $fontColor;
 }
 .learningName{
   font-size: $fontSizeXl;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .learningMail{
   font-size: $fontSizeM;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .learningLink{
   font-size: small;
@@ -577,8 +579,8 @@ p{
 }
 .learningRadioCheck{
   text-align: center;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: $marginTop;
+  margin-bottom:$marginBottom;
 }
 .buttonLearningValid{
   @include myButtons;
