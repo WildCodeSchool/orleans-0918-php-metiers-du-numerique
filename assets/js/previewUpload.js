@@ -1,8 +1,9 @@
+const MAXSIZE = 2000000;
 $('#partner_pictureFile_file').on('input', function (e) {
-    previewUpload(this, e.target.files[0], 2000000);
+    previewUpload(this, e.target.files[0], MAXSIZE);
 });
 $('#comment_pictureFile_file').on('input', function (e) {
-    previewUpload(this, e.target.files[0], 2000000);
+    previewUpload(this, e.target.files[0], MAXSIZE);
 });
 
 function previewUpload(input, f, maxSize) {
