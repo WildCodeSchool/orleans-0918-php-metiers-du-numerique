@@ -71,7 +71,11 @@ main{
     min-height:100vh;
 
 }
-
+/*home*/
+.logo-home{
+  max-width: 300px;
+  max-height: 300px;
+}
 /*business card*/
 
 .jobPicture{
@@ -427,6 +431,9 @@ hr {
 /*slider partner*/
 .slider{
   margin-top: 10vh;
+  .bg-gray{
+    background-color: $navbarBgonScroll;
+  }
   .slider-title{
   padding-top: 5vh;
   h3{

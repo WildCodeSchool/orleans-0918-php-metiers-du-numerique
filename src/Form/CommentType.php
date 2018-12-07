@@ -40,7 +40,8 @@ class CommentType extends AbstractType
             ])
             ->add('company', TextType::class, [
                 'label' => "Votre entreprise",
-                'attr'=> ['class' => 'color-input']
+                'attr'=> ['class' => 'color-input'],
+                'required'=>false
             ])
             ->add('prosComment', TextareaType::class, [
                 'label' => 'Les avantanges du métier',
@@ -52,7 +53,8 @@ class CommentType extends AbstractType
             ])
             ->add('comment', TextareaType::class, [
                 'label' => 'Commentaire Divers',
-                'attr'=> ['class' => 'color-input']
+                'attr'=> ['class' => 'color-input'],
+                'required'=>false
             ])
             ->add('associatedJob', EntityType::class, [
                 'class' => Job::class,
