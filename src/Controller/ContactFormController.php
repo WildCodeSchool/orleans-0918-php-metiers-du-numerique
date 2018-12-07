@@ -29,10 +29,9 @@ class ContactFormController extends AbstractController
                 ->setFrom($contactFormData->getMail())
                 ->setTo($this->getParameter('mail_from'))
                 ->addReplyTo($contactFormData->getMail())
-                ->setBody( $this->renderView('contact/setBodyContact.html.twig', [
+                ->setBody($this->renderView('contact/setBodyContact.html.twig', [
                     'contactFormData' => $contactFormData
-                    ])
-                );
+                    ]));
             $mailer->send($message);
             $this->addFlash('success', 'Votre mail a bien été envoyé');
             return $this->redirectToRoute('contact_form');
