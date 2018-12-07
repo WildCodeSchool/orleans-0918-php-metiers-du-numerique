@@ -8,24 +8,22 @@
     {% endblock %}
 </head>
 <body>
-
-{% block navbar %} {% endblock %}
-{% block banner %} {% endblock %}
-<main>
-    {% for label, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="alert alert-{{ label }}">
+  {% block navbar %} {% endblock %}
+        {% block banner %} {% endblock %}
+        <main>
+        {% for label, messages in app.flashes %}
+          {% for message in messages %}
+              <div class="alert alert-{{ label }}">
                 {{ message }}
-            </div>
+              </div>
+          {% endfor %}
         {% endfor %}
-    {% endfor %}
-    {% block backToTop %}{% endblock %}
-    {% block body %}{% endblock %}
-</main>
-{% block footer %}{% endblock %}
-
-{% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-{% endblock %}
-</body>
+        {% block backToTop %}{% endblock %}
+        {% block body %}{% endblock %}
+        </main>
+        {% block footer %}{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </body>
 </html>

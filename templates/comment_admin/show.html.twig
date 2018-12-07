@@ -30,4 +30,8 @@
         <h2 class="commentSpace">Commentaire divers :</h2>
         <p>{{ comment.comment }}</p>
     </div>
+    <div class ="row commentSpace justify-content-center">
+        {{ include('comment_admin/_form_accepted.html.twig') }}
+        {{ include('comment_admin/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
