@@ -8,7 +8,8 @@
         "node-sass": "^4.10.0",
         "popper.js": "^1.14.5",
         "sass-loader": "^7.0.1",
-        "webpack-notifier": "^1.6.0"
+        "webpack-notifier": "^1.6.0",
+        "slick-carousel": "^1.8.1"
     },
     "license": "UNLICENSED",
     "private": true,
