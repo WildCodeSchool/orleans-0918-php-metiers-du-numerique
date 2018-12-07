@@ -24,15 +24,14 @@ class ContactFormController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $contactFormData = $form->getData();
+            var_dump($contactFormData);
             $message = (new \Swift_Message($contactFormData->getSubject()))
                 ->setFrom($contactFormData->getMail())
                 ->setTo($this->getParameter('mail_from'))
                 ->addReplyTo($contactFormData->getMail())
-                ->setBody(
-                    'Nouveau message de ' . $contactFormData->getAuthor() .
-                    ' :  '  .  "\n" . 'url : ' . $contactFormData->getLink()
-                    .  "\n" . 'message : ' .
-                    $contactFormData->getMessage()
+                ->setBody( $this->renderView('contact/setBodyContact.html.twig', [
+                    'contactFormData' => $contactFormData
+                    ])
                 );
             $mailer->send($message);
             $this->addFlash('success', 'Votre mail a bien été envoyé');
