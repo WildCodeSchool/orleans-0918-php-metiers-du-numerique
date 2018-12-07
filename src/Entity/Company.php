@@ -43,6 +43,11 @@ class Company
      */
     private $jobs;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $accepted;
+
     public function __construct()
     {
         $this->jobs = new ArrayCollection();
@@ -123,6 +128,18 @@ class Company
         if ($this->jobs->contains($job)) {
             $this->jobs->removeElement($job);
         }
+
+        return $this;
+    }
+
+    public function getAccepted(): ?bool
+    {
+        return $this->accepted;
+    }
+
+    public function setAccepted(bool $accepted): self
+    {
+        $this->accepted = $accepted;
 
         return $this;
     }
