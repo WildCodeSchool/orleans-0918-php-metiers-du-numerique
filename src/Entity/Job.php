@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\JobRepository")
+ * @Vich\Uploadable
  */
 class Job
 {
@@ -32,6 +36,13 @@ class Job
      * @ORM\Column(type="string", length=255)
      */
     private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="jobs", fileNameProperty="picture")
+     * @var File
+     * @Assert\Image(maxSize="2M",maxSizeMessage="Cette image est trop volumineuse.")
+     */
+    private $pictureFile;
 
     /**
      * @ORM\Column(type="text")
@@ -247,4 +258,25 @@ class Job
 
         return $this;
     }
+
+
+    public function setPictureFile(File $picture = null)
+    {
+        $this->pictureFile = $picture;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($picture) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
+    }
+
+
 }

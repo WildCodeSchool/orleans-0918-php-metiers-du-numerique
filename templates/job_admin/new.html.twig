@@ -3,9 +3,12 @@
 {% block title %}Ajouter une fiche métier {% endblock %}
 
 {% block body %}
-    <h1>Ajouter une Fiche métier</h1>
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Ajouter une Fiche métier</h1>
+        </div>
 
-    {{ include('job_admin/_form.html.twig') }}
-
-    <a href="{{ path('job_index') }}">back to list</a>
+        {{ include('job_admin/_form.html.twig') }}
+    </div>
 {% endblock %}
