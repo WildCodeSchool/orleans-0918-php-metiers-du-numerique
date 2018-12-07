@@ -26,7 +26,7 @@ class ContactFormController extends AbstractController
             $contactFormData = $form->getData();
             $message = (new \Swift_Message($contactFormData->getSubject()))
                 ->setFrom($contactFormData->getMail())
-                ->setTo('metierdunumerique@gmail.com')
+                ->setTo($this->getParameter('mail_from'))
                 ->addReplyTo($contactFormData->getMail())
                 ->setBody(
                     'Nouveau message de ' . $contactFormData->getAuthor() .
@@ -35,7 +35,10 @@ class ContactFormController extends AbstractController
                     $contactFormData->getMessage()
                 );
             $mailer->send($message);
+            $this->addFlash('success', 'Votre mail a bien été envoyé');
             return $this->redirectToRoute('contact_form');
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('danger', 'Votre mail n\'a pas été envoyé');
         }
         return $this->render('contact/indexContact.html.twig', [
             'form' => $form->createView()

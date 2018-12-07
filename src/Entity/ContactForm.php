@@ -20,8 +20,9 @@ class ContactForm
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
-     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
-     *              maxMessage="Le champ comporte trop de caractère")
+     * @Assert\Regex("/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ' ]+$/i",
+     *        message="le champ ne doit pas contenir de caractères spéciaux")
+     * @Assert\Length(max="255", maxMessage="Le champ comporte trop de caractère")
      */
     private $author;
 
@@ -36,8 +37,9 @@ class ContactForm
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
-     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
-     *              maxMessage="Le champ comporte trop de caractère")
+     * @Assert\Regex("/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ' ]+$/i",
+     *        message="le champ ne doit pas contenir de caractères spéciaux")
+     * @Assert\Length( max="255", maxMessage="Le champ comporte trop de caractère")
      */
     private $message;
 
@@ -52,8 +54,9 @@ class ContactForm
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
-     * @Assert\Length(min="3", max="255", minMessage="Le champs ne comporte pas assez de caractère",
-     *              maxMessage="Le champ comporte trop de caractère")
+     * @Assert\Regex("/^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ' ]+$/i",
+     *              message="le champ ne doit pas contenir de caractères spéciaux")
+     * @Assert\Length(max="255", maxMessage="Le champ comporte trop de caractère")
      */
     private $subject;
 
