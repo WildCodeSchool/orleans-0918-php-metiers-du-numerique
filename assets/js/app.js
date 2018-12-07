@@ -20,5 +20,4 @@ import './slider';
 import "./previewUpload";
 import "./modal";
 import "./backToTop";
-
-
+import "./contact";

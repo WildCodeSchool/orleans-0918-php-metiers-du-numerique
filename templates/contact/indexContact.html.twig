@@ -1,0 +1,15 @@
+{% extends 'layoutFront.html.twig' %}
+
+{% block title %}Contact us{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('partner_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Contactez nous</h1>
+        </div>
+
+        {{ include('contact/_form.html.twig') }}
+    </div>
+
+{% endblock %}
