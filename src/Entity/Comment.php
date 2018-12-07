@@ -20,7 +20,7 @@ class Comment
     private $picture;
 
     /**
-     * @Vich\UploadableField(mapping="partners", fileNameProperty="picture")
+     * @Vich\UploadableField(mapping="comments", fileNameProperty="picture")
      * @var File
      * @Assert\File(maxSize="2M", maxSizeMessage="Cette image est trop volumineuse.")
      */
