@@ -277,6 +277,4 @@ class Job
     {
         return $this->pictureFile;
     }
-
-
 }
