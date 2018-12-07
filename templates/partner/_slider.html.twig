@@ -1,16 +1,21 @@
 {% if partners|length > 0 %}
-    <div class="container-fluid bg-dark">
-        <div class='container-slider container'>
-            <div class='single-item'>
-                {% for partner in partners %}
-                    <div class="">
-                        <a href="{{ partner.url }}" class="text-center mx-auto">
-                            <img class="carousel-icon align-content-center"
-                                 src="{{ asset("images/partners/") }}{{ partner.picture }}" alt="">
-                        </a>
-                    </div>
-                {% endfor %}
+    <section class="slider">
+        <div class="container-fluid bg-dark">
+            <div class="row justify-content-center slider-title">
+                <h3>Nos partenaires</h3>
+            </div>
+            <div class='container-slider container'>
+                <div class='single-item'>
+                    {% for partner in partners %}
+                        <div class="">
+                            <a href="{{ partner.url }}" class="text-center mx-auto">
+                                <img class="carousel-icon align-content-center"
+                                     src="{{ asset("images/partners/") }}{{ partner.picture }}" alt="">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 {% endif %}

@@ -423,58 +423,72 @@ hr {
 }
 
 /*slider partner*/
-.container-slider {
+.slider{
+  margin-top: 10vh;
+  .slider-title{
+  padding-top: 5vh;
+  h3{
+    color: $colorFontButton;
+    font-weight: bold;
+    font-size: 2em;
+  }
+}
+
+  .container-slider {
+
     min-height: 300px;
-    padding-top: 10vh;
+    padding-top: 5vh;
     max-width: 1050px;
     @media (max-width: 769px) {
-        padding-left: 53px;
+      padding-left: 53px;
     }
-  img{
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  background-color:white;
-  object-fit: contain;
-  filter: grayscale(80%);
-  @media (max-width: 576px) {
-    width: 100px;
-    height: 100px;
-  }
-}
-  .slick-active img{
-    filter: grayscale(80%);
-    &:hover{
-      transform: scale(1.1, 1.1);
-      filter: grayscale(0%) contrast(120%);
+    img{
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      background-color:white;
+      object-fit: contain;
+      filter: grayscale(80%);
+      @media (max-width: 576px) {
+        width: 100px;
+        height: 100px;
+      }
     }
-  }
-  .slick-list{
-    margin-right: 50px;
-  }
-  .slick-next{
-    right: -20px;
+    .slick-active img{
+      filter: grayscale(80%);
+      &:hover{
+        transform: scale(1.1, 1.1);
+        filter: grayscale(0%) contrast(120%);
+      }
+    }
+    .slick-list{
+      margin-right: 50px;
+    }
+    .slick-next{
+      right: -20px;
+      @media (max-width: 576px) {
+        right: 15px;
+        top: 80px;
+      }
+    }
     @media (max-width: 576px) {
-      right: 15px;
-      top: 80px;
+      .slick-prev{
+        top: 80px;
+      }
     }
-  }
-  @media (max-width: 576px) {
-    .slick-prev{
-      top: 80px;
+    .slick-center img{
+      filter: grayscale(0%) contrast(120%);
+      &:hover{
+        transform: scale(1.1, 1.1);
+      }
     }
-  }
-  .slick-center img{
-    filter: grayscale(0%) contrast(120%);
-    &:hover{
-      transform: scale(1.1, 1.1);
+    .slick-track{
+      min-height: 200px;
+      padding-top: 30px;
     }
-  }
-  .slick-track{
-    min-height: 200px;
-    padding-top: 30px;
   }
 }
+
 a {
     outline: none;
 }
