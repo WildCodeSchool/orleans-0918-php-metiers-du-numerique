@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutFront.html.twig' %}
 
-{% block title %}New Comment{% endblock %}
+{% block title %}Nouveau Commentaire{% endblock %}
 
 {% block body %}
-    <h1>Create new Comment</h1>
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('comment_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Ajouter un commentaire</h1>
+        </div>
 
-    {{ include('comment/_form.html.twig') }}
+        {{ include('comment/_form.html.twig') }}
+    </div>
 
-    <a href="{{ path('comment_index') }}">back to list</a>
 {% endblock %}
