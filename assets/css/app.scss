@@ -78,7 +78,12 @@ main{
    max-height: 32vh;
    max-width: 40vh;
 }
-
+.img-job{
+  min-width: 75px;
+  max-width: 75px;
+  min-height: 75px;
+  max-height: 75px;
+}
 
 .faback {
    font-size: $faBack;
