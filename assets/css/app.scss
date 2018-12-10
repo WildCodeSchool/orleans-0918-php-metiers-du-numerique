@@ -805,7 +805,7 @@ a{
 }
 
 .btn:hover {
-  color: #ffffff;
+  color: $txtButton;
   background-color: $buttonColor;
   border-color: $buttonColor;
 }
@@ -836,4 +836,9 @@ a{
   max-height: 63px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.title-categories{
+  .slick-current{
+    width: 167px !important;
+  }
 }

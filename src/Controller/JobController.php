@@ -27,10 +27,6 @@ class JobController extends AbstractController
         foreach ($categories as $category) {
             $jobs[] = $jobRepository->findByAssociatedCategory($category);
         }
-//        var_dump($jobs);
-
-//        var_dump($jobs[0][0]->getAssociatedComments());die;
-
         return $this->render('job/index.html.twig', ['jobs' => $jobs, 'categories' => $categories]);
     }
 
