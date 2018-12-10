@@ -1,0 +1,49 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Gestion entreprises{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1>Gestion des entreprises :</h1>
+            </div>
+        </div>
+        <section class="sectionSpace">
+            <div class="row justify-content-center align-items-center mb-5">
+                <div class="col-xs-8 col-md-3 d-flex">
+                    <div class="admission-color valid"></div>
+                    <p class="nowrap">Entreprises validées</p>
+                </div>
+                <div class="col-xs-8 col-md-3 d-flex">
+                    <div class="admission-color not-valid"></div>
+                    <p class="nowrap">Entreprises à valider</p>
+                </div>
+            </div>
+
+            <table class="col-12 mx-auto table">
+                <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Lien</th>
+                    <th scope="col">Voir</th>
+                </tr>
+                <tbody>
+                {% for company in companies %}
+                        <tr class="{% if company.accepted == 0 %}not-valid{% else %}valid{% endif %}">
+                            <th>{{ company.name }}</th>
+                            <td>{{ company.mail }}</td>
+                            <td>{{ company.link }}</td>
+                            <td>
+                                <a class="col-xs-12 col-lg-12 col-md-1"
+                                   href="{{ path('company_show', {'id': company.id}) }}"><i
+                                            class="far fa-eye eye-white"></i></a>
+                            </td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+{% endblock %}

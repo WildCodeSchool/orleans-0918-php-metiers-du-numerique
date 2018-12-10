@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Company{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container company">
+            <div class="row">
+                <div class="companyInfo col-sm-12 col-md-6 col-lg-6">
+                    <h2 class="companyName">{{ company.name }}</h2>
+                    <h3 class="companyMail">{{ company.mail }}</h3>
+                    <a class="companyLink" href="{{ company.link }}"> Voir le Site Web</a>
+                </div>
+                <div class="col-sm-12 col-md-6 offset-lg-2 col-lg-4">
+                    <img class="imgCompany" src="{{ asset('build/images/'~company.picture) }}"
+                         alt="image de l'entreprise {{ company.name }}">
+                </div>
+            </div>
+
+            <div class="companyJob">
+                <p>Métiers de l'entreprise :</p>
+                <ul>
+                    {% for job in company.jobs %}
+                        <li>{{ job.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="companyRadioCheck">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                           value="option2">
+                    <label class="form-check-label" for="inlineRadio2">Accepter l'entreprise</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                           value="option3">
+                    <label class="form-check-label" for="inlineRadio3">Supprimer l'entreprise</label>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn companyValid" role="button" aria-disabled="true">Valider
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+

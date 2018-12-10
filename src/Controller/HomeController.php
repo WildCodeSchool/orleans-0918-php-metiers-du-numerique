@@ -15,6 +15,14 @@ class HomeController extends AbstractController
      */
     public function index(PartnerRepository $partnerRepository)
     {
-        return $this->render('home/index.html.twig', ['partners' => $partnerRepository->findAll()]);
+        $partners = $partnerRepository->findAll();
+        $nbPartners = count($partners);
+        if ($nbPartners <= 5 && $nbPartners > 0) {
+            $nbSlideToAdd = 6 - $nbPartners;
+            for ($i = 0; $i < $nbSlideToAdd; $i++) {
+                array_push($partners, $partners[$i]);
+            }
+        }
+        return $this->render('home/index.html.twig', ['partners' => $partners]);
     }
 }

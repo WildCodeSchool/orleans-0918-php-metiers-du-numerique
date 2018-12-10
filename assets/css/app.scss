@@ -1,6 +1,8 @@
 @import "../../node_modules/bootswatch/dist/lux/variables";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootswatch/dist/lux/bootswatch";
+@import '../../node_modules/slick-carousel/slick/slick';
+@import '../../node_modules/slick-carousel/slick/slick-theme';
 
 
 $colorFontButton : white;
@@ -69,7 +71,11 @@ main{
     min-height:100vh;
 
 }
-
+/*home*/
+.logo-home{
+  max-width: 300px;
+  max-height: 300px;
+}
 /*business card*/
 
 .jobPicture{
@@ -78,6 +84,7 @@ main{
    max-height: 32vh;
    max-width: 40vh;
 }
+
 .img-job{
   min-width: 75px;
   max-width: 75px;
@@ -113,39 +120,35 @@ hr {
   background-size: cover;
   text-align: center;
   margin-bottom: 50px;
+    .banner-content {
+      position: relative;
+      top: 150px;
 
-  .banner-content {
-    position: relative;
-    top: 150px;
-
-
-    .title {
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 20px;
-      margin-left: 0px;
-      border-right: 2px solid rgba(255, 255, 255, .75);
-      font-size: 3.2vw;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      transform: translateY(-50%);
-      text-transform: uppercase;
-
-    }
-
-    @media (max-width: 992px) {
       .title {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        border-right: 2px solid rgba(255, 255, 255, .75);
+        font-size: 3.1vw;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        transform: translateY(-50%);
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 992px) {
         min-width: 80vw;
+
       }
     }
-
     .typewriter {
       animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
       color: #fff;
     }
   }
-}
+
 
 @keyframes typewriter {
   from {
@@ -166,7 +169,6 @@ hr {
 }
 
 /*navbar*/
-
 .custom-navbar-on-scroll {
    background-color: $navbarBgonScroll;
 }
@@ -194,10 +196,12 @@ hr {
     max-width: 50px;
     margin-left: 2vw;
     margin-right: 2vw;
+    border: white solid 2px;
+    border-radius: 50%;
   }
 
   .align-right {
-    margin-left: 25vw;
+    margin-left: 10vw;
   }
 }
 
@@ -386,11 +390,30 @@ hr {
     margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
+    width: 99.5vw;
 
     .container-fluid {
         padding-top: 10px;
     }
+     .btn {
+          padding-top: 20px;
+          font-size: 12pt;
+          margin-top: 25px;
+          margin-right: 5vw;
+          background-color: transparent;
+          @media (max-width: 768px) {
 
+              font-size: 10pt;
+              margin-top: 25px;
+
+        }
+
+        &:hover, &:focus, &:active {
+            background-color: transparent !important;
+            border: none !important; ;
+            box-shadow: none !important ;
+        }
+    }
     img {
         max-height: 90px;
         max-width: 90px;
@@ -413,30 +436,81 @@ hr {
     }
 }
 
-    .footer{
-            width: 99.5vw;
-        }
+/*slider partner*/
+.slider{
+  margin-top: 10vh;
+  .bg-gray{
+    background-color: $navbarBgonScroll;
+  }
+  .slider-title{
+  padding-top: 5vh;
+  h3{
+    color: $colorFontButton;
+    font-weight: bold;
+    font-size: 2em;
+  }
+}
 
-      footer .btn {
-          padding-top: 20px;
-          font-size: 12pt;
-          margin-top: 25px;
-          margin-right: 5vw;
-          background-color: transparent;
-          @media (max-width: 768px) {
+  .container-slider {
 
-              font-size: 10pt;
-              margin-top: 25px;
-
-        }
-
-        &:hover, &:focus, &:active {
-            background-color: transparent !important;
-            border: none !important; ;
-            box-shadow: none !important ;
-        }
+    min-height: 300px;
+    padding-top: 5vh;
+    max-width: 1050px;
+    @media (max-width: 769px) {
+      padding-left: 53px;
     }
+    img{
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      background-color:white;
+      object-fit: contain;
+      filter: grayscale(80%);
+      @media (max-width: 576px) {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .slick-active img{
+      filter: grayscale(80%);
+      &:hover{
+        transform: scale(1.1, 1.1);
+        filter: grayscale(0%) contrast(120%);
+      }
+    }
+    .slick-list{
+      margin-right: 50px;
+    }
+    .slick-next{
+      right: -20px;
+      @media (max-width: 576px) {
+        right: 15px;
+        top: 80px;
+      }
+    }
+    @media (max-width: 576px) {
+      .slick-prev{
+        top: 80px;
+      }
+    }
+    .slick-center img{
+      filter: grayscale(0%) contrast(120%);
+      &:hover{
+        transform: scale(1.1, 1.1);
+      }
+    }
+    .slick-track{
+      min-height: 200px;
+      padding-top: 30px;
+    }
+  }
+}
 
+a {
+    outline: none;
+}
+
+  
 /*comment_list*/
 .admission-color {
     width: 30px;
@@ -476,6 +550,7 @@ p{
   font-size: $principalFontSize;
 }
 
+/*company show*/
 @media (max-width: 768px) {
   .commentInfo {
     text-align: center;
@@ -498,38 +573,66 @@ p{
 
 }
 
-/*learning center show*/
-
-.learningCenter{
-    font-size: $fontSize;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+.company{
+  font-size: $fontSize;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
-.imgLearningSchool{
-    margin-top: 5vh;
-    margin-bottom: 3vh;
-    border-radius:50%;
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
+.imgCompany{
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  border-radius:50%;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
 
 }
-.learningName{
-    font-size: xx-large;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+.companyName{
+  font-size: xx-large;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
-.learningMail{
-    font-size: medium;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+.companyMail{
+  font-size: medium;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
-.learningLink{
-    font-size: small;
+.companyLink{
+  font-size: small;
 }
+.companyValid{
+  @include myButtons;
+  height: 48px;
+}
+.companyRadioCheck{
+  text-align: center;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.companyInfo{
+  color: #4c4c4c;
+}
+.companyJob{
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
 .buttonLearningValid{
     @include myButtons;
     height: 48px;
+}
+.learningName{
+  font-size: xx-large;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.learningMail{
+  font-size: medium;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.learningLink{
+  font-size: small;
 }
 .learningRadioCheck{
     text-align: center;
@@ -544,3 +647,23 @@ p{
      margin-bottom: 10vh;
  }
 
+ /*form contact*/
+.btn-contact {
+  @include myButtons;
+  height: $heightButton;
+}
+
+/*add_comment*/
+.fa-asterisk{
+  color: red;
+  font-size: 7pt;
+}
+.form-checkbox {
+  display: none;
+}
+textarea{
+  min-height: 150px;
+}
+a{
+  outline:none;
+}
