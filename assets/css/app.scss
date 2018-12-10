@@ -659,3 +659,181 @@ textarea{
 a{
   outline:none;
 }
+/*category*/
+
+@media (max-width: 766px) {
+  .theme-nav {
+    display: block;
+  }
+
+  .button-pills {
+    display: none;
+  }
+}
+
+.nav-pills li.active a,
+.nav-pills li.active a:focus,
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+  background-color: $fontColor;
+}
+
+.nav-pills li:hover a {
+  color: $fontColor;
+}
+
+.nav-pills li a {
+  color: black;
+}
+
+.nav-pills li.active a {
+  color: white;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+  background-color: inherit;
+}
+
+.pilltheme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px 0 50px 0;
+  padding: 0;
+}
+
+.badge {
+  color: $fontColor;
+  background-color: white;
+}
+
+.nav-pills > .active > a > .badge {
+  color: $fontColor;
+}
+
+.theme {
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+.animate {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.info-card {
+  width: 358px;
+  height: 250px;
+  border: 1px solid rgb(215, 215, 215);
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
+  overflow: hidden;
+  img {
+    width: 100%;
+
+  }
+  p{
+    font-size: 1em;
+  }
+}
+
+.info-card .info-card-details,
+.info-card .info-card-details .info-card-header {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  padding: 0 15px;
+  background: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.info-card .info-card-details::-webkit-scrollbar-thumb:hover {
+  background: rgb(130, 130, 130);
+}
+
+.info-card .info-card-details .info-card-header {
+  height: auto;
+  bottom: 100%;
+  padding: 10px 5px;
+}
+
+.info-card:hover .info-card-details {
+  bottom: 0px;
+  overflow: auto;
+  padding-bottom: 25px;
+}
+
+.info-card:hover .info-card-details .info-card-header {
+  position: relative;
+  bottom: 0px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
+.info-card .info-card-details .info-card-header h1,
+.info-card .info-card-details .info-card-header h3 {
+  color: rgb(62, 62, 62);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.info-card .info-card-details .info-card-header h3 {
+  color: $fontColor;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.btn {
+  color: $colorFontButton;
+  background-color: $buttonColor;
+  border-color: $buttonColor;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background-color: $buttonColor;
+  border-color: $buttonColor;
+}
+
+.bulle-card {
+  margin-left: 25px;
+  margin-right: 6px;
+}
+
+.metacard {
+  display: inline;
+}
+
+.titre-card-responsive {
+  display: none;
+  padding: 10px 0 10px 0;
+  background-color: $fontColor;
+  color: white;
+}
+
+@media (max-width: 766px) {
+  .titre-card-responsive {
+    display: block;
+  }
+}
+.job-resum{
+  max-width: 326px;
+  max-height: 63px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -24,6 +26,16 @@ class Category
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Job", mappedBy="associatedCategory")
+     */
+    private $associatedJobs;
+
+    public function __construct()
+    {
+        $this->associatedJobs = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,6 +49,37 @@ class Category
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Job[]
+     */
+    public function getAssociatedJobs(): Collection
+    {
+        return $this->associatedJobs;
+    }
+
+    public function addAssociatedJob(Job $associatedJob): self
+    {
+        if (!$this->associatedJobs->contains($associatedJob)) {
+            $this->associatedJobs[] = $associatedJob;
+            $associatedJob->setAssociatedCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAssociatedJob(Job $associatedJob): self
+    {
+        if ($this->associatedJobs->contains($associatedJob)) {
+            $this->associatedJobs->removeElement($associatedJob);
+            // set the owning side to null (unless already changed)
+            if ($associatedJob->getAssociatedCategory() === $this) {
+                $associatedJob->setAssociatedCategory(null);
+            }
+        }
 
         return $this;
     }
