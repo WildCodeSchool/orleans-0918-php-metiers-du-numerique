@@ -3,9 +3,13 @@
 {% block title %}New Company{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une nouvelle entreprise</h1>
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('partner_index') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Ajouter une nouvelle entreprise</h1>
+        </div>
+        {{ include('company_admin/_form.html.twig') }}
 
-    {{ include('company_admin/_form.html.twig') }}
-
-    <a href="{{ path('company_index') }}">back to list</a>
+        <a href="{{ path('compagny_admin') }}">Retour à la liste des entreprises</a>
+    </div>
 {% endblock %}
