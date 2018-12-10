@@ -22,6 +22,9 @@
             </div>
             <h4 class="mt-5">Description de la vidéo:</h4>
             <p>{{ job.videodescription }}</p>
+            <div class="row justify-content-center">
+                <a href="{{ path('job_show', {'id': job.id}) }}" class="btn-primary btn">En savoir plus...</a>
+            </div>
             <hr class="d-none d-sm-block">
         </section>
         <div class="row">
