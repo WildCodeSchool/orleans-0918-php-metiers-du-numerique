@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Company;
 use App\Entity\Job;
 use App\Entity\LearningCenter;
 use App\Form\LearningCenterType;
@@ -38,5 +39,18 @@ class LearningCenterAdminController extends AbstractController
     public function show(LearningCenter $learningCenter): Response
     {
         return $this->render('learning_center_admin/show.html.twig', ['learning_center' => $learningCenter]);
+    }
+    /**
+     * @Route("/{id}", name="learning_center_admin_delete", methods="DELETE")
+     */
+    public function delete(Request $request, LearningCenter $learningCenter): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $learningCenter->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($learningCenter);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('learningCenter_admin');
     }
 }
