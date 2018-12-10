@@ -128,6 +128,15 @@ hr {
         overflow: hidden;
         transform: translateY(-50%);
         text-transform: uppercase;
+        @media (max-width: 992px) {
+          font-size: 6vw;
+
+        }
+        @media (max-width: 375px) {
+          font-size: 5.5vw;
+          //min-width: 100vw;
+
+        }
       }
 
       @media (max-width: 992px) {
@@ -147,7 +156,7 @@ hr {
     width: 0;
   }
   to {
-    width: 16.3em;
+    width: 100vw;
   }
 }
 
