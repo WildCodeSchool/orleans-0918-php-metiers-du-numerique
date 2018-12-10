@@ -1,4 +1,4 @@
-{% extends 'layoutFront.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 {% block body %}
     <div class="container">
     <h1 class="text-center">Commentaire de {{ comment.firstname ~ " " ~ comment.lastname }}</h1>
@@ -7,7 +7,7 @@
     <div class="row commentInfo sectionSpace">
         <div class="col-sm-12 col-md-2">
             {% if comment.picture is empty %}
-            <img class="circlePicture" src="https://via.placeholder.com/120x120" alt="">
+            <img class="circlePicture buisnessPicture" src="https://via.placeholder.com/120x120" alt="">
             {% else %}
             <img class="circlePicture" src="asset{{ 'build/images/'~comment.picture }}" alt="photo de {{ comment.firstname ~ " " ~comment.lastname }}">
             {% endif %}

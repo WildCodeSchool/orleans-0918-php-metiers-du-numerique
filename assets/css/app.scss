@@ -101,6 +101,12 @@ hr {
 .commentSpace{
   margin-top : $marginCommentSpace;
 }
+.buisnessPicture{
+  max-width: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  max-height: 150px;
+}
 
 /*banner*/
 .banner {
