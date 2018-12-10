@@ -719,13 +719,7 @@ a{
   margin-bottom: 35px;
 }
 
-.animate {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
+
 
 .info-card {
   width: 358px;
@@ -739,6 +733,13 @@ a{
     width: 100%;
 
   }
+  .animate {
+     -webkit-transition: all 0.3s ease-in-out;
+     -moz-transition: all 0.3s ease-in-out;
+     -o-transition: all 0.3s ease-in-out;
+     -ms-transition: all 0.3s ease-in-out;
+     transition: all 0.5s ease-in-out;
+   }
   p{
     font-size: 1em;
   }
@@ -802,18 +803,13 @@ a{
   border-color: $buttonColor;
   text-align: center;
   margin-top: 25px;
-}
-
-.btn:hover {
+  &:hover {
   color: $txtButton;
   background-color: $buttonColor;
   border-color: $buttonColor;
+  }
 }
 
-.bulle-card {
-  margin-left: 25px;
-  margin-right: 6px;
-}
 
 .metacard {
   display: inline;
@@ -824,21 +820,17 @@ a{
   padding: 10px 0 10px 0;
   background-color: $fontColor;
   color: white;
-}
+  @media (max-width: 766px) {
 
-@media (max-width: 766px) {
-  .titre-card-responsive {
     display: block;
+
   }
 }
+
+
 .job-resum{
   max-width: 326px;
   max-height: 63px;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.title-categories{
-  .slick-current{
-    width: 167px !important;
-  }
 }
