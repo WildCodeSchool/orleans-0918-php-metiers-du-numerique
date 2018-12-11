@@ -17,7 +17,7 @@ class HomeController extends AbstractController
      */
     public function index(PartnerRepository $partnerRepository, JobRepository $jobRepository)
     {
-        $job = $jobRepository->findOneBy(["id" => 1], ['id' => "DESC"]);
+        $job = $jobRepository->findOneBy([], ['id' => "DESC"]);
         $partners = $partnerRepository->findAll();
         $nbPartners = count($partners);
         if ($nbPartners <= 5 && $nbPartners > 0) {
