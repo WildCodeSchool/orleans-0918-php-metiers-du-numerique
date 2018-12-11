@@ -30,6 +30,7 @@ $colorInput:#d1d1d1;
 
 /*variable modal*/
 $backgroundModal: white;
+$backgroundModalSearch: rgba(255,255,255,0.95);
 $closeButton: grey;
 $closeButtonHover: black;
 $modalSpace: 2em;
@@ -61,7 +62,16 @@ $borderpicture:100%;
   overflow-x: hidden;
   transition: width 0.5s;
 }
-
+@mixin overlayBackTop {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1040;
+  top: 0;
+  background-color: $backgroundModalSearch;
+  overflow-x: hidden;
+  transition: height 0.5s;
+}
 body {
     background-color: $backgroundColor;
     color: $fontColor;
@@ -276,6 +286,10 @@ hr {
 .overlayLearning {
   @include overlay;
   right: 0;
+}
+.overlaySearch {
+  @include overlayBackTop;
+  top: 0;
 }
 
 .closebutton {
@@ -658,4 +672,18 @@ textarea{
 }
 a{
   outline:none;
+}
+/*modal Search*/
+.btnSearch{
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  padding-top: 0px !important;
+}
+.searchInput{
+  min-width: 50vw;
+  background-color:$backgroundModal;
+  font-size: 3em;
+  height: 120px;
+  border: 2px solid #e6e6e6;
 }

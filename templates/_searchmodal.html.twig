@@ -1,0 +1,17 @@
+<div id="myModalSearch" class="overlaySearch">
+    <a class="closebutton" id="closebtnSearch">&times;</a>
+    <div class="container-fluid">
+        <div class="modalSpace">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <h1 class="modalTitle">Recherche</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <form class="form-inline my-2 my-lg-0"  method="get" action="{{ path('job_search') }}">
+                        <input class="form-control mr-sm-2 searchInput col-12 text-center" type="text" name="search" placeholder="Developpeur back">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
