@@ -21,6 +21,7 @@ security:
                     - App\Security\AppAuthenticator
             logout:
                 path:  app_logout
+                target: /login
 
             # activate different ways to authenticate
 

@@ -3,22 +3,45 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <div class="container form-log">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername" class="sr-only">Username</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <h1 class="h3 mb-5 mt-5 font-weight-normal text-center">Identifiez-vous</h1>
+            <div class="form-group mb-4">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text prep-color"><i class="fas fa-user"></i></span>
+                    </div>
+                    <label for="inputUsername" class="sr-only control-label">Nom d'utilisateur</label>
+                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername"
+                           class="form-control color-input"
+                           placeholder="Nom d'utilisateur" required autofocus>
+                </div>
+            </div>
+            <div class="form-group mb-5">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text prep-color"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <label for="inputPassword" class="sr-only control-label">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control color-input"
+                           placeholder="Mot de passe"
+                           required>
+                </div>
+            </div>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+            <div class="text-center">
+                <button class="btn btn-log" type="submit">
+                    Se connecter
+                </button>
+            </div>
+
+        </form>
+    </div>
 {% endblock %}
