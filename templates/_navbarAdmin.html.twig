@@ -17,7 +17,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Entreprise</a>
             </li>
-            {% if app.user.username is defined %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <li class="nav-item nav-log">
                 <a class="nav-link text-right" href="{{ path('app_logout') }}">se déconnecter</a>
             </li>
