@@ -8,6 +8,7 @@
             <div class="modalSpace"></div>
             <div class="multiCol">
                 {% for learningCenter in job.learningCenters %}
+                    {% if learningCenter.accepted == 1 %}
                     <div class="row">
                         <div class="col-12 mt-4">
                             <img class="imgModal img-fluid"
@@ -17,6 +18,7 @@
 
                         </div>
                     </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
