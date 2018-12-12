@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
 {% block title %}LearningCenter{% endblock %}
 
@@ -29,14 +29,9 @@
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
             <label class="form-check-label" for="inlineRadio2">Accepter l'organisme</label>
                 </div>
-                <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-            <label class="form-check-label" for="inlineRadio3">Supprimer l'organisme</label>
+                <div class ="row commentSpace justify-content-center">
+                    {{ include('learning_center_admin/_delete_form.html.twig') }}
                 </div>
-            </div>
-            <div class="text-center">
-                <button class="btn buttonLearningValid" role="button" aria-disabled="true">Valider
-                </button>
             </div>
         </div>
     </section>

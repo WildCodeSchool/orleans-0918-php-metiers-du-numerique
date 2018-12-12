@@ -33,4 +33,17 @@ class CompanyAdminController extends AbstractController
     {
         return $this->render('company_admin/show.html.twig', ['company' => $company]);
     }
+    /**
+     * @Route("/{id}", name="company_admin_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Company $company): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$company->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($company);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('compagny_admin');
+    }
 }

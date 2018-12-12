@@ -6,6 +6,10 @@ $('#comment_pictureFile_file').on('input', function (e) {
     previewUpload(this, e.target.files[0], MAXSIZE);
 });
 
+$('#job_pictureFile_file').on('input', function (e) {
+    previewUpload(this, e.target.files[0], MAXSIZE);
+});
+
 function previewUpload(input, f, maxSize) {
     const pictureName = $(input).val().split('\\').pop();
     $(input).next().text(pictureName);

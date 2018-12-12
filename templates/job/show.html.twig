@@ -41,7 +41,7 @@
                     <h4>Description du métier :</h4>
                     <p>{{ job.description }}</p>
                 </div>
-                <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{{ asset('build/images/'~job.picture) }}">
+                <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{{ asset("images/jobs/")}}{{ job.picture }} ">
             </div>
         </section>
         
@@ -75,7 +75,7 @@
                         {% if comment.picture is empty %}
                             <img class="circlePicture" src="https://via.placeholder.com/80x80" alt="">
                         {% else %}
-                            <img class="circlePicture" src="{{ asset('build/images/'~comment.picture)}}" alt="Photo du metier de {{ job.name }}">
+                            <img class="circlePicture img-job" src="{{ asset('build/images/'~comment.picture)}}" alt="Photo du metier de {{ job.name }}">
                         {% endif %}
 
                         <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>

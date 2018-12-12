@@ -14,8 +14,11 @@ $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
-$fontColor: black;
 $fontSize:16pt;
+$fontSizeXl: xx-large;
+$fontSizeM: medium;
+$marginTop: 5vh;
+$marginBottom: 5vh;
 $validColor : #C8C8C8;
 $invalidColor : #343a40;
 $shadowColor:black;
@@ -42,7 +45,7 @@ $modalSpace: 5em;
 $principalFontSize : 1.3em;
 $heightButton : 48px;
 $backgroundComments : #e4e4e4;
-$borderpicture:100%;
+$borderPicture:100%;
 
 @mixin myButtons {
    background-color: $buttonColor;
@@ -84,6 +87,14 @@ main{
    max-height: 32vh;
    max-width: 40vh;
 }
+
+.img-job{
+  min-width: 75px;
+  max-width: 75px;
+  min-height: 75px;
+  max-height: 75px;
+}
+
 .faback {
    font-size: $faBack;
 }
@@ -100,6 +111,12 @@ hr {
 }
 .commentSpace{
   margin-top : $marginCommentSpace;
+}
+.buisnessPicture{
+  max-width: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  max-height: 150px;
 }
 
 /*banner*/
@@ -128,13 +145,20 @@ hr {
         overflow: hidden;
         transform: translateY(-50%);
         text-transform: uppercase;
-      }
+        @media (max-width: 992px) {
+          font-size: 6vw;
+          }
 
-      @media (max-width: 992px) {
-        min-width: 80vw;
+        @media (max-width: 450px) {
+          font-size: 5.5vw;
 
+        }
       }
     }
+      @media (max-width: 992px) {
+        min-width: 99vw;
+
+      }
     .typewriter {
       animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
       color: #fff;
@@ -147,7 +171,27 @@ hr {
     width: 0;
   }
   to {
-    width: 16.3em;
+    width: 50vw;
+  }
+}
+@media (max-width: 992px) {
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100vw;
+    }
+  }
+}
+@media (max-width: 375px) {
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100vw;
+    }
   }
 }
 
@@ -387,6 +431,10 @@ hr {
     .container-fluid {
         padding-top: 10px;
     }
+  .footer-row{
+          max-width: 99.5vw;
+          overflow: hidden;
+          }
      .btn {
           padding-top: 20px;
           font-size: 12pt;
@@ -502,7 +550,6 @@ a {
     outline: none;
 }
 
-  
 /*comment_list*/
 .admission-color {
     width: 30px;
@@ -527,7 +574,7 @@ a {
 }
 /*picture*/
 .circlePicture {
-    border-radius: $borderpicture;
+    border-radius: $borderPicture;
 }
 button {
         margin-top: 15px;
@@ -565,79 +612,97 @@ p{
 
 }
 
+/*company show*/
+
 .company{
   font-size: $fontSize;
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
-.imgCompany{
-  margin-top: 5vh;
-  margin-bottom: 3vh;
-  border-radius:50%;
-  height: 200px;
-  width: 200px;
-  object-fit: cover;
-
+.companyInfo{
+  color: $fontColor;
 }
 .companyName{
-  font-size: xx-large;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeXl;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .companyMail{
-  font-size: medium;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeM;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .companyLink{
   font-size: small;
 }
-.companyValid{
-  @include myButtons;
-  height: 48px;
-}
-.companyRadioCheck{
-  text-align: center;
+.imgCompany{
   margin-top: 5vh;
-  margin-bottom: 5vh;
-}
-.companyInfo{
-  color: #4c4c4c;
+  margin-bottom: 3vh;
+  border-radius: $borderPicture;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
 }
 .companyJob{
   margin-top: 10vh;
   margin-bottom: 10vh;
 }
+.companyRadioCheck{
+  text-align: center;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
+}
+.buttonCompanyValid{
+  @include myButtons;
+  height: 48px;
+}
 
-.buttonLearningValid{
-    @include myButtons;
-    height: 48px;
+/*learning center show*/
+
+.learningCenter{
+  font-size: $fontSize;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
+}
+.learningInfo{
+  color: $fontColor;
 }
 .learningName{
-  font-size: xx-large;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeXl;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .learningMail{
-  font-size: medium;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeM;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .learningLink{
   font-size: small;
 }
-.learningRadioCheck{
-    text-align: center;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+.imgLearningSchool{
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  border-radius: $borderPicture;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
 }
- .learningInfo{
-     color: #4c4c4c;
- }
- .learningJob{
-     margin-top: 10vh;
-     margin-bottom: 10vh;
- }
+.learningJob{
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+.learningRadioCheck{
+  text-align: center;
+  margin-top: $marginTop;
+  margin-bottom:$marginBottom;
+}
+.buttonLearningValid{
+  @include myButtons;
+  height: 48px;
+}
+
+
 
  /*form contact*/
 .btn-contact {
