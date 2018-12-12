@@ -7,8 +7,6 @@ use App\Entity\Company;
 use App\Entity\Job;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -33,7 +31,7 @@ class CompanyType extends AbstractType
                 'choice_label' => 'name',
                 'by_reference' => false,
                 'multiple' => true,
-//                'expanded' => true,
+                'expanded' => true,
 //                'group_by' => Category::class
             ]);
         ;

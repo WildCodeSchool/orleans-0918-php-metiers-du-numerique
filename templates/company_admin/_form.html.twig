@@ -45,15 +45,19 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label">{{ form_label(form.jobs) }}</label>
-    <div class="form-group">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text prep-color"><i class="fas fa-bookmark"></i></span>
-            </div>
-            {{ form_widget(form.jobs) }}
-        </div>
-    </div>
+    {% for jobForm in form.jobs %}
+        {{ form_widget(jobForm) }}
+        {{  dump(jobForm.vars.data) }}
+    {% endfor %}
+    {#<label class="control-label">{{ form_label(form.jobs) }}</label>#}
+    {#<div class="form-group">#}
+        {#<div class="input-group mb-3">#}
+            {#<div class="input-group-prepend">#}
+                {#<span class="input-group-text prep-color"><i class="fas fa-bookmark"></i></span>#}
+            {#</div>#}
+            {#{{ form_widget(form.jobs) }}#}
+        {#</div>#}
+    {#</div>#}
 </div>
 
 <div class="row justify-content-center">
