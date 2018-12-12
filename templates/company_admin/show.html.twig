@@ -32,16 +32,10 @@
                     <label class="form-check-label" for="inlineRadio2">Accepter l'entreprise</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                           value="option3">
-                    <label class="form-check-label" for="inlineRadio3">Supprimer l'entreprise</label>
-                </div>
             </div>
-            <div class="text-center">
-                <button class="btn buttonCompanyValid" role="button" aria-disabled="true">Valider
-                </button>
+            <div class ="row commentSpace justify-content-center">
+                {{ include('company_admin/_delete_form.html.twig') }}
             </div>
-
         </div>
     </section>
 
