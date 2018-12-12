@@ -112,6 +112,12 @@ hr {
 .commentSpace{
   margin-top : $marginCommentSpace;
 }
+.buisnessPicture{
+  max-width: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  max-height: 150px;
+}
 
 /*banner*/
 .banner {
@@ -139,13 +145,20 @@ hr {
         overflow: hidden;
         transform: translateY(-50%);
         text-transform: uppercase;
-      }
+        @media (max-width: 992px) {
+          font-size: 6vw;
+          }
 
-      @media (max-width: 992px) {
-        min-width: 80vw;
+        @media (max-width: 450px) {
+          font-size: 5.5vw;
 
+        }
       }
     }
+      @media (max-width: 992px) {
+        min-width: 99vw;
+
+      }
     .typewriter {
       animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
       color: #fff;
@@ -158,7 +171,27 @@ hr {
     width: 0;
   }
   to {
-    width: 16.3em;
+    width: 50vw;
+  }
+}
+@media (max-width: 992px) {
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100vw;
+    }
+  }
+}
+@media (max-width: 375px) {
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100vw;
+    }
   }
 }
 
@@ -398,6 +431,10 @@ hr {
     .container-fluid {
         padding-top: 10px;
     }
+  .footer-row{
+          max-width: 99.5vw;
+          overflow: hidden;
+          }
      .btn {
           padding-top: 20px;
           font-size: 12pt;
