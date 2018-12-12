@@ -14,8 +14,11 @@ $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
-$fontColor: black;
 $fontSize:16pt;
+$fontSizeXl: xx-large;
+$fontSizeM: medium;
+$marginTop: 5vh;
+$marginBottom: 5vh;
 $validColor : #C8C8C8;
 $invalidColor : #343a40;
 $shadowColor:black;
@@ -42,7 +45,7 @@ $modalSpace: 5em;
 $principalFontSize : 1.3em;
 $heightButton : 48px;
 $backgroundComments : #e4e4e4;
-$borderpicture:100%;
+$borderPicture:100%;
 
 @mixin myButtons {
    background-color: $buttonColor;
@@ -527,7 +530,7 @@ a {
 }
 /*picture*/
 .circlePicture {
-    border-radius: $borderpicture;
+    border-radius: $borderPicture;
 }
 button {
         margin-top: 15px;
@@ -565,79 +568,97 @@ p{
 
 }
 
+/*company show*/
+
 .company{
   font-size: $fontSize;
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
-.imgCompany{
-  margin-top: 5vh;
-  margin-bottom: 3vh;
-  border-radius:50%;
-  height: 200px;
-  width: 200px;
-  object-fit: cover;
-
+.companyInfo{
+  color: $fontColor;
 }
 .companyName{
-  font-size: xx-large;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeXl;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .companyMail{
-  font-size: medium;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeM;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .companyLink{
   font-size: small;
 }
-.companyValid{
-  @include myButtons;
-  height: 48px;
-}
-.companyRadioCheck{
-  text-align: center;
+.imgCompany{
   margin-top: 5vh;
-  margin-bottom: 5vh;
-}
-.companyInfo{
-  color: #4c4c4c;
+  margin-bottom: 3vh;
+  border-radius: $borderPicture;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
 }
 .companyJob{
   margin-top: 10vh;
   margin-bottom: 10vh;
 }
+.companyRadioCheck{
+  text-align: center;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
+}
+.buttonCompanyValid{
+  @include myButtons;
+  height: 48px;
+}
 
-.buttonLearningValid{
-    @include myButtons;
-    height: 48px;
+/*learning center show*/
+
+.learningCenter{
+  font-size: $fontSize;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
+}
+.learningInfo{
+  color: $fontColor;
 }
 .learningName{
-  font-size: xx-large;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeXl;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .learningMail{
-  font-size: medium;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeM;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .learningLink{
   font-size: small;
 }
-.learningRadioCheck{
-    text-align: center;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+.imgLearningSchool{
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  border-radius: $borderPicture;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
 }
- .learningInfo{
-     color: #4c4c4c;
- }
- .learningJob{
-     margin-top: 10vh;
-     margin-bottom: 10vh;
- }
+.learningJob{
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+.learningRadioCheck{
+  text-align: center;
+  margin-top: $marginTop;
+  margin-bottom:$marginBottom;
+}
+.buttonLearningValid{
+  @include myButtons;
+  height: 48px;
+}
+
+
 
  /*form contact*/
 .btn-contact {
