@@ -269,6 +269,8 @@ hr {
 .buttonCategory {
    @include myButtons;
    height: $heightButton;
+   margin-top: 0px;
+   margin-right: 0vw;
 }
 
 .newCategory {
