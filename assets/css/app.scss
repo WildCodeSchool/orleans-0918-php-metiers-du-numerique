@@ -675,23 +675,13 @@ a{
     background-color: $fontColor;
   }
 
-  .nav-pills li:hover a {
-    color: $fontColor;
-  }
-
   .nav-pills li a {
-    color: black;
+    color:$fontColor;
   }
 
   .nav-pills li.active a {
-    color: white;
+    color: $txtButton;
   }
-
-  .nav > li > a:focus,
-  .nav > li > a:hover {
-    background-color: inherit;
-  }
-
   .pillcategory {
     display: flex;
     justify-content: center;
@@ -723,10 +713,6 @@ a{
 
     }
     .animate {
-      -webkit-transition: all 0.3s ease-in-out;
-      -moz-transition: all 0.3s ease-in-out;
-      -o-transition: all 0.3s ease-in-out;
-      -ms-transition: all 0.3s ease-in-out;
       transition: all 0.5s ease-in-out;
     }
     p{
