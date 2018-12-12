@@ -1,11 +1,11 @@
 {{ form_start(form) }}
 
 <div class="form-group">
-    <label class="control-label">Nom<i class="fas fa-asterisk"></i></label>
+    {{ form_label(form.author) }}<i class="fas fa-asterisk"></i>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text prep-color"><i class="fas fa-link"></i></span>
+                <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
             </div>
             {{ form_widget(form.author) }}
             {{ form_errors(form.author) }}
@@ -15,11 +15,11 @@
 <p class="checkboxTxt"><input type="checkbox" id="checkForm"> : Je souhaite éditer un organisme de formation ou une
     entreprise</p>
 <div class="form-group form-checkbox" id="linkForm">
-    <label class="control-label">url de l'organisme de formation ou de l'entreprise</label>
+    {{ form_label(form.link) }}
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
+                <span class="input-group-text prep-color"><i class="fas fa-link"></i></span>
             </div>
             {{ form_widget(form.link) }}
             {{ form_errors(form.link) }}
@@ -27,11 +27,11 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label">Objet du mail<i class="fas fa-asterisk"></i></label>
+    {{ form_label(form.subject) }}<i class="fas fa-asterisk"></i>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
+                <span class="input-group-text prep-color"><i class="fas fa-envelope-open-text"></i></span>
             </div>
             {{ form_widget(form.subject) }}
             {{ form_errors(form.subject) }}
@@ -39,11 +39,11 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label">Email<i class="fas fa-asterisk"></i></label>
+    {{ form_label(form.mail) }}<i class="fas fa-asterisk"></i>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
+                <span class="input-group-text prep-color"><i class="fas fa-at"></i></span>
             </div>
             {{ form_widget(form.mail) }}
             {{ form_errors(form.mail) }}
@@ -51,7 +51,7 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label">Votre message<i class="fas fa-asterisk"></i></label>
+    {{ form_label(form.message) }}<i class="fas fa-asterisk"></i>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
