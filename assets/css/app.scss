@@ -69,9 +69,8 @@ body {
     background-color: $backgroundColor;
     color: $fontColor;
 }
-
 main{
-    min-height:100vh;
+    min-height:50vh;
 
 }
 /*home*/
@@ -726,4 +725,14 @@ textarea{
 }
 a{
   outline:none;
+}
+/*form login*/
+
+.btn-log {
+  @include myButtons;
+  height: $heightButton;
+}
+.form-log {
+  margin-top: 70px;
+  max-width: 650px;
 }
