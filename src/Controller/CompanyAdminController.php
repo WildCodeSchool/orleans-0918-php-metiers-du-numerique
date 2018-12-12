@@ -35,13 +35,14 @@ class CompanyAdminController extends AbstractController
         $company = new Company();
         $form = $this->createForm(CompanyType::class, $company);
         $form->handleRequest($request);
+        $company->setAccepted(true);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
 
-            return $this->redirectToRoute('company_admin_index');
+            return $this->redirectToRoute('company_admin_new');
         }
 
         return $this->render('company_admin/new.html.twig', [
