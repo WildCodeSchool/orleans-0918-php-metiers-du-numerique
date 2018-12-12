@@ -22,7 +22,7 @@ class ContactFormType extends AbstractType
             ])
             ->add('link', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
-                'label' => 'url de l\'organisme de formation ou de l\'entreprise',
+                'label' => 'Lien de l\'organisme de formation ou de l\'entreprise',
                 'required' => false
             ])
             ->add('subject', TextType::class, [
