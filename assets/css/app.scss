@@ -692,4 +692,11 @@ a{
   border: 2px solid #e6e6e6;
   color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
+  &:focus {
+    color: #55595c;
+    background-color: white;
+    border-color: none;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
+  }
 }
