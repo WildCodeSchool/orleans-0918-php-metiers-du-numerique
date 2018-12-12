@@ -20,7 +20,7 @@ class Category
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le champ ne peut pas être vide")
-     * @Assert\Regex("/^[a-zA-Z'-]+$/i", message="Votre nom de catégorie ne doit contenir que des lettres")
+     * @Assert\Regex("/^[a-zA-Zéèà'- ]+$/i", message="Votre nom de catégorie ne doit contenir que des lettres")
      */
     private $name;
 
