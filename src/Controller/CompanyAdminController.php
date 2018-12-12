@@ -23,16 +23,15 @@ class CompanyAdminController extends AbstractController
      */
     public function index(CompanyRepository $compagnyRepository): Response
     {
-
-
         return $this->render('company_admin/index.html.twig', [
             'companies' => $compagnyRepository->findBy([], ['accepted'=>'ASC'])
         ]);
     }
+
     /**
      * @Route("/{id}", name="company_show", methods="GET|POST")
      */
-    public function show(Request $request , Company $company): Response
+    public function show(Request $request, Company $company): Response
     {
         $form = $this->createForm(AcceptCompanyType::class, $company);
         $form->handleRequest($request);
@@ -60,6 +59,6 @@ class CompanyAdminController extends AbstractController
             $em->flush();
         }
 
-        return $this->redirectToRoute('compagny_admin');
+        return $this->redirectToRoute('company_admin');
     }
 }
