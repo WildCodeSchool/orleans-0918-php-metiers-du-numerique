@@ -33,27 +33,15 @@
                 </tr>
                 <tbody>
                 {% for learningCenter in learningCenters %}
-                    {% if learningCenter.accepted == 0 %}
-                        <tr class="not-valid">
+                        <tr class="{% if learningCenter.accepted == 0 %}not-valid{% else %}valid{% endif %}">
                             <th>{{ learningCenter.name }}</th>
                             <td>{{ learningCenter.mail }}</td>
                             <td>{{ learningCenter.link }}</td>
                             <td>
                                 <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('learningCenter_admin', {'id': learningCenter.id}) }}"><i class="far fa-eye eye-white"></i></a>
+                                   href="{{ path('learning_center_show', {'id': learningCenter.id}) }}"><i class="far fa-eye eye-white"></i></a>
                             </td>
                         </tr>
-                    {% else %}
-                        <tr class="valid">
-                            <th>{{ learningCenter.name }}</th>
-                            <td>{{ learningCenter.mail }}</td>
-                            <td>{{ learningCenter.link }}</td>
-                            <td>
-                                <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('learningCenter_admin', {'id': learningCenter.id}) }}"><i class="far fa-eye"></i></a>
-                            </td>
-                        </tr>
-                    {% endif %}
                 {% endfor %}
                 </tbody>
             </table>
