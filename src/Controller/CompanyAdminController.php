@@ -26,6 +26,29 @@ class CompanyAdminController extends AbstractController
             'companies' => $compagnyRepository->findBy([], ['accepted'=>'ASC'])
         ]);
     }
+
+    /**
+     * @Route("/{id}", name="company_show", methods="GET")
+     * @Route("/new", name="company_admin_new", methods="GET|POST")
+     */
+    public function new(Request $request): Response
+    {
+        $company = new Company();
+        $form = $this->createForm(CompanyType::class, $company);
+        $form->handleRequest($request);
+        $company->setAccepted(true);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($company);
+            $em->flush();
+            return $this->redirectToRoute('company_admin_new');
+        }
+        return $this->render('company_admin/new.html.twig', [
+            'company' => $company,
+            'form' => $form->createView(),
+        ]);
+    }
+
     /**
      * @Route("/{id}", name="company_show", methods="GET")
      */
