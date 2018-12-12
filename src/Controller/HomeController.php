@@ -13,11 +13,11 @@ use App\Entity\Partner;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="home", methods="GET")
      */
     public function index(PartnerRepository $partnerRepository, JobRepository $jobRepository)
     {
-        $job = $jobRepository->findOneBy([], ['id' => "DESC"]);
+        $job = $jobRepository->findOneBy([], ['video' => "DESC"]);
         $partners = $partnerRepository->findAll();
         $nbPartners = count($partners);
         if ($nbPartners <= 5 && $nbPartners > 0) {
