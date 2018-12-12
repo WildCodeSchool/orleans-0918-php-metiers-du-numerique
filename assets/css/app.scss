@@ -27,6 +27,7 @@ $navbarBgonScroll:rgba(0,0,0,0.7);
 $imageMargin: 4em;
 $colorLabel:#7b7b7b;
 $colorInput:#d1d1d1;
+$navShadow:1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
 
 /*variable modal*/
 $backgroundModal: white;
@@ -184,7 +185,10 @@ hr {
 @media (min-width: 992px) {
   .custom-navbar {
     background-color: transparent;
-    text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
+    text-shadow: $navShadow;
+    .btnSearch{
+      text-shadow: $navShadow;
+    }
   }
 }
 
@@ -686,4 +690,6 @@ a{
   font-size: 3em;
   height: 120px;
   border: 2px solid #e6e6e6;
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
 }

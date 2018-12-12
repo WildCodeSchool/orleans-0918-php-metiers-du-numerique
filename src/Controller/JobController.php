@@ -101,11 +101,14 @@ class JobController extends AbstractController
     }
 
     /**
-     * @Route("/search/", name="job_search", methods="GET")
+     * @Route("/search", name="job_search", methods="GET")
      */
-    public function search(string $search, JobRepository $jobRepository)
+    public function search(JobRepository $jobRepository)
     {
-        $jobs=$jobRepository->search($search);
+        $search = $_GET['search'];
+        var_dump($search); die();
+        $jobs = $jobRepository->search($search);
+//        var_dump($search);die();
         return $this->render('job/index.html.twig', ['jobs' => $jobs]);
     }
 }
