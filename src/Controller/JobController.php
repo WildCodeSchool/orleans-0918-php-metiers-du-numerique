@@ -20,7 +20,7 @@ class JobController extends AbstractController
     /**
      * @Route("/", name="job_index", methods="GET")
      */
-    public function index( CategoryRepository $categoryRepository): Response
+    public function index(CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findAll();
         return $this->render('job/index.html.twig', ['categories' => $categories]);
