@@ -23,7 +23,6 @@ class JobController extends AbstractController
     public function index( CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findAll();
-//        dump($categories);die();
         return $this->render('job/index.html.twig', ['categories' => $categories]);
     }
 
