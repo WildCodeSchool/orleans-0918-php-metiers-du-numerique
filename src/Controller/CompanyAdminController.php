@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Company;
+use App\Form\AcceptCompanyType;
 use App\Form\CompanyType;
 use App\Repository\CompanyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CompanyAdminController extends AbstractController
 {
     /**
-     * @Route("/", name="compagny_admin")
+     * @Route("/", name="company_admin", methods="GET" )
      */
     public function index(CompanyRepository $compagnyRepository): Response
     {
@@ -26,12 +27,26 @@ class CompanyAdminController extends AbstractController
             'companies' => $compagnyRepository->findBy([], ['accepted'=>'ASC'])
         ]);
     }
+
     /**
-     * @Route("/{id}", name="company_show", methods="GET")
+     * @Route("/{id}", name="company_show", methods="GET|POST")
      */
-    public function show(Company $company): Response
+    public function show(Request $request, Company $company): Response
     {
-        return $this->render('company_admin/show.html.twig', ['company' => $company]);
+        $form = $this->createForm(AcceptCompanyType::class, $company);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $company->setAccepted(!$company->getAccepted());
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('company_admin', ['id' => $company->getId()]);
+        }
+
+        return $this->render('company_admin/show.html.twig', [
+            'company' => $company,
+            'form' => $form->createView(),
+        ]);
     }
     /**
      * @Route("/{id}", name="company_admin_delete", methods="DELETE")
@@ -44,6 +59,6 @@ class CompanyAdminController extends AbstractController
             $em->flush();
         }
 
-        return $this->redirectToRoute('compagny_admin');
+        return $this->redirectToRoute('company_admin');
     }
 }

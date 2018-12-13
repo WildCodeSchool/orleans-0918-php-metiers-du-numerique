@@ -18,24 +18,24 @@ class ContactFormType extends AbstractType
         $builder
             ->add('author', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
-                'label' => false
+                'label' => 'Nom'
             ])
             ->add('link', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
-                'label' => 'url de l\'organisme de formation ou de l\'entreprise',
+                'label' => 'Lien de l\'organisme de formation ou de l\'entreprise',
                 'required' => false
             ])
             ->add('subject', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
-                'label' => false
+                'label' => 'Objet du mail'
             ])
             ->add('mail', EmailType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
-                'label' => false
+                'label' => 'Email'
             ])
             ->add('message', TextareaType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
-                'label' => false
+                'label' => 'Votre message'
             ]);
     }
 
