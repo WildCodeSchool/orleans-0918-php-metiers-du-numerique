@@ -39,4 +39,17 @@ class LearningCenterAdminController extends AbstractController
     {
         return $this->render('learning_center_admin/show.html.twig', ['learning_center' => $learningCenter]);
     }
+    /**
+     * @Route("/{id}", name="learning_center_admin_delete", methods="DELETE")
+     */
+    public function delete(Request $request, LearningCenter $learningCenter): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $learningCenter->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($learningCenter);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('learningCenter_admin');
+    }
 }
