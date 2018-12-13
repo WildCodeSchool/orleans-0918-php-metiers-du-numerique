@@ -25,36 +25,36 @@
                          id="pills-{{ category.id }}"
                          role="tabpanel" aria-labelledby="pills-{{ category.id }}-tab">
                         <div class="pannel-body">
-                            {% for job in category.associatedJobs %}
-                                <div class="col-xs-12 col-sm-6 col-md-4">
-                                    <figure class="info-card">
-                                        <div class="titre-card-responsive text-center">{{ category.name }}</div>
-                                        <img class="img-responsive" src="{{ asset('build/images/'~job.picture) }}">
-                                        <figcaption class="info-card-details animate">
-                                            <div class="info-card-header">
-                                                <div class="metacard">
-                                                    <h3 class="metacard">{{ job.name }}</h3>
-                                                    {% set nbComments = 0 %}
-                                                    {% for comment in job.associatedComments %}
-                                                        {% if comment.accepted %}
+                            <div class="row">
+                                {% for job in category.associatedJobs %}
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                        <figure class="info-card">
+                                            <div class="titre-card-responsive text-center">{{ category.name }}</div>
+                                            <img class="img-responsive" src="{{ asset('build/images/'~job.picture) }}">
+                                            <figcaption class="info-card-details animate">
+                                                <div class="info-card-header">
+                                                    <div class="metacard">
+                                                        <h3 class="metacard">{{ job.name }}</h3>
+                                                        {% set nbComments = 0 %}
+                                                        {% for comment in job.associatedComments  if comment.accepted %}
                                                             {% set  nbComments = nbComments + 1 %}
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                    <i class="far fa-comment"></i>
-                                                    {{ nbComments }}
-
+                                                        {% endfor %}
+                                                        <i class="far fa-comment"></i>
+                                                        {{ nbComments }}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="info-card-detail">
-                                                <p class="job-resum">{{ job.description }}...</p>
-                                                <a href="{{ job.id }}" class="">
-                                                    <button type="button" class="btn mx-auto">Voir la fiche</button>
-                                                </a>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            {% endfor %}
+                                                <div class="info-card-detail">
+                                                    <p class="job-resum">{{ job.description }}...</p>
+                                                    <a href="{{ job.id }}" class="">
+                                                        <button type="button" class="btn mx-auto">Voir la fiche</button>
+                                                    </a>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
                         </div>
                     </div>
                 {% endfor %}
