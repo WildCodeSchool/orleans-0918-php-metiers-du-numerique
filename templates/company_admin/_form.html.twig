@@ -1,7 +1,8 @@
 {{ form_start(form) }}
 <div class="row d-flex flex-column">
     <div class="row col-lg-12 justify-content-center">
-        <img class="preview-img" id="previewPicture" src="https://via.placeholder.com/300.png/ffffff/ffffff/O%20https://placeholder.com/">
+        <img class="preview-img" id="previewPicture"
+             src="https://via.placeholder.com/300.png/ffffff/ffffff/O%20https://placeholder.com/">
     </div>
     <div class="row col-lg-12 justify-content-center mt-5">
         <span class="col-lg-12 text-center">Taille recommandée : 300*300 - (poids <2Mo)</span>
@@ -33,7 +34,8 @@
             {{ form_widget(form.mail) }}
         </div>
     </div>
-</div><div class="form-group">
+</div>
+<div class="form-group">
     <label class="control-label">{{ form_label(form.link) }}</label>
     <div class="form-group">
         <div class="input-group mb-3">
@@ -46,20 +48,42 @@
 </div>
 <div class="form-group">
     {#{% for jobForm in form.jobs %}#}
-        {#{{ form_widget(jobForm) }}#}
-        {#{{  dump(jobForm.vars.data) }}#}
+    {#{{ form_widget(jobForm) }}#}
     {#{% endfor %}#}
-    <label class="control-label">{{ form_label(form.jobs) }}</label>
-    <div class="form-group">
-    <div class="input-group mb-3">
-    <div class="input-group-prepend">
-    <span class="input-group-text prep-color"><i class="fas fa-bookmark"></i></span>
-    </div>
-    {{ form_widget(form.jobs) }}
-    </div>
+    {#<label class="control-label">{{ form_label(form.jobs) }}</label>#}
+    {#<div class="form-group">#}
+        {#<div class="input-group mb-3">#}
+            {#{{ form_widget(form.jobs) }}#}
+        {#</div>#}
+    {#</div>#}
+    <div class="row button-pills justify-content-center">
+        <div class="col-xs-12 col-lg-offset-3 pillcategory">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                {% for category in categories %}
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase font-weight-bold {% if loop.index == 1 %}active{% endif %}"
+                           id="pills-{{ category.id }}-tab" data-toggle="pill" href="#pills-{{ category.id }}"
+                           role="tab" aria-controls="pills-{{ category.id }}"
+                           aria-selected="{% if loop.index == 1 %}true{% else %}false{% endif %}">{{ category.name }}
+                        </a>
+                        {#<div class="custom-control custom-checkbox">#}
+                            {#<input type="checkbox" class="custom-control-input" id="category.jobs.name">#}
+                            {#<label class="custom-control-label" for="category.jobs.name">{{ category.jobs.name }}</label>#}
+                        {#</div>#}
+                        {{ dump(category) }}
+                    </li>
+
+
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
+
+
 <div class="row justify-content-center">
     <button class="btn btn-primary button-save">{{ button_label|default('Ajouter') }}</button>
 </div>
 {{ form_end(form) }}
+
+

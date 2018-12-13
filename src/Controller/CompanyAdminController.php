@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Company;
 use App\Form\CompanyType;
 use App\Repository\CompanyRepository;
@@ -33,6 +34,9 @@ class CompanyAdminController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $categoryRepository= $this->getDoctrine()
+            ->getRepository(Category::class);
+        $categories = $categoryRepository->findAll();
         $company = new Company();
         $form = $this->createForm(CompanyType::class, $company);
         $form->handleRequest($request);
@@ -45,6 +49,7 @@ class CompanyAdminController extends AbstractController
         }
         return $this->render('company_admin/new.html.twig', [
             'company' => $company,
+            'categories'=>$categories,
             'form' => $form->createView(),
         ]);
     }

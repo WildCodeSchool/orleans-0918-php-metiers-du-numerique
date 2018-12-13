@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Company;
 use App\Entity\Job;
+use App\Repository\JobRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -31,6 +32,10 @@ class CompanyType extends AbstractType
                 'by_reference' => false,
                 'multiple' => true,
                 'expanded' => true,
+//                'query_builder' =>function(JobRepository $jobRepository) {
+//                    return $jobRepository ->createQueryBuilder('job')
+//                        ->orderBy('job.associatedCategory', 'ASC');
+//                },
             ])
         ;
     }
