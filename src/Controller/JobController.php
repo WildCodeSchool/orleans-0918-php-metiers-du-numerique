@@ -35,7 +35,7 @@ class JobController extends AbstractController
         $categories = $categoryRepository->findAll();
         $search = $request->query->get('search');
         $jobs = $jobRepository->search($search);
-        return $this->render('job/index.html.twig', ['jobs' => $jobs,'categories'=>$categories]);
+        return $this->render('job/search.html.twig', ['jobs' => $jobs,'categories'=>$categories]);
     }
 
     /**
