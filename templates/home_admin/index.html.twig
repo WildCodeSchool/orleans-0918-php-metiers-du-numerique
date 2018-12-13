@@ -10,7 +10,14 @@
     <div class="row justify-content-around">
         <div class="col-lg-2">
             <div class="card">
-                <div class="text-center img-fa"><i class="far fa-comments"></i></div>
+                <div class="text-center img-fa">
+                    <div class="row">
+                        <span class="badge badge-pill badge-info badgeAdmin">{{ comments|length }}</span>
+                    </div>
+                    <div class="row justify-content-center">
+                            <i class="far fa-comments"></i>
+                    </div>
+                </div>
                 <div class="card-body">
                     <h5 class="card-title text-center font-weight-bold">Commentaire</h5>
                     <p class="card-text text-center">Administrer les commentaires en cours de validations</p>
@@ -20,10 +27,16 @@
                 </div>
             </div>
         </div>
-
         <div class="col-lg-2">
             <div class="card">
-                <div class="text-center img-fa"><i class="fas fa-book"></i></div>
+                <div class="text-center img-fa">
+                    <div class="row">
+                        <span class="badge badge-pill badge-info badgeAdmin">{{ learningCenters|length }}</span>
+                    </div>
+                    <div class="row justify-content-center">
+                        <i class="fas fa-book"></i>
+                    </div>
+                </div>
                 <div class="card-body">
                     <h5 class="card-title text-center font-weight-bold">Organisme de formation</h5>
                     <p class="card-text text-center font-weight-bold">Administrer les  organismes de formation en cours de validations</p>
@@ -33,10 +46,16 @@
                 </div>
             </div>
         </div>
-
         <div class="col-lg-2">
             <div class="card">
-                <div class="text-center img-fa"><i class="far fa-building"></i></div>
+                <div class="text-center img-fa">
+                    <div class="row">
+                        <span class="badge badge-pill badge-info badgeAdmin">{{ companies|length }}</span>
+                    </div>
+                    <div class="row justify-content-center">
+                        <i class="far fa-building"></i>
+                    </div>
+                </div>
                 <div class="card-body">
                     <h5 class="card-title text-center font-weight-bold">Entreprises</h5>
                     <p class="card-text text-center">Administrer les entreprises en cours de validations</p>
