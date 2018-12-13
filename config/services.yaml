@@ -6,6 +6,7 @@
 parameters:
     locale: 'fr'
     mail_from: '%env(resolve:MAIL_FROM)%'
+
     
 services:
     # default configuration for services in *this* file
