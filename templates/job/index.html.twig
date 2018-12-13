@@ -1,41 +1,64 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Job index{% endblock %}
-
+{% extends 'layoutFront.html.twig' %}
+{% block title %}Fiches Métiers{% endblock %}
 {% block body %}
-    <h1>Job index</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Video</th>
-                <th>Picture</th>
-                <th>Description</th>
-                <th>VideoDescription</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for job in jobs %}
-            <tr>
-                <td>{{ job.id }}</td>
-                <td>{{ job.name }}</td>
-                <td>{{ job.video }}</td>
-                <td>{{ job.picture }}</td>
-                <td>{{ job.description }}</td>
-                <td>{{ job.videodescription }}</td>
-                <td>
-                    <a href="{{ path('job_show', {'id': job.id}) }}">show</a>
-                    <a href="{{ path('job_edit', {'id': job.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container jobIndex">
+        <div class="row button-pills justify-content-center">
+            <h2 class="pb-5">Fiche métier du numérique</h2>
+            <div class="col-xs-12 col-lg-offset-3 pillcategory">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    {% for category in categories %}
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase font-weight-bold {% if loop.index == 1 %}active{% endif %}"
+                               id="pills-{{ category.id }}-tab" data-toggle="pill" href="#pills-{{ category.id }}"
+                               role="tab" aria-controls="pills-{{ category.id }}"
+                               aria-selected="{% if loop.index == 1 %}true{% else %}false{% endif %}">{{ category.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="tab-content" id="pills-tabContent">
+                {% for category in categories %}
+                    <div class="tab-pane fade {% if loop.index == 1 %}show active{% endif %}"
+                         id="pills-{{ category.id }}"
+                         role="tabpanel" aria-labelledby="pills-{{ category.id }}-tab">
+                        <div class="pannel-body">
+                            <div class="row">
+                                {% for job in category.associatedJobs %}
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                        <figure class="info-card">
+                                            <div class="titre-card-responsive text-center">{{ category.name }}</div>
+                                            <img class="img-responsive" src="{{ asset('build/images/'~job.picture) }}">
+                                            <figcaption class="info-card-details animate">
+                                                <div class="info-card-header">
+                                                    <div class="metacard">
+                                                        <h3 class="metacard">{{ job.name }}</h3>
+                                                        {% set nbComments = 0 %}
+                                                        {% for comment in job.associatedComments  if comment.accepted %}
+                                                            {% set  nbComments = nbComments + 1 %}
+                                                        {% endfor %}
+                                                        <i class="far fa-comment"></i>
+                                                        {{ nbComments }}
+                                                    </div>
+                                                </div>
+                                                <div class="info-card-detail">
+                                                    <p class="job-resum">{{ job.description }}...</p>
+                                                    <a href="{{ job.id }}" class="">
+                                                        <button type="button" class="btn mx-auto">Voir la fiche</button>
+                                                    </a>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                {% endfor %}
+                            </div>
 
-    <a href="{{ path('job_new') }}">Create new</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

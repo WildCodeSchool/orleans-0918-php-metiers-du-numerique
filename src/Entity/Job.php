@@ -75,8 +75,7 @@ class Job
     private $associatedComments;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="jobs")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="associatedJobs")
      */
     private $associatedCategory;
 
@@ -258,7 +257,6 @@ class Job
 
         return $this;
     }
-
 
     public function setPictureFile(File $picture = null)
     {

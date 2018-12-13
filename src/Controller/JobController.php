@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Job;
 use App\Entity\Comment;
 use App\Form\JobType;
+use App\Repository\CategoryRepository;
 use App\Repository\JobRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,9 +20,10 @@ class JobController extends AbstractController
     /**
      * @Route("/", name="job_index", methods="GET")
      */
-    public function index(JobRepository $jobRepository): Response
+    public function index(CategoryRepository $categoryRepository): Response
     {
-        return $this->render('job/index.html.twig', ['jobs' => $jobRepository->findAll()]);
+        $categories = $categoryRepository->findAll();
+        return $this->render('job/index.html.twig', ['categories' => $categories]);
     }
 
     /**
