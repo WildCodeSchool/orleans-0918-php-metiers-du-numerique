@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Entity\Job;
 use App\Entity\LearningCenter;
+use App\Form\AcceptLearningCenterType;
 use App\Form\LearningCenterType;
 use App\Repository\LearningCenterRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,11 +34,24 @@ class LearningCenterAdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="learning_center_show", methods="GET")
+     * @Route("/{id}", name="learning_center_show", methods="GET|POST")
      */
-    public function show(LearningCenter $learningCenter): Response
+    public function show(Request $request, LearningCenter $learningCenter): Response
     {
-        return $this->render('learning_center_admin/show.html.twig', ['learning_center' => $learningCenter]);
+        $form = $this->createForm(AcceptLearningCenterType::class, $learningCenter);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $learningCenter->setAccepted(!$learningCenter->getAccepted());
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('learningCenter_admin', ['id' => $learningCenter->getId()]);
+        }
+
+        return $this->render('learning_center_admin/show.html.twig', [
+            'learning_center' => $learningCenter,
+            'form' => $form->createView(),
+            ]);
     }
     /**
      * @Route("/{id}", name="learning_center_admin_delete", methods="DELETE")

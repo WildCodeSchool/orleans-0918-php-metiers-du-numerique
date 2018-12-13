@@ -47,15 +47,6 @@
     </div>
 </div>
 <div class="form-group">
-    {#{% for jobForm in form.jobs %}#}
-    {#{{ form_widget(jobForm) }}#}
-    {#{% endfor %}#}
-    {#<label class="control-label">{{ form_label(form.jobs) }}</label>#}
-    {#<div class="form-group">#}
-        {#<div class="input-group mb-3">#}
-            {#{{ form_widget(form.jobs) }}#}
-        {#</div>#}
-    {#</div>#}
     <div class="row button-pills justify-content-center">
         <div class="col-xs-12 col-lg-offset-3 pillcategory">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -66,18 +57,32 @@
                            role="tab" aria-controls="pills-{{ category.id }}"
                            aria-selected="{% if loop.index == 1 %}true{% else %}false{% endif %}">{{ category.name }}
                         </a>
-                        {#<div class="custom-control custom-checkbox">#}
-                            {#<input type="checkbox" class="custom-control-input" id="category.jobs.name">#}
-                            {#<label class="custom-control-label" for="category.jobs.name">{{ category.jobs.name }}</label>#}
-                        {#</div>#}
-                        {{ dump(category) }}
                     </li>
-
-
                 {% endfor %}
             </ul>
+            <div class="row">
+                <div class="tab-content" id="pills-tabContent">
+                    {% for category in categories %}
+                        <div class="tab-pane fade {% if loop.index == 1 %}show active{% endif %}"
+                             id="pills-{{ category.id }}"
+                             role="tabpanel" aria-labelledby="pills-{{ category.id }}-tab">
+                            <div class="pannel-body">
+                                <div class="row">
+                                    {% for job in category.associatedJobs %}
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="{{ form_label(form.job) }}">
+                                            <label class="custom-control-label" for="job.id">{{ form_widget(form.job) }}</label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
+
 </div>
 
 

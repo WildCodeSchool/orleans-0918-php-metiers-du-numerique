@@ -1,0 +1,78 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Accueil Admin{% endblock %}
+
+{% block body %}
+<div class="container-fluid homeAdmin">
+    <div class="row justify-content-center">
+        <h2 class="mb-5 mt-1">Panneau d'administration</h2>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-lg-2">
+            <div class="card">
+                <div class="text-center img-fa"><i class="far fa-comments"></i></div>
+                <div class="card-body">
+                    <h5 class="card-title text-center font-weight-bold">Commentaire</h5>
+                    <p class="card-text text-center">Administrer les commentaires en cours de validations</p>
+                    <div class="text-center">
+                        <a href="{{ path('comment_admin') }}" class="btn btn-primary">Gérer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2">
+            <div class="card">
+                <div class="text-center img-fa"><i class="fas fa-book"></i></div>
+                <div class="card-body">
+                    <h5 class="card-title text-center font-weight-bold">Organisme de formation</h5>
+                    <p class="card-text text-center font-weight-bold">Administrer les  organismes de formation en cours de validations</p>
+                    <div class="text-center">
+                        <a href="{{ path('learningCenter_admin') }}" class="btn btn-primary">Gérer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2">
+            <div class="card">
+                <div class="text-center img-fa"><i class="far fa-building"></i></div>
+                <div class="card-body">
+                    <h5 class="card-title text-center font-weight-bold">Entreprises</h5>
+                    <p class="card-text text-center">Administrer les entreprises en cours de validations</p>
+                    <div class="text-center">
+                        <a href="{{ path('company_admin') }}" class="btn btn-primary">Gérer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2">
+            <div class="card">
+                <div class="text-center img-fa"><i class="fas fa-briefcase"></i></div>
+                <div class="card-body">
+                    <h5 class="card-title text-center font-weight-bold">Catégorie/Métier</h5>
+                    <p class="card-text text-center">Administrer les catégories et les métiers pour en ajouter et en supprimer</p>
+                    <div class="text-center">
+                        <a href="#" class="btn btn-primary">Gérer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2">
+            <div class="card">
+                <div class="text-center img-fa"><i class="far fa-handshake"></i></div>
+                <div class="card-body">
+                    <h5 class="card-title text-center font-weight-bold">Partenaire</h5>
+                    <p class="card-text text-center">Administrer les partenaires présents dans le carousel de la page d'accueil</p>
+                    <div class="text-center">
+                        <a href="{{ path('partner_index') }}" class="btn btn-primary">Gérer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

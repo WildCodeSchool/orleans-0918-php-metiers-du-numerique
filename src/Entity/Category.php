@@ -22,18 +22,19 @@ class Category
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le champ ne peut pas être vide")
-     * @Assert\Regex("/^[a-zA-Z'-]+$/i", message="Votre nom de catégorie ne doit contenir que des lettres")
+     * @Assert\Regex("/^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ'- ]+$/i",
+     *      message="Votre nom de catégorie ne doit contenir que des lettres")
      */
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Job", mappedBy="associatedCategory", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Job", mappedBy="associatedCategory")
      */
-    private $jobs;
+    private $associatedJobs;
 
     public function __construct()
     {
-        $this->jobs = new ArrayCollection();
+        $this->associatedJobs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,28 +57,28 @@ class Category
     /**
      * @return Collection|Job[]
      */
-    public function getJobs(): Collection
+    public function getAssociatedJobs(): Collection
     {
-        return $this->jobs;
+        return $this->associatedJobs;
     }
 
-    public function addJob(Job $job): self
+    public function addAssociatedJob(Job $associatedJob): self
     {
-        if (!$this->jobs->contains($job)) {
-            $this->jobs[] = $job;
-            $job->setAssociatedCategory($this);
+        if (!$this->associatedJobs->contains($associatedJob)) {
+            $this->associatedJobs[] = $associatedJob;
+            $associatedJob->setAssociatedCategory($this);
         }
 
         return $this;
     }
 
-    public function removeJob(Job $job): self
+    public function removeAssociatedJob(Job $associatedJob): self
     {
-        if ($this->jobs->contains($job)) {
-            $this->jobs->removeElement($job);
+        if ($this->associatedJobs->contains($associatedJob)) {
+            $this->associatedJobs->removeElement($associatedJob);
             // set the owning side to null (unless already changed)
-            if ($job->getAssociatedCategory() === $this) {
-                $job->setAssociatedCategory(null);
+            if ($associatedJob->getAssociatedCategory() === $this) {
+                $associatedJob->setAssociatedCategory(null);
             }
         }
 

@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {% if company.accepted == 0 %}
+        {{ form_widget(form.accepted, {'label' : 'Valider cette entreprise', 'attr' : {'class' : 'btn-success'}}) }}
+    {% else %}
+        {{ form_widget(form.accepted, {'label' : 'Ne plus rendre visible cette entreprise', 'attr' : { 'class' : 'btn-warning'}}) }}
+    {% endif %}
+{{ form_end(form) }}

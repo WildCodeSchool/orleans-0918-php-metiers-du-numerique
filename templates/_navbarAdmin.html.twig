@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Métier <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/admin/job">Métier <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/comment/">Commentaires</a>
@@ -20,6 +20,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin/partner/new">Partenaire</a>
             </li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li class="nav-item nav-log">
+                <a class="nav-link text-right" href="{{ path('app_logout') }}">se déconnecter</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>

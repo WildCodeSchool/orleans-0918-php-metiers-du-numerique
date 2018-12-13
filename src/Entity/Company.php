@@ -43,7 +43,7 @@ class Company
     private $link;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Job", inversedBy="businesses")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Job", inversedBy="companies")
      */
     private $jobs;
 
