@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CompanyAdminController extends AbstractController
 {
     /**
-     * @Route("/", name="company_admin", methods="GET|POST" )
+     * @Route("/", name="company_admin", methods="GET" )
      */
     public function index(CompanyRepository $compagnyRepository): Response
     {
