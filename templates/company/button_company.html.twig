@@ -7,7 +7,7 @@
             <h1 class="modalTitle">Liste des entreprises</h1>
             <div class="modalSpace"></div>
             <div class="multiCol">
-                {% for company in job.companies %}
+                {% for company in job.companies if company.accepted == true %}
                     <div class="row">
                         <div class="col-12 mt-4">
                             <img class="imgModal img-fluid"

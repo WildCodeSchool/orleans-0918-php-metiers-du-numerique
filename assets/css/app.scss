@@ -14,8 +14,11 @@ $backgroundColor: white;
 $bordecolor : black;
 $navbarBgonScroll: rgba(0,0,0,0.7);
 $imageMargin: 4em;
-$fontColor: black;
 $fontSize:16pt;
+$fontSizeXl: xx-large;
+$fontSizeM: medium;
+$marginTop: 5vh;
+$marginBottom: 5vh;
 $validColor : #C8C8C8;
 $invalidColor : #343a40;
 $shadowColor:black;
@@ -28,6 +31,8 @@ $imageMargin: 4em;
 $colorLabel:#7b7b7b;
 $colorInput:#d1d1d1;
 $navShadow:1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
+$cardShadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 
 /*variable modal*/
 $backgroundModal: white;
@@ -44,7 +49,7 @@ $modalSpace: 5em;
 $principalFontSize : 1.3em;
 $heightButton : 48px;
 $backgroundComments : #e4e4e4;
-$borderpicture:100%;
+$borderPicture:100%;
 
 @mixin myButtons {
    background-color: $buttonColor;
@@ -77,9 +82,8 @@ body {
     background-color: $backgroundColor;
     color: $fontColor;
 }
-
 main{
-    min-height:100vh;
+    min-height:50vh;
 
 }
 /*home*/
@@ -95,6 +99,14 @@ main{
    max-height: 32vh;
    max-width: 40vh;
 }
+
+.img-job{
+  min-width: 75px;
+  max-width: 75px;
+  min-height: 75px;
+  max-height: 75px;
+}
+
 .faback {
    font-size: $faBack;
 }
@@ -112,11 +124,17 @@ hr {
 .commentSpace{
   margin-top : $marginCommentSpace;
 }
+.buisnessPicture{
+  max-width: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  max-height: 150px;
+}
 
 /*banner*/
 .banner {
   background-image: url("../images/server.jpg");
-  height: 30vh;
+  min-height: 300px;
   width: 99.5vw;
   background-repeat: no-repeat;
   background-position: center;
@@ -139,13 +157,21 @@ hr {
         overflow: hidden;
         transform: translateY(-50%);
         text-transform: uppercase;
-      }
+        @media (max-width: 992px) {
+          font-size: 6vw;
+          }
 
-      @media (max-width: 992px) {
-        min-width: 80vw;
+        @media (max-width: 450px) {
+          font-size: 5.5vw;
 
+        }
       }
     }
+      @media (max-width: 992px) {
+        min-width: 99vw;
+        min-height: 230px;
+
+      }
     .typewriter {
       animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
       color: #fff;
@@ -158,7 +184,27 @@ hr {
     width: 0;
   }
   to {
-    width: 16.3em;
+    width: 50vw;
+  }
+}
+@media (max-width: 992px) {
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100vw;
+    }
+  }
+}
+@media (max-width: 375px) {
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100vw;
+    }
   }
 }
 
@@ -239,6 +285,8 @@ hr {
 .buttonCategory {
    @include myButtons;
    height: $heightButton;
+   margin-top: 0px;
+   margin-right: 0vw;
 }
 
 .newCategory {
@@ -405,6 +453,10 @@ hr {
     .container-fluid {
         padding-top: 10px;
     }
+  .footer-row{
+          max-width: 99.5vw;
+          overflow: hidden;
+          }
      .btn {
           padding-top: 20px;
           font-size: 12pt;
@@ -520,7 +572,6 @@ a {
     outline: none;
 }
 
-  
 /*comment_list*/
 .admission-color {
     width: 30px;
@@ -545,7 +596,7 @@ a {
 }
 /*picture*/
 .circlePicture {
-    border-radius: $borderpicture;
+    border-radius: $borderPicture;
 }
 button {
         margin-top: 15px;
@@ -583,79 +634,97 @@ p{
 
 }
 
+/*company show*/
+
 .company{
   font-size: $fontSize;
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
-.imgCompany{
-  margin-top: 5vh;
-  margin-bottom: 3vh;
-  border-radius:50%;
-  height: 200px;
-  width: 200px;
-  object-fit: cover;
-
+.companyInfo{
+  color: $fontColor;
 }
 .companyName{
-  font-size: xx-large;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeXl;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .companyMail{
-  font-size: medium;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeM;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .companyLink{
   font-size: small;
 }
-.companyValid{
-  @include myButtons;
-  height: 48px;
-}
-.companyRadioCheck{
-  text-align: center;
+.imgCompany{
   margin-top: 5vh;
-  margin-bottom: 5vh;
-}
-.companyInfo{
-  color: #4c4c4c;
+  margin-bottom: 3vh;
+  border-radius: $borderPicture;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
 }
 .companyJob{
   margin-top: 10vh;
   margin-bottom: 10vh;
 }
+.companyRadioCheck{
+  text-align: center;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
+}
+.buttonCompanyValid{
+  @include myButtons;
+  height: 48px;
+}
 
-.buttonLearningValid{
-    @include myButtons;
-    height: 48px;
+/*learning center show*/
+
+.learningCenter{
+  font-size: $fontSize;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
+}
+.learningInfo{
+  color: $fontColor;
 }
 .learningName{
-  font-size: xx-large;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeXl;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .learningMail{
-  font-size: medium;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  font-size: $fontSizeM;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
 }
 .learningLink{
   font-size: small;
 }
-.learningRadioCheck{
-    text-align: center;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+.imgLearningSchool{
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  border-radius: $borderPicture;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
 }
- .learningInfo{
-     color: #4c4c4c;
- }
- .learningJob{
-     margin-top: 10vh;
-     margin-bottom: 10vh;
- }
+.learningJob{
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+.learningRadioCheck{
+  text-align: center;
+  margin-top: $marginTop;
+  margin-bottom:$marginBottom;
+}
+.buttonLearningValid{
+  @include myButtons;
+  height: 48px;
+}
+
+
 
  /*form contact*/
 .btn-contact {
@@ -677,6 +746,7 @@ textarea{
 a{
   outline:none;
 }
+
 /*modal Search*/
 .btnSearch{
   background-color: transparent;
@@ -700,3 +770,193 @@ a{
     box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
   }
 }
+/*category*/
+.jobIndex {
+  @media (max-width: 766px) {
+    .button-pills {
+      display: none;
+    }
+  }
+
+  .nav-pills li.active a,
+  .nav-pills li.active a:focus,
+  .nav-pills > li.active > a,
+  .nav-pills > li.active > a:focus,
+  .nav-pills > li.active > a:hover {
+    background-color: $fontColor;
+  }
+
+  .nav-pills li a {
+    color:$fontColor;
+  }
+
+  .nav-pills li.active a {
+    color: $txtButton;
+  }
+  .pillcategory {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 5px 0 50px 0;
+    padding: 0;
+  }
+
+  .badge {
+    color: $fontColor;
+    background-color: white;
+  }
+
+  .nav-pills > .active > a > .badge {
+    color: $fontColor;
+  }
+
+  .info-card {
+    width: 358px;
+    height: 250px;
+    border: 1px solid rgb(215, 215, 215);
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 20px;
+    overflow: hidden;
+    img {
+      width: 100%;
+
+    }
+    .animate {
+      transition: all 0.5s ease-in-out;
+    }
+    p{
+      font-size: 1em;
+    }
+  }
+
+  .info-card .info-card-details,
+  .info-card .info-card-details .info-card-header {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    padding: 0 15px;
+    background: rgb(255, 255, 255);
+    text-align: center;
+  }
+
+  .info-card .info-card-details::-webkit-scrollbar-thumb:hover {
+    background: rgb(130, 130, 130);
+  }
+
+  .info-card .info-card-details .info-card-header {
+    height: auto;
+    bottom: 100%;
+    padding: 10px 5px;
+  }
+
+  .info-card:hover .info-card-details {
+    bottom: 0px;
+    overflow: auto;
+    padding-bottom: 25px;
+  }
+
+  .info-card:hover .info-card-details .info-card-header {
+    position: relative;
+    bottom: 0px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+  }
+
+  .info-card .info-card-details .info-card-header h1,
+  .info-card .info-card-details .info-card-header h3 {
+    color: rgb(62, 62, 62);
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .info-card .info-card-details .info-card-header h3 {
+    color: $fontColor;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .btn {
+    color: $colorFontButton;
+    background-color: $buttonColor;
+    border-color: $buttonColor;
+    text-align: center;
+    margin-top: 25px;
+    &:hover {
+      color: $txtButton;
+      background-color: $buttonColor;
+      border-color: $buttonColor;
+    }
+  }
+
+
+  .metacard {
+    display: inline;
+  }
+
+  .titre-card-responsive {
+    display: none;
+    padding: 10px 0 10px 0;
+    background-color: $fontColor;
+    color: white;
+    @media (max-width: 766px) {
+
+      display: block;
+
+    }
+  }
+
+
+  .job-resum{
+    max-width: 326px;
+    max-height: 63px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/*HomeAdmin*/
+.homeAdmin{
+  .card{
+    box-shadow:$cardShadow;
+    min-height: 400px;
+    max-width: 400px;
+    .img-fa{
+      min-width: 100%;
+      max-height: 150px;
+      min-height: 150px;
+      background-color: $navbarBgonScroll;
+      .fa-comments , .far , .fas{
+        font-size: 5em;
+        padding-top: 50px;
+        color: $txtButton;
+      }
+    }
+    .card-title{
+      min-height: 40px;
+      max-height: 40px;
+    }
+    .card-text{
+      min-height: 110px;
+      max-height: 110px;
+    }
+  }
+}
+/*form login*/
+
+.btn-log {
+  @include myButtons;
+  height: $heightButton;
+}
+.form-log {
+  margin-top: 70px;
+  max-width: 650px;
+}
+

@@ -4,7 +4,28 @@
 
 {% block body %}
     <div class="container">
-        <div class="row">
+        <section>
+            <div class="row mb-5 mt-5 justify-content-center">
+                <h1>À la découverte du métier de {{ job.name }}</h1>
+            </div>
+            <div class="col-xs-12 col-md-8 mx-auto">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560"
+                            height="315"
+                            src="{{ job.video }}"
+                            frameborder="0"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <h4 class="mt-5">Description de la vidéo:</h4>
+            <p>{{ job.videodescription }}</p>
+            <div class="row justify-content-center">
+                <a href="{{ path('job_show', {'id': job.id}) }}" class="btn-primary btn">En savoir plus...</a>
+            </div>
+            <hr class="d-none d-sm-block">
+        </section>
+            <div class="row" id="concept">
             <div class="col-xs-12 col-lg-4 col-sm-12 marginImage">
                 <img class="align-self-end mr-3 logo-home" src="http://image.noelshack.com/fichiers/2018/49/3/1544001708-imageedit-4-2153222355.png"
                      alt="Generic placeholder image">
@@ -41,7 +62,6 @@
             </div>
         </div>
     </div>
-</div>
     {% include 'partner/_slider.html.twig' %}
 
 
