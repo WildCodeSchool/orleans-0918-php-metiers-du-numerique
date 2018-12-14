@@ -22,7 +22,7 @@ class JobRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('j')
             ->where('j.name LIKE :search')
-            ->setParameter('search',"%$search%")
+            ->setParameter('search', "%$search%")
             ->getQuery();
         return $query->getResult();
     }
