@@ -13,10 +13,10 @@ class HomeAdminController extends AbstractController
     /**
      * @Route("/admin/", name="home_admin")
      */
-    public function index(CompanyRepository $companyRepository,
-                          CommentRepository $commentRepository,
-                          LearningCenterRepository $learningCenterRepository)
-    {
+    public function index(
+        CompanyRepository $companyRepository,
+        CommentRepository $commentRepository, LearningCenterRepository $learningCenterRepository
+    ) {
         $companies = $companyRepository->findByAccepted(0);
         $comments = $commentRepository->findByAccepted(0);
         $learningCenters = $learningCenterRepository->findByAccepted(0);
