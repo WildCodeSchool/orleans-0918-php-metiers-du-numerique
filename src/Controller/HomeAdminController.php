@@ -15,7 +15,8 @@ class HomeAdminController extends AbstractController
      */
     public function index(
         CompanyRepository $companyRepository,
-        CommentRepository $commentRepository, LearningCenterRepository $learningCenterRepository
+        CommentRepository $commentRepository,
+        LearningCenterRepository $learningCenterRepository
     ) {
         $companies = $companyRepository->findByAccepted(0);
         $comments = $commentRepository->findByAccepted(0);
