@@ -30,7 +30,7 @@ class JobController extends AbstractController
     /**
      * @Route("/search", name="job_search", methods="GET")
      */
-    public function search(Request $request, JobRepository $jobRepository,CategoryRepository $categoryRepository)
+    public function search(Request $request, JobRepository $jobRepository, CategoryRepository $categoryRepository)
     {
         $categories = $categoryRepository->findAll();
         $search = $request->query->get('search');
@@ -113,5 +113,4 @@ class JobController extends AbstractController
 
         return $this->redirectToRoute('job_index');
     }
-
 }
