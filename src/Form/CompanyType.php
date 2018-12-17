@@ -28,7 +28,7 @@ class CompanyType extends AbstractType
                 'label' => ' ',
                 'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
             ])
-            ->add('mail', TextType::class,[
+            ->add('mail', TextType::class, [
                 'label' => 'Adresse mail de votre entreprise',
             ])
             ->add('link', TextType::class, [
