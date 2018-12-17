@@ -31,10 +31,9 @@ class CompanyAdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="company_show", methods="GET")
      * @Route("/new", name="company_admin_new", methods="GET|POST")
      */
-    public function new(Request $request,CategoryRepository $categoryRepository): Response
+    public function new(Request $request, CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findAll();
         $company = new Company();

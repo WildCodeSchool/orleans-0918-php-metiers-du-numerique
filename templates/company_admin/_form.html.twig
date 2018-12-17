@@ -69,10 +69,16 @@
                             <div class="pannel-body">
                                 <div class="row">
                                     {% for job in category.associatedJobs %}
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="job.id">
-                                            <label class="custom-control-label" for="job.id">{{ job.name }}</label>
-                                        </div>
+                                        {#{{ dump(company.jobs) }}#}
+                                        {#{{ form_label(form.company.jobs) }}#}
+                                        {#{{ form_widget(form.name) }}#}
+                                        {#{{ form_label(form.job) }}#}
+                                        {#<div class="custom-control custom-checkbox">#}
+                                            {#<input type="checkbox" class="custom-control-input" id="job.id">#}
+                                            {#<label class="custom-control-label" for="job.id">{{ form_label(form.jobs) }}</label>#}
+                                            {#{{ form_widget(form.job) }}#}
+                                        {#</div>#}
+                                        {#{{ job.name }}#}
                                     {% endfor %}
                                 </div>
                             </div>

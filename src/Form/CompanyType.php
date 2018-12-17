@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Company;
 use App\Entity\Job;
 use App\Repository\JobRepository;
@@ -32,11 +33,7 @@ class CompanyType extends AbstractType
                 'by_reference' => false,
                 'multiple' => true,
                 'expanded' => true,
-//                'query_builder' =>function(JobRepository $jobRepository) {
-//                    return $jobRepository ->createQueryBuilder('job')
-//                        ->orderBy('job.associatedCategory', 'ASC');
-//                },
-            ])
+                ])
         ;
     }
 
