@@ -33,8 +33,11 @@ trait SearchFormTrait
         $form = $formFactory->create(
             $formClass,
             null,
-            ['method' => Request::METHOD_GET,
-                'action' => $router->generate('job_search')]);
+            [
+            'method' => Request::METHOD_GET,
+            'action' => $router->generate('job_search'),]
+        );
+
         $form->handleRequest($request);
         return $form;
     }

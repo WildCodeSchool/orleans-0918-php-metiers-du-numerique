@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * @Route("/job")
  */
@@ -31,8 +30,9 @@ class JobController extends AbstractController
         $categories = $categoryRepository->findAll();
         return $this->render('job/index.html.twig', [
             'categories' => $categories,
-            'searchForm' => SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
-        ]);
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
+                ]);
     }
 
 
@@ -46,10 +46,11 @@ class JobController extends AbstractController
         $form = SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'));
         $jobs = SearchFormTrait::getData($form, $jobRepository);
 
-        return $this->render('job/search.html.twig',
-            ['searchForm' => $form->createView(),
-                'jobs' => $jobs,
-                'categories'=>$categories]);
+        return $this->render('job/search.html.twig', [
+            'searchForm' => $form->createView(),
+            'jobs' => $jobs,
+            'categories'=>$categories
+        ]);
     }
 
     /**
@@ -84,7 +85,6 @@ class JobController extends AbstractController
             ->getRepository(Comment::class)
             ->findBy(
                 ['associatedJob'=>$job->getId()],
-
                 ['id'=>'ASC'],
                 3,
                 0
@@ -92,7 +92,8 @@ class JobController extends AbstractController
 
         return $this->render('job/show.html.twig', ['job' => $job,
             'comments'=>$comments,
-            'searchForm' => SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
     /**

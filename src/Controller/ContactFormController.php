@@ -42,8 +42,8 @@ class ContactFormController extends AbstractController
         }
         return $this->render('contact/indexContact.html.twig', [
             'form' => $form->createView(),
-            'searchForm' => SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
-
 }

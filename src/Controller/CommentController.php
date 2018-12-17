@@ -51,7 +51,8 @@ class CommentController extends AbstractController
         return $this->render('comment/new.html.twig', [
             'comment' => $comment,
             'form' => $form->createView(),
-            'searchForm' => SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
 

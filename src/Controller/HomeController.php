@@ -30,7 +30,8 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'partners' => $partners,
             'job' => $job,
-            'searchForm' => SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
 }
