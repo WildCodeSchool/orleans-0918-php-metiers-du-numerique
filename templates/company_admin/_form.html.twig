@@ -47,48 +47,19 @@
     </div>
 </div>
 <div class="form-group">
-    <div class="row button-pills justify-content-center">
-        <div class="col-xs-12 col-lg-offset-3 pillcategory">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                {% for category in categories %}
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase font-weight-bold {% if loop.index == 1 %}active{% endif %}"
-                           id="pills-{{ category.id }}-tab" data-toggle="pill" href="#pills-{{ category.id }}"
-                           role="tab" aria-controls="pills-{{ category.id }}"
-                           aria-selected="{% if loop.index == 1 %}true{% else %}false{% endif %}">{{ category.name }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-            <div class="row">
-                <div class="tab-content" id="pills-tabContent">
-                    {% for category in categories %}
-                        <div class="tab-pane fade {% if loop.index == 1 %}show active{% endif %}"
-                             id="pills-{{ category.id }}"
-                             role="tabpanel" aria-labelledby="pills-{{ category.id }}-tab">
-                            <div class="pannel-body">
-                                <div class="row">
-                                    {% for job in category.associatedJobs %}
-                                        {#{{ dump(company.jobs) }}#}
-                                        {#{{ form_label(form.company.jobs) }}#}
-                                        {#{{ form_widget(form.name) }}#}
-                                        {#{{ form_label(form.job) }}#}
-                                        {#<div class="custom-control custom-checkbox">#}
-                                            {#<input type="checkbox" class="custom-control-input" id="job.id">#}
-                                            {#<label class="custom-control-label" for="job.id">{{ form_label(form.jobs) }}</label>#}
-                                            {#{{ form_widget(form.job) }}#}
-                                        {#</div>#}
-                                        {#{{ job.name }}#}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+    {#<input type="checkbox" class="custom-control-input" id="job.id">#}
+    {#<label class="custom-control-label" for="job.id">{{ form_widget(form.jobs) }}</label>#}
+    {{ form_row(form.jobs) }}
+    {#{{ form_widget(form.jobs) }}#}
+</div>
+<div class="form-group">
+    <div class="input-group mb-3">
+        {#<div class="custom-file">#}
+            {{ form_widget(form.jobs) }}
+            {#<input type="file" class="custom-file-input" id="inputGroupFile02">#}
+            {#<label class="custom-file-label" for="inputGroupFile02">Choose file</label>#}
+        {#</div>#}
     </div>
-
 </div>
 
 

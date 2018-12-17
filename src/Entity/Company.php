@@ -48,7 +48,7 @@ class Company
     private $jobs;
 
     /**
-     * @Vich\UploadableField(mapping="company", fileNameProperty="picture")
+     * @Vich\UploadableField(mapping="companies", fileNameProperty="picture")
      * @var File
      * @Assert\File(maxSize="2M", maxSizeMessage="Cette image est trop volumineuse.")
      */
