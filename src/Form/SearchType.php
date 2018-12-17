@@ -19,7 +19,7 @@ class SearchType extends AbstractType
         $builder
             ->add('search', TextType::class, [
                 'label'=>"Rechercher",
-                'attr' => array('class'=>"form-inline my-2 my-lg-0 searchInput"),
+                'attr' => array('class'=>"form-inline my-2 my-lg-0 searchInput text-center"),
                 ]);
     }
 }
