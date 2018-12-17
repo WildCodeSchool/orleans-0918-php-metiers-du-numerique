@@ -34,6 +34,29 @@ class LearningCenterAdminController extends AbstractController
     }
 
     /**
+     * @Route("/new", name="learningCenter_new", methods="GET|POST")
+     */
+    public function new(Request $request): Response
+    {
+        $learningCenter = new LearningCenter();
+        $form = $this->createForm(LearningCenterType::class, $learningCenter);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($learningCenter);
+            $em->flush();
+
+            return $this->redirectToRoute('learningCenter_admin');
+        }
+
+        return $this->render('learning_center_admin/new.html.twig', [
+            'learning_center' => $learningCenter,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="learning_center_show", methods="GET|POST")
      */
     public function show(Request $request, LearningCenter $learningCenter): Response
