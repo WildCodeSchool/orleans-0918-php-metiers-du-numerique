@@ -5,8 +5,7 @@ vich_uploader:
         partners:
             uri_prefix: /images/partners
             upload_destination: '%kernel.project_dir%/public/images/partners'
-            delete_on_update:   true
-            delete_on_remove:   true
+
 
         jobs:
             uri_prefix: /images/jobs
