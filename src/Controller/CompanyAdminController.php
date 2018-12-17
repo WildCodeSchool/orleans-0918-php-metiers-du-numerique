@@ -33,9 +33,8 @@ class CompanyAdminController extends AbstractController
     /**
      * @Route("/new", name="company_admin_new", methods="GET|POST")
      */
-    public function new(Request $request, CategoryRepository $categoryRepository): Response
+    public function new(Request $request): Response
     {
-        $categories = $categoryRepository->findAll();
         $company = new Company();
         $form = $this->createForm(CompanyType::class, $company);
         $form->handleRequest($request);
@@ -44,11 +43,10 @@ class CompanyAdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
-            return $this->redirectToRoute('company_admin_new');
+            return $this->redirectToRoute('company_admin');
         }
         return $this->render('company_admin/new.html.twig', [
             'company' => $company,
-            'categories'=>$categories,
             'form' => $form->createView(),
         ]);
     }
