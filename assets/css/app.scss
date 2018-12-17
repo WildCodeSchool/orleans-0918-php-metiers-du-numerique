@@ -749,17 +749,24 @@ a{
 }
 
 /*modal Search*/
+.modalSearchMargin{
+  margin-top: 25vh;
+}
 .btnSearch{
   background-color: transparent;
   border: none;
   font-size: 1.2em;
   padding-top: 0px !important;
 }
+.btnSubSearch{
+  height: 60px;
+  width: 200px;
+  font-size: 1.5em;
+}
 .searchInput{
   min-width: 50vw;
   background-color:$backgroundModal;
   font-size: 3em;
-  height: 120px;
   border: 2px solid $colorInput;
   color: $searchInput;
   border-radius: 5px;

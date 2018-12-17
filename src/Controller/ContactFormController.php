@@ -15,6 +15,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContactFormController extends AbstractController
 {
+    use SearchFormTrait;
+
     /**
      * @Route("/contact", name="contact_form")
      */
@@ -39,7 +41,9 @@ class ContactFormController extends AbstractController
             $this->addFlash('danger', 'Votre mail n\'a pas été envoyé');
         }
         return $this->render('contact/indexContact.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'searchForm' => SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
+
 }
