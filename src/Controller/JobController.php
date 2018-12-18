@@ -18,12 +18,39 @@ use Symfony\Component\Routing\Annotation\Route;
 class JobController extends AbstractController
 {
     /**
+     * SearchFormTrait
+     */
+    use SearchFormTrait;
+
+    /**
      * @Route("/", name="job_index", methods="GET")
      */
-    public function index(CategoryRepository $categoryRepository): Response
+    public function index(CategoryRepository $categoryRepository, Request $request): Response
     {
         $categories = $categoryRepository->findAll();
-        return $this->render('job/index.html.twig', ['categories' => $categories]);
+        return $this->render('job/index.html.twig', [
+            'categories' => $categories,
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
+                ]);
+    }
+
+
+    /**
+     * @Route("/search", name="job_search", methods="GET")
+     */
+    public function search(Request $request, JobRepository $jobRepository, CategoryRepository $categoryRepository)
+    {
+        $categories = $categoryRepository->findAll();
+
+        $form = SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'));
+        $jobs = SearchFormTrait::getData($form, $jobRepository);
+
+        return $this->render('job/search.html.twig', [
+            'searchForm' => $form->createView(),
+            'jobs' => $jobs,
+            'categories'=>$categories
+        ]);
     }
 
     /**
@@ -39,7 +66,6 @@ class JobController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($job);
             $em->flush();
-
             return $this->redirectToRoute('job_index');
         }
 
@@ -52,7 +78,7 @@ class JobController extends AbstractController
     /**
      * @Route("/{id}", name="job_show", methods="GET")
      */
-    public function show(Job $job): Response
+    public function show(Job $job, Request $request): Response
     {
 
         $comments= $this->getDoctrine()
@@ -66,6 +92,8 @@ class JobController extends AbstractController
 
         return $this->render('job/show.html.twig', ['job' => $job,
             'comments'=>$comments,
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
     /**

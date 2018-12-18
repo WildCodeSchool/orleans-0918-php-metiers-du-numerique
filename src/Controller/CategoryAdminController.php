@@ -22,6 +22,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategoryAdminController extends AbstractController
 {
     /**
+     * @Route("/", name="category_admin_index", methods="GET")
+     */
+    public function index(CategoryRepository $categoryRepository): Response
+    {
+        return $this->render('category_admin/index.html.twig', ['categories' => $categoryRepository->findAll()]);
+    }
+    /**
      * @Route("/new", name="category_new", methods="GET|POST")
      */
     public function new(Request $request): Response

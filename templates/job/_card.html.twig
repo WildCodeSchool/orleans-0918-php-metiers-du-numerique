@@ -1,0 +1,41 @@
+<div class="tab-pane fade {% if loop.index == 1 %}show active{% endif %}"
+     id="pills-{{ category.id }}"
+     role="tabpanel" aria-labelledby="pills-{{ category.id }}-tab">
+    <div class="pannel-body">
+        <div class="row">
+            {% for job in jobs if job.associatedCategory.id == category.id %}
+                <div class="pannel-body">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <figure class="info-card">
+                            <div class="titre-card-responsive text-center">{{ category.name }}</div>
+                            <img class="img-responsive"
+                                 src="{{ asset('images/jobs/'~job.picture) }}">
+                            <figcaption class="info-card-details animate">
+                                <div class="info-card-header">
+                                    <div class="metacard">
+                                        <h3 class="metacard">{{ job.name }}</h3>
+                                        {% set nbComments = 0 %}
+                                        {% for comment in job.associatedComments  if comment.accepted %}
+                                            {% set  nbComments = nbComments + 1 %}
+                                        {% endfor %}
+                                        <i class="far fa-comment"></i>
+                                        {{ nbComments }}
+                                    </div>
+                                </div>
+                                <div class="info-card-detail">
+                                    <p class="job-resum">{{ job.description }}...</p>
+                                    <a href="{{ job.id }}" class="">
+                                        <button type="button" class="btn mx-auto">Voir la
+                                            fiche
+                                        </button>
+                                    </a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
