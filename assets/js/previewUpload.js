@@ -9,7 +9,7 @@ $('#comment_pictureFile_file').on('input', function (e) {
 $('#job_pictureFile_file').on('input', function (e) {
     previewUpload(this, e.target.files[0], MAXSIZE);
 });
-$('#learningCenter_pictureFile_file').on('input', function (e) {
+$('#learning_center_pictureFile_file').on('input', function (e) {
     previewUpload(this, e.target.files[0], MAXSIZE);
 });
 

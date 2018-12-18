@@ -6,6 +6,7 @@ use App\Entity\Job;
 use App\Entity\LearningCenter;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -23,12 +24,21 @@ class LearningCenterType extends AbstractType
                 'label' => ' ',
                 'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
             ])
-            ->add('mail')
-            ->add('link')
+            ->add('mail', TextType::class, [
+                'label' => 'Adresse mail de votre entreprise',
+            ])
+            ->add('link', TextType::class, [
+                'label' => 'Lien du site de votre entreprise',
+
+            ])
             ->add('jobs', EntityType::class, [
-                'class' => Job::class,
-                'choice_label' => 'name'
-                ]);
+                'class'=>Job::class,
+                'label' => 'Sélectionnez les fiches métiers auquelles vous voulez être relatées: ',
+                'choice_label'=>'name',
+                'by_reference' => false,
+                'multiple' => true,
+                'expanded' => true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

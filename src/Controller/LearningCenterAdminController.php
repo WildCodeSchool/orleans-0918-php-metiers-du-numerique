@@ -8,7 +8,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Job;
 use App\Entity\LearningCenter;
 use App\Form\AcceptLearningCenterType;
 use App\Form\LearningCenterType;

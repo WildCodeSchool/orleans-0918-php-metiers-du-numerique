@@ -3,9 +3,11 @@
 {% block title %}New LearningCenter{% endblock %}
 
 {% block body %}
-    <h1>Create new LearningCenter</h1>
-
-    {{ include('learning_center_admin/_form.html.twig') }}
-
-    <a href="{{ path('learning_center_index') }}">back to list</a>
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('learningCenter_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Ajouter une nouvelle entreprise</h1>
+        </div>
+        {{ include('learning_center_admin/_form.html.twig') }}
+    </div>
 {% endblock %}
