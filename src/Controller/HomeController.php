@@ -9,13 +9,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\PartnerController;
 use App\Entity\Partner;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home", methods="GET")
      */
-    public function index(PartnerRepository $partnerRepository, JobRepository $jobRepository)
+    public function index(PartnerRepository $partnerRepository, JobRepository $jobRepository, Request $request)
     {
         $job = $jobRepository->findOneBy([], ['video' => "DESC"]);
         $partners = $partnerRepository->findAll();
@@ -29,6 +30,8 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'partners' => $partners,
             'job' => $job,
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
 }
