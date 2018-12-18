@@ -1,23 +1,27 @@
-
-let buttonCompany = $("#btn-modalCompany");
-$(buttonCompany).on("click", function (e) {
-    document.getElementById("myModalCompany").style.width = "100%";
-
+$("#btn-modalCompany").on("click", function (e) {
+    modal('#myModalCompany','width','100%');
 });
 
-let closebuttonCompany = $("#closebtnCompany");
-$(closebuttonCompany).on("click", function (e) {
-    document.getElementById("myModalCompany").style.width = "0%";
+$("#closebtnCompany").on("click", function (e) {
+    modal('#myModalCompany','width','0%');
 });
 
-
-let buttonLearning = $("#btn-modalLearning");
-$(buttonLearning).on("click", function (e) {
-    document.getElementById("myModalLearning").style.width = "100%";
-
+$("#btn-modalLearning").on("click", function (e) {
+    modal('#myModalLearning','width','100%');
 });
 
-let closebuttonLearning = $("#closebtnLearning");
-$(closebuttonLearning).on("click", function (e) {
-    document.getElementById("myModalLearning").style.width = "0%";
+$("#closebtnLearning").on("click", function (e) {
+    modal('#myModalLearning','width','0%');
 });
+
+$('#btn-modalSearch').on('click', function() {
+    modal('#myModalSearch','height','100%');
+});
+
+$("#closebtnSearch").on("click", function (e) {
+    modal('#myModalSearch','height','0%');
+});
+
+function modal(buttonId, sizeName, sizeValue) {
+    $(buttonId).css(sizeName, sizeValue);
+}

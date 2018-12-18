@@ -1,0 +1,34 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Gestion Catégories:{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1>Gestion des Catégories :</h1>
+            </div>
+        </div>
+        <section class="sectionSpace">
+
+            <table class="col-12 mx-auto table">
+                <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Voir</th>
+                </tr>
+                <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <th>{{ category.name }}</th>
+                        <td>
+                            <a class="col-xs-12 col-lg-12 col-md-1"
+                               href="{{ path('category_admin_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+{% endblock %}

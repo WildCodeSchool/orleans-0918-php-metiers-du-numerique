@@ -65,7 +65,7 @@ class Job
     private $learningCenters;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Company", mappedBy="jobs")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Company", mappedBy="jobs")
      */
     private $companies;
   
