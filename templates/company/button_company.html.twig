@@ -11,10 +11,9 @@
                     <div class="row">
                         <div class="col-12 mt-4">
                             <img class="imgModal img-fluid"
-                                 src="{{ asset('build/images/'~company.picture) }}" alt="{{ company.name }}"/>
+                                 src="{{ asset('images/companies/'~company.picture)}}" alt="{{ company.name }}"/>
                             <a class="linkBusiness col-6" href="{{ company.link }}"
                                target="_blank">{{ company.name }}</a>
-
                         </div>
                     </div>
                 {% endfor %}
