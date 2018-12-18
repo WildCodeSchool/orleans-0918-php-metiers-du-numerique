@@ -24,6 +24,7 @@ class LearningCenter
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $name;
 
@@ -47,11 +48,14 @@ class LearningCenter
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $mail;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Url(message="votre lien est invalide")
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $link;
 

@@ -16,7 +16,10 @@ class LearningCenterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name', TextType::class, [
+                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'label' => 'Nom de l\'organisme de Formation',
+            ])
             ->add('pictureFile', VichImageType::class, [
                 'required' => true,
                 'download_link' => false,
@@ -25,10 +28,12 @@ class LearningCenterType extends AbstractType
                 'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
             ])
             ->add('mail', TextType::class, [
-                'label' => 'Adresse mail de votre entreprise',
+                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'label' => 'Adresse mail de l\'organisme de Formation',
             ])
             ->add('link', TextType::class, [
-                'label' => 'Lien du site de votre entreprise',
+                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'label' => 'Lien du site de formation',
 
             ])
             ->add('jobs', EntityType::class, [
