@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Entity\File;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -33,7 +33,7 @@ class LearningCenter
     private $picture;
 
     /**
-     * @Vich\UploadableField(mapping="partners", fileNameProperty="picture")
+     * @Vich\UploadableField(mapping="learningCenters", fileNameProperty="picture")
      * @var File
      * @Assert\Image(maxSize="2M",maxSizeMessage="Cette image est trop volumineuse.")
      */
