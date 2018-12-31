@@ -27,6 +27,7 @@ class PartnerType extends AbstractType
                     'download_link' => false,
                     'allow_delete' => false,
                     'label' => ' ',
+                    'download_label' => false,
                     'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
                 ]);
     }
