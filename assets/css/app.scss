@@ -836,6 +836,9 @@ a{
     }
     p{
       font-size: 1em;
+        overflow: hidden;
+        max-height: 45px;
+        text-overflow: ellipsis;
     }
   }
 
