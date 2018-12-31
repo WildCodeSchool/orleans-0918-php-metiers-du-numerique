@@ -9,7 +9,7 @@
             {% if comment.picture is empty %}
             <img class="circlePicture buisnessPicture" src="https://via.placeholder.com/120x120" alt="">
             {% else %}
-            <img class="circlePicture" src="asset{{ 'build/images/'~comment.picture }}" alt="photo de {{ comment.firstname ~ " " ~comment.lastname }}">
+            <img class="circlePicture img-job" src="{{ asset("images/comments/") }}{{ comment.picture }}" alt="photo de {{ comment.firstname ~ " " ~comment.lastname }}">
             {% endif %}
         </div>
         <div class="col-sm-12 col-md-5">

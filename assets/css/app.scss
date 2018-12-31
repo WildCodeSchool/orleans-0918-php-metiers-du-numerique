@@ -106,6 +106,15 @@ main{
   max-width: 75px;
   min-height: 75px;
   max-height: 75px;
+  object-fit: contain;
+}
+.txt-overflow{
+    max-width: 315px;
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow: auto;
+    max-height: 115px;
+    text-overflow: clip;
 }
 
 .faback {
