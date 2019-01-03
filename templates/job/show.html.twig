@@ -101,8 +101,17 @@
                 </div>
                 {% endif %}
                 {% endfor %}
-                <div class="row justify-content-center">
-                    <a href="{{ path('comment_new',{'job_id':job.id}) }}" class="btn-primary btn">Ajouter un commentaire</a>
+                <div class="container">
+                    <section class="sectionSpace">
+                        <div class="row justify-content-around">
+                            <div class="col-lg-4 col-md-12 text-center">
+                                <a id="showMore" class="btn-primary btn">Voir plus de commentaires</a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 text-center">
+                                <a href="{{ path('comment_new',{'job_id':job.id}) }}" class="btn-primary btn">Ajouter un commentaire</a>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
