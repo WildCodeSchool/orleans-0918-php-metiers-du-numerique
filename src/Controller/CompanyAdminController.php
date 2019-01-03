@@ -25,12 +25,12 @@ class CompanyAdminController extends AbstractController
      * @Route("/", name="company_admin", methods="GET" )
      */
     public function index(
-        CompanyRepository $compagnyRepository,
+        CompanyRepository $companyRepository,
         PaginatorInterface $paginator,
         Request $request
     ): Response {
         $pagination = $paginator->paginate(
-            $compagnyRepository->findAll(),
+            $companyRepository->findAll(),
             $request->query->getInt('page', 1),
             1
         );
