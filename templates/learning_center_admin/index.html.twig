@@ -33,18 +33,25 @@
                 </tr>
                 <tbody>
                 {% for learningCenter in learningCenters %}
-                        <tr class="{% if learningCenter.accepted == 0 %}not-valid{% else %}valid{% endif %}">
-                            <th>{{ learningCenter.name }}</th>
-                            <td>{{ learningCenter.mail }}</td>
-                            <td>{{ learningCenter.link }}</td>
-                            <td>
-                                <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('learning_center_show', {'id': learningCenter.id}) }}"><i class="far fa-eye eye-white"></i></a>
-                            </td>
-                        </tr>
+                    <tr class="{% if learningCenter.accepted == 0 %}not-valid{% else %}valid{% endif %}">
+                        <th>{{ learningCenter.name }}</th>
+                        <td>{{ learningCenter.mail }}</td>
+                        <td>{{ learningCenter.link }}</td>
+                        <td>
+                            <a class="col-xs-12 col-lg-12 col-md-1"
+                               href="{{ path('learning_center_show', {'id': learningCenter.id}) }}"><i
+                                        class="far fa-eye eye-white"></i></a>
+                        </td>
+                    </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
+                {{ knp_pagination_render(learningCenters) }}
+            </div>
+        </div>
+
     </div>
 {% endblock %}

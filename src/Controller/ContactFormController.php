@@ -29,7 +29,7 @@ class ContactFormController extends AbstractController
             var_dump($contactFormData);
             $message = (new \Swift_Message($contactFormData->getSubject()))
                 ->setFrom($contactFormData->getMail())
-                ->setTo($this->getParameter('mail_from'))
+                ->setTo([$contactFormData->getMail(), $this->getParameter('mail_from')])
                 ->addReplyTo($contactFormData->getMail())
                 ->setBody($this->renderView('contact/setBodyContact.html.twig', [
                     'contactFormData' => $contactFormData

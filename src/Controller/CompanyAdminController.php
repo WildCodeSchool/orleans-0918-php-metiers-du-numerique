@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Company;
 use App\Form\AcceptCompanyType;
 use App\Form\CompanyType;
+use App\Repository\CategoryRepository;
 use App\Repository\CompanyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +27,27 @@ class CompanyAdminController extends AbstractController
     {
         return $this->render('company_admin/index.html.twig', [
             'companies' => $compagnyRepository->findBy([], ['accepted'=>'ASC'])
+        ]);
+    }
+
+    /**
+     * @Route("/new", name="company_admin_new", methods="GET|POST")
+     */
+    public function new(Request $request): Response
+    {
+        $company = new Company();
+        $form = $this->createForm(CompanyType::class, $company);
+        $form->handleRequest($request);
+        $company->setAccepted(true);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($company);
+            $em->flush();
+            return $this->redirectToRoute('company_admin');
+        }
+        return $this->render('company_admin/new.html.twig', [
+            'company' => $company,
+            'form' => $form->createView(),
         ]);
     }
 
