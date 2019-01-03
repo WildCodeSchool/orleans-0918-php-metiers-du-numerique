@@ -4,13 +4,21 @@
 
 {% block body %}
     <div class="container">
-
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h1>Gestion des centres de formation :</h1>
+        <div class="container-fluid d-flex justify-content-around">
+            <div class="row">
+                <div>
+                    <a class="mr-auto p-1 col-md-1" href="{{ path('home_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+                </div>
+                <div class="mr-auto col-xs-12 col-md-9 text-center">
+                    <h1>Gestion des centres de formation :</h1>
+                </div>
+                <div class="mr-auto p-1 col-sm-12 col-md-2">
+                    <a href="{{ path('learningCenter_new')}} ">
+                        <button class="btn btn-primary button-save">Ajouter une formation</button>
+                    </a>
+                </div>
             </div>
         </div>
-
         <section class="sectionSpace">
             <div class="row justify-content-center align-items-center mb-5">
                 <div class="col-xs-8 col-md-5 d-flex">
