@@ -9,8 +9,8 @@
                 <h1>Gestion des entreprises :</h1>
             </div>
             <div class="ml-auto p-2">
-                <a href="{{ path('company_admin_new')}} ">
-                <button class="btn btn-primary button-save">Ajouter une entreprise</button>
+                <a href="{{ path('company_admin_new') }} ">
+                    <button class="btn btn-primary button-save">Ajouter une entreprise</button>
                 </a>
             </div>
         </div>
@@ -36,19 +36,24 @@
                 </tr>
                 <tbody>
                 {% for company in companies %}
-                        <tr class="{% if company.accepted == 0 %}not-valid{% else %}valid{% endif %}">
-                            <th>{{ company.name }}</th>
-                            <td>{{ company.mail }}</td>
-                            <td>{{ company.link }}</td>
-                            <td>
-                                <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('company_show', {'id': company.id}) }}"><i
-                                            class="far fa-eye eye-white"></i></a>
-                            </td>
-                        </tr>
+                    <tr class="{% if company.accepted == 0 %}not-valid{% else %}valid{% endif %}">
+                        <th>{{ company.name }}</th>
+                        <td>{{ company.mail }}</td>
+                        <td>{{ company.link }}</td>
+                        <td>
+                            <a class="col-xs-12 col-lg-12 col-md-1"
+                               href="{{ path('company_show', {'id': company.id}) }}"><i
+                                        class="far fa-eye eye-white"></i></a>
+                        </td>
+                    </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
+                {{ knp_pagination_render(companies) }}
+            </div>
+        </div>
     </div>
 {% endblock %}
