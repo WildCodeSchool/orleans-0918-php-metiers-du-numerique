@@ -14,7 +14,13 @@ vich_uploader:
             uri_prefix: /images/comments
             upload_destination: '%kernel.project_dir%/public/images/comments'
 
+
         learningCenters:
             uri_prefix: /images/learningCenters
             upload_destination: '%kernel.project_dir%/public/images/learningCenters'
+            
+        companies:
+            uri_prefix: /images/companies
+            upload_destination: '%kernel.project_dir%/public/images/companies'
+
 

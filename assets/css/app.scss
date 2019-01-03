@@ -30,10 +30,14 @@ $navbarBgonScroll:rgba(0,0,0,0.7);
 $imageMargin: 4em;
 $colorLabel:#7b7b7b;
 $colorInput:#d1d1d1;
+$navShadow:1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
 $cardShadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$searchInput:rgba(255, 255, 255, 0.5);
+
 
 /*variable modal*/
 $backgroundModal: white;
+$backgroundModalSearch: rgba(255,255,255,0.95);
 $closeButton: grey;
 $closeButtonHover: black;
 $modalSpace: 2em;
@@ -65,7 +69,16 @@ $borderPicture:100%;
   overflow-x: hidden;
   transition: width 0.5s;
 }
-
+@mixin overlayBackTop {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1040;
+  top: 0;
+  background-color: $backgroundModalSearch;
+  overflow-x: hidden;
+  transition: height 0.5s;
+}
 body {
     background-color: $backgroundColor;
     color: $fontColor;
@@ -219,7 +232,10 @@ hr {
 @media (min-width: 992px) {
   .custom-navbar {
     background-color: transparent;
-    text-shadow: 1px 1px 2px $shadowColor, 0 0 1em $shadowColor, 0 0 0.5em $shadowColor;
+    text-shadow: $navShadow;
+    .btnSearch{
+      text-shadow: $navShadow;
+    }
   }
 }
 
@@ -323,6 +339,10 @@ hr {
 .overlayLearning {
   @include overlay;
   right: 0;
+}
+.overlaySearch {
+  @include overlayBackTop;
+  top: 0;
 }
 
 .closebutton {
@@ -578,6 +598,10 @@ a {
 /*picture*/
 .circlePicture {
     border-radius: $borderPicture;
+  min-width: 100px;
+  max-width: 100px;
+  min-height: 100px;
+  max-height: 100px;
 }
 button {
         margin-right: 2vw;
@@ -725,6 +749,37 @@ textarea{
 }
 a{
   outline:none;
+}
+
+/*modal Search*/
+.modalSearchMargin{
+  margin-top: 25vh;
+}
+.btnSearch{
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  padding-top: 0px !important;
+}
+.btnSubSearch{
+  height: 60px;
+  width: 200px;
+  font-size: 1.5em;
+}
+.searchInput{
+  min-width: 50vw;
+  background-color:$backgroundModal;
+  font-size: 3em;
+  border: 2px solid $colorInput;
+  color: $searchInput;
+  border-radius: 5px;
+  &:focus {
+    color: $validColor;
+    background-color: $backgroundModalSearch;
+    border-color: none;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem $searchInput;
+  }
 }
 /*category*/
 .jobIndex {
@@ -915,3 +970,8 @@ a{
   margin-top: 70px;
   max-width: 650px;
 }
+/*pagination*/
+.navigation {
+  margin-top: 50px;
+}
+

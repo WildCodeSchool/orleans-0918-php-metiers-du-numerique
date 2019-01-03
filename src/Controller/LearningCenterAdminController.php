@@ -12,6 +12,7 @@ use App\Entity\LearningCenter;
 use App\Form\AcceptLearningCenterType;
 use App\Form\LearningCenterType;
 use App\Repository\LearningCenterRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,10 +26,18 @@ class LearningCenterAdminController extends AbstractController
     /**
      * @Route("/", name="learningCenter_admin")
      */
-    public function index(LearningCenterRepository $learningCenterRepository): Response
-    {
+    public function index(
+        LearningCenterRepository $learningCenterRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $pagination = $paginator->paginate(
+            $learningCenterRepository->findAll(),
+            $request->query->getInt('page', 1),
+            10
+        );
         return $this->render('learning_center_admin/index.html.twig', [
-            'learningCenters' => $learningCenterRepository->findAll()
+            'learningCenters' => $pagination
         ]);
     }
 
