@@ -12,14 +12,14 @@
         <section class="sectionSpace">
 
             <table class="col-12 mx-auto table">
-                <thead>
+                <thead class="headCategories">
                 <tr>
                     <th scope="col">Catégorie</th>
                     <th scope="col">Nb Métiers</th>
                     <th scope="col">Voir</th>
                     <th scope="col">Supprimer</th>
                 </tr>
-                <tbody>
+                <tbody class="text-center">
                 {% for category in categories %}
                     <tr>
                         <td>{{ category.name }}</td>
@@ -28,9 +28,9 @@
                             {% set  nbjobs = nbjobs + 1 %}
                         {% endfor %}
 
-                        <td><button type="button" class="btn btn-danger">
-                                <span class="badge badge-light">{{ nbjobs }}</span>
-                            </button>
+                        <td>
+                            <span class="badge badge-pill badge-info nbJobs">{{ nbjobs }}</span>
+
                         </td>
                         <td>
                             <a class="col-xs-12 col-lg-12 col-md-1"
