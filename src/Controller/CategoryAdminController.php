@@ -59,4 +59,18 @@ class CategoryAdminController extends AbstractController
             'category' => $category,
             ]);
     }
+
+     /**
+     * @Route("/{id}", name="category_admin_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Category $category): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($category);
+            $em->flush();
+        }
+
+            return $this->redirectToRoute('category_admin_index');
+    }
 }

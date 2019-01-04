@@ -7,6 +7,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <h2>{{ category.name }}</h2>
+                {% for job in category.associatedJobs %}
+                    {{ job.name }}
+                {% endfor %}
             </div>
         </div>
     </section>
