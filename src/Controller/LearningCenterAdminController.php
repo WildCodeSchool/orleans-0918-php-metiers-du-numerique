@@ -8,7 +8,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Job;
 use App\Entity\LearningCenter;
 use App\Form\AcceptLearningCenterType;
 use App\Form\LearningCenterType;
@@ -39,6 +38,30 @@ class LearningCenterAdminController extends AbstractController
         );
         return $this->render('learning_center_admin/index.html.twig', [
             'learningCenters' => $pagination
+        ]);
+    }
+
+    /**
+     * @Route("/new", name="learningCenter_new", methods="GET|POST")
+     */
+    public function new(Request $request): Response
+    {
+        $learningCenter = new LearningCenter();
+        $form = $this->createForm(LearningCenterType::class, $learningCenter);
+        $form->handleRequest($request);
+        $learningCenter->setAccepted(true);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($learningCenter);
+            $em->flush();
+
+            return $this->redirectToRoute('learningCenter_admin');
+        }
+
+        return $this->render('learning_center_admin/new.html.twig', [
+            'learning_center' => $learningCenter,
+            'form' => $form->createView(),
         ]);
     }
 

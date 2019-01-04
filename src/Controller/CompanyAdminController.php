@@ -8,6 +8,7 @@ use App\Form\AcceptCompanyType;
 use App\Form\CompanyType;
 use App\Repository\CategoryRepository;
 use App\Repository\CompanyRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,13 +24,20 @@ class CompanyAdminController extends AbstractController
     /**
      * @Route("/", name="company_admin", methods="GET" )
      */
-    public function index(CompanyRepository $compagnyRepository): Response
-    {
+    public function index(
+        CompanyRepository $companyRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $pagination = $paginator->paginate(
+            $companyRepository->findAll(),
+            $request->query->getInt('page', 1),
+            1
+        );
         return $this->render('company_admin/index.html.twig', [
-            'companies' => $compagnyRepository->findBy([], ['accepted'=>'ASC'])
+            'companies' => $pagination
         ]);
     }
-
     /**
      * @Route("/new", name="company_admin_new", methods="GET|POST")
      */
