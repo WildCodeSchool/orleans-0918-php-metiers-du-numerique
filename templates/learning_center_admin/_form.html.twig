@@ -1,13 +1,8 @@
 {{ form_start(form) }}
 <div class="row d-flex flex-column">
     <div class="row col-lg-12 justify-content-center">
-        {% if company.picture is empty %}
         <img class="preview-img" id="previewPicture"
              src="https://via.placeholder.com/300.png/ffffff/ffffff/O%20https://placeholder.com/">
-        {% else %}
-        <img class="preview-img" id="previewPicture"
-             src="{{ asset('images/companies/'~company.picture)}}" alt="photo de {{ company.name }}">
-        {% endif %}
     </div>
     <div class="row col-lg-12 justify-content-center mt-5">
         <span class="col-lg-12 text-center">Taille recommandée : 300*300 - (poids <2Mo)</span>
@@ -19,7 +14,7 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label">{{ form_label(form.name) }}</label>
+    <label class="control-label">{{ form_label(form.name) }} <i class="fas fa-asterisk"></i></label>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -30,7 +25,7 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label">{{ form_label(form.mail) }}</label>
+    <label class="control-label">{{ form_label(form.mail) }} <i class="fas fa-asterisk"></i></label>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -41,7 +36,7 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label">{{ form_label(form.link) }}</label>
+    <label class="control-label">{{ form_label(form.link) }} <i class="fas fa-asterisk"></i></label>
     <div class="form-group">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -56,7 +51,7 @@
 </div>
 <div class="form-group">
     <div class="input-group mb-3">
-            {{ form_widget(form.jobs) }}
+        {{ form_widget(form.jobs) }}
     </div>
 </div>
 
@@ -65,5 +60,3 @@
     <button class="btn btn-primary button-save">{{ button_label|default('Ajouter') }}</button>
 </div>
 {{ form_end(form) }}
-
-

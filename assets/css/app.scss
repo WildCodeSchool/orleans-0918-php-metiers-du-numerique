@@ -136,7 +136,6 @@ hr {
 .banner {
   background-image: url("../images/server.jpg");
   min-height: 300px;
-  width: 99.5vw;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -256,6 +255,9 @@ hr {
   .align-right {
     margin-left: 10vw;
   }
+}
+.li-search {
+  max-width: 13vw;
 }
 
 
@@ -430,7 +432,6 @@ hr {
     background-color: $backgroundColor;
 }
 .title-form{
-    padding-right: 6vw;
     margin-bottom: 5vh;
 }
 .prep-color{
@@ -449,13 +450,12 @@ hr {
     margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
-    width: 99.5vw;
+
 
     .container-fluid {
         padding-top: 10px;
     }
   .footer-row{
-          max-width: 99.5vw;
           overflow: hidden;
           }
      .btn {
