@@ -1,0 +1,39 @@
+{%  for comment in comments %}
+    {% if comment.accepted ==1 %}
+
+        {% if loop.index is odd %}
+            <div class="row align-items-center justify-content-center commentHeight commentBackground one-comment">
+        {% else %}
+            <div class="row align-items-center justify-content-center commentHeight one-comment">
+        {% endif %}
+
+        <div class="col-sm-12 col-md-2 ">
+            {% if comment.picture is empty %}
+                <img class="circlePicture" src="https://via.placeholder.com/80x80" alt="">
+            {% else %}
+                <img class="circlePicture img-job" src="{{ asset('build/images/'~comment.picture)}}" alt="Photo du metier de {{ job.name }}">
+            {% endif %}
+
+            <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>
+            {% if comment.company is not empty %}
+                <p class="mt-3">Travaille à : {{ comment.company }}</p>
+            {% endif %}
+        </div>
+        <div class="col-sm-12 col-md-3">
+            <i class="fas fa-plus-circle mb-5"></i>
+            <p>{{ comment.prosComment }}</p>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+            <i class="fas fa-minus-circle mb-5"></i>
+            <p>{{ comment.consComment }}</p>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+            <h5 class="mb-5">Commentaires divers</h5>
+            <p>{{ comment.consComment }}</p>
+        </div>
+
+        </div>
+    {% endif %}
+{% endfor %}

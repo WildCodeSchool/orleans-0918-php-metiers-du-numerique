@@ -60,52 +60,17 @@
 
     <section class="sectionSpace text-center">
         <h2 class="mb-5">Ils vous parlent de leurs expériences : </h2>
-        <div class="container-fluid">
+        <div class="container-fluid" id="comments" data-jobId="{{ job.id }}">
 
-            {%  for comment in comments %}
-            {% if comment.accepted ==1 %}
+            <div id="row-comments" class="row">
+                {% include 'job/loadComment.html.twig' %}
+            </div>
 
-            {% if loop.index is odd %}
-            <div class="row align-items-center justify-content-center commentHeight commentBackground">
-                {% else %}
-                <div class="row align-items-center justify-content-center commentHeight ">
-                    {% endif %}
-
-                    <div class="col-sm-12 col-md-2 ">
-                        {% if comment.picture is empty %}
-                            <img class="circlePicture" src="https://via.placeholder.com/80x80" alt="">
-                        {% else %}
-                            <img class="circlePicture img-job" src="{{ asset('build/images/'~comment.picture)}}" alt="Photo du metier de {{ job.name }}">
-                        {% endif %}
-
-                        <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>
-                        {% if comment.company is not empty %}
-                            <p class="mt-3">Travaille à : {{ comment.company }}</p>
-                        {% endif %}
-                    </div>
-                    <div class="col-sm-12 col-md-3">
-                        <i class="fas fa-plus-circle mb-5"></i>
-                        <p>{{ comment.prosComment }}</p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-3">
-                        <i class="fas fa-minus-circle mb-5"></i>
-                        <p>{{ comment.consComment }}</p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-3">
-                        <h5 class="mb-5">Commentaires divers</h5>
-                        <p>{{ comment.consComment }}</p>
-                    </div>
-
-                </div>
-                {% endif %}
-                {% endfor %}
                 <div class="container">
                     <section class="sectionSpace">
                         <div class="row justify-content-around">
                             <div class="col-lg-4 col-md-12 text-center">
-                                <a id="showMore" class="btn-primary btn">Voir plus de commentaires</a>
+                                <button id="showMore" class="btn-primary btn">Voir plus de commentaires</button>
                             </div>
                             <div class="col-lg-4 col-md-12 text-center">
                                 <a href="{{ path('comment_new',{'job_id':job.id}) }}" class="btn-primary btn">Ajouter un commentaire</a>

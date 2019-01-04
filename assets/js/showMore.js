@@ -1,7 +1,16 @@
-$('#showMore').click(function () {
-    let nbComments = $('.one-comment').length;
-    let jobId = $('#comments').attr('data-jobId');
-    $.post('/job/load-comment', {jobId: jobId, offset: nbComments}).done(function (comments) {
-        $('#row-comments').append(comments);
+
+
+$(function () {
+
+    $(".one-comment").each( (id) => {
+        let commentElt = $(".one-comment:nth-child("+id+")");
+        if(id>3) commentElt.hide();
+    });
+    $("#showMore").on('click', function (e) {
+        e.preventDefault();
+        $(".one-comment:hidden").slice(0, 4).slideDown();
+        if ($(".one-comment:hidden")) {
+            $("#load").fadeOut('slow');
+        }
     });
 });
