@@ -80,6 +80,25 @@ class CompanyAdminController extends AbstractController
         ]);
     }
     /**
+     * @Route("/{id}/edit", name="company_admin_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, Company $company): Response
+    {
+        $form = $this->createForm(CompanyType::class, $company);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('company_admin', ['id' => $company->getId()]);
+        }
+
+        return $this->render('company_admin/edit.html.twig', [
+            'company' => $company,
+            'form' => $form->createView(),
+        ]);
+    }
+    /**
      * @Route("/{id}", name="company_admin_delete", methods="DELETE")
      */
     public function delete(Request $request, Company $company): Response
