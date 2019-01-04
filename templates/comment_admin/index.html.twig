@@ -16,11 +16,11 @@
             <div class="row justify-content-center align-items-center mb-5">
                 <div class="col-xs-8 col-md-3 d-flex">
                     <div class="admission-color valid"></div>
-                    <p>Commentaire validé</p>
+                    <p>Commentaires validés</p>
                 </div>
                 <div class="col-xs-8 col-md-3 d-flex">
                     <div class="admission-color not-valid"></div>
-                    <p >Commentaire à valider</p>
+                    <p>Commentaires à valider</p>
                 </div>
             </div>
 
@@ -41,7 +41,8 @@
                             <td>{{ comment.firstname ~ ' ' ~ comment.lastname }}</td>
                             <td>
                                 <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('comment_admin_show', {'id': comment.id}) }}"><i class="far fa-eye eye-white"></i></a>
+                                   href="{{ path('comment_admin_show', {'id': comment.id}) }}"><i
+                                            class="far fa-eye eye-white"></i></a>
                             </td>
                         </tr>
                     {% else %}
@@ -51,7 +52,8 @@
                             <td>{{ comment.firstname ~ ' ' ~ comment.lastname }}</td>
                             <td>
                                 <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('comment_admin_show', {'id': comment.id}) }}"><i class="far fa-eye"></i></a>
+                                   href="{{ path('comment_admin_show', {'id': comment.id}) }}"><i
+                                            class="far fa-eye"></i></a>
                             </td>
                         </tr>
                     {% endif %}
@@ -59,5 +61,10 @@
                 </tbody>
             </table>
         </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
+                {{ knp_pagination_render(comments) }}
+            </div>
+        </div>
     </div>
 {% endblock %}
