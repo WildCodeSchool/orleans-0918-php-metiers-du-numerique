@@ -33,6 +33,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Lien</th>
                     <th scope="col">Voir</th>
+                    <th scope="col">Modifier</th>
                 </tr>
                 <tbody>
                 {% for company in companies %}
@@ -44,6 +45,9 @@
                                 <a class="col-xs-12 col-lg-12 col-md-1"
                                    href="{{ path('company_show', {'id': company.id}) }}"><i
                                             class="far fa-eye eye-white"></i></a>
+                            </td>
+                            <td>
+                                <a class="col-xs-12 col-lg-12 col-md-1" href="{{ path('company_admin_edit', {'id': company.id}) }}" ><i class="fas fa-edit eye-white"></i></a>
                             </td>
                         </tr>
                 {% endfor %}
