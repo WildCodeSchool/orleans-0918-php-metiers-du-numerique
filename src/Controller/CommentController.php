@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -18,6 +19,28 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CommentController extends AbstractController
 {
+    /**
+     * @Route("/addlike/{comment}", name="add_like", methods="POST")
+     */
+    public function addLike(Comment $comment, SessionInterface $session)
+    {
+        $like = $session->get('like');
+//        $like[] = null;
+//        if (!in_array($comment->getId(), $like)) {
+//
+//        }
+//        deuxieme test
+//        if(!$session->has('like')){
+//
+//        }
+        $comment->setLiked($comment->getLiked()+1);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($comment);
+        $em->flush();
+        $session->set('like', $like);
+
+        return $this->redirectToRoute('job_index');
+    }
     /**
      * @Route("/", name="comment_index", methods="GET")
      */
@@ -61,7 +84,9 @@ class CommentController extends AbstractController
      */
     public function show(Comment $comment): Response
     {
-        return $this->render('comment/show.html.twig', ['comment' => $comment]);
+        return $this->render('comment/show.html.twig', [
+            'comment' => $comment
+            ]);
     }
 
     /**

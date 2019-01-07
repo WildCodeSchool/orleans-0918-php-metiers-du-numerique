@@ -10,6 +10,7 @@ use App\Repository\JobRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -76,10 +77,14 @@ class JobController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="job_show", methods="GET")
+     * @Route("/{id}", name="job_show", methods="GET|POST")
      */
-    public function show(Job $job, Request $request): Response
+    public function show(Job $job, Request $request, SessionInterface $session): Response
     {
+        $like = 0;
+        if ($session->has('like')){
+            $session->set('like', $like);
+        }
 
         $comments= $this->getDoctrine()
             ->getRepository(Comment::class)
@@ -92,6 +97,7 @@ class JobController extends AbstractController
 
         return $this->render('job/show.html.twig', ['job' => $job,
             'comments'=>$comments,
+            'like'=>$session->get('like'),
             'searchForm' =>
                 SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);

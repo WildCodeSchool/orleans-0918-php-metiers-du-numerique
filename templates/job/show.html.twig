@@ -68,11 +68,12 @@
             {% if comment.accepted ==1 %}
 
             {% if loop.index is odd %}
-            <div class="row align-items-center justify-content-center commentHeight commentBackground">
+            <div class="row align-items-center justify-content-center commentHeight commentBackground" data-comment-id="{{ comment.id }}">
                 {% else %}
-                <div class="row align-items-center justify-content-center commentHeight ">
+                <div class="row align-items-center justify-content-center commentHeight" data-comment-id="{{ comment.id }}">
                     {% endif %}
                     <div class="col-sm-12 col-md-2 ">
+
                         {% if comment.picture is empty %}
                             <img class="circlePicture" src="https://via.placeholder.com/80x80" alt="">
                         {% else %}
@@ -91,7 +92,7 @@
                                href="#">
                                 <i class="fas fa-thumbs-up"></i>
                             </a>
-                            <p class="nb-like">{{ comment.liked }}</p>
+                            <p class="nb-like" id="like{{ comment.id }}">{{ comment.liked }}</p>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-2 txt-overflow">
