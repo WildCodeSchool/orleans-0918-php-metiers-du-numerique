@@ -78,7 +78,7 @@ class JobController extends AbstractController
     /**
      * @Route("/{id}", name="job_show", methods="GET")
      */
-    public function show(Job $job, Request $request, Comment $comment): Response
+    public function show(Job $job, Request $request): Response
     {
 
         $comments= $this->getDoctrine()
