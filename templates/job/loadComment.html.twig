@@ -1,6 +1,5 @@
 <div id="main">
 {%  for comment in comments %}
-    {% if comment.accepted ==1 %}
 
         {% if loop.index is odd %}
             <div class="row align-items-center justify-content-center commentHeight commentBackground one-comment">
@@ -37,6 +36,5 @@
 
         </div>
         </div>
-    {% endif %}
 {% endfor %}
             </div>

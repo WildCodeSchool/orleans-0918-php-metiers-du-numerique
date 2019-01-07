@@ -78,15 +78,16 @@ class JobController extends AbstractController
     /**
      * @Route("/{id}", name="job_show", methods="GET")
      */
-    public function show(Job $job, Request $request): Response
+    public function show(Job $job, Request $request, Comment $comment): Response
     {
 
         $comments= $this->getDoctrine()
             ->getRepository(Comment::class)
             ->findBy(
-                ['associatedJob'=>$job->getId()],
+                ['associatedJob'=>$job->getId(),'accepted' =>true],
                 ['id'=>'ASC']
             );
+//        dump($comments); die;
 
         return $this->render('job/show.html.twig', ['job' => $job,
             'comments'=>$comments,
