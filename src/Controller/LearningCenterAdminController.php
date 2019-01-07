@@ -60,7 +60,7 @@ class LearningCenterAdminController extends AbstractController
             return $this->redirectToRoute('learningCenter_admin');
         } elseif ($form->isSubmitted() && !$form->isValid()) {
             $this->addFlash('danger', 'L\'organisme de formation n\'a pas pu être ajouté');
-            }
+        }
 
         return $this->render('learning_center_admin/new.html.twig', [
             'learning_center' => $learningCenter,
