@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Job;
 use App\Form\JobType;
+use App\Repository\JobRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,18 @@ class JobAdminController extends AbstractController
     /**
      * @Route("/", name="job_admin")
      */
-    public function index()
-    {
+    public function index(
+        JobRepository $jobRepository,
+        PaginatorInterface $paginator,
+        Request $request) : Response {
+
+        $pagination = $paginator->paginate(
+            $jobRepository->findAll(),
+            $request->query->getInt('page', 1),
+            10
+        );
         return $this->render('job_admin/index.html.twig', [
-            'controller_name' => 'JobAdminController',
+            'jobs' => 'JobAdminController',
         ]);
     }
     /**

@@ -1,20 +1,68 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Gestion des organismes de formations{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container">
+        <div class="container-fluid d-flex justify-content-around">
+            <div class="row">
+                <div>
+                    <a class="mr-auto p-1 col-md-1" href="{{ path('home_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+                </div>
+                <div class="mr-auto col-xs-12 col-md-9 text-center">
+                    <h1>Gestion des centres de formation :</h1>
+                </div>
+                <div class="mr-auto p-1 col-sm-12 col-md-2">
+                    <a href="{{ path('learningCenter_new')}} ">
+                        <button class="btn btn-primary button-save">Ajouter une formation</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <section class="sectionSpace">
+            <div class="row justify-content-center align-items-center mb-5">
+                <div class="col-xs-8 col-md-5 d-flex">
+                    <div class="admission-color valid"></div>
+                    <p>Centres de formation validés</p>
+                </div>
+                <div class="col-xs-8 col-md-5 d-flex">
+                    <div class="admission-color not-valid"></div>
+                    <p>Centres de formation à valider</p>
+                </div>
+            </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            <table class="col-12 mx-auto table">
+                <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Lien</th>
+                    <th scope="col">Voir</th>
+                </tr>
+                <tbody>
+                {% for learningCenter in learningCenters %}
+                    <tr class="{% if learningCenter.accepted == 0 %}not-valid{% else %}valid{% endif %}">
+                        <th>{{ learningCenter.name }}</th>
+                        <td>{{ learningCenter.mail }}</td>
+                        <td>{{ learningCenter.link }}</td>
+                        <td>
+                            <a class="col-xs-12 col-lg-12 col-md-1"
+                               href="{{ path('learning_center_show', {'id': learningCenter.id}) }}"><i
+                                        class="far fa-eye eye-white"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
+                {{ knp_pagination_render(learningCenters) }}
+            </div>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/JobAdminController.php'|file_link(0) }}">src/Controller/JobAdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/job_admin/index.html.twig'|file_link(0) }}">templates/job_admin/index.html.twig</a></code></li>
-    </ul>
-</div>
+    </div>
 {% endblock %}
+
