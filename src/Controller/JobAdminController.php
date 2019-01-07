@@ -18,24 +18,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class JobAdminController extends AbstractController
 {
     /**
-     * @Route("/", name="job_admin")
+     * @Route("/", name="job_admin", methods="GET")
+     * @param Request $request
+     * @return Response
      */
-    public function index(
-        JobRepository $jobRepository,
-        PaginatorInterface $paginator,
-        Request $request) : Response {
-
-        $pagination = $paginator->paginate(
-            $jobRepository->findAll(),
-            $request->query->getInt('page', 1),
-            10
-        );
-        return $this->render('job_admin/index.html.twig', [
-            'jobs' => 'JobAdminController',
-        ]);
+    public function index(JobRepository $jobRepository,Request $request) : Response
+    {
+       return $this->render('job_admin/index.html.twig', ['jobs' => $jobRepository->findAll()]);
     }
+
     /**
      * @Route("/new", name="job_admin_new", methods="GET|POST")
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -57,3 +52,4 @@ class JobAdminController extends AbstractController
         ]);
     }
 }
+
