@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Job;
 use App\Form\JobType;
+use App\Repository\JobRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,12 +19,11 @@ class JobAdminController extends AbstractController
     /**
      * @Route("/", name="job_admin")
      */
-    public function index()
+    public function index(JobRepository $jobRepository)
     {
-        return $this->render('job_admin/index.html.twig', [
-            'controller_name' => 'JobAdminController',
-        ]);
+        return $this->render('job_admin/index.html.twig', ['jobs' => $jobRepository->findAll()]);
     }
+
      /**
      * @Route("/new", name="job_admin_new", methods="GET|POST")
      */
