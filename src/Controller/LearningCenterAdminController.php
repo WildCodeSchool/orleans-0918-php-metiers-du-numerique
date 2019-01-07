@@ -98,4 +98,23 @@ class LearningCenterAdminController extends AbstractController
 
         return $this->redirectToRoute('learningCenter_admin');
     }
+    /**
+     * @Route("/{id}/edit", name="learning_center_admin_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, LearningCenter $learningCenter): Response
+    {
+        $form = $this->createForm(LearningCenterType::class, $learningCenter);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('learningCenter_admin', ['id' => $learningCenter->getId()]);
+        }
+
+        return $this->render('learning_center_admin/edit.html.twig', [
+            'learning_center' => $learningCenter,
+            'form' => $form->createView(),
+        ]);
+    }
 }
