@@ -8,11 +8,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Job;
 use App\Entity\LearningCenter;
 use App\Form\AcceptLearningCenterType;
 use App\Form\LearningCenterType;
 use App\Repository\LearningCenterRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,10 +26,42 @@ class LearningCenterAdminController extends AbstractController
     /**
      * @Route("/", name="learningCenter_admin")
      */
-    public function index(LearningCenterRepository $learningCenterRepository): Response
-    {
+    public function index(
+        LearningCenterRepository $learningCenterRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $pagination = $paginator->paginate(
+            $learningCenterRepository->findAll(),
+            $request->query->getInt('page', 1),
+            10
+        );
         return $this->render('learning_center_admin/index.html.twig', [
-            'learningCenters' => $learningCenterRepository->findAll()
+            'learningCenters' => $pagination
+        ]);
+    }
+
+    /**
+     * @Route("/new", name="learningCenter_new", methods="GET|POST")
+     */
+    public function new(Request $request): Response
+    {
+        $learningCenter = new LearningCenter();
+        $form = $this->createForm(LearningCenterType::class, $learningCenter);
+        $form->handleRequest($request);
+        $learningCenter->setAccepted(true);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($learningCenter);
+            $em->flush();
+
+            return $this->redirectToRoute('learningCenter_admin');
+        }
+
+        return $this->render('learning_center_admin/new.html.twig', [
+            'learning_center' => $learningCenter,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -65,5 +97,24 @@ class LearningCenterAdminController extends AbstractController
         }
 
         return $this->redirectToRoute('learningCenter_admin');
+    }
+    /**
+     * @Route("/{id}/edit", name="learning_center_admin_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, LearningCenter $learningCenter): Response
+    {
+        $form = $this->createForm(LearningCenterType::class, $learningCenter);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('learningCenter_admin', ['id' => $learningCenter->getId()]);
+        }
+
+        return $this->render('learning_center_admin/edit.html.twig', [
+            'learning_center' => $learningCenter,
+            'form' => $form->createView(),
+        ]);
     }
 }
