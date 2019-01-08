@@ -37,7 +37,10 @@ class PartnerController extends AbstractController
             $em->persist($partner);
             $em->flush();
 
+            $this->addFlash('success', 'Le partenaire a bien été ajouté');
             return $this->redirectToRoute('partner_index');
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('danger', 'Le partenaire n\'a pas pu être ajouté');
         }
 
         return $this->render('partner/new.html.twig', [

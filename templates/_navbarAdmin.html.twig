@@ -1,24 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top" id="navbar">
-    <a class="navbar-brand" href="/"><img src="http://image.noelshack.com/fichiers/2018/49/3/1544001708-imageedit-4-2153222355.png" class="logo-nav"></a>
+    <a class="navbar-brand" href=" {{ path('job_admin') }}"><img src="http://image.noelshack.com/fichiers/2018/49/3/1544001708-imageedit-4-2153222355.png" class="logo-nav"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/admin/job">Métier <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('job_admin') }}">Métier <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/comment/">Commentaires</a>
+                <a class="nav-link" href="{{ path('comment_admin') }}">Commentaires</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/learningCenter/">Formation</a>
+                <a class="nav-link" href="{{ path('learningCenter_admin') }}">Formation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/company">Entreprise</a>
+                <a class="nav-link" href="{{ path('company_admin') }}">Entreprise</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/partner/new">Partenaire</a>
+                <a class="nav-link" href="{{ path('partner_new') }}">Partenaire</a>
             </li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <li class="nav-item nav-log">
