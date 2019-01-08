@@ -46,4 +46,23 @@ class JobAdminController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    /**
+     * @Route("/{id}/edit", name="job_admin_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, Job $job): Response
+    {
+        $form = $this->createForm(JobType::class, $job);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('job_admin', ['id' => $job->getId()]);
+        }
+
+        return $this->render('job_admin/edit.html.twig', [
+            'job' => $job,
+            'form' => $form->createView(),
+        ]);
+    }
 }

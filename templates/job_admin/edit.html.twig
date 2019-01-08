@@ -1,0 +1,12 @@
+{% extends 'layoutAdmin.html.twig' %}
+{% block title %}Modifier les informations d'une fiche métier{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('job_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Modifier les informations d'une fiche métier</h1>
+        </div>
+        {{ include('job_admin/_form.html.twig') }}
+
+    </div>
+{% endblock %}
