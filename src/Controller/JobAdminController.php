@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Job;
 use App\Form\JobType;
 use App\Repository\JobRepository;

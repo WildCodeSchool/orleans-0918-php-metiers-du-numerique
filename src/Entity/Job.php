@@ -70,7 +70,7 @@ class Job
     private $companies;
   
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob", cascade={"persist", "remove"})
      */
     private $associatedComments;
 
