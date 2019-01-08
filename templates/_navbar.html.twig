@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top" id="navbar">
-    <a class="navbar-brand" href="/"><img src="http://image.noelshack.com/fichiers/2018/49/3/1544001708-imageedit-4-2153222355.png" class="logo-nav"></a>
+    <a class="navbar-brand" href="{{ path('home') }}"><img src="http://image.noelshack.com/fichiers/2018/49/3/1544001708-imageedit-4-2153222355.png" class="logo-nav"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,22 +7,22 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "home" %} active {% endif %}" href="/">Concept <span class="sr-only">(current)</span></a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "home" %} active {% endif %}" href="{{ path('home') }}">Concept <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "job_index" %} active {% endif %}" href="/job">Métier</a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "job_index" %} active {% endif %}" href="{{ path('job_index') }}">Métier</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "contact_form" %} active {% endif %}" href="/contact">Contactez nous</a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "contact_form" %} active {% endif %}" href="{{ path('contact_form') }}">Contactez nous</a>
             </li>
-            <li class="dropdown nav-item nav-link">
+            <li class="dropdown nav-item nav-link {% if app.request.attributes.get('_route') starts with  "learning_center_new" or "company_new" %} active {% endif %}">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     S'enregistrer en tant que
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="/learningCenter/new">Un organisme de formation</a>
-                    <a class="dropdown-item" href="/company/new">Une entreprise</a>
+                    <a class="dropdown-item" href="{{ path('learning_center_new') }}">Un organisme de formation</a>
+                    <a class="dropdown-item" href="{{ path('company_new') }}">Une entreprise</a>
                 </div>
             </li>
             <div class="justify-content-end mt-2">
