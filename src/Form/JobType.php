@@ -27,6 +27,11 @@ class JobType extends AbstractType
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
                 'label' => 'Nom de la fiche métier',
                 ])
+            ->add('videoTitle', TextType::class, [
+                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'label' => 'Titre de la video',
+                'required'=>false,
+            ])
             ->add('video', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
                 'label' => 'Lien de la vidéo',
