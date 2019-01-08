@@ -79,13 +79,8 @@ class JobController extends AbstractController
     /**
      * @Route("/{id}", name="job_show", methods="GET|POST")
      */
-    public function show(Job $job, Request $request, SessionInterface $session): Response
+    public function show(Job $job, Request $request): Response
     {
-        $like = 0;
-        if ($session->has('like')){
-            $session->set('like', $like);
-        }
-
         $comments= $this->getDoctrine()
             ->getRepository(Comment::class)
             ->findBy(
@@ -97,7 +92,6 @@ class JobController extends AbstractController
 
         return $this->render('job/show.html.twig', ['job' => $job,
             'comments'=>$comments,
-            'like'=>$session->get('like'),
             'searchForm' =>
                 SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
