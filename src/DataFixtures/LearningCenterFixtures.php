@@ -20,7 +20,6 @@ class LearningCenterFixtures extends Fixture implements DependentFixtureInterfac
     {
         $word = Factory::create('fr_FR');
         for ($e = 0; $e < 2; $e++) {
-
             for ($i = 0; $i < 10; $i++) {
                 $learningCenter = new LearningCenter();
                 $learningCenter->setName(ucfirst($word->word));
