@@ -61,9 +61,9 @@ class Company
 
 
     /**
-     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
+     * @ORM\Column(type="boolean", options={"default"=false}, nullable=false)
      */
-    private $accepted;
+    private $accepted =false;
 
     public function __construct()
     {
