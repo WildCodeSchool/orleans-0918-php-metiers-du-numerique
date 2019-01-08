@@ -25,7 +25,7 @@ class CommentRepository extends ServiceEntityRepository
             ->getQuery();
         return $query->getSingleScalarResult();
     }
-    public function commentAdminCount()
+    public function commentNotAcceptedCountCount()
     {
         $query = $this->createQueryBuilder('c')
             ->select('COUNT(c)')
