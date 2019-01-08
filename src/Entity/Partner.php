@@ -133,5 +133,4 @@ class Partner
     {
         $this->updatedAt = $updatedAt;
     }
-
 }

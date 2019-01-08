@@ -304,5 +304,4 @@ class Comment
     {
         $this->updatedAt = $updatedAt;
     }
-
 }

@@ -36,7 +36,6 @@ class JobFixtures extends Fixture
                 $manager->persist($job);
                 $manager->flush();
             }
-
         }
     }
 }

@@ -192,5 +192,4 @@ class Company
     {
         $this->updatedAt = $updatedAt;
     }
-
 }
