@@ -51,7 +51,10 @@ class CompanyAdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
+            $this->addFlash('success', 'L\'entreprise a bien été ajouté');
             return $this->redirectToRoute('company_admin');
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('danger', 'L\'entreprise n\'a pas pu être ajouté');
         }
         return $this->render('company_admin/new.html.twig', [
             'company' => $company,

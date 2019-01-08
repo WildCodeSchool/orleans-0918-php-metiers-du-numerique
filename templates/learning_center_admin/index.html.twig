@@ -38,6 +38,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Lien</th>
                     <th scope="col">Voir</th>
+                    <th>Modifier</th>
                 </tr>
                 <tbody>
                 {% for learningCenter in learningCenters %}
@@ -49,6 +50,9 @@
                             <a class="col-xs-12 col-lg-12 col-md-1"
                                href="{{ path('learning_center_show', {'id': learningCenter.id}) }}"><i
                                         class="far fa-eye eye-white"></i></a>
+                        </td>
+                        <td>
+                            <a class="col-xs-12 col-lg-12 col-md-1" href="{{ path('learning_center_admin_edit', {'id': learningCenter.id}) }}" ><i class="fas fa-edit eye-white"></i></a>
                         </td>
                     </tr>
                 {% endfor %}

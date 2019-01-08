@@ -1,20 +1,59 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Gestion des Fiches Métiers{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container">
+        <div class="container-fluid d-flex justify-content-around">
+            <div class="row">
+                <div>
+                    <a class="mr-auto p-1 col-md-1" href="{{ path('home_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+                </div>
+                <div class="mr-auto col-xs-12 col-md-9 text-center">
+                    <h1>Gestion des Fiches Métiers :</h1>
+                </div>
+                <div class="mr-auto p-1 col-sm-12 col-md-2">
+                    <a href="{{ path('job_admin_new')}} ">
+                        <button class="btn btn-primary button-save">Ajouter un nouveau Métier</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <section class="sectionSpace">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            <table class="col-12 mx-auto table">
+                <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Catégorie</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Voir</th>
+                    <th scope="col">Modifier</th>
+                </tr>
+                <tbody>
+                {% for job in jobs %}
+                    <tr class="">
+                        <th>{{ job.name }}</th>
+                        <td>{{ job.associatedCategory.name }}</td>
+                        <td>{{ job.description }}</td>
+                        <td>
+                            <a class="col-xs-12 col-lg-12 col-md-1"
+                               href="{{ path('job_show', {'id': job.id}) }}"><i class="far fa-eye"></i></a>
+                        </td>
+                        <td>
+                            <a class="col-xs-12 col-lg-12 col-md-1" href="{{ path('job_admin_edit', {'id': job.id}) }}" ><i class="fas fa-edit"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/JobAdminController.php'|file_link(0) }}">src/Controller/JobAdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/job_admin/index.html.twig'|file_link(0) }}">templates/job_admin/index.html.twig</a></code></li>
-    </ul>
-</div>
+            </div>
+        </div>
+
+    </div>
 {% endblock %}
+

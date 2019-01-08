@@ -23,6 +23,7 @@ class LearningCenterType extends AbstractType
             ->add('pictureFile', VichImageType::class, [
                 'required' => true,
                 'download_link' => false,
+                'image_uri' => false,
                 'allow_delete' => false,
                 'label' => ' ',
                 'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
