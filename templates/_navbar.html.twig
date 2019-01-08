@@ -6,27 +6,30 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Concept <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "home" %} active {% endif %}" href="/">Concept <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/job">Métier</a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "job_index" %} active {% endif %}" href="/job">Métier</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/learningCenter/new">Je suis un organisme de formation</a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "contact_form" %} active {% endif %}" href="/contact">Contactez nous</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/company/new">Je suis une entreprise</a>
+            <li class="dropdown nav-item nav-link">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    S'enregistrer en tant que
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="/learningCenter/new">Un organisme de formation</a>
+                    <a class="dropdown-item" href="/company/new">Une entreprise</a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contact">Contactez nous</a>
-            </li>
-            <li class="justify-content-end">
+            <div class="justify-content-end mt-2">
                 <button class="nav-link align-right btn btnSearch" id="btn-modalSearch">
                     <i class="fas fa-search"></i>
                 </button>
-            </li>
-
+            </div>
         </ul>
     </div>
 </nav>
