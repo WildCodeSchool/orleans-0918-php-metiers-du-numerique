@@ -87,7 +87,6 @@ class JobController extends AbstractController
                 ['associatedJob'=>$job->getId(),'accepted' =>true],
                 ['id'=>'ASC']
             );
-//        dump($comments); die;
 
         return $this->render('job/show.html.twig', ['job' => $job,
             'comments'=>$comments,
