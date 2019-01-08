@@ -31,7 +31,6 @@ class CompanyController extends AbstractController
         $company = new Company();
         $form = $this->createForm(CompanyType::class, $company);
         $form->handleRequest($request);
-        $company->setAccepted(false);
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -39,7 +38,7 @@ class CompanyController extends AbstractController
             $em->persist($company);
             $em->flush();
 
-            return $this->redirectToRoute('company_index');
+            return $this->redirectToRoute('company_new');
         }
 
         return $this->render('company/new.html.twig', [
