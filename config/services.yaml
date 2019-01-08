@@ -6,6 +6,7 @@
 parameters:
     locale: 'fr'
     mail_from: '%env(resolve:MAIL_FROM)%'
+    elements_by_page: 10
 
     
 services:
