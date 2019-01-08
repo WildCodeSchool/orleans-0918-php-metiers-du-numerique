@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutFront.html.twig' %}
 
 {% block title %}New Company{% endblock %}
 
 {% block body %}
-    <h1>Create new Company</h1>
-
-    {{ include('company/_form.html.twig') }}
-
-    <a href="{{ path('company_index') }}">back to list</a>
+    <div class="container">
+        <div class="row">
+            <h1 class="mx-auto title-form">Ajouter une nouvelle entreprise</h1>
+        </div>
+        {{ include('company/_form.html.twig') }}
+    </div>
 {% endblock %}

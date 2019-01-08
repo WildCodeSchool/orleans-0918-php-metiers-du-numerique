@@ -31,6 +31,8 @@ class CompanyController extends AbstractController
         $company = new Company();
         $form = $this->createForm(CompanyType::class, $company);
         $form->handleRequest($request);
+        $company->setAccepted(false);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -43,6 +45,8 @@ class CompanyController extends AbstractController
         return $this->render('company/new.html.twig', [
             'company' => $company,
             'form' => $form->createView(),
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
 
