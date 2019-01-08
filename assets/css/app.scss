@@ -783,12 +783,6 @@ a{
 }
 /*category*/
 .jobIndex {
-  @media (max-width: 766px) {
-    .button-pills {
-      display: none;
-    }
-  }
-
   .nav-pills li.active a,
   .nav-pills li.active a:focus,
   .nav-pills > li.active > a,
