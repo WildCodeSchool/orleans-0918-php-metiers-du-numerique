@@ -18,10 +18,11 @@ class LearningCenterRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, LearningCenter::class);
     }
-    public function learningCenterCount()
+    public function learningCenterNotAcceptedCount()
     {
         $query = $this->createQueryBuilder('l')
             ->select('COUNT(l)')
+            ->where('l.accepted = 0')
             ->getQuery();
         return $query->getSingleScalarResult();
     }
