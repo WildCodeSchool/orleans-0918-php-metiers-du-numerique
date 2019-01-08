@@ -46,4 +46,17 @@ class JobAdminController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    /**
+     * @Route("/{id}", name="job_admin_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Job $job): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$job->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($job);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('job_admin');
+    }
 }
