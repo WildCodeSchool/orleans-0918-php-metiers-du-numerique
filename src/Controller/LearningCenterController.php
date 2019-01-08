@@ -33,7 +33,6 @@ class LearningCenterController extends AbstractController
         $learningCenter = new LearningCenter();
         $form = $this->createForm(LearningCenterType::class, $learningCenter);
         $form->handleRequest($request);
-        $learningCenter->setAccepted(false);
 
 
         if ($form->isSubmitted() && $form->isValid()) {
