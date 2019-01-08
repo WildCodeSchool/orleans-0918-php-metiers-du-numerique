@@ -58,6 +58,7 @@ class JobAdminController extends AbstractController
         }
 
         return $this->redirectToRoute('job_admin');
+    }
     /**
      * @Route("/{id}/edit", name="job_admin_edit", methods="GET|POST")
      */
