@@ -1,0 +1,12 @@
+{% extends 'layoutFront.html.twig' %}
+
+{% block title %} Demande d'ajout d'entreprise {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1 class="mx-auto title-form">Demande d'ajout d'entreprise</h1>
+        </div>
+        {{ include('company/_form.html.twig') }}
+    </div>
+{% endblock %}
