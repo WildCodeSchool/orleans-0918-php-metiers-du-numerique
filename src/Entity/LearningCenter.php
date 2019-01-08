@@ -198,5 +198,4 @@ class LearningCenter
     {
         $this->updatedAt = $updatedAt;
     }
-
 }
