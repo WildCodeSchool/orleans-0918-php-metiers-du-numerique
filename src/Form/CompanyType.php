@@ -23,7 +23,7 @@ class CompanyType extends AbstractType
                 'label' => "Nom de votre entreprise",
             ])
             ->add('pictureFile', VichImageType::class, [
-                'required' => true,
+                'required' => false,
                 'download_link' => false,
                 'allow_delete' => false,
                 'label' => ' ',
