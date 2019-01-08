@@ -32,7 +32,7 @@ class CompanyAdminController extends AbstractController
         $pagination = $paginator->paginate(
             $companyRepository->findAll(),
             $request->query->getInt('page', 1),
-            10
+            $this->getParameter('elements_by_page')
         );
         return $this->render('company_admin/index.html.twig', [
             'companies' => $pagination

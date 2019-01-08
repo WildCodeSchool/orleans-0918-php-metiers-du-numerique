@@ -34,7 +34,7 @@ class LearningCenterAdminController extends AbstractController
         $pagination = $paginator->paginate(
             $learningCenterRepository->findAll(),
             $request->query->getInt('page', 1),
-            10
+            $this->getParameter('elements_by_page')
         );
         return $this->render('learning_center_admin/index.html.twig', [
             'learningCenters' => $pagination
