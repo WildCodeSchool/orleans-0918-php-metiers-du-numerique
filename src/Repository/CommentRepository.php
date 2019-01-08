@@ -25,4 +25,12 @@ class CommentRepository extends ServiceEntityRepository
             ->getQuery();
         return $query->getSingleScalarResult();
     }
+    public function commentAdminCount()
+    {
+        $query = $this->createQueryBuilder('c')
+            ->select('COUNT(c)')
+            ->where('c.accepted = 0')
+            ->getQuery();
+        return $query->getSingleScalarResult();
+    }
 }

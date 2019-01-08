@@ -23,6 +23,7 @@ class CompanyRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('c')
             ->select('COUNT(c)')
+            ->where('c.accepted = 0')
             ->getQuery();
         return $query->getSingleScalarResult();
     }

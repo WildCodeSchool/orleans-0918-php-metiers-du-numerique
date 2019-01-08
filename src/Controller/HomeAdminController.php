@@ -19,7 +19,7 @@ class HomeAdminController extends AbstractController
         LearningCenterRepository $learningCenterRepository
     ) {
         $companies = $companyRepository->companyCount();
-        $comments = $commentRepository->commentCount();
+        $comments = $commentRepository->commentAdminCount();
         $learningCenters = $learningCenterRepository->learningCenterCount();
 
         return $this->render('home_admin/index.html.twig', [
