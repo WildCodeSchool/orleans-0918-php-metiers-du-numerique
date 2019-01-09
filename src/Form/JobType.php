@@ -27,6 +27,11 @@ class JobType extends AbstractType
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
                 'label' => 'Nom de la fiche métier',
                 ])
+            ->add('videoTitle', TextType::class, [
+                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'label' => 'Titre de la video',
+                'required'=>false,
+            ])
             ->add('video', TextType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
                 'label' => 'Lien de la vidéo',
@@ -34,6 +39,7 @@ class JobType extends AbstractType
             ])
             ->add('pictureFile', VichImageType::class, [
                 'required' => true,
+                'image_uri' => false,
                 'download_link' => false,
                 'allow_delete' => false
             ])

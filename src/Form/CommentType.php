@@ -64,8 +64,9 @@ class CommentType extends AbstractType
                 'attr'=> ['class' => 'd-none']
             ])
             ->add('pictureFile', VichImageType::class, [
-                'required' => true,
+                'required' => false,
                 'download_link' => false,
+                'image_uri' => false,
                 'allow_delete' => false,
                 'label' => ' ',
                 'download_label' => false,

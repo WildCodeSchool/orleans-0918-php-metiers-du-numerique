@@ -9,6 +9,13 @@
                 <h1>Gestion des Catégories :</h1>
             </div>
         </div>
+        <div class="row d-flex justify-content-end mt-3">
+            <div class="col-sm-12 col-md-2">
+                <a href="{{ path('job_admin')}} ">
+                    <button class="btn btn-primary button-save">Accéder aux fiches métiers</button>
+                </a>
+            </div>
+        </div>
         <section class="sectionSpace">
 
             <table class="col-12 mx-auto table">
@@ -22,12 +29,18 @@
                     <tr>
                         <th>{{ category.name }}</th>
                         <td>
-                                <i class="far fa-eye eye-white"></i>
+                            <a class="col-xs-12 col-lg-12 col-md-1"
+                               href="{{ path('category_admin_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
+                {{ knp_pagination_render(categories) }}
+            </div>
+        </div>
     </div>
 {% endblock %}

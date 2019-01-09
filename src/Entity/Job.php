@@ -70,7 +70,7 @@ class Job
     private $companies;
   
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="associatedJob", cascade={"persist", "remove"})
      */
     private $associatedComments;
 
@@ -124,7 +124,7 @@ class Job
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
 

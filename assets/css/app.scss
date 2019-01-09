@@ -147,7 +147,6 @@ hr {
 .banner {
   background-image: url("../images/server.jpg");
   min-height: 300px;
-  width: 99.5vw;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -237,7 +236,11 @@ hr {
 @media (max-width: 992px) {
    .custom-navbar {
       background-color: $navbarBgonScroll;
+       text-align: center !important;
    }
+    .btnSearch{
+        margin-left: 44vw !important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -268,7 +271,31 @@ hr {
     margin-left: 10vw;
   }
 }
+.li-search {
+  max-width: 13vw;
+}
+.dropdown{
+    a{
+    text-decoration: none;
+    color: #7e8686;
+    outline: none !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "Roboto Condensed", sans-serif;
+    }
+    .dropdown-item:hover, .dropdown-item:focus {
+        color: black;
+        text-decoration: none;
+        background-color: #f8f9fa;
+        box-shadow: none;
+    }
+    .dropdown-menu{
+        box-shadow: none !important;
+        text-shadow: none !important;
+        background-color: $shadowColor;
+    }
 
+}
 
 /*slider partner*/
 .title_partners {
@@ -441,7 +468,6 @@ hr {
     background-color: $backgroundColor;
 }
 .title-form{
-    padding-right: 6vw;
     margin-bottom: 5vh;
 }
 .prep-color{
@@ -460,13 +486,12 @@ hr {
     margin-top: 10vh;
     height: 120px;
     background-color: $navbarBgonScroll;
-    width: 99.5vw;
+
 
     .container-fluid {
         padding-top: 10px;
     }
   .footer-row{
-          max-width: 99.5vw;
           overflow: hidden;
           }
      .btn {
@@ -609,9 +634,12 @@ a {
 /*picture*/
 .circlePicture {
     border-radius: $borderPicture;
+  min-width: 100px;
+  max-width: 100px;
+  min-height: 100px;
+  max-height: 100px;
 }
 button {
-        margin-top: 15px;
         margin-right: 2vw;
 }
 
@@ -969,6 +997,12 @@ a{
       min-height: 110px;
       max-height: 110px;
     }
+    .badgeAdmin{
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      font-size: 1em;
+    }
   }
 }
 /*form login*/
@@ -981,4 +1015,16 @@ a{
   margin-top: 70px;
   max-width: 650px;
 }
+/*pagination*/
+.navigation {
+  margin-top: 50px;
+}
 
+/*delete button*/
+.btnSup {
+  background-color: transparent;
+  border : none;
+}
+.btn {
+  @include myButtons
+}

@@ -63,6 +63,7 @@
     <section class="sectionSpace text-center">
         <h2 class="mb-5">Ils vous parlent de leurs expériences : </h2>
         <div class="container-fluid">
+/*US10*/
             {% for comment in comments %}
             {% if comment.accepted ==1 %}
 
@@ -113,7 +114,23 @@
                     <a href="{{ path('comment_new',{'job_id':job.id}) }}" class="btn-primary btn">Ajouter un
                         commentaire</a>
                 </div>
+/*dev*/
+            {% include 'job/loadComment.html.twig' %}
+            <div class="container">
+                <section class="sectionSpace">
+                    <div class="row justify-content-around">
+                        <div class="col-lg-4 col-md-12 text-center">
+                            <button id="showMore" class="btn-primary btn">Voir plus de commentaires</button>
+                        </div>
+                        <div class="col-lg-4 col-md-12 text-center">
+                            <a href="{{ path('comment_new',{'job_id':job.id}) }}" class="btn-primary btn">Ajouter un
+                                commentaire</a>
+                        </div>
+                    </div>
+                </section>
+/*dev*/
             </div>
+
         </div>
     </section>
 

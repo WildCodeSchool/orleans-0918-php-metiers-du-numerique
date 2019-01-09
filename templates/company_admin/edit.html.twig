@@ -1,0 +1,12 @@
+{% extends 'layoutAdmin.html.twig' %}
+{% block title %}Modifier les informations d'une entreprise{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('company_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Modifier les informations d'une entreprise</h1>
+        </div>
+        {{ include('company_admin/_form.html.twig') }}
+
+    </div>
+{% endblock %}

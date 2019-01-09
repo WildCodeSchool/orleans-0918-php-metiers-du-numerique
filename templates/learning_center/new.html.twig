@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutFront.html.twig' %}
 
-{% block title %}New LearningCenter{% endblock %}
+{% block title %}Demande d'ajout d'organisme de Formation{% endblock %}
 
 {% block body %}
-    <h1>Create new LearningCenter</h1>
+    <div class="container">
+        <div class="row">
+            <h1 class="mx-auto title-form">Demande d'ajout d'organisme de Formation</h1>
+        </div>
+        {{ include('learning_center/_form.html.twig') }}
+    </div>
 
-    {{ include('learning_center/_form.html.twig') }}
 
-    <a href="{{ path('learning_center_index') }}">back to list</a>
+
 {% endblock %}

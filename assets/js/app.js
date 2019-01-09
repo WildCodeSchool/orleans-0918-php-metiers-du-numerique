@@ -22,3 +22,5 @@ import "./modal";
 import "./backToTop";
 import "./contact";
 import "./add-like";
+import "./showMore";
+
