@@ -23,15 +23,16 @@ class CommentController extends AbstractController
     /**
      * @Route("/addlike/{comment}", name="add_like", methods="POST")
      */
-    public function addLike(Comment $comment, SessionInterface $session)
+    public function addLike(Comment $comment, SessionInterface $session, Request $request)
     {
-
-        if (!($session->get('like'.$comment->getId()) == true)) {
-            $session->set("like".$comment->getId(), true);
-            $comment->setLiked($comment->getLiked() + 1);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
-            $em->flush();
+        if ($request->isXmlHttpRequest()){
+            if (!($session->get('like'.$comment->getId()) == true)) {
+                $session->set("like".$comment->getId(), true);
+                $comment->setLiked($comment->getLiked() + 1);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush();
+            }
         }
         return $this->render('comment/_like.html.twig', ['comment' => $comment]);
     }
