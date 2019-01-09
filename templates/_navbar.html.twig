@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "home" %} active {% endif %}" href="{{ path('home') }}">Concept <span class="sr-only">(current)</span></a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "home" %} active {% endif %}" href="#Concept">Concept <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "job_index" %} active {% endif %}" href="{{ path('job_index') }}">Métier</a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "job_index" %} active {% endif %}" href="{{ path('job_index') }}">Voir les Métiers</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {% if app.request.attributes.get('_route') starts with  "contact_form" %} active {% endif %}" href="{{ path('contact_form') }}">Contactez nous</a>
@@ -26,7 +26,7 @@
                 </div>
             </li>
             <div class="justify-content-end mt-2">
-                <button class="nav-link align-right btn btnSearch" id="btn-modalSearch">
+                <button class="nav-link align-right btnSearch" id="btn-modalSearch">
                     <i class="fas fa-search"></i>
                 </button>
             </div>

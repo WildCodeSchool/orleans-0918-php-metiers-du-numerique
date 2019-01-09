@@ -9,6 +9,13 @@
                 <h1>Gestion des Catégories :</h1>
             </div>
         </div>
+        <div class="row d-flex justify-content-end mt-3">
+            <div class="col-sm-12 col-md-2">
+                <a href="{{ path('job_admin')}} ">
+                    <button class="btn btn-primary button-save">Accéder aux fiches métiers</button>
+                </a>
+            </div>
+        </div>
         <section class="sectionSpace">
 
             <table class="col-12 mx-auto table">
@@ -30,5 +37,10 @@
                 </tbody>
             </table>
         </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
+                {{ knp_pagination_render(categories) }}
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -24,32 +24,6 @@ class PartnerController extends AbstractController
     }
 
     /**
-     * @Route("admin/partner/new", name="partner_new", methods="GET|POST")
-     */
-    public function new(Request $request): Response
-    {
-        $partner = new Partner();
-        $form = $this->createForm(PartnerType::class, $partner);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($partner);
-            $em->flush();
-
-            $this->addFlash('success', 'Le partenaire a bien été ajouté');
-            return $this->redirectToRoute('partner_index');
-        } elseif ($form->isSubmitted() && !$form->isValid()) {
-            $this->addFlash('danger', 'Le partenaire n\'a pas pu être ajouté');
-        }
-
-        return $this->render('partner/new.html.twig', [
-            'partner' => $partner,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/partner/{id}", name="partner_show", methods="GET")
      */
     public function show(Partner $partner): Response

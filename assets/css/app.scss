@@ -782,9 +782,12 @@ a{
 }
 .btnSearch{
   background-color: transparent;
+  outline: none;
+  cursor: pointer;
   border: none;
   font-size: 1.2em;
   padding-top: 0px !important;
+
 }
 .btnSubSearch{
   height: 60px;
@@ -1010,4 +1013,7 @@ a{
 .btnSup {
   background-color: transparent;
   border : none;
+}
+.btn {
+  @include myButtons
 }
