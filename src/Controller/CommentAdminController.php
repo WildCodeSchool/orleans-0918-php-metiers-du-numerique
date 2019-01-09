@@ -26,7 +26,10 @@ class CommentAdminController extends AbstractController
         Request $request
     ): Response {
         $pagination = $paginator->paginate(
-            $commentRepository->findAll(),
+            $commentRepository->findBy(
+                [],
+                ['accepted'=>'ASC', 'postDate'=>'DESC']
+            ),
             $request->query->getInt('page', 1),
             10
         );
