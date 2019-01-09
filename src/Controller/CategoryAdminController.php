@@ -25,9 +25,10 @@ class CategoryAdminController extends AbstractController
     /**
      * @Route("/", name="category_admin_index", methods="GET")
      */
-    public function index(CategoryRepository $categoryRepository,
-                          PaginatorInterface $paginator,
-                          Request $request
+    public function index(
+        CategoryRepository $categoryRepository,
+        PaginatorInterface $paginator,
+        Request $request
     ): Response {
         $pagination = $paginator->paginate(
             $categoryRepository->findAll(),
