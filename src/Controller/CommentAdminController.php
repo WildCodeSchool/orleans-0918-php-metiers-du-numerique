@@ -31,7 +31,7 @@ class CommentAdminController extends AbstractController
                 ['accepted'=>'ASC', 'postDate'=>'DESC']
             ),
             $request->query->getInt('page', 1),
-            10
+            $this->getParameter('elements_by_page')
         );
         return $this->render('comment_admin/index.html.twig', [
             'comments' => $pagination
