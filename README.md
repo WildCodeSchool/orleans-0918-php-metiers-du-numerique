@@ -2,7 +2,7 @@
 
 Les Métiers du numérique 
 
-"LES METIERS DU NUMERIQUE" est un project créer par l'équipe de développement composée d'Alicia PILAR, Amélie AUMONT, Billy VIVANT, Julien MONTIGNY, Thomas PECOUT dans le cadre de la formation dispensée par la Wild Code School. 
+"LES METIERS DU NUMERIQUE" est un project créer par l'équipe de développement composée d'Alicia PILAR, Amélie AUMONT, Billy VIVANT, Julo MONTITI : https://github.com/Julomontiti, Thomas PECOUT dans le cadre de la formation dispensée par la Wild Code School. 
 
 System requis :
 
