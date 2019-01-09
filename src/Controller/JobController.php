@@ -90,7 +90,6 @@ class JobController extends AbstractController
 
         return $this->render('job/show.html.twig', ['job' => $job,
             'comments'=>$comments,
-//            'likes' => $likes,
             'searchForm' =>
                 SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
