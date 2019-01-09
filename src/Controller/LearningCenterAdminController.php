@@ -32,7 +32,10 @@ class LearningCenterAdminController extends AbstractController
         Request $request
     ): Response {
         $pagination = $paginator->paginate(
-            $learningCenterRepository->findAll(),
+            $learningCenterRepository->findBy(
+                [],
+                ['accepted'=>'ASC']
+            ),
             $request->query->getInt('page', 1),
             $this->getParameter('elements_by_page')
         );
