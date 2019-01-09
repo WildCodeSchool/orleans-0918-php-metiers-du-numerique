@@ -28,6 +28,7 @@ class PartnerAdminController extends AbstractController
     {
         return $this->render('partner_admin/index.html.twig', ['partners' => $partnerRepository->findAll()]);
     }
+
     /**
      * @Route("/new", name="partner_new", methods="GET|POST")
      */
