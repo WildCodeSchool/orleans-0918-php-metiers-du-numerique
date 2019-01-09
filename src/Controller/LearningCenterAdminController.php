@@ -35,7 +35,7 @@ class LearningCenterAdminController extends AbstractController
             $learningCenterRepository->findBy(
                 [],
                 ['accepted'=>'ASC']
-                ),
+            ),
             $request->query->getInt('page', 1),
             $this->getParameter('elements_by_page')
         );
