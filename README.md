@@ -13,12 +13,10 @@ System requis :
     Database : MySQL;
 
     Composer https://getcomposer.org/doc/00-intro.md
-
-    Npm https://www.npmjs.com/get-npm
-
+    
 Démarrer : 
 
-Cloner et demarrer le projet, il est necessaire d'avoir Composer, NPM avec votre terminal.  
+Cloner et demarrer le projet, il est necessaire d'avoir Composer avec votre terminal.  
 
 Cloner ce "repository" : 
 
@@ -31,7 +29,6 @@ $ cd metierdunumerique
 Installer les dépendances : 
 
 $ composer install
-$ npm install
 $ yarn install
 
 Initialiser le project :
