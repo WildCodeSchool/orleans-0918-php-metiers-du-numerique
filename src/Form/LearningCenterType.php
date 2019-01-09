@@ -21,7 +21,7 @@ class LearningCenterType extends AbstractType
                 'label' => 'Nom de l\'organisme de Formation',
             ])
             ->add('pictureFile', VichImageType::class, [
-                'required' => true,
+                'required' => false,
                 'download_link' => false,
                 'image_uri' => false,
                 'allow_delete' => false,

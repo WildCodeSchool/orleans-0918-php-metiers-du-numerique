@@ -49,7 +49,6 @@ class LearningCenterAdminController extends AbstractController
         $learningCenter = new LearningCenter();
         $form = $this->createForm(LearningCenterType::class, $learningCenter);
         $form->handleRequest($request);
-        $learningCenter->setAccepted(true);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
