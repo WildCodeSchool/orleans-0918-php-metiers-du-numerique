@@ -11,7 +11,11 @@
                     <div class="row">
                         <div class="col-12 mt-4">
                             <img class="imgModal img-fluid"
-                                 src="{{ asset('images/companies/'~company.picture)}}" alt="{{ company.name }}"/>
+                                 src="{% if company.picture is empty %}
+                                        {{ asset('/build/images/defaultpicture.png') }}
+                                      {% else %}
+                                        {{ asset('images/companies/'~company.picture)}}
+                                      {% endif %}">
                             <a class="linkBusiness col-6" href="{{ company.link }}"
                                target="_blank">{{ company.name }}</a>
                         </div>
