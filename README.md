@@ -1,12 +1,10 @@
 # orleans-0918-php-metiers-du-numerique
 
-Projet Name : Les Métiers du numérique (Digital Jobs)
-
-"LES METIERS DU NUMERIQUE" is a project created by a developper's Team (Alicia PILAR, Amélie AUMONT, Billy VIVANT, Julien MONTIGNY, Thomas PECOUT) as part of Wild Code School's formation.
+Les Métiers du numérique 
 
 "LES METIERS DU NUMERIQUE" est un project créer par l'équipe de développement composée d'Alicia PILAR, Amélie AUMONT, Billy VIVANT, Julien MONTIGNY, Thomas PECOUT dans le cadre de la formation dispensée par la Wild Code School. 
 
-System requirements
+System requis :
 
     PHP 7.2;
 
@@ -18,38 +16,43 @@ System requirements
 
     Npm https://www.npmjs.com/get-npm
 
-How To Use
+Démarrer : 
 
-To clone and run this project, you'll need Git, Composer and NPM. From your command line.
 Cloner et demarrer le projet, il est necessaire d'avoir Composer, NPM avec votre terminal.  
 
-Clone this repository : 
+Cloner ce "repository" : 
 
 $ git clone https://github.com/WildCodeSchool/orleans-0918-php-metiers-du-numerique.git
 
-Go into the repository : 
+Aller dans le répertoire : 
 
 $ cd metierdunumerique
 
-Install dependencies : 
+Installer les dépendances : 
 
 $ composer install
 $ npm install
 $ yarn install
 
-Initiate Project :
+Initialiser le project :
+
+Créer un fichier .env.local copier le .env et modifier les élements suivant :
+
+DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
 
 $ php bin/console doctrine:database:create 
 $ php bin/console doctrine:schema:update --force
 
-Load fixtures to add Jobs, Comments, LearningCenters, Partners in database :
+Intégrer les fixtures de type : Jobs, Comments, LearningCenters, Partners dans la database :
 
 $ php bin/console doctrine:fixtures:load
 
-Compile Webpack for CSS and JS :
-$ npm run dev (for dev environment) 
-$ npm run build (for prod environment)
+Compiler Webpack pour CSS et le JS :
 
-Launch PHP Server :
-$ php bin/console server:run (DEV Only) 
+$ npm run dev (pour le développement) 
+$ npm run build (pour la production)
+
+Lancer un serveur PHP :
+
+$ php bin/console server:run (pour le développement) 
 $ for prod env, configure a web server (apache, nginx, ...)
