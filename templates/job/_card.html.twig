@@ -9,7 +9,11 @@
                         <figure class="info-card">
                             <div class="titre-card-responsive text-center">{{ category.name }}</div>
                             <img class="img-responsive"
-                                 src="{{ asset('images/jobs/'~job.picture) }}">
+                                 src="{% if job.picture is empty %}
+                                            {{ asset('/build/images/defaultpicture.png') }}
+                                      {% else %}
+                                            {{ asset('images/jobs/'~job.picture) }}
+                                      {% endif %}">
                             <figcaption class="info-card-details animate">
                                 <div class="info-card-header">
                                     <div class="metacard">
