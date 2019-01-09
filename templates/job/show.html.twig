@@ -63,7 +63,6 @@
     <section class="sectionSpace text-center">
         <h2 class="mb-5">Ils vous parlent de leurs expériences : </h2>
         <div class="container-fluid">
-
             {% for comment in comments %}
             {% if comment.accepted ==1 %}
 
@@ -75,6 +74,7 @@
                     <div class="col-sm-12 col-md-2 ">
 
                         {% if comment.picture is empty %}
+
                             <img class="circlePicture" src="https://via.placeholder.com/80x80" alt="">
                         {% else %}
                             <img class="circlePicture img-job"
@@ -87,12 +87,8 @@
                         {% endif %}
                     </div>
                     <div class="col-sm-12 col-md-2">
-                        <div class="liked">
-                            <a class="like " data-commentId="{{ comment.id }}" data-commentJobId="{{ job.id }}"
-                               href="#">
-                                <i class="fas fa-thumbs-up"></i>
-                            </a>
-                            <p class="nb-like" id="like{{ comment.id }}">{{ comment.liked }}</p>
+                        <div class="liked" id='comment{{ comment.id }}'>
+                            {% include 'comment/_like.html.twig'%}
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-2 txt-overflow">

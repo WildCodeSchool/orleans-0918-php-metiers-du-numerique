@@ -9,6 +9,7 @@ use App\Repository\CommentRepository;
 use Doctrine\DBAL\Types\DateTimeType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -24,23 +25,18 @@ class CommentController extends AbstractController
      */
     public function addLike(Comment $comment, SessionInterface $session)
     {
-        $like = $session->get('like');
-//        $like[] = null;
-//        if (!in_array($comment->getId(), $like)) {
-//
-//        }
-//        deuxieme test
-//        if(!$session->has('like')){
-//
-//        }
-        $comment->setLiked($comment->getLiked()+1);
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($comment);
-        $em->flush();
-        $session->set('like', $like);
 
-        return $this->redirectToRoute('job_index');
+        if(!($session->get('like'.$comment->getId()) == true)) {
+            $session->set("like".$comment->getId(), true);
+
+            $comment->setLiked($comment->getLiked() + 1);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
+        }
+        return $this->render('comment/_like.html.twig', ['comment' => $comment]);
     }
+
     /**
      * @Route("/", name="comment_index", methods="GET")
      */
@@ -68,7 +64,7 @@ class CommentController extends AbstractController
             $comment->setLiked(0);
             $em->flush();
 
-            return $this->redirectToRoute('job_show', array('id'=> $job->getId()));
+            return $this->redirectToRoute('job_show', array('id' => $job->getId()));
         }
 
         return $this->render('comment/new.html.twig', [
@@ -86,7 +82,7 @@ class CommentController extends AbstractController
     {
         return $this->render('comment/show.html.twig', [
             'comment' => $comment
-            ]);
+        ]);
     }
 
     /**
@@ -114,7 +110,7 @@ class CommentController extends AbstractController
      */
     public function delete(Request $request, Comment $comment): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $comment->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($comment);
             $em->flush();
