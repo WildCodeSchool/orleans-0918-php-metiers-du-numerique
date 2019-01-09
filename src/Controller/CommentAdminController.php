@@ -26,9 +26,12 @@ class CommentAdminController extends AbstractController
         Request $request
     ): Response {
         $pagination = $paginator->paginate(
-            $commentRepository->findAll(),
+            $commentRepository->findBy(
+                [],
+                ['accepted'=>'ASC', 'postDate'=>'DESC']
+            ),
             $request->query->getInt('page', 1),
-            10
+            $this->getParameter('elements_by_page')
         );
         return $this->render('comment_admin/index.html.twig', [
             'comments' => $pagination
