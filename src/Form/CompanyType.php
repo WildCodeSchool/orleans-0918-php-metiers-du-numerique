@@ -8,6 +8,7 @@ use App\Entity\Job;
 use App\Repository\JobRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -38,14 +39,17 @@ class CompanyType extends AbstractType
                 'label' => 'Lien du site de votre entreprise',
 
             ])
-            ->add('jobs', EntityType::class, [
-                'class'=>Job::class,
-                'label' => 'Sélectionnez les fiches métiers auquelles vous voulez être relatées: ',
-                'choice_label'=>'name',
-                'by_reference' => false,
-                'multiple' => true,
-                'expanded' => true,
-                ])
+            ->add('jobs', ChoiceType::class, [
+                'choices' => [
+                        'php' => 'back_1',
+                        'java' => 'back_2',
+                        'js' => 'front_1',
+                ],
+                'group_by' => function($choiceValue, $key, $value) {
+                    $cat = explode('_', $choiceValue);
+                    return $cat[0];
+                }
+            ])
         ;
     }
 
