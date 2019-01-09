@@ -26,9 +26,8 @@ class CommentController extends AbstractController
     public function addLike(Comment $comment, SessionInterface $session)
     {
 
-        if(!($session->get('like'.$comment->getId()) == true)) {
+        if (!($session->get('like'.$comment->getId()) == true)) {
             $session->set("like".$comment->getId(), true);
-
             $comment->setLiked($comment->getLiked() + 1);
             $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
