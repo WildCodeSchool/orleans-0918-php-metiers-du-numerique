@@ -1,9 +1,10 @@
 # orleans-0918-php-metiers-du-numerique
 
-Projet3 : Les Métiers du numérique
+Projet Name : Les Métiers du numérique (Digital Jobs)
 
-"Les métiers du numérique" is a project created by a The BillyDev. Team, as part of Wild Code School's formation.
+"LES METIERS DU NUMERIQUE" is a project created by a developper's Team (Alicia PILAR, Amélie AUMONT, Billy VIVANT, Julien MONTIGNY, Thomas PECOUT) as part of Wild Code School's formation.
 
+"LES METIERS DU NUMERIQUE" est un project créer par l'équipe de développement composée d'Alicia PILAR, Amélie AUMONT, Billy VIVANT, Julien MONTIGNY, Thomas PECOUT dans le cadre de la formation dispensée par la Wild Code School. 
 
 System requirements
 
@@ -19,26 +20,36 @@ System requirements
 
 How To Use
 
-To clone and run this project, you'll need Git, Composer and NPM. From your command line:
+To clone and run this project, you'll need Git, Composer and NPM. From your command line.
+Cloner et demarrer le projet, il est necessaire d'avoir Composer, NPM avec votre terminal.  
 
-Clone this repository
-$ git clone https://github.com/
+Clone this repository : 
 
-Go into the repository
+$ git clone https://github.com/WildCodeSchool/orleans-0918-php-metiers-du-numerique.git
+
+Go into the repository : 
+
 $ cd metierdunumerique
 
-Install dependencies
+Install dependencies : 
+
 $ composer install
 $ npm install
 $ yarn install
 
-Initiate Project $ php bin/console doctrine:database:create $ php bin/console doctrine:schema:update --force
+Initiate Project :
 
-Load fixtures to add Jobs, Comments, LearningCenters, Partners in database $ php bin/console doctrine:fixtures:load
+$ php bin/console doctrine:database:create 
+$ php bin/console doctrine:schema:update --force
 
-Compile Webpack for CSS and JS $ npm run dev (for dev environment) $ npm run build (for prod environment)
+Load fixtures to add Jobs, Comments, LearningCenters, Partners in database :
 
-Launch PHP Server $ php bin/console server:run (DEV Only) $ for prod env, configure a web server (apache, nginx, ...)
+$ php bin/console doctrine:fixtures:load
 
-Fixtures
+Compile Webpack for CSS and JS :
+$ npm run dev (for dev environment) 
+$ npm run build (for prod environment)
 
+Launch PHP Server :
+$ php bin/console server:run (DEV Only) 
+$ for prod env, configure a web server (apache, nginx, ...)
