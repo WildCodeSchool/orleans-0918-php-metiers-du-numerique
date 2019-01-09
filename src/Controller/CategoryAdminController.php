@@ -22,16 +22,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategoryAdminController extends AbstractController
 {
     /**
-     * @Route("/", name="category_admin_index", methods="GET")
+     * @Route("/", name="category_admin_index", methods="GET|POST")
      */
-    public function index(CategoryRepository $categoryRepository): Response
-    {
-        return $this->render('category_admin/index.html.twig', ['categories' => $categoryRepository->findAll()]);
-    }
-    /**
-     * @Route("/new", name="category_new", methods="GET|POST")
-     */
-    public function new(Request $request): Response
+    public function index(CategoryRepository $categoryRepository, Request $request): Response
     {
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
@@ -45,7 +38,8 @@ class CategoryAdminController extends AbstractController
             return $this->redirectToRoute('category_index');
         }
 
-        return $this->render('category_admin/new.html.twig', [
+        return $this->render('category_admin/index.html.twig', [
+            'categories' => $categoryRepository->findAll(),
             'category' => $category,
             'form' => $form->createView(),
         ]);
