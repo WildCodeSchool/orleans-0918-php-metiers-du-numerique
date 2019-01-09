@@ -42,7 +42,7 @@ class CategoryAdminController extends AbstractController
             $em->persist($category);
             $em->flush();
 
-            return $this->redirectToRoute('category_index');
+            return $this->redirectToRoute('category_admin_index');
         }
 
         return $this->render('category_admin/new.html.twig', [
