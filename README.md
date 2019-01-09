@@ -46,8 +46,7 @@ $ php bin/console doctrine:fixtures:load
 
 Compiler Webpack pour CSS et le JS :
 
-$ npm run dev (pour le développement) 
-$ npm run build (pour la production)
+$ yarn encore dev
 
 Lancer un serveur PHP :
 
