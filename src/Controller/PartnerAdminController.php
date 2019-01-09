@@ -31,7 +31,7 @@ class PartnerAdminController extends AbstractController
         $pagination = $paginator->paginate(
             $partnerRepository->findAll(),
             $request->query->getInt('page', 1),
-        $this->getParameter('elements_by_page')
+            $this->getParameter('elements_by_page')
         );
         return $this->render('partner_admin/index.html.twig', ['partners' => $pagination
         ]);
