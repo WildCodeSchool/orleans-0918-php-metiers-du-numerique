@@ -84,10 +84,8 @@ class JobController extends AbstractController
         $comments= $this->getDoctrine()
             ->getRepository(Comment::class)
             ->findBy(
-                ['associatedJob'=>$job->getId()],
-                ['id'=>'ASC'],
-                3,
-                0
+                ['associatedJob'=>$job->getId(),'accepted' =>true],
+                ['id'=>'ASC']
             );
 
         return $this->render('job/show.html.twig', ['job' => $job,

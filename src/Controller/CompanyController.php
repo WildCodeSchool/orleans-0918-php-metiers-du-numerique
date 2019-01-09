@@ -32,17 +32,20 @@ class CompanyController extends AbstractController
         $form = $this->createForm(CompanyType::class, $company);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
 
-            return $this->redirectToRoute('company_index');
+            return $this->redirectToRoute('company_new');
         }
 
         return $this->render('company/new.html.twig', [
             'company' => $company,
             'form' => $form->createView(),
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
 

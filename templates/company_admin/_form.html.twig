@@ -1,13 +1,8 @@
 {{ form_start(form) }}
 <div class="row d-flex flex-column">
     <div class="row col-lg-12 justify-content-center">
-        {% if company.picture is empty %}
         <img class="preview-img" id="previewPicture"
-             src="https://via.placeholder.com/300.png/ffffff/ffffff/O%20https://placeholder.com/">
-        {% else %}
-        <img class="preview-img" id="previewPicture"
-             src="{{ asset('images/companies/'~company.picture)}}" alt="photo de {{ company.name }}">
-        {% endif %}
+             src="{{ company.picture ? vich_uploader_asset(company, 'pictureFile') : asset('/build/images/defaultpicture.png') }}">
     </div>
     <div class="row col-lg-12 justify-content-center mt-5">
         <span class="col-lg-12 text-center">Taille recommandée : 300*300 - (poids <2Mo)</span>
