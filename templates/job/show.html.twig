@@ -63,58 +63,6 @@
     <section class="sectionSpace text-center">
         <h2 class="mb-5">Ils vous parlent de leurs expériences : </h2>
         <div class="container-fluid">
-/*US10*/
-            {% for comment in comments %}
-            {% if comment.accepted ==1 %}
-
-            {% if loop.index is odd %}
-            <div class="row align-items-center justify-content-center commentHeight commentBackground" data-comment-id="{{ comment.id }}">
-                {% else %}
-                <div class="row align-items-center justify-content-center commentHeight" data-comment-id="{{ comment.id }}">
-                    {% endif %}
-                    <div class="col-sm-12 col-md-2 ">
-
-                        {% if comment.picture is empty %}
-
-                            <img class="circlePicture" src="https://via.placeholder.com/80x80" alt="">
-                        {% else %}
-                            <img class="circlePicture img-job"
-                                 src="{{ asset("images/comments/") }}{{ comment.picture }}"
-                                 alt="Photo du metier de {{ job.name }}">
-                        {% endif %}
-                        <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>
-                        {% if comment.company is not empty %}
-                            <p class="mt-3">Travaille à : {{ comment.company }}</p>
-                        {% endif %}
-                    </div>
-                    <div class="col-sm-12 col-md-2">
-                        <div class="liked" id='comment{{ comment.id }}'>
-                            {% include 'comment/_like.html.twig'%}
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-2 txt-overflow">
-                        <i class="fas fa-plus-circle mb-5"></i>
-                        <p>{{ comment.prosComment }}</p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-2 txt-overflow">
-                        <i class="fas fa-minus-circle mb-5"></i>
-                        <p>{{ comment.consComment }}</p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-2 txt-overflow">
-                        <h5 class="mb-5">Commentaires divers</h5>
-                        <p>{{ comment.consComment }}</p>
-                    </div>
-
-                </div>
-                {% endif %}
-                {% endfor %}
-                <div class="row justify-content-center">
-                    <a href="{{ path('comment_new',{'job_id':job.id}) }}" class="btn-primary btn">Ajouter un
-                        commentaire</a>
-                </div>
-/*dev*/
             {% include 'job/loadComment.html.twig' %}
             <div class="container">
                 <section class="sectionSpace">
@@ -128,9 +76,7 @@
                         </div>
                     </div>
                 </section>
-/*dev*/
             </div>
-
         </div>
     </section>
 
