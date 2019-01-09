@@ -7,6 +7,8 @@ Les Métiers du numérique
 System requis :
 
     PHP 7.2;
+    
+    Symfony 4;
 
     Git https://git-scm.com/book/fr/v1/D%C3%A9marrage-rapide-Installation-de-Git
 
@@ -33,20 +35,21 @@ $ yarn install
 
 Initialiser le project :
 
-Créer un fichier .env.local copier le .env et modifier les élements suivant :
+Créer un fichier à la racine du projet .env.local copier le .env et modifier les élements suivant :
 
 DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
 
-$ php bin/console doctrine:database:create 
-$ php bin/console doctrine:schema:update --force
 
-Intégrer les fixtures de type : Jobs, Comments, LearningCenters, Partners dans la database :
+$ php bin/console doctrine:database:create 
+$ php bin/console doctrine:migrations:migrate
+
+Intégrer les fixtures de type : Jobs, LearningCenters, Partners dans la database :
 
 $ php bin/console doctrine:fixtures:load
 
 Compiler Webpack pour CSS et le JS :
 
-$ yarn encore dev
+$ yarn encore production
 
 Lancer un serveur PHP :
 
