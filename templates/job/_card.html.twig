@@ -10,7 +10,7 @@
                             <div class="titre-card-responsive text-center">{{ category.name }}</div>
                             <img class="img-responsive"
                                  src="{% if job.picture is empty %}
-                                            {{ asset('/build/images/defaultpicture.png') }}
+                                            {{ asset('/build/images/defaultjobpicture.png') }}
                                       {% else %}
                                             {{ asset('images/jobs/'~job.picture) }}
                                       {% endif %}">
