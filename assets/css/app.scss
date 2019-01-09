@@ -1011,3 +1011,6 @@ a{
   background-color: transparent;
   border : none;
 }
+.btn {
+  @include myButtons
+}
