@@ -39,16 +39,17 @@ class CompanyType extends AbstractType
                 'label' => 'Lien du site de votre entreprise',
 
             ])
-            ->add('jobs', ChoiceType::class, [
-                'choices' => [
-                        'php' => 'back_1',
-                        'java' => 'back_2',
-                        'js' => 'front_1',
-                ],
-                'group_by' => function($choiceValue, $key, $value) {
-                    $cat = explode('_', $choiceValue);
-                    return $cat[0];
-                }
+            ->add('jobs',  EntityType::class, [
+                'group_by' => function($choiceValue) {
+                    return $choiceValue->getAssociatedCategory()->getName();
+                },
+                'class' => Job::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'attr' => [
+                    'class' => 'jobs'
+                ]
             ])
         ;
     }
