@@ -8,6 +8,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Partner;
+use App\Form\PartnerType;
 use App\Repository\PartnerRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,6 +36,32 @@ class PartnerAdminController extends AbstractController
             $this->getParameter('elements_by_page')
         );
         return $this->render('partner_admin/index.html.twig', ['partners' => $pagination
+        ]);
+    }
+
+    /**
+     * @Route("/new", name="partner_new", methods="GET|POST")
+     */
+    public function new(Request $request): Response
+    {
+        $partner = new Partner();
+        $form = $this->createForm(PartnerType::class, $partner);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($partner);
+            $em->flush();
+
+            $this->addFlash('success', 'Le partenaire a bien été ajouté');
+            return $this->redirectToRoute('partner_admin_index');
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('danger', 'Le partenaire n\'a pas pu être ajouté');
+        }
+
+        return $this->render('partner/new.html.twig', [
+            'partner' => $partner,
+            'form' => $form->createView(),
         ]);
     }
 }

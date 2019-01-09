@@ -50,7 +50,7 @@ class JobAdminController extends AbstractController
             $em->persist($job);
             $em->flush();
 
-            return $this->redirectToRoute('job_index');
+            return $this->redirectToRoute('job_admin');
         }
 
         return $this->render('job_admin/new.html.twig', [
