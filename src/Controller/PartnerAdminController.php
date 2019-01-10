@@ -59,7 +59,7 @@ class PartnerAdminController extends AbstractController
             $this->addFlash('danger', 'Le partenaire n\'a pas pu être ajouté');
         }
 
-        return $this->render('partner/new.html.twig', [
+        return $this->render('partner_admin/new.html.twig', [
             'partner' => $partner,
             'form' => $form->createView(),
         ]);
