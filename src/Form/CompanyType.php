@@ -45,10 +45,12 @@ class CompanyType extends AbstractType
                 },
                 'class' => Job::class,
                 'choice_label' => 'name',
+                'label' => 'Sélectionnez la ou les fiches métiers qui correspondent à votre entreprise ',
                 'multiple' => true,
                 'expanded' => false,
                 'attr' => [
-                    'class' => 'jobs'
+                    'class' => 'jobs color-input form-control',
+                    'type' => 'text',
                 ]
             ])
         ;
