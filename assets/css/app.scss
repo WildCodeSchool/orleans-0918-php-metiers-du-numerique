@@ -319,7 +319,16 @@ hr {
 .marginImage {
   margin-bottom: $imageMargin;
 }
-
+/*partner-admin*/
+.img-logo-index{
+    object-fit: contain;
+    max-height: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    min-width: 50px;
+    border-radius:$borderPicture;
+    border:solid 1px $colorInput;
+}
 /*button add category*/
 .buttonCategory {
    @include myButtons;
