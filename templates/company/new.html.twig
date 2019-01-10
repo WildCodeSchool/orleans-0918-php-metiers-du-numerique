@@ -1,6 +1,10 @@
 {% extends 'layoutFront.html.twig' %}
 
 {% block title %} Demande d'ajout d'entreprise {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('mySelect2') }}
+{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -9,4 +13,9 @@
         </div>
         {{ include('company/_form.html.twig') }}
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('mySelect2') }}
 {% endblock %}

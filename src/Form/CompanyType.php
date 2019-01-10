@@ -8,6 +8,7 @@ use App\Entity\Job;
 use App\Repository\JobRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -39,13 +40,19 @@ class CompanyType extends AbstractType
 
             ])
             ->add('jobs', EntityType::class, [
-                'class'=>Job::class,
-                'label' => 'Sélectionnez les fiches métiers auquelles vous voulez être relatées: ',
-                'choice_label'=>'name',
-                'by_reference' => false,
+                'group_by' => function ($choiceValue) {
+                    return $choiceValue->getAssociatedCategory()->getName();
+                },
+                'class' => Job::class,
+                'choice_label' => 'name',
+                'label' => 'Sélectionnez la ou les fiches métiers qui correspondent à votre entreprise ',
                 'multiple' => true,
-                'expanded' => true,
-                ])
+                'expanded' => false,
+                'attr' => [
+                    'class' => 'jobs color-input form-control',
+                    'type' => 'text',
+                ]
+            ])
         ;
     }
 

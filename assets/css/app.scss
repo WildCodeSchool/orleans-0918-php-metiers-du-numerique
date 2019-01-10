@@ -1031,3 +1031,17 @@ a{
 .btn {
   @include myButtons
 }
+
+/*select input companies/learningCenters*/
+
+.select2-results__group{
+  background-color: #d1d1d1;
+}
+.select2-selection--multiple{
+  background-color: transparent !important;
+  border: none !important;
+}
+.select2-container{
+  background-color: #d1d1d1;
+}
+
