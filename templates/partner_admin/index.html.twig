@@ -1,0 +1,40 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Gestion des partenaires{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('home_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <div class="col-xs-12 text-center">
+                <h1>Gestion des partenaires :</h1>
+            </div>
+        </div>
+            <section class="sectionSpace">
+            <table class="col-12 mx-auto table">
+                <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Lien</th>
+                    <th scope="col">Voir</th>
+                </tr>
+                <tbody>
+                {% for partner in partners %}
+                    <tr>
+                        <th>{{ partner.name }}</th>
+                        <th>{{ partner.url }}</th>
+                        <td>
+                            <i class="far fa-eye"></i>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
+                {{ knp_pagination_render(partners) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

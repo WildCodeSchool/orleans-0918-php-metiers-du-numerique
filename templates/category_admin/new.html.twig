@@ -1,21 +1,11 @@
-{% extends 'layoutAdmin.html.twig' %}
-
-{% block title %}New Category{% endblock %}
-
-{% block body %}
-    <div class="sectionSpace">
-        <div class="container">
-            {{ form_start(form) }}
-            <div class="row">
-                <button class="btn buttonCategory col-md-3 col-sm-12">{{ button_label|default('ajouter') }}</button>
-                <div class="col-md-7 col-sm-12 newCategory">
-                    {{ form_widget(form.name) }}
-                    {{ form_errors(form.name) }}
-                </div>
-
-            </div>
-        </div>
-
-        {{ form_end(form) }}
+{{ form_start(form) }}
+<div class="row">
+    <button class="btn buttonCategory col-md-3 col-sm-12">{{ button_label|default('ajouter') }}</button>
+    <div class="col-md-7 col-sm-12 newCategory">
+        {{ form_widget(form.name) }}
+        {{ form_errors(form.name) }}
     </div>
-{% endblock %}
+
+</div>
+{{ form_end(form) }}
+

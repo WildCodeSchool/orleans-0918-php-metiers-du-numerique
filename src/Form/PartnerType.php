@@ -24,9 +24,12 @@ class PartnerType extends AbstractType
             ])
             ->add('pictureFile', VichImageType::class, [
                     'required' => true,
+                    'image_uri' => false,
                     'download_link' => false,
+
                     'allow_delete' => false,
                     'label' => ' ',
+                    'download_label' => false,
                     'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
                 ]);
     }

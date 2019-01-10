@@ -1,0 +1,41 @@
+{% for comment in comments %}
+    {% if loop.index is odd %}
+        <div class="row align-items-center justify-content-center commentHeight one-comment commentBackground"
+             data-comment-id="{{ comment.id }}">
+    {% else %}
+    <div class="row align-items-center justify-content-center commentHeight one-comment " data-comment-id="{{ comment.id }}">
+    {% endif %}
+    <div class="col-sm-12 col-md-2 ">
+        {% if comment.picture is empty %}
+            <img class="circlePicture" src="https://via.placeholder.com/80x80" alt="">
+        {% else %}
+            <img class="circlePicture img-job"
+                 src="{{ asset("images/comments/") }}{{ comment.picture }}"
+                 alt="Photo du metier de {{ job.name }}">
+        {% endif %}
+        <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>
+        {% if comment.company is not empty %}
+            <p class="mt-3">Travaille à : {{ comment.company }}</p>
+        {% endif %}
+    </div>
+    <div class="col-sm-12 col-md-2">
+        <div class="liked" id='comment{{ comment.id }}'>
+            {% include 'comment/_like.html.twig' %}
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-2 txt-overflow">
+        <i class="fas fa-plus-circle mb-5"></i>
+        <p>{{ comment.prosComment }}</p>
+    </div>
+    <div class="col-sm-12 col-md-2 txt-overflow">
+        <i class="fas fa-minus-circle mb-5"></i>
+        <p>{{ comment.consComment }}</p>
+    </div>
+        <div class="col-sm-12 col-md-2 txt-overflow">
+            <h5 class="mb-5">Commentaires divers</h5>
+            <p>{{ comment.consComment }}</p>
+        </div>
+
+    </div>
+    {% endfor %}
+

@@ -8,6 +8,7 @@ use App\Form\AcceptCompanyType;
 use App\Form\CompanyType;
 use App\Repository\CategoryRepository;
 use App\Repository\CompanyRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,13 +24,26 @@ class CompanyAdminController extends AbstractController
     /**
      * @Route("/", name="company_admin", methods="GET" )
      */
-    public function index(CompanyRepository $compagnyRepository): Response
-    {
+    public function index(
+        CompanyRepository $companyRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $pagination = $paginator->paginate(
+            $companyRepository->findBy(
+                [],
+                ['accepted'=>'ASC']
+            ),
+            $request->query->getInt('page', 1),
+            $this->getParameter('elements_by_page')
+        );
+
+
+
         return $this->render('company_admin/index.html.twig', [
-            'companies' => $compagnyRepository->findBy([], ['accepted'=>'ASC'])
+            'companies' => $pagination
         ]);
     }
-
     /**
      * @Route("/new", name="company_admin_new", methods="GET|POST")
      */
@@ -43,7 +57,10 @@ class CompanyAdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
+            $this->addFlash('success', 'L\'entreprise a bien été ajouté');
             return $this->redirectToRoute('company_admin');
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('danger', 'L\'entreprise n\'a pas pu être ajouté');
         }
         return $this->render('company_admin/new.html.twig', [
             'company' => $company,
@@ -67,6 +84,25 @@ class CompanyAdminController extends AbstractController
         }
 
         return $this->render('company_admin/show.html.twig', [
+            'company' => $company,
+            'form' => $form->createView(),
+        ]);
+    }
+    /**
+     * @Route("/{id}/edit", name="company_admin_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, Company $company): Response
+    {
+        $form = $this->createForm(CompanyType::class, $company);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('company_admin', ['id' => $company->getId()]);
+        }
+
+        return $this->render('company_admin/edit.html.twig', [
             'company' => $company,
             'form' => $form->createView(),
         ]);

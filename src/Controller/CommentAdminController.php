@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Form\AcceptType;
 use App\Repository\CommentRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,10 +20,21 @@ class CommentAdminController extends AbstractController
     /**
      * @Route("/", name="comment_admin")
      */
-    public function index(CommentRepository $commentRepository): Response
-    {
+    public function index(
+        CommentRepository $commentRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $pagination = $paginator->paginate(
+            $commentRepository->findBy(
+                [],
+                ['accepted'=>'ASC', 'postDate'=>'DESC']
+            ),
+            $request->query->getInt('page', 1),
+            $this->getParameter('elements_by_page')
+        );
         return $this->render('comment_admin/index.html.twig', [
-            'comments' => $commentRepository->findAll()
+            'comments' => $pagination
         ]);
     }
 
