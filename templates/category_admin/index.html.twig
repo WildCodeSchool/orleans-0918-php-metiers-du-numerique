@@ -22,19 +22,26 @@
         </div>
         <section class="sectionSpace">
             <table class="col-12 mx-auto table">
-                <thead>
+                <thead class="headCategories">
                 <tr>
-                    <th scope="col">Nom</th>
+                    <th scope="col">Catégorie</th>
+                    <th scope="col">Nb Métiers</th>
                     <th scope="col">Voir</th>
+                    <th scope="col">Supprimer</th>
                 </tr>
-                <tbody>
+                <tbody class="text-center">
                 {% for category in categories %}
                     <tr>
-                        <th>{{ category.name }}</th>
+                        <td>{{ category.name }}</td>
+                        <td>
+                            <span class="badge badge-pill badge-info nbJobs">{{ category.associatedJobs|length }}</span>
+
+                        </td>
                         <td>
                             <a class="col-xs-12 col-lg-12 col-md-1"
                                href="{{ path('category_admin_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
                         </td>
+                        <td>{% if category.associatedJobs|length==0 %} {{ include('category_admin/_delete_form.html.twig') }} {% endif %}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

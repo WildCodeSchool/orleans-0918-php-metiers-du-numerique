@@ -822,12 +822,6 @@ a{
 }
 /*category*/
 .jobIndex {
-  @media (max-width: 766px) {
-    .button-pills {
-      display: none;
-    }
-  }
-
   .nav-pills li.active a,
   .nav-pills li.active a:focus,
   .nav-pills > li.active > a,
@@ -1022,6 +1016,24 @@ a{
 .navigation {
   margin-top: 50px;
 }
+/*admin_categories*/
+.nbJobs {
+  font-size: large;
+}
+.headCategories{
+    th {
+      text-align: center;
+    }
+}
+.listCategories{
+    td{
+      text-align: center;
+      vertical-align: middle;
+    }
+}
+.supprButton{
+  text-align: center;
+}
 
 /*delete button*/
 .btnSup {
@@ -1044,4 +1056,3 @@ a{
 .select2-container{
   background-color: #d1d1d1;
 }
-
