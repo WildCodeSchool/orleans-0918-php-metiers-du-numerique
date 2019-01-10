@@ -8,12 +8,12 @@
         {% endif %}
 
         <div class="col-sm-12 col-md-2 ">
-            {% if comment.picture is empty %}
-                <img class="circlePicture" src="https://via.placeholder.com/80x80" alt="">
-            {% else %}
-                <img class="circlePicture img-job" src="{{ asset('build/images/'~comment.picture)}}" alt="Photo du metier de {{ job.name }}">
-            {% endif %}
 
+                <img class="circlePicture" src="{% if comment.picture is empty %}
+                                                    {{ asset('/build/images/defaultpicture.png') }}
+                                                {% else %}
+                                                    {{ asset('build/images/'~comment.picture)}}
+                                                {% endif %}" alt="Photo du metier de {{ job.name }}">
             <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>
             {% if comment.company is not empty %}
                 <p class="mt-3">Travaille à : {{ comment.company }}</p>
