@@ -9,7 +9,7 @@
             <img class="circlePicture" src="{% if comment.picture is empty %}
                                                 {{ asset('/build/images/defaultpicture.png') }}
                                             {% else %}
-                                                {{ asset('images/comments/'~comment.picture)}}
+                                                {{ vich_uploader_asset(comment,'pictureFile')}}
                                             {% endif %}"alt="photo de {{ comment.firstname ~ " " ~comment.lastname }}">
         </div>
         <div class="col-sm-12 col-md-5">
