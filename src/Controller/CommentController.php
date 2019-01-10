@@ -25,7 +25,7 @@ class CommentController extends AbstractController
      */
     public function addLike(Comment $comment, SessionInterface $session, Request $request)
     {
-        if ($request->isXmlHttpRequest()){
+        if ($request->isXmlHttpRequest()) {
             if (!($session->get('like'.$comment->getId()) == true)) {
                 $session->set("like".$comment->getId(), true);
                 $comment->setLiked($comment->getLiked() + 1);
