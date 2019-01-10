@@ -27,7 +27,7 @@
                     <th scope="col">Logo</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Lien</th>
-                    <th scope="col">Voir</th>
+                    <th scope="col" class="text-center">Supprimer</th>
                 </tr>
                 <tbody>
                 {% for partner in partners %}
@@ -39,9 +39,9 @@
                                           {% endif %}"  class="img-logo-index"></th>
                         <th>{{ partner.name }}</th>
                         <th>{{ partner.url }}</th>
+                        <td class="text-center">
+                            {{ include('partner/_delete_form.html.twig') }}
                         <td>
-                            <i class="far fa-eye"></i>
-                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>

@@ -52,13 +52,6 @@ $heightButton : 48px;
 $backgroundComments : #e4e4e4;
 $borderPicture:100%;
 
-@mixin myButtons {
-   background-color: $buttonColor;
-   color: $txtButton;
-   &:hover {
-      background-color: $buttonColorHover;
-   }
-}
 @mixin overlay {
   height: 100%;
   width: 0;
@@ -331,7 +324,6 @@ hr {
 }
 /*button add category*/
 .buttonCategory {
-   @include myButtons;
    height: $heightButton;
    margin-top: 0px;
    margin-right: 0vw;
@@ -347,7 +339,6 @@ hr {
 
 /*button modal*/
 .buttonModal {
-  @include myButtons;
   height: $heightButton;
   min-width: 350px;
   margin-top: 40px;
@@ -373,10 +364,14 @@ hr {
 }
 
 .imgModal {
-  border-radius: 100%;
-  width: 75px;
-  height: 75px;
-  opacity: 0.9;
+    object-fit: contain;
+    max-height: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    min-width: 50px;
+    border-radius: 100%;
+    border: solid 1px #d1d1d1;
+    opacity: 0.9;
 }
 
 .overlayCompany {
@@ -724,7 +719,6 @@ p{
   margin-bottom: $marginBottom;
 }
 .buttonCompanyValid{
-  @include myButtons;
   height: 48px;
 }
 
@@ -769,7 +763,6 @@ p{
   margin-bottom:$marginBottom;
 }
 .buttonLearningValid{
-  @include myButtons;
   height: 48px;
 }
 
@@ -777,7 +770,6 @@ p{
 
  /*form contact*/
 .btn-contact {
-  @include myButtons;
   height: $heightButton;
 }
 
@@ -945,11 +937,6 @@ a{
     border-color: $buttonColor;
     text-align: center;
     margin-top: 25px;
-    &:hover {
-      color: $txtButton;
-      background-color: $buttonColor;
-      border-color: $buttonColor;
-    }
   }
 
 
@@ -1014,7 +1001,6 @@ a{
 /*form login*/
 
 .btn-log {
-  @include myButtons;
   height: $heightButton;
 }
 .form-log {
@@ -1049,9 +1035,7 @@ a{
   background-color: transparent;
   border : none;
 }
-.btn {
-  @include myButtons
-}
+
 
 /*select input companies/learningCenters*/
 
