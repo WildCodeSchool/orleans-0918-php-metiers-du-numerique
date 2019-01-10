@@ -6,6 +6,7 @@ use App\Entity\Comment;
 use App\Entity\Job;
 use App\Form\JobType;
 use App\Repository\JobRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,9 +21,19 @@ class JobAdminController extends AbstractController
     /**
      * @Route("/", name="job_admin")
      */
-    public function index(JobRepository $jobRepository)
-    {
-        return $this->render('job_admin/index.html.twig', ['jobs' => $jobRepository->findAll()]);
+    public function index(
+        JobRepository $jobRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $pagination = $paginator->paginate(
+            $jobRepository->findAll(),
+            $request->query->getInt('page', 1),
+            $this->getParameter('elements_by_page')
+        );
+        return $this->render('job_admin/index.html.twig', [
+            'jobs' => $pagination
+        ]);
     }
 
      /**
@@ -39,7 +50,7 @@ class JobAdminController extends AbstractController
             $em->persist($job);
             $em->flush();
 
-            return $this->redirectToRoute('job_index');
+            return $this->redirectToRoute('job_admin');
         }
 
         return $this->render('job_admin/new.html.twig', [

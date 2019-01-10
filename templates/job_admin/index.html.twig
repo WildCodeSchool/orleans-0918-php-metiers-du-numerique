@@ -4,17 +4,24 @@
 
 {% block body %}
     <div class="container">
-        <div class="container-fluid d-flex justify-content-around">
-            <div class="row">
+        <div class="container-fluid justify-content-between">
+            <div class="row d-flex">
                 <div>
                     <a class="mr-auto p-1 col-md-1" href="{{ path('home_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
                 </div>
-                <div class="mr-auto col-xs-12 col-md-9 text-center">
+                <div class="mr-auto col-xs-12 col-md-8 text-center">
                     <h1>Gestion des Fiches Métiers :</h1>
                 </div>
-                <div class="mr-auto p-1 col-sm-12 col-md-2">
+                <div class="col-sm-12 col-md-2">
                     <a href="{{ path('job_admin_new')}} ">
                         <button class="btn btn-primary button-save">Ajouter un nouveau Métier</button>
+                    </a>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end mt-3">
+                <div class="col-sm-12 col-md-2">
+                    <a href="{{ path('category_admin_index')}} ">
+                        <button class="btn btn-primary button-save">Accéder aux catégories</button>
                     </a>
                 </div>
             </div>
@@ -54,7 +61,7 @@
         </section>
         <div class="row justify-content-center">
             <div class="navigation">
-
+                {{ knp_pagination_render(jobs) }}
             </div>
         </div>
 
