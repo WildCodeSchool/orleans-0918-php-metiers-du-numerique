@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,8 +25,11 @@ class CategoryAdminController extends AbstractController
     /**
      * @Route("/", name="category_admin_index", methods="GET|POST")
      */
-    public function index(CategoryRepository $categoryRepository, Request $request): Response
-    {
+    public function index(
+        CategoryRepository $categoryRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
@@ -37,13 +41,18 @@ class CategoryAdminController extends AbstractController
 
             return $this->redirectToRoute('category_admin_index');
         }
-
+        $pagination = $paginator->paginate(
+            $categoryRepository->findAll(),
+            $request->query->getInt('page', 1),
+            $this->getParameter('elements_by_page')
+        );
         return $this->render('category_admin/index.html.twig', [
-            'categories' => $categoryRepository->findAll(),
+            'categories' => $pagination,
             'category' => $category,
             'form' => $form->createView(),
-        ]);
+            ]);
     }
+
     /**
      * @Route("/{id}", name="category_admin_show", methods="GET")
      */
@@ -51,6 +60,6 @@ class CategoryAdminController extends AbstractController
     {
         return $this->render('category_admin/show.html.twig', [
             'category' => $category,
-            ]);
+        ]);
     }
 }

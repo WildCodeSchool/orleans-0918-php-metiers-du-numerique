@@ -29,7 +29,7 @@ class LearningCenter
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
 
@@ -41,7 +41,7 @@ class LearningCenter
     private $pictureFile;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
      */
     private $updatedAt;
@@ -65,9 +65,9 @@ class LearningCenter
     private $jobs;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default"=false}, nullable=false)
      */
-    private $accepted;
+    private $accepted = false;
 
     public function __construct()
     {
