@@ -6,12 +6,11 @@
 
     <div class="row commentInfo sectionSpace">
         <div class="col-sm-12 col-md-2">
-            {% if comment.picture is empty %}
-            <img class="circlePicture buisnessPicture" src="https://via.placeholder.com/120x120" alt="">
-            {% else %}
-            <img class="circlePicture img-job" src="{{ asset("images/comments/") }}{{ comment.picture }}" alt="photo de {{ comment.firstname ~ " " ~comment.lastname }}">
-
-            {% endif %}
+            <img class="circlePicture" src="{% if comment.picture is empty %}
+                                                {{ asset('/build/images/defaultpicture.png') }}
+                                            {% else %}
+                                                {{ vich_uploader_asset(comment,'pictureFile')}}
+                                            {% endif %}"alt="photo de {{ comment.firstname ~ " " ~comment.lastname }}">
         </div>
         <div class="col-sm-12 col-md-5">
             <p>Nom : {{ comment.lastname }}</p>

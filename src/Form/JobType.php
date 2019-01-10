@@ -38,7 +38,7 @@ class JobType extends AbstractType
                 'required'=>false,
             ])
             ->add('pictureFile', VichImageType::class, [
-                'required' => true,
+                'required' => false,
                 'image_uri' => false,
                 'download_link' => false,
                 'allow_delete' => false
