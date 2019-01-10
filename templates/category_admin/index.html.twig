@@ -23,20 +23,15 @@
                 {% for category in categories %}
                     <tr>
                         <td>{{ category.name }}</td>
-                        {% set nbjobs = 0 %}
-                        {% for job in category.associatedJobs %}
-                            {% set  nbjobs = nbjobs + 1 %}
-                        {% endfor %}
-
                         <td>
-                            <span class="badge badge-pill badge-info nbJobs">{{ nbjobs }}</span>
+                            <span class="badge badge-pill badge-info nbJobs">{{ category.associatedJobs|length }}</span>
 
                         </td>
                         <td>
                             <a class="col-xs-12 col-lg-12 col-md-1"
                                href="{{ path('category_admin_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
                         </td>
-                        <td>{% if nbjobs==0 %} {{ include('category_admin/_delete_form.html.twig') }} {% endif %}</td>
+                        <td>{% if category.associatedJobs|length==0 %} {{ include('category_admin/_delete_form.html.twig') }} {% endif %}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
