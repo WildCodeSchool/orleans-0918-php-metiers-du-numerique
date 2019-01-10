@@ -17,12 +17,12 @@
             </li>
             <li class="dropdown nav-item nav-link {% if app.request.attributes.get('_route') starts with  "learning_center_new" or "company_new" %} active {% endif %}">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    S'enregistrer en tant que
+                    S'enregistrer
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="{{ path('learning_center_new') }}">Un organisme de formation</a>
-                    <a class="dropdown-item" href="{{ path('company_new') }}">Une entreprise</a>
+                    <a class="dropdown-item" href="{{ path('learning_center_new') }}">Organisme de formation</a>
+                    <a class="dropdown-item" href="{{ path('company_new') }}">Entreprise</a>
                 </div>
             </li>
             <div class="justify-content-end mt-2">
