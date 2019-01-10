@@ -10,7 +10,11 @@
                         <div class="">
                             <a href="{{ partner.url }}" class="text-center mx-auto">
                                 <img class="carousel-icon align-content-center"
-                                     src="{{ asset("images/partners/") }}{{ partner.picture }}" alt="">
+                                     src="{% if partner.picture is empty %}
+                                             {{ asset('/build/images/defaultpicture.png') }}
+                                          {% else %}
+                                             {{ asset("images/partners/") }}{{ partner.picture }}
+                                          {% endif %}" alt="photo de {{ partner.name }}">
                             </a>
                         </div>
                     {% endfor %}

@@ -41,7 +41,11 @@
                     <h4>Description du métier :</h4>
                     <p>{{ job.description }}</p>
                 </div>
-                <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{{ asset("images/jobs/")}}{{ job.picture }} ">
+                <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{% if job.picture is empty %}
+                                                                            {{ asset('/build/images/defaultjobpicture.png') }}
+                                                                        {% else %}
+                                                                           {{ asset('images/jobs/'~job.picture)}}
+                                                                        {% endif %}">
             </div>
         </section>
         
