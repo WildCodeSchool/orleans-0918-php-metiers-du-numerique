@@ -38,8 +38,10 @@ class CategoryAdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($category);
             $em->flush();
-
+            $this->addFlash('success', 'La catégorie a bien été ajoutée');
             return $this->redirectToRoute('category_admin_index');
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('danger', 'La catégorie n\'a pas pu être ajoutée');
         }
         $pagination = $paginator->paginate(
             $categoryRepository->findAll(),
@@ -50,7 +52,7 @@ class CategoryAdminController extends AbstractController
             'categories' => $pagination,
             'category' => $category,
             'form' => $form->createView(),
-            ]);
+        ]);
     }
 
     /**
