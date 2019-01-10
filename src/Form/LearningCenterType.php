@@ -38,12 +38,18 @@ class LearningCenterType extends AbstractType
 
             ])
             ->add('jobs', EntityType::class, [
-                'class'=>Job::class,
-                'label' => 'Sélectionnez les fiches métiers auquelles vous voulez être relatées: ',
-                'choice_label'=>'name',
-                'by_reference' => false,
+                'group_by' => function ($choiceValue) {
+                    return $choiceValue->getAssociatedCategory()->getName();
+                },
+                'class' => Job::class,
+                'choice_label' => 'name',
+                'label' => 'Sélectionnez la ou les fiches métiers qui correspondent à votre Formation ',
                 'multiple' => true,
-                'expanded' => true,
+                'expanded' => false,
+                'attr' => [
+                    'class' => 'jobs color-input form-control',
+                    'type' => 'text',
+                ]
             ]);
     }
 
