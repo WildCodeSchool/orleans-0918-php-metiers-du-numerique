@@ -18,7 +18,7 @@
                 <a class="nav-link {% if app.request.attributes.get('_route') starts with  "company_admin" %} active {% endif %}" href="{{ path('company_admin') }}">Entreprise</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "partner_new" %} active {% endif %}" href="{{ path('partner_new') }}">Partenaire</a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "partner_admin_index" %} active {% endif %}" href="{{ path('partner_admin_index') }}">Partenaire</a>
             </li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <li class="nav-item nav-log">

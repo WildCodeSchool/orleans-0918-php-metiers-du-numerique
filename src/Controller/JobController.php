@@ -10,6 +10,7 @@ use App\Repository\JobRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -76,16 +77,15 @@ class JobController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="job_show", methods="GET")
+     * @Route("/{id}", name="job_show", methods="GET|POST")
      */
-    public function show(Job $job, Request $request): Response
+    public function show(Job $job, Request $request, SessionInterface $session): Response
     {
-
         $comments= $this->getDoctrine()
             ->getRepository(Comment::class)
             ->findBy(
                 ['associatedJob'=>$job->getId(),'accepted' =>true],
-                ['id'=>'ASC']
+                ['liked'=>'DESC']
             );
 
         return $this->render('job/show.html.twig', ['job' => $job,

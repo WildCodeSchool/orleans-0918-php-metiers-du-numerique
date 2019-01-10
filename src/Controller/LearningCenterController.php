@@ -34,17 +34,20 @@ class LearningCenterController extends AbstractController
         $form = $this->createForm(LearningCenterType::class, $learningCenter);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($learningCenter);
             $em->flush();
 
-            return $this->redirectToRoute('learning_center_index');
+            return $this->redirectToRoute('learning_center_new');
         }
 
         return $this->render('learning_center/new.html.twig', [
             'learning_center' => $learningCenter,
             'form' => $form->createView(),
+            'searchForm' =>
+                SearchFormTrait::getForm($request, $this->get('form.factory'), $this->get('router'))->createView(),
         ]);
     }
 

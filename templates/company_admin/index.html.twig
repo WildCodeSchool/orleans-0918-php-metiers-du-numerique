@@ -3,13 +3,19 @@
 {% block title %}Gestion entreprises{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <a class="col-xs-12 col-md-1" href="{{ path('home_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
-            <div class="col-xs-12 text-center">
+
+    <div class="container justify-content-center">
+        <div class="row d-flex">
+            <div>
+                <a class="mr-auto p-1 col-md-1" href="{{ path('home_admin') }}"><i
+                            class="fas fa-arrow-circle-left faback"></i></a>
+            </div>
+            <div class="mr-auto col-xs-12 col-md-11 text-center">
                 <h1>Gestion des entreprises :</h1>
             </div>
-            <div class="ml-auto p-2">
+        </div>
+        <div class="row justify-content-center">
+            <div class="pt-5">
                 <a href="{{ path('company_admin_new') }} ">
                     <button class="btn btn-primary button-save">Ajouter une entreprise</button>
                 </a>
@@ -38,19 +44,21 @@
                 </tr>
                 <tbody>
                 {% for company in companies %}
-                        <tr class="{% if company.accepted == 0 %}not-valid{% else %}valid{% endif %}">
-                            <th>{{ company.name }}</th>
-                            <td>{{ company.mail }}</td>
-                            <td>{{ company.link }}</td>
-                            <td>
-                                <a class="col-xs-12 col-lg-12 col-md-1"
-                                   href="{{ path('company_show', {'id': company.id}) }}"><i
-                                            class="far fa-eye eye-white"></i></a>
-                            </td>
-                            <td>
-                                <a class="col-xs-12 col-lg-12 col-md-1" href="{{ path('company_admin_edit', {'id': company.id}) }}" ><i class="fas fa-edit eye-white"></i></a>
-                            </td>
-                        </tr>
+                    <tr class="{% if company.accepted == 0 %}not-valid{% else %}valid{% endif %}">
+                        <th>{{ company.name }}</th>
+                        <td>{{ company.mail }}</td>
+                        <td>{{ company.link }}</td>
+                        <td>
+                            <a class="col-xs-12 col-lg-12 col-md-1"
+                               href="{{ path('company_show', {'id': company.id}) }}"><i
+                                        class="far fa-eye eye-white"></i></a>
+                        </td>
+                        <td>
+                            <a class="col-xs-12 col-lg-12 col-md-1"
+                               href="{{ path('company_admin_edit', {'id': company.id}) }}"><i
+                                        class="fas fa-edit eye-white"></i></a>
+                        </td>
+                    </tr>
                 {% endfor %}
                 </tbody>
             </table>

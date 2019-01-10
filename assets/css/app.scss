@@ -106,6 +106,17 @@ main{
   max-width: 75px;
   min-height: 75px;
   max-height: 75px;
+  object-fit: contain;
+    background-color: white;
+    border: 1px solid #e4e4e4;
+}
+.txt-overflow{
+    max-width: 315px;
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow: auto;
+    max-height: 115px;
+    text-overflow: clip;
 }
 
 .faback {
@@ -782,9 +793,12 @@ a{
 }
 .btnSearch{
   background-color: transparent;
+  outline: none;
+  cursor: pointer;
   border: none;
   font-size: 1.2em;
   padding-top: 0px !important;
+
 }
 .btnSubSearch{
   height: 60px;
@@ -808,12 +822,6 @@ a{
 }
 /*category*/
 .jobIndex {
-  @media (max-width: 766px) {
-    .button-pills {
-      display: none;
-    }
-  }
-
   .nav-pills li.active a,
   .nav-pills li.active a:focus,
   .nav-pills > li.active > a,
@@ -864,6 +872,9 @@ a{
     }
     p{
       font-size: 1em;
+        overflow: hidden;
+        max-height: 45px;
+        text-overflow: ellipsis;
     }
   }
 
@@ -1005,9 +1016,43 @@ a{
 .navigation {
   margin-top: 50px;
 }
+/*admin_categories*/
+.nbJobs {
+  font-size: large;
+}
+.headCategories{
+    th {
+      text-align: center;
+    }
+}
+.listCategories{
+    td{
+      text-align: center;
+      vertical-align: middle;
+    }
+}
+.supprButton{
+  text-align: center;
+}
 
 /*delete button*/
 .btnSup {
   background-color: transparent;
   border : none;
+}
+.btn {
+  @include myButtons
+}
+
+/*select input companies/learningCenters*/
+
+.select2-results__group{
+  background-color: #d1d1d1;
+}
+.select2-selection--multiple{
+  background-color: transparent !important;
+  border: none !important;
+}
+.select2-container{
+  background-color: #d1d1d1;
 }

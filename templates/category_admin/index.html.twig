@@ -3,32 +3,54 @@
 {% block title %}Gestion Catégories:{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h1>Gestion des Catégories :</h1>
+    <div class="container justify-content-center">
+        <div class="row d-flex">
+            <div>
+                <a class="mr-auto p-1 col-md-1" href="{{ path('job_admin') }}"><i
+                            class="fas fa-arrow-circle-left faback"></i></a>
+            </div>
+            <div class="mr-auto col-xs-12 col-md-11 text-center">
+                <h1>Gestion des Catégories</h1>
+            </div>
+        </div>
+        <div class="sectionSpace">
+            <div class="row d-flex justify-content-center mt-3 ml-5">
+                <div class="col-sm-12 col-md-10">
+                    {{ include ('category_admin/new.html.twig') }}
+                </div>
             </div>
         </div>
         <section class="sectionSpace">
-
             <table class="col-12 mx-auto table">
-                <thead>
+                <thead class="headCategories">
                 <tr>
-                    <th scope="col">Nom</th>
+                    <th scope="col">Catégorie</th>
+                    <th scope="col">Nb Métiers</th>
                     <th scope="col">Voir</th>
+                    <th scope="col">Supprimer</th>
                 </tr>
-                <tbody>
+                <tbody class="text-center">
                 {% for category in categories %}
                     <tr>
-                        <th>{{ category.name }}</th>
+                        <td>{{ category.name }}</td>
+                        <td>
+                            <span class="badge badge-pill badge-info nbJobs">{{ category.associatedJobs|length }}</span>
+
+                        </td>
                         <td>
                             <a class="col-xs-12 col-lg-12 col-md-1"
                                href="{{ path('category_admin_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
                         </td>
+                        <td>{% if category.associatedJobs|length==0 %} {{ include('category_admin/_delete_form.html.twig') }} {% endif %}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
+                {{ knp_pagination_render(categories) }}
+            </div>
+        </div>
     </div>
 {% endblock %}

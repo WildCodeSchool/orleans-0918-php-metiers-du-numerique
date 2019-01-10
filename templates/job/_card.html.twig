@@ -2,12 +2,11 @@
      id="pills-{{ category.id }}"
      role="tabpanel" aria-labelledby="pills-{{ category.id }}-tab">
     <div class="pannel-body">
-        <div class="row">
+        <div class="row justify-content-center">
             {% for job in jobs if job.associatedCategory.id == category.id %}
                 <div class="pannel-body">
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                         <figure class="info-card">
-                            <div class="titre-card-responsive text-center">{{ category.name }}</div>
                             <img class="img-responsive"
                                  src="{% if job.picture is empty %}
                                             {{ asset('/build/images/defaultjobpicture.png') }}

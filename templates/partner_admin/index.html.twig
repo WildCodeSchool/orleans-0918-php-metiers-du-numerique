@@ -3,14 +3,24 @@
 {% block title %}Gestion des partenaires{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <a class="col-xs-12 col-md-1" href="{{ path('home_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
-            <div class="col-xs-12 text-center">
+    <div class="container justify-content-center">
+        <div class="row d-flex">
+            <div>
+                <a class="mr-auto p-1 col-md-1" href="{{ path('home_admin') }}"><i
+                            class="fas fa-arrow-circle-left faback"></i></a>
+            </div>
+            <div class="mr-auto col-xs-12 col-md-11 text-center">
                 <h1>Gestion des partenaires :</h1>
             </div>
         </div>
-            <section class="sectionSpace">
+        <div class="row justify-content-center">
+            <div class="pt-5">
+                <a href="{{ path('partner_new') }}">
+                    <button class="btn btn-primary button-save">Ajouter un partenaire</button>
+                </a>
+            </div>
+        </div>
+        <section class="sectionSpace">
             <table class="col-12 mx-auto table">
                 <thead>
                 <tr>
@@ -30,6 +40,11 @@
                 {% endfor %}
                 </tbody>
             </table>
-            </section>
+        </section>
+        <div class="row justify-content-center">
+            <div class="navigation">
+                {{ knp_pagination_render(partners) }}
+            </div>
+        </div>
     </div>
 {% endblock %}
