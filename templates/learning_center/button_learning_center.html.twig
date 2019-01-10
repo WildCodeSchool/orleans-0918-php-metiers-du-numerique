@@ -14,8 +14,8 @@
                              src="{% if learningCenter.picture is empty %}
                                      {{ asset('/build/images/defaultpicture.png') }}
                                   {% else %}
-                                     {{ asset('images/learningCenters/'~learningCenter.picture) }}" alt="{{ learningCenter.name }}
-                                  {% endif %}"/>
+                                     {{ vich_uploader_asset(learningCenter,'pictureFile') }}
+                                  {% endif %}" alt="{{ learningCenter.name }}"/>
                         <a class="linkBusiness col-6" href="{{ learningCenter.link }}"
                            target="_blank">{{ learningCenter.name }}</a>
                     </div>

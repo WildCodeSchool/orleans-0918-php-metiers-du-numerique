@@ -12,7 +12,7 @@
                 <img class="circlePicture" src="{% if comment.picture is empty %}
                                                     {{ asset('/build/images/defaultpicture.png') }}
                                                 {% else %}
-                                                    {{ asset('build/images/'~comment.picture)}}
+                                                    {{ vich_uploader_asset(job,'pictureFile')}}
                                                 {% endif %}" alt="Photo du metier de {{ job.name }}">
             <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>
             {% if comment.company is not empty %}

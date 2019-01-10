@@ -12,7 +12,7 @@
                                  src="{% if job.picture is empty %}
                                             {{ asset('/build/images/defaultjobpicture.png') }}
                                       {% else %}
-                                            {{ asset('images/jobs/'~job.picture) }}
+                                            {{ vich_uploader_asset(job, 'pictureFile') }}
                                       {% endif %}">
                             <figcaption class="info-card-details animate">
                                 <div class="info-card-header">

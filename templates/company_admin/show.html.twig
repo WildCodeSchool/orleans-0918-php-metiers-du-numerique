@@ -15,7 +15,7 @@
                     <img class="imgCompany" src="{% if company.picture is empty %}
                                                     {{ asset('/build/images/defaultpicture.png') }}
                                                  {% else %}
-                                                    {{ asset('images/companies/'~company.picture)}}
+                                                    {{ vich_uploader_asset(company, 'pictureFile')}}
                                                  {% endif %}"alt="image de l'entreprise {{ company.name }}">
                 </div>
             </div>

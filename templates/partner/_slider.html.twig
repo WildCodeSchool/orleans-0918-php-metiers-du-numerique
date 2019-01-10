@@ -13,7 +13,7 @@
                                      src="{% if partner.picture is empty %}
                                              {{ asset('/build/images/defaultpicture.png') }}
                                           {% else %}
-                                             {{ asset("images/partners/") }}{{ partner.picture }}
+                                             {{ vich_uploader_asset(partner,'pictureFile') }}
                                           {% endif %}" alt="photo de {{ partner.name }}">
                             </a>
                         </div>

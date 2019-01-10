@@ -15,7 +15,7 @@
                     <img class="imgLearningSchool" src="{% if learning_center.picture is empty %}
                                                             {{ asset('/build/images/defaultpicture.png') }}
                                                         {% else %}
-                                                            {{ asset('images/learningCenters/'~learning_center.picture) }}
+                                                            {{ vich_uploader_asset(learning_center, 'pictureFile') }}
                                                         {% endif %} " alt="image de l'organisme {{ learning_center.name }}">
                 </div>
             </div>

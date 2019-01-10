@@ -44,7 +44,7 @@
                 <img class="jobPicture col-xs-12 col-md-4 mx-auto" src="{% if job.picture is empty %}
                                                                             {{ asset('/build/images/defaultjobpicture.png') }}
                                                                         {% else %}
-                                                                           {{ asset('images/jobs/'~job.picture)}}
+                                                                           {{ vich_uploader_asset(job,'pictureFile')}}
                                                                         {% endif %}">
             </div>
         </section>
