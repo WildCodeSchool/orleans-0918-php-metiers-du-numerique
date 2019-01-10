@@ -69,6 +69,7 @@ class CommentType extends AbstractType
                 'image_uri' => false,
                 'allow_delete' => false,
                 'label' => ' ',
+                'download_label' => false,
                 'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
             ])
         ;

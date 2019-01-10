@@ -23,26 +23,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategoryAdminController extends AbstractController
 {
     /**
-     * @Route("/", name="category_admin_index", methods="GET")
+     * @Route("/", name="category_admin_index", methods="GET|POST")
      */
     public function index(
         CategoryRepository $categoryRepository,
         PaginatorInterface $paginator,
         Request $request
     ): Response {
-        $pagination = $paginator->paginate(
-            $categoryRepository->findAll(),
-            $request->query->getInt('page', 1),
-            $this->getParameter('elements_by_page')
-        );
-        return $this->render('category_admin/index.html.twig', ['categories' => $pagination]);
-    }
-
-    /**
-     * @Route("/new", name="category_new", methods="GET|POST")
-     */
-    public function new(Request $request): Response
-    {
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
@@ -54,11 +41,16 @@ class CategoryAdminController extends AbstractController
 
             return $this->redirectToRoute('category_admin_index');
         }
-
-        return $this->render('category_admin/new.html.twig', [
+        $pagination = $paginator->paginate(
+            $categoryRepository->findAll(),
+            $request->query->getInt('page', 1),
+            $this->getParameter('elements_by_page')
+        );
+        return $this->render('category_admin/index.html.twig', [
+            'categories' => $pagination,
             'category' => $category,
             'form' => $form->createView(),
-        ]);
+            ]);
     }
 
     /**
