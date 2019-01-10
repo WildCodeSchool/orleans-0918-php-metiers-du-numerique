@@ -5,8 +5,10 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <h1 class="mx-auto title-form">Créer un nouveau partenaire</h1>
+            <a class="col-xs-12 col-md-1" href="{{ path('partner_admin_index') }}"><i
+                        class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Ajouter un nouveau partenaire</h1>
         </div>
-    {{ include('partner/_form.html.twig') }}
+        {{ include('partner/_form.html.twig') }}
     </div>
 {% endblock %}
