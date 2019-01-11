@@ -101,7 +101,6 @@ class LearningCenterAdminController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'L\'organisme de formation a bien été supprimé');
-
         }
 
         return $this->redirectToRoute('learningCenter_admin');

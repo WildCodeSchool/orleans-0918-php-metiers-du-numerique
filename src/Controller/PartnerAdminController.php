@@ -76,7 +76,6 @@ class PartnerAdminController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Le partenaire a bien été supprimé');
-
         }
         return $this->redirectToRoute('partner_admin_index');
     }

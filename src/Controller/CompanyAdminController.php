@@ -118,7 +118,6 @@ class CompanyAdminController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'L\'entreprise a bien été supprimée');
-
         }
 
         return $this->redirectToRoute('company_admin');

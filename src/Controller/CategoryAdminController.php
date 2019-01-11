@@ -76,7 +76,6 @@ class CategoryAdminController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'La catégorie a bien été supprimée');
-
         }
 
             return $this->redirectToRoute('category_admin_index');
