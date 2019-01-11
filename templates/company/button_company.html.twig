@@ -4,7 +4,7 @@
     <a class="closebutton" id="closebtnCompany">&times;</a>
     <div class="container">
         <div class="modalSpace">
-            <h1 class="modalTitle text-center">Liste des entreprises</h1>
+            <h2 class="modalTitle text-center">Liste des entreprises</h2>
             <div class="modalSpace"></div>
             <div class="row container marginLeft">
                 {% for company in job.companies if company.accepted == true %}
@@ -14,7 +14,7 @@
                                         {{ asset('/build/images/defaultpicture.png') }}
                                       {% else %}
                                         {{ vich_uploader_asset(company, 'pictureFile')}}
-                                      {% endif %}">
+                                      {% endif %}" alt="Photo de l'entreprise {{ company.name }}">
                             <a class="linkBusiness" href="{{ company.link }}"
                                target="_blank">{{ company.name }}</a>
                         </div>
@@ -24,4 +24,3 @@
             </div>
         </div>
     </div>
-</div>
