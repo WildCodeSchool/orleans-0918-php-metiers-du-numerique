@@ -664,7 +664,7 @@ p{
 
 
 /*backToTop*/
-.back-to-top{
+.back-to-top {
   color: $txtButton;
   background-color: $buttonColor;
   border-radius: 50%;
@@ -672,6 +672,12 @@ p{
   padding: 15px;
   margin-right: 5vw;
   margin-bottom: 2vh;
+}
+
+.div-back {
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 .outline-none{
   outline: none;
