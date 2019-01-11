@@ -40,18 +40,19 @@ Initialiser le project :
 Créer un fichier à la racine du projet .env.local copier le .env et modifier les élements suivant :
 
 DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
-
+MAILER_URL=null://nom_adresse_mail:mot_de_passe_mail@localhost
 
 $ php bin/console doctrine:database:create 
 $ php bin/console doctrine:migrations:migrate
 
-Intégrer les fixtures de type : Jobs, LearningCenters, Partners dans la database :
-
-$ php bin/console doctrine:fixtures:load
-
 Compiler Webpack pour CSS et le JS :
 
 $ yarn encore production
+
+Pour ajouter un compte admin : 
+- taper "bc security:encode-password", appuyer sur entrer puis taper le mot de passe de son choix pour récupérer le mot de passe crypté en argon2i 
+faire ensuite dans la base de donnée : insert into admin (username, roles, password) values ('user_name', '["ROLE_ADMIN"]', 'encoded_password')
+
 
 Lancer un serveur PHP :
 
