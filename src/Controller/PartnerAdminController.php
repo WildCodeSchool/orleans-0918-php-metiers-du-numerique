@@ -29,8 +29,7 @@ class PartnerAdminController extends AbstractController
         PartnerRepository $partnerRepository,
         PaginatorInterface $paginator,
         Request $request
-    ): Response
-    {
+    ): Response {
         $pagination = $paginator->paginate(
             $partnerRepository->findAll(),
             $request->query->getInt('page', 1),
