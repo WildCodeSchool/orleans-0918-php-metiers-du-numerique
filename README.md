@@ -16,6 +16,8 @@ System requis :
 
     Composer https://getcomposer.org/doc/00-intro.md
     
+    NodeJS https://nodejs.org/en/
+    
 Démarrer : 
 
 Cloner et demarrer le projet, il est necessaire d'avoir Composer avec votre terminal.  
