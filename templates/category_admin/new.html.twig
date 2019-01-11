@@ -1,6 +1,6 @@
 {{ form_start(form) }}
 <div class="row">
-    <button class="btn buttonCategory col-md-3 col-sm-12">{{ button_label|default('ajouter') }}</button>
+    <button class="btn buttonCategory btn-primary col-md-3 col-sm-12">{{ button_label|default('ajouter') }}</button>
     <div class="col-md-7 col-sm-12 newCategory">
         {{ form_widget(form.name) }}
         {{ form_errors(form.name) }}

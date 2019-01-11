@@ -1,4 +1,4 @@
-<button class="btn buttonModal"
+<button class="btn btn-primary buttonModal"
         id="btn-modalLearning">{{ button_label|default('voir les organismes de formation') }}</button>
 <div id="myModalLearning" class="overlayLearning">
     <a class="closebutton" id="closebtnLearning">&times;</a>
@@ -10,7 +10,7 @@
                 {% for learningCenter in job.learningCenters if learningCenter.accepted == true %}
                 <div class="row">
                     <div class="col-12 mt-4">
-                        <img class="imgModal img-fluid"
+                        <img class="imgModal"
                              src="{% if learningCenter.picture is empty %}
                                      {{ asset('/build/images/defaultpicture.png') }}
                                   {% else %}

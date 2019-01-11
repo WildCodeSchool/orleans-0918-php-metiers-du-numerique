@@ -64,4 +64,17 @@ class PartnerAdminController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/{id}", name="partner_admin_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Partner $partner): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $partner->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($partner);
+            $em->flush();
+        }
+        return $this->redirectToRoute('partner_admin_index');
+    }
 }
