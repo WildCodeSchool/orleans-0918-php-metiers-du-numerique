@@ -55,7 +55,7 @@ class CommentController extends AbstractController
             $comment->setLiked(0);
             $em->flush();
 
-            $this->addFlash('success', 'Votre commentaire a bien été envoyée');
+            $this->addFlash('success', 'Votre commentaire a bien été envoyé');
 
             return $this->redirectToRoute('job_show', array('id' => $job->getId()));
         } elseif ($form->isSubmitted() && !$form->isValid()) {
