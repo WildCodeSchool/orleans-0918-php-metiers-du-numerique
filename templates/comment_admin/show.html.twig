@@ -1,8 +1,12 @@
 {% extends 'layoutAdmin.html.twig' %}
 {% block body %}
-    <div class="container">
-    <h1 class="text-center">Commentaire de {{ comment.firstname ~ " " ~ comment.lastname }}</h1>
-    <h2 class="text-center mt-5">Fiche métier concerné : {{ comment.associatedJob.name }}</h2>
+    <div class="container justify-content-center">
+        <div class="row d-flex">
+            <a class="mr-auto p-1 col-md-1" href="{{ path('comment_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mr-auto col-xs-12 col-md-11 text-center">Commentaire de {{ comment.firstname ~ " " ~ comment.lastname }}</h1>
+            <h2 class="text-center mt-5">Fiche métier concerné : {{ comment.associatedJob.name }}</h2>
+        </div>
+
 
     <div class="row commentInfo sectionSpace">
         <div class="col-sm-12 col-md-2">
