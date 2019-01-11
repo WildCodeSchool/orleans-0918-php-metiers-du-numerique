@@ -107,8 +107,7 @@ main{
     max-width: 315px;
     padding-right: 15px;
     padding-left: 15px;
-    overflow: auto;
-    max-height: 115px;
+    max-height: 250px;
     text-overflow: clip;
 }
 
@@ -634,6 +633,23 @@ a {
 }
 .commentBackground{
     background-color: $backgroundComments;
+}
+.comment{
+    p{
+        overflow: auto;
+        max-height: 165px;
+        text-align: left;
+    }
+    .fas{
+        font-size: 1.5em;
+    }
+    a{
+        text-decoration: none;
+    }
+    a:hover{
+        color: grey;
+    }
+
 }
 /*picture*/
 .circlePicture {
