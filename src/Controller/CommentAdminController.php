@@ -68,6 +68,8 @@ class CommentAdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($comment);
             $em->flush();
+
+            $this->addFlash('success', 'Le commentaire a bien été supprimé');
         }
 
         return $this->redirectToRoute('comment_admin');

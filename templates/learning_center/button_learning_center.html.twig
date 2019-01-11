@@ -2,25 +2,24 @@
         id="btn-modalLearning">{{ button_label|default('voir les organismes de formation') }}</button>
 <div id="myModalLearning" class="overlayLearning">
     <a class="closebutton" id="closebtnLearning">&times;</a>
-    <div class="container-fluid">
+    <div class="container">
         <div class="modalSpace">
-            <h1 class="modalTitle">Liste des organismes de formation</h1>
+            <h1 class="modalTitle text-center">Liste des organismes de formation</h1>
             <div class="modalSpace"></div>
-            <div class="multiCol">
+            <div class="row container marginLeft">
                 {% for learningCenter in job.learningCenters if learningCenter.accepted == true %}
-                <div class="row">
-                    <div class="col-12 mt-4">
+                    <div class="col-sm-12 col-md-6 mt-4 text-left ">
                         <img class="imgModal"
                              src="{% if learningCenter.picture is empty %}
                                      {{ asset('/build/images/defaultpicture.png') }}
                                   {% else %}
                                      {{ vich_uploader_asset(learningCenter,'pictureFile') }}
                                   {% endif %}" alt="{{ learningCenter.name }}"/>
-                        <a class="linkBusiness col-6" href="{{ learningCenter.link }}"
+                        <a class="linkBusiness" href="{{ learningCenter.link }}"
                            target="_blank">{{ learningCenter.name }}</a>
                     </div>
-                </div>
                 {% endfor %}
+                </div>
             </div>
         </div>
     </div>

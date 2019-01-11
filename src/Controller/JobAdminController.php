@@ -50,7 +50,12 @@ class JobAdminController extends AbstractController
             $em->persist($job);
             $em->flush();
 
+            $this->addFlash('success', 'La fiche métier a bien été ajoutée');
+
+
             return $this->redirectToRoute('job_admin');
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('danger', 'La fiche métier n\'a pas été ajoutée');
         }
 
         return $this->render('job_admin/new.html.twig', [
@@ -67,6 +72,8 @@ class JobAdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($job);
             $em->flush();
+
+            $this->addFlash('success', 'La fiche métier a bien été supprimée');
         }
 
         return $this->redirectToRoute('job_admin');

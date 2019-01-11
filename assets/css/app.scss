@@ -92,6 +92,7 @@ main{
    min-width: 40vh;
    max-height: 32vh;
    max-width: 40vh;
+    object-fit: contain;
 }
 
 .img-job{
@@ -107,8 +108,7 @@ main{
     max-width: 315px;
     padding-right: 15px;
     padding-left: 15px;
-    overflow: auto;
-    max-height: 115px;
+    max-height: 250px;
     text-overflow: clip;
 }
 
@@ -635,6 +635,23 @@ a {
 .commentBackground{
     background-color: $backgroundComments;
 }
+.comment{
+    p{
+        overflow: auto;
+        max-height: 165px;
+        text-align: left;
+    }
+    .fas{
+        font-size: 1.5em;
+    }
+    a{
+        text-decoration: none;
+    }
+    a:hover{
+        color: grey;
+    }
+
+}
 /*picture*/
 .circlePicture {
     border-radius: $borderPicture;
@@ -664,7 +681,7 @@ p{
 
 
 /*backToTop*/
-.back-to-top{
+.back-to-top {
   color: $txtButton;
   background-color: $buttonColor;
   border-radius: 50%;
@@ -672,6 +689,12 @@ p{
   padding: 15px;
   margin-right: 5vw;
   margin-bottom: 2vh;
+}
+
+.div-back {
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 .outline-none{
   outline: none;

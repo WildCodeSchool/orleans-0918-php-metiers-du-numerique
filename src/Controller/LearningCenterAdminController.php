@@ -52,6 +52,7 @@ class LearningCenterAdminController extends AbstractController
         $learningCenter = new LearningCenter();
         $form = $this->createForm(LearningCenterType::class, $learningCenter);
         $form->handleRequest($request);
+        $learningCenter->setAccepted(true);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -99,6 +100,8 @@ class LearningCenterAdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($learningCenter);
             $em->flush();
+
+            $this->addFlash('success', 'L\'organisme de formation a bien été supprimé');
         }
 
         return $this->redirectToRoute('learningCenter_admin');
