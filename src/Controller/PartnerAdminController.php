@@ -74,6 +74,9 @@ class PartnerAdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($partner);
             $em->flush();
+
+            $this->addFlash('success', 'Le partenaire a bien été supprimé');
+
         }
         return $this->redirectToRoute('partner_admin_index');
     }

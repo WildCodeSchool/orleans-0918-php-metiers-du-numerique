@@ -99,6 +99,9 @@ class LearningCenterAdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($learningCenter);
             $em->flush();
+
+            $this->addFlash('success', 'L\'organisme de formation a bien été supprimé');
+
         }
 
         return $this->redirectToRoute('learningCenter_admin');

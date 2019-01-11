@@ -30,7 +30,12 @@ class CompanyController extends AbstractController
             $em->persist($company);
             $em->flush();
 
+            $this->addFlash('success', 'La demande a bien été envoyée');
+
+
             return $this->redirectToRoute('company_new');
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('danger', 'L\'envois de la demande a échoué');
         }
 
         return $this->render('company/new.html.twig', [
