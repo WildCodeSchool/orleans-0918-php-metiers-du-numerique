@@ -59,9 +59,22 @@ class PartnerAdminController extends AbstractController
             $this->addFlash('danger', 'Le partenaire n\'a pas pu être ajouté');
         }
 
-        return $this->render('partner/new.html.twig', [
+        return $this->render('partner_admin/new.html.twig', [
             'partner' => $partner,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="partner_admin_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Partner $partner): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $partner->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($partner);
+            $em->flush();
+        }
+        return $this->redirectToRoute('partner_admin_index');
     }
 }

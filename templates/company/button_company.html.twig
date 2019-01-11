@@ -1,4 +1,4 @@
-<button class="btn buttonModal"
+<button class="btn btn-primary buttonModal"
         id="btn-modalCompany">{{ button_label|default('voir les entreprises') }}</button>
 <div id="myModalCompany" class="overlayCompany">
     <a class="closebutton" id="closebtnCompany">&times;</a>
@@ -10,8 +10,12 @@
                 {% for company in job.companies if company.accepted == true %}
                     <div class="row">
                         <div class="col-12 mt-4">
-                            <img class="imgModal img-fluid"
-                                 src="{{ asset('images/companies/'~company.picture)}}" alt="{{ company.name }}"/>
+                            <img class="imgModal"
+                                 src="{% if company.picture is empty %}
+                                        {{ asset('/build/images/defaultpicture.png') }}
+                                      {% else %}
+                                        {{ vich_uploader_asset(company, 'pictureFile')}}
+                                      {% endif %}">
                             <a class="linkBusiness col-6" href="{{ company.link }}"
                                target="_blank">{{ company.name }}</a>
                         </div>

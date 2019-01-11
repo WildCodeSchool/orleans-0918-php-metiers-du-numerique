@@ -1,0 +1,14 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Ajouter un partenaire{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('partner_admin_index') }}"><i
+                        class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Ajouter un nouveau partenaire</h1>
+        </div>
+        {{ include('partner_admin/_form.html.twig') }}
+    </div>
+{% endblock %}

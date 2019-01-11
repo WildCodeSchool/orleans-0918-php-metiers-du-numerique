@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Partner
 {
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $picture;
@@ -27,7 +27,7 @@ class Partner
     private $pictureFile;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
      */
     private $updatedAt;
@@ -93,7 +93,7 @@ class Partner
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
 

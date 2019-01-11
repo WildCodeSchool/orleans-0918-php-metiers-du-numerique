@@ -12,7 +12,11 @@
                     <a class="learningLink" href="{{ learning_center.link }}">Voir le Site Web</a>
                 </div>
                 <div class="col-sm-12 col-md-6 offset-lg-2 col-lg-4">
-                    <img class="imgLearningSchool" src="{{ asset('images/learningCenters/'~learning_center.picture) }}" alt="image de l'organisme {{ learning_center.name }}">
+                    <img class="imgLearningSchool" src="{% if learning_center.picture is empty %}
+                                                            {{ asset('/build/images/defaultpicture.png') }}
+                                                        {% else %}
+                                                            {{ vich_uploader_asset(learning_center, 'pictureFile') }}
+                                                        {% endif %} " alt="image de l'organisme {{ learning_center.name }}">
                 </div>
             </div>
 
