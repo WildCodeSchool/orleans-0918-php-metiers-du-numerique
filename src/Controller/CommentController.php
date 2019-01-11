@@ -55,7 +55,11 @@ class CommentController extends AbstractController
             $comment->setLiked(0);
             $em->flush();
 
+            $this->addFlash('success', 'Votre commentaire a bien été envoyé');
+
             return $this->redirectToRoute('job_show', array('id' => $job->getId()));
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('danger', 'L\'envois de votre commentaire a échoué');
         }
 
         return $this->render('comment/new.html.twig', [
