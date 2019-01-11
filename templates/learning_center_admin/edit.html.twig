@@ -1,5 +1,11 @@
 {% extends 'layoutAdmin.html.twig' %}
 {% block title %}Modifier les informations d'un organisme de formation{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('mySelect2') }}
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <div class="row">
@@ -9,4 +15,9 @@
         {{ include('learning_center_admin/_form.html.twig') }}
 
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('mySelect2') }}
 {% endblock %}
