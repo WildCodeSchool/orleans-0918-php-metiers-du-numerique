@@ -8,10 +8,10 @@
         {% if job.video is not empty %}
         <section>
 
-            <div class="row mb-5 mt-5 justify-content-center">
-                <a class="col-xs-12 col-md-1" href="{{ path('job_index') }}"><i
+            <div class="row d-flex">
+                <a class="mr-auto p-1 col-md-1" href="{{ path('job_index') }}"><i
                             class="fas fa-arrow-circle-left faback"></i></a>
-                <h1 class="col-xs-12 col-md-11">{{ job.videotitle }}</h1>
+                <h1 class="mr-auto col-xs-12 col-md-11 text-center">{{ job.videotitle }}</h1>
             </div>
 
             <div class="col-xs-12 col-md-8 mx-auto">
