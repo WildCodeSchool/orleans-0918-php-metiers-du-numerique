@@ -20,7 +20,8 @@ class CompanyType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'attr' => array('class' => 'color-input'),
+
+                'attr' => array( 'class' => 'color-input'),
                 'label' => "Nom de votre entreprise",
             ])
             ->add('pictureFile', VichImageType::class, [
@@ -28,14 +29,15 @@ class CompanyType extends AbstractType
                 'download_link' => false,
                 'allow_delete' => false,
                 'label' => ' ',
-                'attr' => array('class' => 'form-control-file')
+
+                'attr' => array( 'class' => 'form-control-file')
             ])
             ->add('mail', TextType::class, [
-                'attr' => array('class' => 'color-input'),
+                'attr' => array( 'class' => 'color-input'),
                 'label' => 'Adresse mail de votre entreprise',
             ])
             ->add('link', TextType::class, [
-                'attr' => array('class' => 'color-input'),
+                'attr' => array( 'class' => 'color-input'),
                 'label' => 'Lien du site de votre entreprise',
 
             ])
