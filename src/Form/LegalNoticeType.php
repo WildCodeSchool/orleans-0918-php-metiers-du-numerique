@@ -15,7 +15,7 @@ class LegalNoticeType extends AbstractType
         $builder
             ->add('notice', TextareaType::class, [
                 'label' => 'Mentions légales',
-                'attr'=> ['class' => 'color-input summernote']
+                'attr'=> ['class' => 'summernote']
             ])
         ;
     }

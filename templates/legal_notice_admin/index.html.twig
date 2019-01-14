@@ -11,8 +11,8 @@
                 <h2>Gestion des mentions légales :</h2>
             </div>
         </div>
-        {% if legalNotice.Notice is not null %}
-        <div class="row pt-3">
+        {% if legalNotice.Notice is not empty %}
+        <div class="row pt-3 justify-content-center">
             <span>{{ legalNotice.Notice }}</span>
         </div>
         {% endif %}

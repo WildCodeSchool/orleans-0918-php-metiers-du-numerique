@@ -1077,6 +1077,9 @@ a{
 
 
 /*summernote*/
-.summernote{
+.summerNoteForm{
+  button {
+    margin-right: 0vw!important;
+  }
   min-height: 500px;
 }

@@ -32,6 +32,7 @@ final class Version20190114151409 extends AbstractMigration
         $this->addSql('ALTER TABLE company_job ADD CONSTRAINT FK_FF2B6490979B1AD6 FOREIGN KEY (company_id) REFERENCES company (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE company_job ADD CONSTRAINT FK_FF2B6490BE04EA9 FOREIGN KEY (job_id) REFERENCES job (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE job ADD CONSTRAINT FK_FBD8E0F813765BC5 FOREIGN KEY (associated_category_id) REFERENCES category (id)');
+        $this->addSql('INSERT INTO legal_notice (notice) VALUES ("ajouter les mentions légales")');
     }
 
     public function down(Schema $schema) : void
