@@ -343,6 +343,14 @@ hr {
   min-width: 350px;
   margin-top: 40px;
 }
+.marginLeft {
+  margin-left: 160px;
+}
+@media (max-width: 992px){
+  .marginLeft {
+    margin-left: 80px;
+  }
+}
 
 /*modal company*/
 .linkBusiness {

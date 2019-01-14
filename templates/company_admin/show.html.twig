@@ -6,9 +6,6 @@
     <section>
         <div class="container company">
             <div class="row">
-                <a class="col-xs-12 col-md-1" href="{{ path('company_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
-            </div>
-            <div class="row">
                 <div class="companyInfo col-sm-12 col-md-6 col-lg-6">
                     <h2 class="companyName">{{ company.name }}</h2>
                     <h3 class="companyMail">{{ company.mail }}</h3>
@@ -19,7 +16,7 @@
                                                     {{ asset('/build/images/defaultpicture.png') }}
                                                  {% else %}
                                                     {{ vich_uploader_asset(company, 'pictureFile')}}
-                                                 {% endif %}"alt="image de l'entreprise {{ company.name }}">
+                                                 {% endif %}" alt="image de l'entreprise {{ company.name }}">
                 </div>
             </div>
 
