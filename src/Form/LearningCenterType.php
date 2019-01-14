@@ -17,7 +17,7 @@ class LearningCenterType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'attr' => array('class' => 'color-input'),
                 'label' => 'Nom de l\'organisme de Formation',
             ])
             ->add('pictureFile', VichImageType::class, [
@@ -26,14 +26,14 @@ class LearningCenterType extends AbstractType
                 'image_uri' => false,
                 'allow_delete' => false,
                 'label' => ' ',
-                'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
+                'attr' => array('class' => 'form-control-file')
             ])
             ->add('mail', TextType::class, [
-                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'attr' => array('class' => 'color-input'),
                 'label' => 'Adresse mail de l\'organisme de Formation',
             ])
             ->add('link', TextType::class, [
-                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'attr' => array('class' => 'color-input'),
                 'label' => 'Lien du site de formation',
 
             ])
@@ -48,7 +48,6 @@ class LearningCenterType extends AbstractType
                 'expanded' => false,
                 'attr' => [
                     'class' => 'jobs color-input form-control',
-                    'type' => 'text',
                 ]
             ]);
     }
