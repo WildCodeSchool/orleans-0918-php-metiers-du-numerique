@@ -11,9 +11,11 @@
                 <h2>Gestion des mentions légales :</h2>
             </div>
         </div>
+        {% if legalNotice.Notice is not null %}
         <div class="row pt-3">
             <span>{{ legalNotice.Notice }}</span>
         </div>
+        {% endif %}
         <div class="row justify-content-center pt-3">
             <a class="btn btn-warning " href="{{ path('legal_notice_edit', {'id': legalNotice.id}) }}"><i
                         class="fas fa-edit"></i> Modifier</a>

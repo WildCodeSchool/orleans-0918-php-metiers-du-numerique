@@ -5,6 +5,7 @@
 @import '../../node_modules/slick-carousel/slick/slick-theme';
 
 
+
 $colorFontButton : white;
 $fontColor: black;
 $marginCommentSpace :4em;
@@ -1072,4 +1073,10 @@ a{
 }
 .select2-container{
   background-color: #d1d1d1;
+}
+
+
+/*summernote*/
+.summernote{
+  min-height: 500px;
 }
