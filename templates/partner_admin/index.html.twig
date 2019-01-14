@@ -15,8 +15,8 @@
         </div>
         <div class="row justify-content-center">
             <div class="pt-5">
-                <a href="{{ path('partner_new') }}">
-                    <button class="btn btn-primary button-save">Ajouter un partenaire</button>
+                <a href="{{ path('partner_new') }}" class="btn btn-primary button-save">
+                    Ajouter un partenaire
                 </a>
             </div>
         </div>
@@ -36,7 +36,7 @@
                                              {{ asset('/build/images/defaultpicture.png') }}
                                           {% else %}
                                              {{ vich_uploader_asset(partner,'pictureFile') }}
-                                          {% endif %}"  class="img-logo-index"></th>
+                                          {% endif %}"  class="img-logo-index" alt="logo partenaire"></th>
                         <th>{{ partner.name }}</th>
                         <th>{{ partner.url }}</th>
                         <td class="text-center">
