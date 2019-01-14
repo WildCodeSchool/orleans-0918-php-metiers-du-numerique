@@ -22,7 +22,7 @@ class LegalNoticeController extends AbstractController
     /**
      * @Route("admin/legal/notice", name="legal_notice_admin", methods="GET")
      */
-    public function indexAdmin(LegalNoticeRepository $legalNoticeRepository ): Response
+    public function indexAdmin(LegalNoticeRepository $legalNoticeRepository): Response
     {
         $legalNotice = $legalNoticeRepository->findOneBy([], ['id' => "ASC"]);
         return $this->render('legal_notice_admin/index.html.twig', ['legalNotice' => $legalNotice]);
@@ -31,7 +31,7 @@ class LegalNoticeController extends AbstractController
     /**
      * @Route("admin/legal/notice/{id}/edit", name="legal_notice_edit", methods="GET|POST")
      */
-    public function edit(Request $request, LegalNotice $legalNotice ): Response
+    public function edit(Request $request, LegalNotice $legalNotice): Response
     {
         $form = $this->createForm(LegalNoticeType::class, $legalNotice);
         $form->handleRequest($request);
