@@ -41,7 +41,8 @@ class JobType extends AbstractType
                 'required' => false,
                 'image_uri' => false,
                 'download_link' => false,
-                'allow_delete' => false
+                'allow_delete' => false,
+                'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
             ])
             ->add('description', TextareaType::class, [
                 'attr' => array('type' => 'text', 'class' => 'color-input'),
