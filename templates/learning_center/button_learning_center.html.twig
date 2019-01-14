@@ -4,7 +4,7 @@
     <a class="closebutton" id="closebtnLearning">&times;</a>
     <div class="container">
         <div class="modalSpace">
-            <h1 class="modalTitle text-center">Liste des organismes de formation</h1>
+            <h2 class="modalTitle text-center">Liste des organismes de formation</h2>
             <div class="modalSpace"></div>
             <div class="row container marginLeft">
                 {% for learningCenter in job.learningCenters if learningCenter.accepted == true %}
@@ -23,4 +23,3 @@
             </div>
         </div>
     </div>
-</div>

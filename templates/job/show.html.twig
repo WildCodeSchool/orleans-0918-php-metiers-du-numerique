@@ -11,7 +11,7 @@
             <div class="row d-flex">
                 <a class="mr-auto p-1 col-md-1" href="{{ path('job_index') }}"><i
                             class="fas fa-arrow-circle-left faback"></i></a>
-                <h1 class="mr-auto col-xs-12 col-md-11 text-center">{{ job.videotitle }}</h1>
+                <h2 class="mr-auto col-xs-12 col-md-11 text-center">{{ job.videotitle }}</h2>
             </div>
 
             <div class="col-xs-12 col-md-8 mx-auto">
@@ -47,7 +47,7 @@
                                                                             {{ asset('/build/images/defaultjobpicture.png') }}
                                                                         {% else %}
                                                                            {{ vich_uploader_asset(job,'pictureFile')}}
-                                                                        {% endif %}">
+                                                                        {% endif %}" alt="photo du metier de {{ job.name }}">
             </div>
         </section>
 
@@ -67,7 +67,7 @@
         <div class="container-fluid">
             {% include 'job/loadComment.html.twig' %}
             <div class="container">
-                <section class="sectionSpace">
+                <div class="sectionSpace">
                     <div class="row justify-content-around">
                         <div class="col-lg-4 col-md-12 text-center mb-3">
                             <button id="showMore" class="btn-primary btn">Voir plus de commentaires</button>
@@ -77,7 +77,7 @@
                                 commentaire</a>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </section>
