@@ -20,6 +20,7 @@ class CompanyType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
+
                 'attr' => array( 'class' => 'color-input'),
                 'label' => "Nom de votre entreprise",
             ])
@@ -28,6 +29,7 @@ class CompanyType extends AbstractType
                 'download_link' => false,
                 'allow_delete' => false,
                 'label' => ' ',
+
                 'attr' => array( 'class' => 'form-control-file')
             ])
             ->add('mail', TextType::class, [

@@ -14,7 +14,7 @@
                                                 {{ asset('/build/images/defaultpicture.png') }}
                                             {% else %}
                                                 {{ vich_uploader_asset(comment,'pictureFile')}}
-                                            {% endif %}"alt="photo de {{ comment.firstname ~ " " ~comment.lastname }}">
+                                            {% endif %}" alt="photo de {{ comment.firstname ~ " " ~comment.lastname }}">
         </div>
         <div class="col-sm-12 col-md-5">
             <p>Nom : {{ comment.lastname }}</p>
@@ -38,4 +38,5 @@
         {{ include('comment_admin/_form_accepted.html.twig') }}
         {{ include('comment_admin/_delete_form.html.twig') }}
     </div>
+
 {% endblock %}
