@@ -26,6 +26,7 @@ class CompanyType extends AbstractType
             ->add('pictureFile', VichImageType::class, [
                 'required' => false,
                 'download_link' => false,
+                'image_uri' => false,
                 'allow_delete' => false,
                 'label' => ' ',
                 'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
