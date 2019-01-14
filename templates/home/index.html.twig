@@ -7,14 +7,13 @@
         {% if job.video is not empty %}
         <section>
             <div class="row mb-5 mt-5 justify-content-center">
-                <h1>À la découverte du métier de {{ job.name }}</h1>
+                <h2>À la découverte du métier de {{ job.name }}</h2>
             </div>
             <div class="col-xs-12 col-md-8 mx-auto">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe width="560"
                             height="315"
                             src="{{ job.video }}"
-                            frameborder="0"
                             allowfullscreen>
                     </iframe>
                 </div>
