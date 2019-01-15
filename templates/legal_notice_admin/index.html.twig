@@ -13,7 +13,7 @@
         </div>
         {% if legalNotice.Notice is not empty %}
         <div class="row pt-3 justify-content-center">
-            <span>{{ legalNotice.notice }}</span>
+            <span>{{ legalNotice.notice|raw }}</span>
         </div>
         {% endif %}
         <div class="row justify-content-center pt-3">
