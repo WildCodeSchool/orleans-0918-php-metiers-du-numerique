@@ -19,7 +19,7 @@ class LegalNotice
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $Notice;
+    private $notice;
 
     public function getId(): ?int
     {
@@ -28,12 +28,12 @@ class LegalNotice
 
     public function getNotice(): ?string
     {
-        return $this->Notice;
+        return $this->notice;
     }
 
-    public function setNotice(?string $Notice): self
+    public function setNotice(?string $notice): self
     {
-        $this->Notice = $Notice;
+        $this->notice = $notice;
 
         return $this;
     }
