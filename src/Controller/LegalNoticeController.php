@@ -39,7 +39,7 @@ class LegalNoticeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('legal_notice_index', ['id' => $legalNotice->getId()]);
+            return $this->redirectToRoute('legal_notice_admin', ['id' => $legalNotice->getId()]);
         }
 
         return $this->render('legal_notice_admin/edit.html.twig', [
