@@ -8,7 +8,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190111135951 extends AbstractMigration
+final class Version20190114151409 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
@@ -24,6 +24,7 @@ final class Version20190111135951 extends AbstractMigration
         $this->addSql('CREATE TABLE admin (id INT AUTO_INCREMENT NOT NULL, username VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_880E0D76F85E0677 (username), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE contact_form (id INT AUTO_INCREMENT NOT NULL, author VARCHAR(255) NOT NULL, mail VARCHAR(255) NOT NULL, message VARCHAR(255) NOT NULL, link VARCHAR(255) DEFAULT NULL, subject VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE category (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE legal_notice (id INT AUTO_INCREMENT NOT NULL, notice LONGTEXT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE job (id INT AUTO_INCREMENT NOT NULL, associated_category_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, video VARCHAR(255) DEFAULT NULL, picture VARCHAR(255) DEFAULT NULL, description LONGTEXT NOT NULL, video_description LONGTEXT DEFAULT NULL, video_title VARCHAR(255) DEFAULT NULL, INDEX IDX_FBD8E0F813765BC5 (associated_category_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('ALTER TABLE learning_center_job ADD CONSTRAINT FK_8D1881B1A319BE10 FOREIGN KEY (learning_center_id) REFERENCES learning_center (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE learning_center_job ADD CONSTRAINT FK_8D1881B1BE04EA9 FOREIGN KEY (job_id) REFERENCES job (id) ON DELETE CASCADE');
@@ -31,6 +32,7 @@ final class Version20190111135951 extends AbstractMigration
         $this->addSql('ALTER TABLE company_job ADD CONSTRAINT FK_FF2B6490979B1AD6 FOREIGN KEY (company_id) REFERENCES company (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE company_job ADD CONSTRAINT FK_FF2B6490BE04EA9 FOREIGN KEY (job_id) REFERENCES job (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE job ADD CONSTRAINT FK_FBD8E0F813765BC5 FOREIGN KEY (associated_category_id) REFERENCES category (id)');
+        $this->addSql('INSERT INTO legal_notice (notice) VALUES ("ajouter les mentions légales")');
     }
 
     public function down(Schema $schema) : void
@@ -53,6 +55,7 @@ final class Version20190111135951 extends AbstractMigration
         $this->addSql('DROP TABLE admin');
         $this->addSql('DROP TABLE contact_form');
         $this->addSql('DROP TABLE category');
+        $this->addSql('DROP TABLE legal_notice');
         $this->addSql('DROP TABLE job');
     }
 }

@@ -1,0 +1,26 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Mentions légales{% endblock %}
+
+{% block body %}
+    <div class="container justify-content-center">
+        <div class="row d-flex">
+            <a class="mr-auto p-1 col-md-1" href="{{ path('home_admin') }}"><i
+                        class="fas fa-arrow-circle-left faback"></i></a>
+            <div class="mr-auto col-xs-12 col-md-11 text-center">
+                <h2>Gestion des mentions légales :</h2>
+            </div>
+        </div>
+        {% if legalNotice.Notice is not empty %}
+        <div class="row pt-3 justify-content-center">
+            <span>{{ legalNotice.notice }}</span>
+        </div>
+        {% endif %}
+        <div class="row justify-content-center pt-3">
+            <a class="btn btn-warning " href="{{ path('legal_notice_edit', {'id': legalNotice.id}) }}"><i
+                        class="fas fa-edit"></i> Modifier</a>
+        </div>
+
+    </div>
+
+{% endblock %}

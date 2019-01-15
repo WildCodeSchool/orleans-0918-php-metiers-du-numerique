@@ -20,6 +20,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "select2": "^4.0.6-rc.1"
+        "codemirror": "^5.42.2",
+        "select2": "^4.0.6-rc.1",
+        "summernote": "^0.8.11"
     }
 }

@@ -8,6 +8,8 @@
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.scss');
 require('@fortawesome/fontawesome-free/css/all.min.css');
+require('summernote/dist/summernote-bs4');
+require('summernote/dist/summernote-bs4.css');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 var $ = require('jquery');
@@ -21,4 +23,4 @@ import "./backToTop";
 import "./contact";
 import "./add-like";
 import "./showMore";
-
+import "./summernote";

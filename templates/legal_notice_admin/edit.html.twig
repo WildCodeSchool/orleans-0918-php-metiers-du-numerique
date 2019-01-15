@@ -1,0 +1,13 @@
+{% extends 'layoutAdmin.html.twig' %}
+{% block title %}Editer les mentions légales{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <a class="col-xs-12 col-md-1" href="{{ path('company_admin') }}"><i class="fas fa-arrow-circle-left faback"></i></a>
+            <h1 class="mx-auto title-form">Modifier les informations d'une entreprise</h1>
+        </div>
+        {{ include('legal_notice_admin/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    </div>
+{% endblock %}
