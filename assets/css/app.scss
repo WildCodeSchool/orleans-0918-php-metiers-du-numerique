@@ -89,11 +89,11 @@ main{
 /*business card*/
 
 .jobPicture{
-    min-height: 32vh;
-   min-width: 40vh;
-   max-height: 32vh;
-   max-width: 40vh;
-    object-fit: contain;
+  border-radius: 50%;
+    min-height: 34vh;
+   min-width: 34vh;
+  max-height: 34vh;
+  max-width: 34vh;
 }
 
 .img-job{
