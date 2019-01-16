@@ -297,6 +297,4 @@ class Job
     {
         $this->updatedAt = $updatedAt;
     }
-
-
 }
