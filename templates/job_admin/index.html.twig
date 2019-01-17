@@ -43,7 +43,7 @@
                     <tr class="">
                         <th>{{ job.name }}</th>
                         <td>{{ job.associatedCategory.name }}</td>
-                        <td>{{ job.description }}</td>
+                        <td>{{ job.description|raw }}</td>
                         <td>
                             <a class="col-xs-12 col-lg-12 col-md-1"
                                href="{{ path('job_show', {'id': job.id}) }}"><i class="far fa-eye"></i></a>
