@@ -45,7 +45,7 @@ class JobType extends AbstractType
                 'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
             ])
             ->add('description', TextareaType::class, [
-                'attr' => array('type' => 'text', 'class' => 'color-input'),
+                'attr' => array('type' => 'text', 'class' => 'color-input summernote text-center'),
                 'label' => 'Description de la fiche métier',
             ])
             ->add('videoDescription', TextareaType::class, [
