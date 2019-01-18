@@ -7,11 +7,12 @@
     {% endif %}
         <div class="col-sm-12 col-md-2 align-self-center">
 
-                <img class="circlePicture" src="{% if comment.picture is empty %}
-                                                    {{ asset('/build/images/defaultpicture.png') }}
-                                                {% else %}
-                                                    {{ vich_uploader_asset(comment,'pictureFile')}}
-                                                {% endif %}" alt="Photo du metier de {{ job.name }}">
+                <img class="circlePicture" src="
+{% set imgPath = asset('/build/images/defaultpicture.png') %}
+{{ vich_uploader_asset(comment,'pictureFile')}}
+{% if comment.picture is empty %}
+{{ imgPath }}
+{% endif %}" alt="Photo du metier de {{ job.name }}">
                                      
         <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>
         {% if comment.company is not empty %}
