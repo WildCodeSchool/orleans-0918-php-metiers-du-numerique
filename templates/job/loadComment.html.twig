@@ -6,14 +6,12 @@
     <div class="row pt-5 justify-content-center commentHeight one-comment comment" data-comment-id="{{ comment.id }}">
     {% endif %}
         <div class="col-sm-12 col-md-2 align-self-center">
+            {% set imgPath = asset('/build/images/defaultpicture.png') %}
+            {% if comment.picture is not empty %}
+            {% set imgPath = vich_uploader_asset(comment,'pictureFile') %}
+            {% endif %}
+                <img class="circlePicture" src="{{ imgPath }}" alt="Photo du metier de {{ job.name }}">
 
-                <img class="circlePicture" src="
-{% set imgPath = asset('/build/images/defaultpicture.png') %}
-{{ vich_uploader_asset(comment,'pictureFile')}}
-{% if comment.picture is empty %}
-{{ imgPath }}
-{% endif %}" alt="Photo du metier de {{ job.name }}">
-                                     
         <h5 class="mt-3">{{ comment.firstname ~ " " ~ comment.lastname }}</h5>
         {% if comment.company is not empty %}
             <p class="mt-3">Travaille à : {{ comment.company }}</p>
