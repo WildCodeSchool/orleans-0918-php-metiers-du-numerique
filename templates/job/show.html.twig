@@ -41,11 +41,11 @@
         </section>
 
         <div class="row justify-content-center">
-        <img class="jobPicture col-xs-12 col-md-5 " src="{% if job.picture is empty %}
-                                                                            {{ asset('/build/images/defaultjobpicture.png') }}
-                                                                        {% else %}
-                                                                           {{ vich_uploader_asset(job,'pictureFile')}}
-                                                                        {% endif %}" alt="photo du metier de {{ job.name }}">
+            {% set imgPath = asset('/build/images/defaultjobpicture.png') %}
+            {% if job.picture is not empty %}
+            {% set imgPath = vich_uploader_asset(job,'pictureFile') %}
+            {% endif %}
+        <img class="jobPicture col-xs-12 col-md-5 " src="{{ imgPath }}" alt="photo du metier de {{ job.name }}">
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-7">
