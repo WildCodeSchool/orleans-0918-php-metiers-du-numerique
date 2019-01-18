@@ -9,12 +9,12 @@
             <div class="row container marginLeft">
                 {% for learningCenter in job.learningCenters if learningCenter.accepted == true %}
                     <div class="col-sm-12 col-md-6 mt-4 text-left ">
-                        <img class="imgModal"
-                             src="{% if learningCenter.picture is empty %}
-                                     {{ asset('/build/images/defaultpicture.png') }}
-                                  {% else %}
-                                     {{ vich_uploader_asset(learningCenter,'pictureFile') }}
-                                  {% endif %}" alt="{{ learningCenter.name }}"/>
+                        {% set imgPath = asset('/build/images/defaultpicture.png') %}
+                        {% if learningCenter.picture is not empty %}
+                        {% set imgPath = vich_uploader_asset(learningCenter,'pictureFile') %}
+                        {% endif %}
+                        <img class="imgModal" src="{{ imgPath }}" alt="{{ learningCenter.name }}"/>
+
                         <a class="linkBusiness" href="{{ learningCenter.link }}"
                            target="_blank">{{ learningCenter.name }}</a>
                     </div>

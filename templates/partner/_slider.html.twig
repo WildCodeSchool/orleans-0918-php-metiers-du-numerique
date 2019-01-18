@@ -9,12 +9,11 @@
                     {% for partner in partners %}
                         <div class="">
                             <a href="{{ partner.url }}" class="text-center mx-auto">
-                                <img class="carousel-icon align-content-center"
-                                     src="{% if partner.picture is empty %}
-                                             {{ asset('/build/images/defaultpicture.png') }}
-                                          {% else %}
-                                             {{ vich_uploader_asset(partner,'pictureFile') }}
-                                          {% endif %}" alt="photo de {{ partner.name }}">
+                                {% set imgPath = asset('/build/images/defaultpicture.png') %}
+                                {% if partner.picture is not empty %}
+                                {% set imgPath = vich_uploader_asset(partner,'pictureFile') %}
+                                {% endif %}
+                                <img class="carousel-icon align-content-center" src="{{ imgPath }}" alt="photo de {{ partner.name }}">
                             </a>
                         </div>
                     {% endfor %}

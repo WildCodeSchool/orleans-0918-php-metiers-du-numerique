@@ -9,12 +9,11 @@
             <div class="row container marginLeft">
                 {% for company in job.companies if company.accepted == true %}
                 <div class="col-sm-12 col-md-6 mt-4 text-left ">
-                            <img class="imgModal"
-                                 src="{% if company.picture is empty %}
-                                        {{ asset('/build/images/defaultpicture.png') }}
-                                      {% else %}
-                                        {{ vich_uploader_asset(company, 'pictureFile')}}
-                                      {% endif %}" alt="Photo de l'entreprise {{ company.name }}">
+                    {% set imgPath = asset('/build/images/defaultpicture.png') %}
+                    {% if company.picture is not empty %}
+                    {% set imgPath = vich_uploader_asset(company, 'pictureFile') %}
+                    {% endif %}
+                            <img class="imgModal" src="{{ imgPath }}" alt="Photo de l'entreprise {{ company.name }}">
                             <a class="linkBusiness" href="{{ company.link }}"
                                target="_blank">{{ company.name }}</a>
                         </div>

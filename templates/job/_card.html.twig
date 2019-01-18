@@ -7,12 +7,11 @@
                 <div class="pannel-body">
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                         <figure class="info-card">
-                            <img class="img-responsive"
-                                 src="{% if job.picture is empty %}
-                                            {{ asset('/build/images/defaultjobpicture.png') }}
-                                      {% else %}
-                                            {{ vich_uploader_asset(job, 'pictureFile') }}
-                                      {% endif %}">
+                            {% set imgPath = asset('/build/images/defaultjobpicture.png') %}
+                            {% if job.picture is not empty %}
+                            {% set imgPath = vich_uploader_asset(job, 'pictureFile') %}
+                            {% endif %}
+                            <img class="img-responsive" src="{{ imgPath }}" alt="photo de {{ job.name }}">
                             <figcaption class="info-card-details animate">
                                 <div class="info-card-header">
                                     <div class="metacard">
@@ -26,7 +25,7 @@
                                     </div>
                                 </div>
                                 <div class="info-card-detail">
-                                    <p class="job-resum">{{ job.description }}...</p>
+                                    <p class="job-resum">{{ job.description|striptags }}...</p>
                                     <a href="{{ job.id }}" class="">
                                         <button type="button" class="btn btn-primary mx-auto">Voir la
                                             fiche
