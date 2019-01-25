@@ -35,11 +35,8 @@ class ContactForm
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
-     * @Assert\Regex("/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ' ]+$/i",
-     *        message="le champ ne doit pas contenir de caractères spéciaux")
-     * @Assert\Length( max="255", maxMessage="Le champ comporte trop de caractère")
      */
     private $message;
 
