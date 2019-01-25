@@ -8,7 +8,7 @@
                 <div class='single-item'>
                     {% for partner in partners %}
                         <div class="">
-                            <a href="{{ partner.url }}" class="text-center mx-auto">
+                            <a href="{{ partner.url }}" target="_blank" class="text-center mx-auto">
                                 {% set imgPath = asset('/build/images/defaultpicture.png') %}
                                 {% if partner.picture is not empty %}
                                 {% set imgPath = vich_uploader_asset(partner,'pictureFile') %}
